@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>素材日报 · 汇总</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: #0f1923;
+      color: #e8edf2;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 680px;
+      padding: 48px 32px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #4a9eff;
+      background: rgba(74, 158, 255, 0.1);
+      border: 1px solid rgba(74, 158, 255, 0.25);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 36px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #ffffff 0%, #94b8d8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      font-size: 14px;
+      color: #6b8299;
+      line-height: 1.6;
+    }
+
+    .report-card {
+      display: block;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 28px 32px;
+      text-decoration: none;
+      color: inherit;
+      margin-bottom: 16px;
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .report-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, #4a9eff, #a78bfa);
+      border-radius: 3px 0 0 3px;
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .report-card:hover {
+      background: rgba(74, 158, 255, 0.07);
+      border-color: rgba(74, 158, 255, 0.25);
+      transform: translateX(4px);
+    }
+
+    .report-card:hover::before {
+      opacity: 1;
+    }
+
+    .report-date {
+      font-size: 20px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .report-meta {
+      font-size: 13px;
+      color: #6b8299;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .report-meta .dot {
+      width: 3px; height: 3px;
+      background: #4a9eff;
+      border-radius: 50%;
+    }
+
+    .report-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 6px;
+      margin-right: 6px;
+    }
+
+    .tag-latest {
+      background: rgba(255, 107, 0, 0.15);
+      color: #ff9500;
+    }
+
+    .tag-v2 {
+      background: rgba(167, 139, 250, 0.15);
+      color: #a78bfa;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 48px;
+      font-size: 12px;
+      color: #3d5570;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="header">
+      <div class="badge">素材日报</div>
+      <h1>财经日报汇总</h1>
+      <p>每天一期，精选市场热点 · 脚本可直接取用</p>
+    </div>
+
+    <!-- 2026-04-05 -->
+    <a class="report-card" href="2026-04-05-v2.html" target="_blank">
+      <div class="report-date">2026年4月5日</div>
+      <div class="report-meta">
+        <span class="report-tag tag-latest">最新</span>
+        <span>医保新规 · 养老金 · 险企年报 · 以旧换新 · A股退市</span>
+      </div>
+    </a>
+
+    <div class="footer">
+      由 AI 自动生成 · 每日更新
+    </div>
+
+  </div>
+</body>
+</html>
