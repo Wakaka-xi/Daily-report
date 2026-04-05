@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>短视频素材日报 | 2026-04-05</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d27;
+    --card2: #21253a;
+    --accent: #f0a500;
+    --accent2: #e84545;
+    --accent3: #4ecdc4;
+    --accent4: #7b68ee;
+    --accent5: #ff6b9d;
+    --text: #e8eaf0;
+    --text2: #9ca3b4;
+    --border: rgba(255,255,255,0.08);
+    --gold: #ffd700;
+    --red: #e84545;
+    --green: #4ecdc4;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+  .hero {
+    background: linear-gradient(135deg, #0f1117 0%, #1a1d3a 50%, #0f1117 100%);
+    padding: 60px 24px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse, rgba(240,165,0,0.05) 0%, transparent 70%);
+    animation: pulse 8s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 1; }
+  }
+  .hero-inner { position: relative; z-index: 1; }
+  .hero-date {
+    display: inline-block;
+    background: rgba(240,165,0,0.15);
+    color: var(--accent);
+    border: 1px solid rgba(240,165,0,0.3);
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 800;
+    background: linear-gradient(135deg, #fff 0%, #c9d1e0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+  .hero p { color: var(--text2); font-size: 15px; }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+  .hero-stat { text-align: center; }
+  .hero-stat-num { font-size: 28px; font-weight: 800; color: var(--accent); }
+  .hero-stat-label { font-size: 12px; color: var(--text2); margin-top: 2px; }
+  .container { max-width: 860px; margin: 0 auto; padding: 32px 20px; }
+
+  /* Priority Table */
+  .priority-section { margin-bottom: 40px; }
+  .section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title::before {
+    content: '';
+    width: 4px;
+    height: 20px;
+    background: var(--accent);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .priority-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .priority-table th {
+    background: var(--card2);
+    padding: 12px 16px;
+    text-align: left;
+    color: var(--text2);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+  }
+  .priority-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  .priority-table tr:last-child td { border-bottom: none; }
+  .priority-table tr:hover td { background: rgba(255,255,255,0.02); }
+  .star { color: var(--gold); letter-spacing: 1px; }
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-right: 4px;
+    margin-bottom: 2px;
+  }
+  .tag-finance { background: rgba(232,69,69,0.15); color: #e84545; border: 1px solid rgba(232,69,69,0.2); }
+  .tag-insurance { background: rgba(123,104,238,0.15); color: #a08fff; border: 1px solid rgba(123,104,238,0.2); }
+  .tag-social { background: rgba(78,205,196,0.15); color: #4ecdc4; border: 1px solid rgba(78,205,196,0.2); }
+  .tag-policy { background: rgba(240,165,0,0.15); color: var(--accent); border: 1px solid rgba(240,165,0,0.2); }
+  .hot-bar {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: var(--text2);
+  }
+  .hot-bar-fill { color: var(--accent); }
+
+  /* Category Headers */
+  .category-block { margin-bottom: 48px; }
+  .category-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .category-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .cat-finance .category-icon { background: rgba(232,69,69,0.15); }
+  .cat-insurance .category-icon { background: rgba(123,104,238,0.15); }
+  .cat-policy .category-icon { background: rgba(240,165,0,0.15); }
+  .cat-social .category-icon { background: rgba(78,205,196,0.15); }
+  .cat-finance .category-icon span { color: var(--red); }
+  .cat-insurance .category-icon span { color: var(--accent4); }
+  .cat-policy .category-icon span { color: var(--accent); }
+  .cat-social .category-icon span { color: var(--green); }
+  .category-title { font-size: 18px; font-weight: 700; color: #fff; }
+  .category-sub { font-size: 12px; color: var(--text2); }
+
+  /* Material Cards */
+  .material-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 16px;
+    position: relative;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .material-card:hover {
+    border-color: rgba(255,255,255,0.15);
+    transform: translateY(-2px);
+  }
+  .material-card.top3 {
+    border-color: rgba(240,165,0,0.3);
+    background: linear-gradient(135deg, var(--card) 0%, rgba(240,165,0,0.04) 100%);
+  }
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    gap: 12px;
+  }
+  .card-stars { color: var(--gold); font-size: 16px; letter-spacing: 2px; }
+  .card-id {
+    font-size: 11px;
+    color: var(--text2);
+    background: var(--card2);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-family: monospace;
+  }
+  .golden-quote {
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+    padding: 12px 16px;
+    background: rgba(255,215,0,0.06);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    line-height: 1.5;
+  }
+  .field-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .field-item {
+    background: var(--card2);
+    border-radius: 10px;
+    padding: 10px 14px;
+  }
+  .field-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text2);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .field-value { font-size: 13px; color: var(--text); line-height: 1.5; }
+
+  /* Script Section */
+  .script-section { margin-top: 60px; }
+  .script-header {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  .script-header h2 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .script-header p { color: var(--text2); font-size: 14px; }
+  .script-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(240,165,0,0.15);
+    color: var(--accent);
+    border: 1px solid rgba(240,165,0,0.3);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .script-card {
+    background: var(--card);
+    border: 1px solid rgba(240,165,0,0.25);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+  .script-topbar {
+    background: linear-gradient(135deg, rgba(240,165,0,0.15), rgba(240,165,0,0.05));
+    padding: 20px 28px;
+    border-bottom: 1px solid rgba(240,165,0,0.15);
+  }
+  .script-number {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .script-title { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+  .script-meta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .script-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    color: var(--text2);
+  }
+  .script-meta-item strong { color: var(--text); }
+  .script-body { padding: 28px; }
+  .script-block {
+    margin-bottom: 22px;
+    padding: 16px 20px;
+    background: var(--card2);
+    border-radius: 12px;
+    border-left: 3px solid var(--accent);
+  }
+  .script-block:last-child { margin-bottom: 0; }
+  .script-block-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .script-block-content {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.8;
+  }
+  .script-block-content strong { color: #fff; font-weight: 600; }
+  .hook-box {
+    background: rgba(232,69,69,0.1);
+    border: 1px solid rgba(232,69,69,0.2);
+    border-left: 3px solid var(--red);
+    border-radius: 0 12px 12px 0;
+  }
+  .hook-box .script-block-title { color: var(--red); }
+  .互动-box {
+    background: rgba(78,205,196,0.1);
+    border: 1px solid rgba(78,205,196,0.2);
+    border-left: 3px solid var(--green);
+    border-radius: 0 12px 12px 0;
+  }
+  .互动-box .script-block-title { color: var(--green); }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 32px 20px;
+    color: var(--text2);
+    font-size: 12px;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+  .footer-brand {
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .field-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 20px; }
+    .script-body { padding: 20px; }
+    .script-topbar { padding: 16px 20px; }
+    .script-meta { gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-date">📅 2026-04-05</div>
+    <h1>短视频素材日报</h1>
+    <p>财经 · 保险 · 社保医保 · 时事热点 &nbsp;|&nbsp; 每日更新 · 精准选题</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">13</div>
+        <div class="hero-stat-label">条精选素材</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">4</div>
+        <div class="hero-stat-label">覆盖方向</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">3</div>
+        <div class="hero-stat-label">深度脚本</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- PRIORITY TABLE -->
+  <div class="priority-section">
+    <div class="section-title">今日素材优先级推荐</div>
+    <table class="priority-table">
+      <thead>
+        <tr>
+          <th>评分</th>
+          <th>编号</th>
+          <th>方向</th>
+          <th>核心话题</th>
+          <th>热度</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background: rgba(240,165,0,0.05);">
+          <td><span class="star">⭐⭐⭐</span></td>
+          <td><span class="card-id">M-03</span></td>
+          <td><span class="tag tag-policy">社保医保</span></td>
+          <td style="font-weight:600;">社保"第六险"长护险来了！3年全覆盖</td>
+          <td><span class="hot-bar"><span class="hot-bar-fill">🔥🔥🔥</span> 极高</span></td>
+        </tr>
+        <tr style="background: rgba(240,165,0,0.05);">
+          <td><span class="star">⭐⭐⭐</span></td>
+          <td><span class="card-id">M-07</span></td>
+          <td><span class="tag tag-finance">财经热点</span></td>
+          <td style="font-weight:600;">金价破4700美元！一夜暴涨3.5%</td>
+          <td><span class="hot-bar"><span class="hot-bar-fill">🔥🔥🔥</span> 极高</span></td>
+        </tr>
+        <tr style="background: rgba(240,165,0,0.05);">
+          <td><span class="star">⭐⭐⭐</span></td>
+          <td><span class="card-id">M-11</span></td>
+          <td><span class="tag tag-social">时事热点</span></td>
+          <td style="font-weight:600;">存款利率进入"1时代"，钱该往哪放？</td>
+          <td><span class="hot-bar"><span class="hot-bar-fill">🔥🔥🔥</span> 高</span></td>
+        </tr>
+        <tr>
+          <td><span class="star">⭐⭐</span></td>
+          <td><span class="card-id">M-04</span></td>
+          <td><span class="tag tag-policy">社保医保</span></td>
+          <td>慢特病医保4月起全国统一：62种病直接报销</td>
+          <td><span class="hot-bar"><span class="hot-bar-fill">🔥🔥</span> 中高</span></td>
+        </tr>
+        <tr>
+          <td><span class="star">⭐⭐</span></td>
+          <td><span class="card-id">M-08</span></td>
+          <td><span class="tag tag-finance">财经热点</span></td>
+          <td>中东乱局：原油破100美元/桶，全球通胀再临</td>
+          <td><span class="hot-bar"><span class="hot-bar-fill">🔥🔥</span> 中高</span></td>
+        </tr>
+        <tr>
+          <td><span class="star">⭐⭐</span></td>
+          <td><span class="card-id">M-12</span></td>
+          <td><span class="tag tag-finance">财经热点</span></td>
+          <td>港股一季度IPO狂揽1100亿港元，同比增长489%</td>
+          <td><span class="hot-bar"><span class="hot-bar-fill">🔥🔥</span> 中高</span></td>
+        </tr>
+        <tr>
+          <td><span class="star">⭐⭐</span></td>
+          <td><span class="card-id">M-01</span></td>
+          <td><span class="tag tag-finance">财经热点</span></td>
+          <td>银行利率持续下行：定期存款进入"1时代"</td>
+          <td><span class="hot-bar"><span class="hot-bar-fill">🔥🔥</span> 中</span></td>
+        </tr>
+        <tr>
+          <td><span class="star">⭐⭐</span></td>
+          <td><span class="card-id">M-05</span></td>
+          <td><span class="tag tag-policy">社保医保</span></td>
+          <td>城乡居民基础养老金再提20元/月</td>
+          <td><span class="hot-bar"><span class="hot-bar-fill">🔥🔥</span> 中</span></td>
+        </tr>
+        <tr>
+          <td><span class="star">⭐⭐</span></td>
+          <td><span class="card-id">M-09</span></td>
+          <td><span class="tag tag-insurance">保险动态</span></td>
+          <td>上市险企2025投资收益率6.6%，透露什么信号？</td>
+          <td><span class="hot-bar"><span class="hot-bar-fill">🔥</span> 中</span></td>
+        </tr>
+        <tr style="opacity:0.6;">
+          <td><span class="star">⭐</span></td>
+          <td><span class="card-id">M-02</span></td>
+          <td><span class="tag tag-finance">财经热点</span></td>
+          <td>2026年4月A股：震荡修复，静待方向</td>
+          <td><span class="hot-bar">🔥 中</span></td>
+        </tr>
+        <tr style="opacity:0.6;">
+          <td><span class="star">⭐</span></td>
+          <td><span class="card-id">M-06</span></td>
+          <td><span class="tag tag-policy">社保医保</span></td>
+          <td>5月社保四大转变落地：异地就医免备案</td>
+          <td><span class="hot-bar">🔥 中</span></td>
+        </tr>
+        <tr style="opacity:0.6;">
+          <td><span class="star">⭐</span></td>
+          <td><span class="card-id">M-10</span></td>
+          <td><span class="tag tag-insurance">保险动态</span></td>
+          <td>新能源车险保费暴涨91%，车车科技盈利了</td>
+          <td><span class="hot-bar">🔥 中</span></td>
+        </tr>
+        <tr style="opacity:0.6;">
+          <td><span class="star">⭐</span></td>
+          <td><span class="card-id">M-13</span></td>
+          <td><span class="tag tag-social">时事热点</span></td>
+          <td>美加墨世界杯赛程出炉，6月12日揭幕战</td>
+          <td><span class="hot-bar">🔥 低</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ========== CATEGORY 1: 财经/经济热点 ========== -->
+  <div class="category-block cat-finance">
+    <div class="category-header">
+      <div class="category-icon"><span>📈</span></div>
+      <div>
+        <div class="category-title">财经/经济热点</div>
+        <div class="category-sub">4条素材 · 涵盖金价、利率、中东局势、港股IPO</div>
+      </div>
+    </div>
+
+    <!-- M-07 TOP3 -->
+    <div class="material-card top3">
+      <div class="card-header">
+        <div>
+          <div class="card-stars">⭐⭐⭐</div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <span class="tag tag-finance">财经热点</span>
+          <span class="card-id">M-07</span>
+        </div>
+      </div>
+      <div class="golden-quote">💰 金价一夜暴涨3.5%，突破4700美元大关！</div>
+      <div class="field-grid">
+        <div class="field-item">
+          <div class="field-label">背景说明</div>
+          <div class="field-value">2026年4月1日，国际金价历史性突破4700美元/盎司，一夜暴涨3.5%。中东局势骤然升温是导火索——特朗普公开讲话引发军事冲突担忧，资金疯狂涌入黄金避险。</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">目标读者</div>
+          <div class="field-value">黄金/贵金属投资者、关注全球局势的普通观众、理财知识爱好者</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">核心价值</div>
+          <div class="field-value">情绪共鸣 + 实用价值：话题热度极高，涉及每个人的钱袋子</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">推荐角度</div>
+          <div class="field-value">悬念开篇："昨晚睡前金价4600，醒来一看——4700了！"</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M-08 -->
+    <div class="material-card">
+      <div class="card-header">
+        <div><div class="card-stars">⭐⭐</div></div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <span class="tag tag-finance">财经热点</span>
+          <span class="card-id">M-08</span>
+        </div>
+      </div>
+      <div class="golden-quote">⛽ 中东战火烧到油箱：原油破百，通胀卷土重来？</div>
+      <div class="field-grid">
+        <div class="field-item">
+          <div class="field-label">背景说明</div>
+          <div class="field-value">2026年3月初布伦特原油突破100美元/桶，3月6日一度触及约120美元/桶。伊朗核电站附近再遭袭， IAEA发出核事故警告。埃及已全面上调商业电价。</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">目标读者</div>
+          <div class="field-value">有车一族（油价敏感群体）、关注国际局势的普通用户、宏观研究者</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">核心价值</div>
+          <div class="field-value">专业知识 + 时效热度：涉及日常生活成本，话题参与感强</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">推荐角度</div>
+          <div class="field-value">生活成本切入：从"92号汽油可能要涨价"聊起，延伸到国际局势</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M-12 -->
+    <div class="material-card">
+      <div class="card-header">
+        <div><div class="card-stars">⭐⭐</div></div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <span class="tag tag-finance">财经热点</span>
+          <span class="card-id">M-12</span>
+        </div>
+      </div>
+      <div class="golden-quote">🇭🇰 港股一季度IPO狂揽1100亿港元！同比增长489%</div>
+      <div class="field-grid">
+        <div class="field-item">
+          <div class="field-label">背景说明</div>
+          <div class="field-value">2026年4月最新数据显示，港股市场一季度IPO融资近1100亿港元，同比暴增489%，创近年同期新高。科技、医疗、消费赛道是主要驱动力，市场情绪明显回暖。</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">目标读者</div>
+          <div class="field-value">关注资本市场的投资者、对港股打新感兴趣的用户、金融从业者</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">核心价值</div>
+          <div class="field-value">专业知识 + 讨论热度：数据冲击力强，适合引发对"港股机会"的讨论</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">推荐角度</div>
+          <div class="field-value">数据震撼切入："一季度港股吸金1100亿，增长近5倍——发生了什么？"</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M-01 -->
+    <div class="material-card">
+      <div class="card-header">
+        <div><div class="card-stars">⭐⭐</div></div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <span class="tag tag-finance">财经热点</span>
+          <span class="card-id">M-01</span>
+        </div>
+      </div>
+      <div class="golden-quote">🏦 存款利率告别"3时代"，你的钱还在银行"睡觉"吗？</div>
+      <div class="field-grid">
+        <div class="field-item">
+          <div class="field-label">背景说明</div>
+          <div class="field-value">2026年3月29日四大银行最新利率表公示，三年期定期全面进入"1时代"。20万存三年，利息从6万多缩水到不足9000元，足足少了5万多。</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">目标读者</div>
+          <div class="field-value">有存款习惯的普通居民、追求稳健收益的中老年群体、对利率敏感者</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">核心价值</div>
+          <div class="field-value">情绪共鸣 + 实用价值：引发"钱缩水"的焦虑，同时提供理财视角</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">推荐角度</div>
+          <div class="field-value">反差对比切入：用"三年前存20万 vs 现在存20万"数字差开篇</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== CATEGORY 2: 保险 ========== -->
+  <div class="category-block cat-insurance">
+    <div class="category-header">
+      <div class="category-icon"><span>🛡️</span></div>
+      <div>
+        <div class="category-title">保险知识/产品动态</div>
+        <div class="category-sub">3条素材 · 涵盖险企投资、长护险、新能源车险</div>
+      </div>
+    </div>
+
+    <!-- M-14 TOP3 -->
+    <div class="material-card top3">
+      <div class="card-header">
+        <div><div class="card-stars">⭐⭐⭐</div></div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <span class="tag tag-insurance">保险动态</span>
+          <span class="card-id">M-14</span>
+        </div>
+      </div>
+      <div class="golden-quote">🏥 社保第六险来了！失能老人终于有人"兜底"了</div>
+      <div class="field-grid">
+        <div class="field-item">
+          <div class="field-label">背景说明</div>
+          <div class="field-value">2026年3月26日国新办正式宣布：长期护理保险将从试点走向全国推开，计划2028年底全覆盖。中国60岁以上老人3.2亿，失能老人约3500万，护理缺口长期巨大。</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">目标读者</div>
+          <div class="field-value">家有老人的中年群体、养老规划意识觉醒的青壮年、保险从业者</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">核心价值</div>
+          <div class="field-value">情绪共鸣 + 实用价值：直击老龄化社会痛点，具有强情感冲击力</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">推荐角度</div>
+          <div class="field-value">故事化切入："当父母失能，子女在外打工，谁能照顾他们？"</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M-09 -->
+    <div class="material-card">
+      <div class="card-header">
+        <div><div class="card-stars">⭐⭐</div></div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <span class="tag tag-insurance">保险动态</span>
+          <span class="card-id">M-09</span>
+        </div>
+      </div>
+      <div class="golden-quote">📊 上市险企年收益率6.6%！保险资金在悄悄赚钱</div>
+      <div class="field-grid">
+        <div class="field-item">
+          <div class="field-label">背景说明</div>
+          <div class="field-value">截至4月2日，多家上市险企披露2025年投资"成绩单"，最高收益率6.6%。新华保险2025年股票基金配置占比已达21%，险资正加大权益类资产布局。</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">目标读者</div>
+          <div class="field-value">保险投保用户、关注保险公司投资表现的投资者、对保险产品感兴趣者</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">核心价值</div>
+          <div class="field-value">专业知识 + 信任建立：揭示保险资金专业管理能力，提升行业形象</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">推荐角度</div>
+          <div class="field-value">信任背书切入："你交的保费，保险公司是怎么帮你生钱的？"</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M-10 -->
+    <div class="material-card">
+      <div class="card-header">
+        <div><div class="card-stars">⭐</div></div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <span class="tag tag-insurance">保险动态</span>
+          <span class="card-id">M-10</span>
+        </div>
+      </div>
+      <div class="golden-quote">🚗 新能源车险爆发：保费暴涨91%，但赔付率也在涨</div>
+      <div class="field-grid">
+        <div class="field-item">
+          <div class="field-label">背景说明</div>
+          <div class="field-value">车车科技2025年财报显示，新能源车险保费同比增长91%，公司首次实现经调整净利润1160万元。但新能源车高维修成本、高出险率也让险企承压。</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">目标读者</div>
+          <div class="field-value">新能源车主、考虑购买新能源车的消费者、保险行业从业者</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">核心价值</div>
+          <div class="field-value">实用价值 + 专业知识：解答"新能源车险为什么贵"的普遍疑问</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">推荐角度</div>
+          <div class="field-value">实用问答切入：先抛"为什么电车保险比油车贵？"再层层拆解</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== CATEGORY 3: 社保/医保 ========== -->
+  <div class="category-block cat-policy">
+    <div class="category-header">
+      <div class="category-icon"><span>🏥</span></div>
+      <div>
+        <div class="category-title">社保/医保/养老政策</div>
+        <div class="category-sub">3条素材 · 涵盖长护险、慢特病报销、养老金调整</div>
+      </div>
+    </div>
+
+    <!-- M-04 -->
+    <div class="material-card">
+      <div class="card-header">
+        <div><div class="card-stars">⭐⭐</div></div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <span class="tag tag-policy">社保医保</span>
+          <span class="card-id">M-04</span>
+        </div>
+      </div>
+      <div class="golden-quote">💊 4月起慢特病全国统一报销！高血压糖尿病直接结算</div>
+      <div class="field-grid">
+        <div class="field-item">
+          <div class="field-label">背景说明</div>
+          <div class="field-value">2026年4月1日起，全国统一落地高血压、糖尿病、心脏病三类慢特病医保便民新政，覆盖62种门诊慢特病，支持异地就医直接结算，报销比例大幅提升。</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">目标读者</div>
+          <div class="field-value">慢性病患者及家属、中老年群体、经常异地就医的人群</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">核心价值</div>
+          <div class="field-value">实用价值 + 情绪共鸣：直接解决"报销难、跑腿多"的长期痛点</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">推荐角度</div>
+          <div class="field-value">政策红利切入：逐一列举"62种慢特病名单"，引发收藏和转发</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M-05 -->
+    <div class="material-card">
+      <div class="card-header">
+        <div><div class="card-stars">⭐⭐</div></div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <span class="tag tag-policy">社保医保</span>
+          <span class="card-id">M-05</span>
+        </div>
+      </div>
+      <div class="golden-quote">💵 城乡居民基础养老金再涨20元！今年内全部到位</div>
+      <div class="field-grid">
+        <div class="field-item">
+          <div class="field-label">背景说明</div>
+          <div class="field-value">2026年定调社保新政策：城乡居民基础养老金月最低标准再提高20元，惠及约1.8亿老年群体，计划年内全国执行到位。灵活就业人员参保也更便捷。</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">目标读者</div>
+          <div class="field-value">农村居民、灵活就业人员、关注养老政策的中老年人群</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">核心价值</div>
+          <div class="field-value">情绪共鸣 + 政策普惠：直接关系钱袋子，老年群体天然关注</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">推荐角度</div>
+          <div class="field-value">温暖切入："国家又给你爸妈发钱了，每人每月多20块！"</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M-06 -->
+    <div class="material-card">
+      <div class="card-header">
+        <div><div class="card-stars">⭐</div></div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <span class="tag tag-policy">社保医保</span>
+          <span class="card-id">M-06</span>
+        </div>
+      </div>
+      <div class="golden-quote">🗓️ 5月起异地就医免备案！跨省看病直接报销</div>
+      <div class="field-grid">
+        <div class="field-item">
+          <div class="field-label">背景说明</div>
+          <div class="field-value">国家医保局多项便民新政将于2026年5月全国落地，彻底解决跨省就医"跑腿、垫资、报销难"问题。届时参保人无需提前备案即可异地直接结算。</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">目标读者</div>
+          <div class="field-value">异地工作/生活的上班族、随子女迁居的老人、经常出差的人群</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">核心价值</div>
+          <div class="field-value">实用价值：政策利好明确，执行时间清晰，适合实用指南内容</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">推荐角度</div>
+          <div class="field-value">操作指南切入：先说"5月起不用备案也能跨省报销"，再教操作步骤</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== CATEGORY 4: 时事热点 ========== -->
+  <div class="category-block cat-social">
+    <div class="category-header">
+      <div class="category-icon"><span>🌐</span></div>
+      <div>
+        <div class="category-title">时事热点/社会话题</div>
+        <div class="category-sub">3条素材 · 涵盖存款利率、港股IPO、世界杯</div>
+      </div>
+    </div>
+
+    <!-- M-11 TOP3 -->
+    <div class="material-card top3">
+      <div class="card-header">
+        <div><div class="card-stars">⭐⭐⭐</div></div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <span class="tag tag-social">时事热点</span>
+          <span class="card-id">M-11</span>
+        </div>
+      </div>
+      <div class="golden-quote">💸 存款利率"1时代"：银行里的钱，正在悄悄变"廉价"</div>
+      <div class="field-grid">
+        <div class="field-item">
+          <div class="field-label">背景说明</div>
+          <div class="field-value">2026年起居民储蓄结构经历深刻变革——银行存款利率全面进入"1时代"，家庭资产从单一存款向多元理财迁移。存款在家庭资产中占比持续下降。</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">目标读者</div>
+          <div class="field-value">有储蓄习惯的普通居民、关注家庭财务规划的青壮年、对利率敏感群体</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">核心价值</div>
+          <div class="field-value">情绪共鸣 + 实用价值：高相关度话题，触动财富管理焦虑与思考</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">推荐角度</div>
+          <div class="field-value">故事化切入："三年前存的20万，现在利息少了5万"的数据落差引发共鸣</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M-02 -->
+    <div class="material-card">
+      <div class="card-header">
+        <div><div class="card-stars">⭐</div></div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <span class="tag tag-social">时事热点</span>
+          <span class="card-id">M-02</span>
+        </div>
+      </div>
+      <div class="golden-quote">📉 4月A股：方向未明，但机会藏在震荡里</div>
+      <div class="field-grid">
+        <div class="field-item">
+          <div class="field-label">背景说明</div>
+          <div class="field-value">截至2026年3月31日，机构研报显示A股整体处于"震荡修复、静待方向"的关键窗口期。市场关注4月初外部风险落地及国内政策加码节奏。</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">目标读者</div>
+          <div class="field-value">A股散户投资者、对宏观经济关注的中高端理财用户</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">核心价值</div>
+          <div class="field-value">专业知识 + 讨论热度：解读机构观点，适合引发评论区对后市的讨论</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">推荐角度</div>
+          <div class="field-value">数据切入：先摆出"震荡"数据，再请观众留言"你觉得现在是机会还是风险？"</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M-13 -->
+    <div class="material-card">
+      <div class="card-header">
+        <div><div class="card-stars">⭐</div></div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <span class="tag tag-social">时事热点</span>
+          <span class="card-id">M-13</span>
+        </div>
+      </div>
+      <div class="golden-quote">⚽ 2026美加墨世界杯揭幕：6月12日，开踢！</div>
+      <div class="field-grid">
+        <div class="field-item">
+          <div class="field-label">背景说明</div>
+          <div class="field-value">2026年美加墨世界杯赛程正式出炉，揭幕战将于北京时间6月12日凌晨3点打响。这是历史上首次由三个国家联合举办的世界杯，预计全球观众超50亿。</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">目标读者</div>
+          <div class="field-value">足球迷、普通观众、品牌营销从业者</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">核心价值</div>
+          <div class="field-value">话题热度：世界杯四年一遇，预热期关注度持续上升</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">推荐角度</div>
+          <div class="field-value">热点借势切入："还有60多天，世界杯就要开踢了——你准备好熬夜了吗？"</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== SCRIPT SECTION ========== -->
+  <div class="script-section">
+    <div class="script-header">
+      <div class="script-badge">🎬 精选脚本 TOP 3</div>
+      <h2>今日深度创作脚本</h2>
+      <p>评分最高（⭐⭐⭐）3条素材的完整短视频脚本</p>
+    </div>
+
+    <!-- SCRIPT 1: 长护险 -->
+    <div class="script-card">
+      <div class="script-topbar">
+        <div class="script-number">脚本 1 / 3</div>
+        <div class="script-title">社保第六险来了：失能老人终于有人"兜底"了</div>
+        <div class="script-meta">
+          <div class="script-meta-item">📍 方向：<strong>社保/养老政策</strong></div>
+          <div class="script-meta-item">🏷️ 素材：<strong>M-14</strong></div>
+          <div class="script-meta-item">⭐ 评分：<strong>⭐⭐⭐</strong></div>
+          <div class="script-meta-item">⏱️ 时长：<strong>约90秒</strong></div>
+        </div>
+      </div>
+      <div class="script-body">
+        <div class="script-block hook-box">
+          <div class="script-block-title">🎣 钩子（前3秒）</div>
+          <div class="script-block-content">画面：一位80岁老人躺在床上，身旁是忙碌的儿女<br>台词（同期声）：<strong>"当父母失能，子女在外打工——谁来照顾他们？"</strong></div>
+        </div>
+        <div class="script-block">
+          <div class="script-block-title">📖 第1段 · 0:00–0:20 · 讲痛点</div>
+          <div class="script-block-content">画面：家庭照护场景，子女疲惫不堪<br>口播：<strong>中国60岁以上的老人已经有3.2亿，其中失能老人超过3500万。</strong>失能意味着什么？卧床不起，大小便失禁，需要24小时照护。一个家庭，往往被一个失能老人彻底拖垮。</div>
+        </div>
+        <div class="script-block">
+          <div class="script-block-title">📖 第2段 · 0:20–0:50 · 讲政策</div>
+          <div class="script-block-content">画面：国新办发布会现场，政策文件截图<br>口播：3月26日，国家宣布了一个重大消息——<strong>社保"第六险"来了！</strong>这个险种叫做"长期护理保险"，计划用<strong>3年左右时间覆盖全国，2028年底基本实现全覆盖</strong>。简单说：老人失能，国家帮你分担护理费用。<br>解读重点：长护险资金来源 = 医保基金划拨 + 个人缴费 + 政府补贴，个人无需额外大幅缴费</div>
+        </div>
+        <div class="script-block">
+          <div class="script-block-title">📖 第3段 · 0:50–1:10 · 讲影响</div>
+          <div class="script-block-content">画面：养老院护工照顾老人、社区护理站场景<br>口播：<strong>谁可以享受？经过评估认定重度失能的人员。</strong>护理方式有三种：机构护理、社区护理、居家护理，你可以选。现在每月的护理补贴标准各地不同，但最高每月能拿到几千元。<br>情感升华：这不是一笔钱的问题，是让失能老人活得有尊严</div>
+        </div>
+        <div class="script-block">
+          <div class="script-block-title">📖 第4段 · 1:10–1:25 · 讲意义</div>
+          <div class="script-block-content">画面：空镜，城市傍晚、灯火、家庭温馨场景<br>口播：<strong>中国正在变老，但中国也在做好准备。"第六险"的背后，是3.2亿老年人和他们子女的共同期待。</strong></div>
+        </div>
+        <div class="script-block 互动-box">
+          <div class="script-block-title">💬 结尾引导互动</div>
+          <div class="script-block-content"><strong>"家里有老人的，今天这条内容，转给家人看一眼——告诉他们，国家正在建一张网，接住我们变老的风险。"</strong></div>
+        </div>
+        <div class="script-block">
+          <div class="script-block-title">🖼️ 配图文案建议</div>
+          <div class="script-block-content"><strong>封面图：</strong>标题大字"第六险来了！"，配国务院政策文件封面截图<br><strong>配图内容：</strong>发布会现场图 + 失能老人护理场景图 + 养老金/护理补贴数据对比图<br><strong>文案建议：</strong>政策原文金句截图（如"用3年左右时间基本建立长期护理保险制度"）+ 各地补贴标准参考表格</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCRIPT 2: 金价 -->
+    <div class="script-card">
+      <div class="script-topbar">
+        <div class="script-number">脚本 2 / 3</div>
+        <div class="script-title">金价破4700美元！一夜之间，你存的钱又缩水了</div>
+        <div class="script-meta">
+          <div class="script-meta-item">📍 方向：<strong>财经热点</strong></div>
+          <div class="script-meta-item">🏷️ 素材：<strong>M-07</strong></div>
+          <div class="script-meta-item">⭐ 评分：<strong>⭐⭐⭐</strong></div>
+          <div class="script-meta-item">⏱️ 时长：<strong>约75秒</strong></div>
+        </div>
+      </div>
+      <div class="script-body">
+        <div class="script-block hook-box">
+          <div class="script-block-title">🎣 钩子（前3秒）</div>
+          <div class="script-block-content">画面：手机屏幕显示金价K线图急速上冲<br>字幕/口播：<strong>"昨晚睡前金价还4600，醒来一看——4700了！一夜涨了3.5%！"</strong></div>
+        </div>
+        <div class="script-block">
+          <div class="script-block-title">📖 第1段 · 0:00–0:15 · 讲事实</div>
+          <div class="script-block-content">画面：金价K线图（4月1日暴涨3.5%，突破4700美元）<br>口播：<strong>4月1日，国际金价历史性地突破4700美元/盎司，一夜暴涨3.5%。</strong>这不是演习，这是现实。</div>
+        </div>
+        <div class="script-block">
+          <div class="script-block-title">📖 第2段 · 0:15–0:40 · 讲原因</div>
+          <div class="script-block-content">画面：中东局势地图、伊朗/以色列/美国国旗动画<br>口播：金价暴涨的导火索，是<strong>中东局势骤然升温</strong>。伊朗核电站附近遭袭， IAEA发出核事故警告；科威特两座发电厂被无人机袭击。特朗普暗示"或于下周袭击伊朗能源设施"。<br>情绪引导："大炮一响，黄金万两"——这句千年古训，又灵验了</div>
+        </div>
+        <div class="script-block">
+          <div class="script-block-title">📖 第3段 · 0:40–1:00 · 讲影响</div>
+          <div class="script-block-content">画面：超市物价上涨截图、家庭收支表<br>口播：<strong>金价上涨只是开始。</strong>布伦特原油已突破100美元/桶，埃及上调电价，全球通胀压力卷土重来。你口袋里的钱，购买力正在悄悄缩水。</div>
+        </div>
+        <div class="script-block">
+          <div class="script-block-title">📖 第4段 · 1:00–1:12 · 讲对策</div>
+          <div class="script-block-content">画面：多元化资产配置图（股票、债券、黄金、房产）<br>口播：<strong>普通人应对之道——分散配置，不要把所有鸡蛋放在一个篮子里。</strong>不一定要买黄金，但要有资产配置意识。</div>
+        </div>
+        <div class="script-block 互动-box">
+          <div class="script-block-title">💬 结尾引导互动</div>
+          <div class="script-block-content"><strong>"你身边有人在买黄金吗？你觉得现在该不该入手？评论区聊聊！"</strong></div>
+        </div>
+        <div class="script-block">
+          <div class="script-block-title">🖼️ 配图文案建议</div>
+          <div class="script-block-content"><strong>封面图：</strong>金价K线图大字截图 + "4700美元！"警示风格<br><strong>配图内容：</strong>中东局势地图 + 原油价格走势 + 黄金历史价格对比图<br><strong>文案建议：</strong>黄金价格5年走势图 + "乱世买黄金，你准备好了吗？"</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCRIPT 3: 存款利率 -->
+    <div class="script-card">
+      <div class="script-topbar">
+        <div class="script-number">脚本 3 / 3</div>
+        <div class="script-title">存款利率"1时代"：你的钱正在被悄悄"稀释"</div>
+        <div class="script-meta">
+          <div class="script-meta-item">📍 方向：<strong>时事热点</strong></div>
+          <div class="script-meta-item">🏷️ 素材：<strong>M-11</strong></div>
+          <div class="script-meta-item">⭐ 评分：<strong>⭐⭐⭐</strong></div>
+          <div class="script-meta-item">⏱️ 时长：<strong>约80秒</strong></div>
+        </div>
+      </div>
+      <div class="script-body">
+        <div class="script-block hook-box">
+          <div class="script-block-title">🎣 钩子（前3秒）</div>
+          <div class="script-block-content">画面：银行存折特写，屏幕上显示利率数字<br>口播/字幕：<strong>"同样的20万存3年，三年前利息6万，现在——利息不到1万。"</strong></div>
+        </div>
+        <div class="script-block">
+          <div class="script-block-title">📖 第1段 · 0:00–0:18 · 讲冲击</div>
+          <div class="script-block-content">画面：对比截图（2023年 vs 2026年存款利率对比表）<br>口播：<strong>2026年3月29日，四大银行最新利率表公示——三年期定期，利率全面进入"1时代"。</strong>20万存三年，利息从三年前的6万多，缩水到现在的不足9000块。少了整整5万多。</div>
+        </div>
+        <div class="script-block">
+          <div class="script-block-title">📖 第2段 · 0:18–0:45 · 讲原因</div>
+          <div class="script-block-content">画面：央行降准/降息新闻截图、GDP增速图表<br>口播：<strong>这是央行引导利率下行的结果，目的是刺激消费、降低企业融资成本、推动经济转型。</strong>但对咱们普通人来说，意味着：无风险收益越来越低了。<br>数据：我国居民存款规模超140万亿，但利率持续下行</div>
+        </div>
+        <div class="script-block">
+          <div class="script-block-title">📖 第3段 · 0:45–1:05 · 讲出路</div>
+          <div class="script-block-content">画面：基金、理财、国债、保险产品展示<br>口播：<strong>钱不能只存银行了。</strong>2026年起，多元配置成为主流——国债、基金、保险理财，都是可以参考的方向。<br>重点提示：<strong>高收益一定伴随高风险，不要被"保本高息"骗了</strong></div>
+        </div>
+        <div class="script-block">
+          <div class="script-block-title">📖 第4段 · 1:05–1:18 · 讲行动</div>
+          <div class="script-block-content">画面：个人财务规划建议清单<br>口播：<strong>三句话记住：不把鸡蛋放一个篮子里；不懂的产品不要碰；留足3-6个月应急资金，剩下的再考虑投资。</strong></div>
+        </div>
+        <div class="script-block 互动-box">
+          <div class="script-block-title">💬 结尾引导互动</div>
+          <div class="script-block-content"><strong>"你的钱主要放在哪里？存银行还是买理财？评论区晒一下，一起聊聊！"</strong></div>
+        </div>
+        <div class="script-block">
+          <div class="script-block-title">🖼️ 配图文案建议</div>
+          <div class="script-block-content"><strong>封面图：</strong>利率对比大字图（"3年前3.5% → 现在1.5%"）+ 利息差额红色标注<br><strong>配图内容：</strong>四大银行利率截图 + 存款/理财/国债收益对比图<br><strong>文案建议：</strong>"利率1时代生存指南"长图文 + 适合不同风险偏好人群的配置建议</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end script-section -->
+
+</div><!-- end container -->
+
+<div class="footer">
+  <div class="footer-brand">📋 短视频素材日报</div>
+  <div>覆盖财经 · 保险 · 社保医保 · 时事热点 &nbsp;|&nbsp; 2026-04-05 &nbsp;|&nbsp; 自动化任务每日生成</div>
+  <div style="margin-top:8px; opacity:0.5;">建议优先制作：社保第六险 + 金价暴涨 系列，可做成"你的钱在缩水"话题组合</div>
+</div>
+
+</body>
+</html>
