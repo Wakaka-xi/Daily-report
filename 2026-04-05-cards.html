@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>财经素材日报 4宫格卡片 | 2026-04-05</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;background:#1a1a2e;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px}
+.container{max-width:440px;width:100%}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+
+.card{
+  border-radius:14px;padding:18px 14px 14px;
+  position:relative;min-height:160px;
+  display:flex;flex-direction:column;
+  box-shadow:0 4px 20px rgba(0,0,0,.3);
+  overflow:hidden;
+}
+.card::before{
+  content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,.12);border-radius:14px;
+}
+
+/* Card 1: Red gradient - 医保新规 */
+.card:nth-child(1){
+  background:linear-gradient(145deg,#ff5252 0%,#c62828 60%,#8b0000 100%);
+}
+
+/* Card 2: Orange gradient - 以旧换新 */
+.card:nth-child(2){
+  background:linear-gradient(145deg,#ff9800 0%,#f57c00 60%,#e65100 100%);
+}
+
+/* Card 3: Blue gradient - A股清剿 */
+.card:nth-child(3){
+  background:linear-gradient(145deg,#42a5f5 0%,#1976d2 60%,#0d47a1 100%);
+}
+
+/* Card 4: Green gradient - 养老金 */
+.card:nth-child(4){
+  background:linear-gradient(145deg,#66bb6a 0%,#43a047 60%,#1b5e20 100%);
+}
+
+.seq{
+  position:absolute;top:10px;right:12px;
+  font-size:11px;font-weight:800;color:rgba(255,255,255,.7);
+}
+.tag{
+  display:inline-block;
+  background:rgba(255,255,255,.22);
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:8px;
+  padding:2px 8px;
+  font-size:10px;font-weight:700;
+  color:#fff;
+  margin-bottom:8px;
+  letter-spacing:.3px;
+}
+.emoji{
+  font-size:32px;margin-bottom:6px;line-height:1;
+  filter:drop-shadow(0 2px 4px rgba(0,0,0,.2));
+}
+.title{
+  font-size:13px;font-weight:700;color:#fff;
+  line-height:1.4;margin-bottom:6px;
+  text-shadow:0 1px 3px rgba(0,0,0,.2);
+}
+.sub{
+  font-size:11px;color:rgba(255,255,255,.82);
+  line-height:1.5;flex:1;
+}
+.hot-bar{
+  display:flex;gap:4px;margin-top:8px;flex-wrap:wrap
+}
+.hot-chip{
+  display:inline-block;
+  background:rgba(255,255,255,.2);
+  border-radius:6px;padding:1px 6px;
+  font-size:9px;color:rgba(255,255,255,.9);
+  font-weight:600;
+}
+
+/* Bottom brand */
+.brand{
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:12px;padding:12px 16px;
+  text-align:center;
+}
+.brand-name{font-size:13px;font-weight:700;color:#fff;margin-bottom:4px}
+.brand-date{font-size:11px;color:rgba(255,255,255,.55);margin-bottom:3px}
+.brand-desc{font-size:10px;color:rgba(255,255,255,.4);line-height:1.5}
+
+@media(max-width:360px){
+  .card{min-height:145px;padding:14px 12px 12px}
+  .emoji{font-size:26px}
+  .title{font-size:12px}
+  .sub{font-size:10px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="grid">
+
+<!-- Card 1: 医保新规 -->
+<div class="card">
+  <div class="seq">①</div>
+  <div class="tag">🔥 必做 ⭐⭐⭐</div>
+  <div class="emoji">🏥</div>
+  <div class="title">医保新规全国落地<br>13.7亿人规则大变</div>
+  <div class="sub">4月1日起三大红线严打<br>慢病患者认定大简化<br>异地就医直接结算</div>
+  <div class="hot-bar">
+    <span class="hot-chip">倒卖回流药违法</span>
+    <span class="hot-chip">智能监控上线</span>
+  </div>
+</div>
+
+<!-- Card 2: 以旧换新 -->
+<div class="card">
+  <div class="seq">②</div>
+  <div class="tag">🔥 必做 ⭐⭐⭐</div>
+  <div class="emoji">💰</div>
+  <div class="title">625亿补贴4月开抢<br>五一前最后窗口期</div>
+  <div class="sub">手机最高省1000元<br>汽车最高补2万元<br>一季度已带动4331亿</div>
+  <div class="hot-bar">
+    <span class="hot-chip">手机补贴1000</span>
+    <span class="hot-chip">汽车补2万</span>
+  </div>
+</div>
+
+<!-- Card 3: A股清剿 -->
+<div class="card">
+  <div class="seq">③</div>
+  <div class="tag">🔥 必做 ⭐⭐⭐</div>
+  <div class="emoji">📉</div>
+  <div class="title">证监会周末出手<br>10家公司集体被查</div>
+  <div class="sub">财务造假将被ST<br>*ST长药已强制退市<br>三个信号教你排雷</div>
+  <div class="hot-bar">
+    <span class="hot-chip">ST/退市风险</span>
+    <span class="hot-chip">监管风暴</span>
+  </div>
+</div>
+
+<!-- Card 4: 养老金 -->
+<div class="card">
+  <div class="seq">④</div>
+  <div class="tag">⭐ 关注 ⭐⭐</div>
+  <div class="emoji">👴</div>
+  <div class="title">养老金新标准落地<br>正常退vs延迟退差多少</div>
+  <div class="sub">延迟1年多领100-200元<br>缴30年比15年高40%<br>弹性退休怎么选</div>
+  <div class="hot-bar">
+    <span class="hot-chip">退休规划</span>
+    <span class="hot-chip">多缴多领</span>
+  </div>
+</div>
+
+</div><!-- /grid -->
+
+<!-- Brand row -->
+<div class="brand">
+  <div class="brand-name">📊 财经短视频素材日报</div>
+  <div class="brand-date">2026-04-05 · 周日 · 共13条素材</div>
+  <div class="brand-desc">数据来源：财联社 · 东方财富 · 央视新闻 · 证监会 · 国家医保局</div>
+</div>
+
+</div><!-- /container -->
+</body>
+</html>
