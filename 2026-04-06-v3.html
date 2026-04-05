@@ -1,411 +1,492 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>保险/财经短视频素材日报 - 2026年4月6日</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background: #f5f7fa; color: #333; line-height: 1.7; padding: 20px; }
-        .container { max-width: 900px; margin: 0 auto; }
-        .header { background: linear-gradient(135deg, #1a73e8, #0d47a1); color: white; padding: 30px; border-radius: 16px; margin-bottom: 24px; text-align: center; }
-        .header h1 { font-size: 28px; margin-bottom: 8px; }
-        .header .date { font-size: 16px; opacity: 0.9; }
-        .card { background: white; border-radius: 12px; padding: 24px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin-bottom: 24px; }
-        .stat-box { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 16px; border-radius: 12px; text-align: center; }
-        .stat-box.warning { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
-        .stat-box.info { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
-        .stat-box .num { font-size: 28px; font-weight: bold; }
-        .stat-box .label { font-size: 13px; opacity: 0.9; margin-top: 4px; }
-        h2 { color: #1a73e8; font-size: 20px; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #e3f2fd; }
-        h3 { color: #333; font-size: 17px; margin: 20px 0 12px; }
-        .material { background: #f8f9fa; border-left: 4px solid #1a73e8; padding: 16px; margin: 12px 0; border-radius: 0 8px 8px 0; }
-        .material.hot { border-left-color: #ea4335; }
-        .material.star3 { border-left-color: #ea4335; background: linear-gradient(90deg, #fff5f5 0%, #f8f9fa 100%); }
-        .material.star2 { border-left-color: #f9ab00; }
-        .material.star1 { border-left-color: #34a853; }
-        .material-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-        .tag { padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: bold; }
-        .tag.red { background: #ea4335; color: white; }
-        .tag.orange { background: #f9ab00; color: white; }
-        .tag.green { background: #34a853; color: white; }
-        .meta { color: #666; font-size: 14px; margin: 8px 0; }
-        .angles { margin: 10px 0; }
-        .angle { background: #e8f0fe; padding: 8px 12px; border-radius: 6px; margin: 6px 0; font-size: 14px; }
-        .angle strong { color: #1a73e8; }
-        .script { background: #1a1a2e; color: #eee; padding: 20px; border-radius: 12px; margin: 16px 0; }
-        .script h4 { color: #ffd700; margin-bottom: 12px; }
-        .hook { background: linear-gradient(135deg, #ff6b6b, #feca57); color: #1a1a2e; padding: 16px; border-radius: 8px; margin: 12px 0; font-weight: bold; }
-        .time-block { background: #16213e; padding: 12px; border-radius: 6px; margin: 8px 0; font-size: 14px; }
-        .time-block .time { color: #00d4ff; font-weight: bold; }
-        .footer { text-align: center; color: #999; font-size: 13px; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; }
-        table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
-        th { background: #1a73e8; color: white; padding: 12px 8px; text-align: left; }
-        td { padding: 10px 8px; border-bottom: 1px solid #eee; }
-        tr:hover { background: #f5f7fa; }
-        .risk-low { color: #34a853; }
-        .risk-med { color: #f9ab00; }
-        .risk-high { color: #ea4335; }
-        .data-table { background: #f8f9fa; border-radius: 8px; overflow: hidden; margin: 12px 0; }
-        .data-table table { margin: 0; font-size: 13px; }
-        .data-table th { background: #5f6368; font-size: 12px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>素材日报 2026-04-06</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #f0ede8; font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+
+  /* ========== 分页基础 ========== */
+  @page { size: A4 portrait; margin: 0; }
+  .page {
+    width: 794px;
+    margin: 0 auto;
+    background: #fff;
+    overflow: hidden;
+    position: relative;
+    break-after: page;
+    break-before: page;
+  }
+  .page.no-break-after { break-after: auto; }
+  .page.no-break-before { break-before: auto; }
+
+  /* ========== 封面 ========== */
+  .cover { background: linear-gradient(160deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%); padding: 60px 52px 56px; text-align: center; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: -60px; right: -60px; width: 260px; height: 260px; background: radial-gradient(circle, rgba(243,156,18,0.12) 0%, transparent 70%); border-radius: 50%; }
+  .cover::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(52,152,219,0.1) 0%, transparent 70%); border-radius: 50%; }
+  .cover .kicker { display: inline-block; font-size: 11px; letter-spacing: 6px; color: rgba(243,156,18,0.7); text-transform: uppercase; margin-bottom: 28px; }
+  .cover h1 { color: #fff; font-size: 34px; font-weight: 700; line-height: 1.3; margin-bottom: 20px; letter-spacing: -0.5px; position: relative; z-index: 1; }
+  .cover .date { color: rgba(255,255,255,0.4); font-size: 14px; margin-bottom: 36px; letter-spacing: 3px; }
+  .cover .stats { display: flex; justify-content: center; gap: 52px; padding: 28px 0; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 28px; }
+  .cover .stat { text-align: center; }
+  .cover .stat .num { color: #fff; font-size: 32px; font-weight: 700; }
+  .cover .stat .label { color: rgba(255,255,255,0.35); font-size: 12px; margin-top: 6px; letter-spacing: 1px; }
+  .cover .topic-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 18px 24px; text-align: left; position: relative; z-index: 1; }
+  .cover .topic-box .label { font-size: 11px; color: rgba(243,156,18,0.6); letter-spacing: 3px; margin-bottom: 10px; }
+  .cover .topic-box .text { color: rgba(255,255,255,0.88); font-size: 14px; line-height: 1.9; }
+
+  /* ========== 章节标题 ========== */
+  .chapter { padding: 44px 48px 28px; border-bottom: 1px solid #f0ebe4; }
+  .chapter .ch-label { font-size: 11px; letter-spacing: 4px; color: #c9a96e; text-transform: uppercase; margin-bottom: 10px; }
+  .chapter .ch-title { font-size: 24px; font-weight: 700; color: #1a1a2e; letter-spacing: -0.3px; }
+  .chapter .ch-sub { font-size: 13px; color: #999; margin-top: 6px; }
+
+  /* ========== 脚本卡片 ========== */
+  .script-card { padding: 28px 48px; border-bottom: 1px solid #f0ebe4; }
+  .script-card .sh { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
+  .script-card .rank { width: 44px; height: 44px; background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #c9a96e; font-size: 16px; font-weight: 700; flex-shrink: 0; }
+  .script-card .sh-body { flex: 1; }
+  .script-card .sh-tag { display: inline-block; font-size: 11px; padding: 3px 12px; border-radius: 7px; margin-bottom: 10px; font-weight: 600; }
+  .tag-s1 { background: rgba(231,76,60,0.1); color: #c0392b; }
+  .tag-s2 { background: rgba(230,126,34,0.1); color: #d35400; }
+  .tag-s3 { background: rgba(52,152,219,0.1); color: #2980b9; }
+  .script-card .sh-title { font-size: 17px; font-weight: 700; color: #1a1a2e; line-height: 1.5; }
+  .script-card .sh-meta { display: flex; gap: 10px; margin-top: 10px; }
+  .script-card .meta-chip { font-size: 11px; padding: 3px 10px; border-radius: 5px; }
+  .chip-hot { background: rgba(231,76,60,0.08); color: #c0392b; }
+  .chip-type { background: #f5f4f0; color: #888; }
+
+  /* 钩子 */
+  .hook { background: linear-gradient(135deg, #fffbf0, #fff8e8); border: 1px solid rgba(243,156,18,0.15); border-left: 4px solid #f39c12; border-radius: 14px; padding: 16px 18px; margin-bottom: 18px; }
+  .hook-label { font-size: 11px; font-weight: 700; color: #c9a96e; letter-spacing: 2px; margin-bottom: 8px; }
+  .hook-text { font-size: 14.5px; color: #3d3d3d; line-height: 1.85; }
+
+  /* 正文 */
+  .body-lines { padding: 0 2px; }
+  .body-line { font-size: 14px; color: #555; line-height: 2; margin-bottom: 16px; padding-left: 20px; position: relative; }
+  .body-line:last-child { margin-bottom: 0; }
+  .body-line::before { content: ''; position: absolute; left: 0; top: 12px; width: 6px; height: 6px; background: #c9a96e; border-radius: 50%; }
+
+  /* 时间轴 */
+  .time-block { background: #faf9f7; border-left: 3px solid #c9a96e; padding: 10px 14px; margin-bottom: 10px; border-radius: 0 8px 8px 0; }
+  .time-block .time { color: #c9a96e; font-weight: 700; font-size: 12px; margin-right: 8px; }
+  .time-block .content { color: #555; font-size: 14px; line-height: 1.7; display: inline; }
+
+  /* 互动引导 */
+  .cta { background: #fffde7; border: 1px solid rgba(243,156,18,0.15); border-radius: 12px; padding: 14px 18px; margin-top: 16px; }
+  .cta-label { font-size: 11px; color: #c9a96e; letter-spacing: 2px; margin-bottom: 6px; }
+  .cta-text { font-size: 13.5px; color: #666; line-height: 1.7; }
+
+  /* 封面建议 */
+  .cover-tip { background: #f9f8f5; border-radius: 10px; padding: 12px 16px; margin-top: 12px; }
+  .cover-tip-label { font-size: 11px; color: #bbb; margin-bottom: 5px; }
+  .cover-tip-text { font-size: 13px; color: #888; line-height: 1.65; }
+
+  /* ========== 素材卡片（混合脚本内容版）========== */
+  .mat-script-card { margin: 0 28px 18px; background: #faf9f7; border: 1px solid #f0ebe4; border-radius: 16px; overflow: hidden; position: relative; }
+  .mat-script-card::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; }
+  .mat-script-card.ss3::before { background: linear-gradient(180deg, #e74c3c, #c0392b); }
+  .mat-script-card.ss2::before { background: linear-gradient(180deg, #3498db, #2980b9); }
+  .mat-script-card.ss1::before { background: linear-gradient(180deg, #95a5a6, #7f8c8d); }
+
+  .mat-script-card .mat-head { padding: 18px 20px 14px; }
+  .mat-script-card .mat-head-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; }
+  .mat-script-card .mat-title { font-size: 15px; font-weight: 600; color: #1a1a2e; line-height: 1.5; flex: 1; }
+  .mat-script-card .mat-stars { font-size: 14px; flex-shrink: 0; padding-top: 2px; }
+  .star-gold { color: #f39c12; }
+  .star-gray { color: #ddd; }
+  .mat-script-card .mat-tag-row { display: flex; gap: 8px; margin-top: 10px; }
+  .mat-script-card .mat-tag { font-size: 11px; padding: 2px 10px; border-radius: 6px; font-weight: 600; }
+
+  .mat-script-card .mat-body { padding: 0 20px 18px; }
+
+  /* 素材卡片（纯结构版）========== */
+  .mat-card { margin: 0 28px 18px; background: #faf9f7; border: 1px solid #f0ebe4; border-radius: 16px; padding: 18px 20px; position: relative; overflow: hidden; }
+  .mat-card::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; }
+  .mat-card.ss3::before { background: linear-gradient(180deg, #e74c3c, #c0392b); }
+  .mat-card.ss2::before { background: linear-gradient(180deg, #3498db, #2980b9); }
+  .mat-card.ss1::before { background: linear-gradient(180deg, #95a5a6, #7f8c8d); }
+  .mat-card .mat-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; gap: 14px; }
+  .mat-card .mat-title { font-size: 15px; font-weight: 600; color: #1a1a2e; line-height: 1.5; flex: 1; }
+  .mat-card .mat-stars { font-size: 14px; flex-shrink: 0; padding-top: 2px; }
+  .mat-row { display: flex; gap: 10px; margin-bottom: 11px; align-items: flex-start; }
+  .mat-row:last-child { margin-bottom: 0; }
+  .mat-key { font-size: 13px; color: #8a8a8a; width: 68px; flex-shrink: 0; padding-top: 1px; font-weight: 500; }
+  .mat-val { font-size: 14px; color: #333; line-height: 1.75; flex: 1; }
+  .mat-source { margin-top: 14px; padding-top: 12px; border-top: 1px solid #ece8e2; font-size: 12px; color: #999; }
+
+  /* ========== 底部页脚 ========== */
+  .page-footer { background: #1a1a2e; padding: 32px 48px; text-align: center; }
+  .page-footer .brand { font-size: 16px; font-weight: 700; color: rgba(255,255,255,0.8); margin-bottom: 6px; letter-spacing: 4px; }
+  .page-footer .sub { font-size: 11px; color: rgba(255,255,255,0.3); }
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>📊 保险/财经短视频素材日报</h1>
-            <div class="date">📅 2026年4月6日（周一）</div>
-        </div>
 
-        <div class="stats">
-            <div class="stat-box"><div class="num">13</div><div class="label">今日素材总量</div></div>
-            <div class="stat-box warning"><div class="num">3条</div><div class="label">⭐⭐⭐ 必做</div></div>
-            <div class="stat-box info"><div class="num">7条</div><div class="label">⭐⭐ 重点关注</div></div>
-            <div class="stat-box"><div class="num">3条</div><div class="label">⭐ 补充视角</div></div>
-        </div>
-
-        <div class="card">
-            <h2>🔥 今日热度关键词</h2>
-            <p><strong>全网热度峰值：</strong>长护险落地 / 医保骗保被罚 / 险资入市</p>
-            <p><strong>潜在爆款话题：</strong>长护险申请攻略 / 医保卡别乱用 / 险企年报解读</p>
-        </div>
-
-        <div class="card">
-            <h2>⭐⭐⭐ 必做素材（TOP3）</h2>
-
-            <div class="material star3">
-                <div class="material-header">
-                    <span class="tag red">⭐⭐⭐</span>
-                    <strong>素材1：长护险"第六险"来了！2028年全覆盖，但90%的人还不知道怎么申请</strong>
-                </div>
-                <p class="meta">📌 来源：国新办新闻发布会（3月26日）；国家医保局</p>
-                <p>2026年4月，中办、国办联合发文，宣布长期护理险结束10年试点正式全国推行。4月1日起全国统一的长护险失能评估标准正式实施，2028年底前实现制度全覆盖。目前已覆盖超<strong>1.9亿人</strong>，累计基金支出超<strong>850亿元</strong>。调查显示90%的人还不知道自己是否符合条件、如何申请。</p>
-                <div class="angles">
-                    <div class="angle"><strong>民生角度：</strong>长护险谁能申请？怎么申请？报销比例多少？2026年最新攻略</div>
-                    <div class="angle"><strong>故事角度：</strong>北京王阿姨的故事：老伴失能5年，自费30万，长护险上线后每月报销4000</div>
-                    <div class="angle"><strong>投资角度：</strong>万亿级养老市场开启，哪些保险公司已经布局？普通人能买什么养老概念股？</div>
-                </div>
-                <p class="meta">👥 受众：40-60岁人群、家里有老人者、养老规划者、保险从业者</p>
-                <p class="meta">📊 关键数据：覆盖1.9亿人 | 累计支出850亿 | 重度失能每月报销2000-4000元</p>
-            </div>
-
-            <div class="material star3">
-                <div class="material-header">
-                    <span class="tag red">⭐⭐⭐</span>
-                    <strong>素材2：4月起医保卡别乱用！有人骗保被罚100万，有人直接判刑3年</strong>
-                </div>
-                <p class="meta">📌 来源：国家医保局令第7号（4月1日起施行）；央视新闻4月2日</p>
-                <p>4月1日起，医保智能监控系统全国联网正式落地，三大骗保行为被重点打击：<strong>倒卖回流药</strong>（浙江某药店被罚100万）、<strong>串换药品</strong>（买保健品谎称药品报销）、<strong>虚假就医</strong>（四川某人被判刑3年）。从"事后追责"升级为"事前预防+实时监控"，13.7亿参保人全部纳入系统。</p>
-                <div class="angles">
-                    <div class="angle"><strong>警示角度：</strong>4月起医保卡有5件事千万别做！浙江已有人被罚100万，四川有人判刑3年</div>
-                    <div class="angle"><strong>实用角度：</strong>医保卡可以给家人用吗？慢病患者买药有什么变化？官方最新解答</div>
-                    <div class="angle"><strong>政策角度：</strong>国家医保局为什么要上这个系统？13.7亿人的"救命钱"怎么守住的？</div>
-                </div>
-                <p class="meta">👥 受众：所有参保人员、药店从业者、医疗从业者、中老年群体</p>
-                <p class="meta">📊 关键数据：13.7亿参保人纳入监控 | 浙江骗保案罚100万 | 四川虚假就医判刑3年 | 举报最高奖20万</p>
-            </div>
-
-            <div class="material star3">
-                <div class="material-header">
-                    <span class="tag red">⭐⭐⭐</span>
-                    <strong>素材3：险企年报炸裂！收益率最高6.6%，5万亿险资在A股买了这些</strong>
-                </div>
-                <p class="meta">📌 来源：五大上市险企2025年年报（4月2日集中披露）；东方财富</p>
-                <p>五大A股上市险企2025年年报集中披露，业绩炸裂：合计投资资产突破<strong>20.65万亿元</strong>，中国人寿总投资收益率高达<strong>6.09%</strong>，净利润同比大增<strong>44.1%</strong>达1540.78亿元。新华保险股票基金配置占比达<strong>21%</strong>，险资大举入市成为A股重要增量资金。</p>
-                <div class="angles">
-                    <div class="angle"><strong>数据角度：</strong>一张图看懂五大险企2025年成绩单：收益率、净利润、投资规模全对比</div>
-                    <div class="angle"><strong>揭秘角度：</strong>5万亿险资在买什么？重仓银行股+科技股+高股息，普通人跟得上吗？</div>
-                    <div class="angle"><strong>理财角度：</strong>分红险3.5%演示利率能信吗？银行现在力推保险，背后有什么门道？</div>
-                </div>
-                <p class="meta">👥 受众：股票投资者、理财用户、保险消费者、银行储户</p>
-                <p class="meta">📊 关键数据：五险企合计资产20.65万亿 | 中国人寿收益率6.09% | 净利润+44.1% | 股票配置21%</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2>⭐⭐ 重点关注素材（7条）</h2>
-
-            <div class="material star2">
-                <div class="material-header">
-                    <span class="tag orange">⭐⭐</span>
-                    <strong>素材4：第二批国补625亿来了！五一前最后一波，手机最高省1000、买房最高补3万</strong>
-                </div>
-                <p class="meta">📌 来源：商务部一季度数据（央视新闻4月4日）；国家发改委</p>
-                <p>一季度以旧换新带动消费超<strong>4331.7亿元</strong>，惠及<strong>6093.3万人次</strong>。首批625亿已消耗完毕，4月初第二批625亿正式下达，对接五一消费旺季。汽车补贴叠加购置税减半最高省近3万；手机最高补1000元。</p>
-                <p class="meta">👥 受众：城市消费者、换机群体、购车人群、购房群体</p>
-            </div>
-
-            <div class="material star2">
-                <div class="material-header">
-                    <span class="tag orange">⭐⭐</span>
-                    <strong>素材5：存款正式进入"1时代"！多家银行4月降息，你的钱还能放哪？</strong>
-                </div>
-                <p class="meta">📌 来源：吉林银行、厦门银行、财联社，2026年4月1日起</p>
-                <p>4月起多家中小银行下调存款利率，中长期定存普遍跌破2%进入"1时代"，部分银行5年期利率出现<strong>倒挂</strong>。中金预测2026年全年将有<strong>2-4万亿元存款</strong>流向非存款领域。银行理财、分红型保险成为资金新去向。</p>
-                <p class="meta">👥 受众：银行储户、理财用户、50岁以上人群</p>
-                <p class="meta">📊 关键数据：部分银行三年定存1.8% | 存款搬家预测2-4万亿 | 分红险演示利率3.5%</p>
-            </div>
-
-            <div class="material star2">
-                <div class="material-header">
-                    <span class="tag orange">⭐⭐</span>
-                    <strong>素材6：沃飞长空冲刺科创板！"成都造"eVTOL要上市，万亿低空经济赛道开启</strong>
-                </div>
-                <p class="meta">📌 来源：同花顺（4月4日）；证监会网站（4月2日辅导备案）</p>
-                <p>四川沃飞长空科技股份有限公司4月2日办理辅导备案登记，拟冲刺科创板IPO。若成功将成为A股"<strong>eVTOL第一股</strong>"，吉利科技集团是其背后股东。低空经济已被视为万亿级新赛道。</p>
-                <p class="meta">👥 受众：科技爱好者、股票投资者、航空迷</p>
-            </div>
-
-            <div class="material star2">
-                <div class="material-header">
-                    <span class="tag orange">⭐⭐</span>
-                    <strong>素材7：甘肃医保8件民生实事发布，长期护理险扩围，生育补贴提高</strong>
-                </div>
-                <p class="meta">📌 来源：新华网甘肃频道（4月4日）；甘肃省医疗保障局</p>
-                <p>4月2日甘肃省医保局发布2026年度8件医保民生实事，涵盖<strong>生育保障、长期护理险扩围、异地就医便利化、药品准入加速</strong>等。这是医保从"被动报销"向"主动服务"转型的缩影。</p>
-                <p class="meta">👥 受众：甘肃及西北地区居民、中老年家庭、育龄人群</p>
-            </div>
-
-            <div class="material star2">
-                <div class="material-header">
-                    <span class="tag orange">⭐⭐</span>
-                    <strong>素材8：武汉公积金新政！取消户籍限制，外地人可在武汉贷款买房</strong>
-                </div>
-                <p class="meta">📌 来源：武汉住房公积金管理中心（4月2日）</p>
-                <p>4月2日起武汉公积金政策重大调整：<strong>取消户籍限制</strong>，外地缴存职工可在武汉申请公积金贷款；同时调整贷款套数认定标准。公积金贷款利率3.1%，比商业贷款低约1个百分点，贷款100万30年可省利息约20万元。</p>
-                <p class="meta">👥 受众：武汉购房者、外地想在武汉买房者</p>
-            </div>
-
-            <div class="material star2">
-                <div class="material-header">
-                    <span class="tag orange">⭐⭐</span>
-                    <strong>素材9：特朗普对华关税博弈，药品征100%关税，部分制成品征25%</strong>
-                </div>
-                <p class="meta">📌 来源：华尔街见闻（4月3日）；白宫公告</p>
-                <p>白宫宣布依据《1962年贸易扩展法》第232条，对<strong>进口药品征收100%关税</strong>（120天后生效），对部分制成品征收<strong>25%关税</strong>。此前特朗普援引《国际紧急经济权力法》实施的关税政策被最高法院裁定越权，转而启用232条款。</p>
-                <p class="meta">👥 受众：进出口从业者、投资者、宏观政策关注者</p>
-            </div>
-
-            <div class="material star2">
-                <div class="material-header">
-                    <span class="tag orange">⭐⭐</span>
-                    <strong>素材10：A股4月震荡修复，机构看好科技+消费双主线</strong>
-                </div>
-                <p class="meta">📌 来源：同花顺（4月6日）；东方财富研报</p>
-                <p>2026年4月份A股整体处于"<strong>震荡修复、静待方向</strong>"的关键窗口期。4月初外部风险逐步落地，国内政策托底信号明确，机构普遍看好<strong>科技（AI/半导体）</strong>和<strong>消费（以旧换新相关）</strong>双主线。</p>
-                <p class="meta">👥 受众：A股投资者、基金持有者</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2>⭐ 补充视角素材（3条）</h2>
-
-            <div class="material star1">
-                <div class="material-header">
-                    <span class="tag green">⭐</span>
-                    <strong>素材11：4月新规扎堆落地：信用修复、未成年人保护、医疗管理、消费维权</strong>
-                </div>
-                <p class="meta">📌 来源：央视新闻（4月2日）；中国政府网</p>
-                <p>4月起轻微失信信息原则上不再公示；未成年人保护升级；消费维权7天无理由退货范围进一步扩大。这些新规共同指向：<strong>从"惩戒为主"向"修复为主"的社会治理转型</strong>。</p>
-            </div>
-
-            <div class="material star1">
-                <div class="material-header">
-                    <span class="tag green">⭐</span>
-                    <strong>素材12：养老金2026年新标准，60岁正常退休vs延迟退休，差距有多大？</strong>
-                </div>
-                <p class="meta">📌 来源：腾讯新闻（4月3日）；人社部2026年最新政策</p>
-                <p>缴费年限30年的参保者，退休后月养老金普遍比15年的高出<strong>40%-60%</strong>。延迟1年退休，每月多领<strong>100-200元</strong>，计发月数从139个月减至132个月。</p>
-            </div>
-
-            <div class="material star1">
-                <div class="material-header">
-                    <span class="tag green">⭐</span>
-                    <strong>素材13：特朗普访华前瞻：时隔9年首次访问，中美关系进入新阶段</strong>
-                </div>
-                <p class="meta">📌 来源：复旦大学中美研究中心（4月2日）；财联社</p>
-                <p>特朗普将于2026年4月对中国进行正式访问，这是时隔9年的首次访华。访问预计将涉及<strong>贸易协议、科技竞争、能源安全</strong>等核心议题。</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2>🎬 短视频脚本（3条，来自⭐⭐⭐素材）</h2>
-
-            <div class="script">
-                <h4>📹 脚本1｜长护险"第六险"落地</h4>
-                <p><strong>标题：</strong>社保"第六险"4月全国推行！失能老人护理费能报销，有人每月省4000块</p>
-                <p><strong>时长：</strong>90秒 | <strong>目标素材：</strong>素材1 ⭐⭐⭐</p>
-
-                <div class="hook">🎯 前3秒钩子：国家刚刚宣布：社保'第六险'来了！到2028年，每一个中国人都能享受这项保障——但前提是，你现在就得搞清楚！有人每月能报销4000块护理费，你符不符合条件？</div>
-
-                <div class="time-block"><span class="time">【00:00-00:15】</span> 抛出问题：4月1日，中办国办联合发文，长护险正式结束10年试点进入全国推行阶段。什么是长护险？简单说就是：你老了、病了、失去自理能力了，国家派人来照顾你，护理费由医保和长护险基金报销一部分。</div>
-                <div class="time-block"><span class="time">【00:15-00:40】</span> 核心内容①：重点来了！长护险主要面向重度失能人员（躺在床上不能自理的）和中度失能人员（有部分自理能力但需要辅助的）。申请后护理费用由长护险报销50%-80%。各地报销比例不同，具体以当地为准。</div>
-                <div class="time-block"><span class="time">【00:40-01:00】</span> 核心内容② — 真实案例：北京王阿姨的老伴5年前中风失能，卧床至今。请护工每月6000块，3年花了30万。4月起北京正式落地长护险，王阿姨申请后每月报销近4000块，自费降到2000块。5年下来，能省近20万。</div>
-                <div class="time-block"><span class="time">【01:00-01:15】</span> 政策时间表：2026年扩大试点城市；2027年更多城市纳入；2028年全国基本覆盖。时间表定了，但申请流程你要提前了解。</div>
-
-                <p>💬 结尾互动：你家有失能老人吗？评论区说说你的情况，我帮你看看能不能申请长护险。觉得有用就转发给家人，关注我，每天一条实用财经知识。</p>
-            </div>
-
-            <div class="script">
-                <h4>📹 脚本2｜医保骗保被罚</h4>
-                <p><strong>标题：</strong>4月起医保卡千万别这样用！有人被罚100万，有人判刑3年</p>
-                <p><strong>时长：</strong>95秒 | <strong>目标素材：</strong>素材2 ⭐⭐⭐</p>
-
-                <div class="hook">🎯 前3秒钩子：4月1日起，你的医保卡不是你想怎么用就怎么用了！国家刚刚判了一个案子：有人用医保卡套现，被判了3年！还有药店串换药品骗保，被罚了100万！今天这期视频，我帮你把医保新规全部搞清楚，千万别踩红线！</div>
-
-                <div class="time-block"><span class="time">【00:00-00:15】</span> 事件概述：4月1日，国家医保局扔出一颗重磅炸弹！《医疗保障基金使用监督管理条例实施细则》全国统一执行，医保智能监控系统正式上线，覆盖13.7亿参保人。</div>
-                <div class="time-block"><span class="time">【00:15-00:45】</span> 核心内容① — 三大红线别碰：第一，倒卖回流药（浙江已经有药店被罚了100万）；第二，串换药品（用医保卡买保健品谎称药品报销）；第三，虚假就医（四川已经有人因此被判刑3年）。</div>
-                <div class="time-block"><span class="time">【00:45-01:10】</span> 核心内容② — 真实案例回顾：浙江某连锁药店通过串换药品骗取医保基金，涉及金额超200万元，最终被罚款100万元并吊销医保定点资格。四川某人伪造病历、虚假就医，骗取医保基金近30万元，被判处有期徒刑3年。</div>
-                <div class="time-block"><span class="time">【01:10-01:25】</span> 核心内容③ — 普通人正确做法：职工医保个人账户可以共济给配偶、父母、子女使用，但共济不等于冒用，更不能套现！</div>
-                <div class="time-block"><span class="time">【01:25-01:35】</span> 举报奖励：发现骗保行为可以举报！国家医保局规定，举报骗保最高奖励20万元。</div>
-
-                <p>💬 结尾互动：你身边有人借医保卡给别人用吗？赶紧告诉他们！转发给家人，尤其是家里有老人的，千万别踩红线。</p>
-            </div>
-
-            <div class="script">
-                <h4>📹 脚本3｜险企年报炸裂</h4>
-                <p><strong>标题：</strong>保险公司投资收益率6.6%！比银行存款高4倍，他们到底买了什么？</p>
-                <p><strong>时长：</strong>100秒 | <strong>目标素材：</strong>素材3 ⭐⭐⭐</p>
-
-                <div class="hook">🎯 前3秒钩子：保险公司的投资收益率6.6%，比银行存款高4倍！他们到底在买什么？今天这期视频，我把五大险企年报全部扒了一遍，发现他们集体在做一件事——A股散户跟不跟得上？</div>
-
-                <div class="time-block"><span class="time">【00:00-00:15】</span> 成绩单速览：4月2日，五大上市险企年报集中披露：中国人寿净利润1540亿，同比大增44%，投资收益率6.09%；五险企合计投资资产突破20.65万亿。</div>
-                <div class="time-block"><span class="time">【00:15-00:45】</span> 核心内容① — 5万亿险资买了什么：第一，银行股（工行、建行、农行等大行，高股息、低波动）；第二，科技股（AI、半导体、新能源，新华保险股票基金配置占比高达21%）；第三，国债和债券。</div>
-                <div class="time-block"><span class="time">【00:45-01:15】</span> 核心内容② — 为什么要买股票：2025年A股表现好，险资投资收益直接反映在年报里，44%的利润增长就是这么来的。保险公司的钱是"长期钱"，可以扛波动，散户不一定能扛得住。</div>
-                <div class="time-block"><span class="time">【01:15-01:30】</span> 普通人启示：三个思路：第一，直接买保险股；第二，买重仓银行股的基金；第三，学习险资的资产配置思路——分散投资、高股息、低波动。</div>
-
-                <p>💬 结尾互动：你买过保险股吗？现在是上车机会还是风险？把你的实操经验分享到评论区。觉得有用就转发给股友，关注我，一起聊聊保险投资那些事儿。</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2>📋 素材优先级总表</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>序号</th>
-                        <th>星级</th>
-                        <th>标题</th>
-                        <th>方向</th>
-                        <th>热度</th>
-                        <th>风险</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>⭐⭐⭐</td>
-                        <td>长护险"第六险"来了！2028年全覆盖</td>
-                        <td>社保/民生</td>
-                        <td>🔥🔥🔥</td>
-                        <td class="risk-low">低</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>⭐⭐⭐</td>
-                        <td>医保卡别乱用！骗保最高罚100万，判刑3年</td>
-                        <td>社保/法律</td>
-                        <td>🔥🔥🔥</td>
-                        <td class="risk-med">中</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>⭐⭐⭐</td>
-                        <td>险企年报炸裂！收益率最高6.6%</td>
-                        <td>投资/金融</td>
-                        <td>🔥🔥🔥</td>
-                        <td class="risk-med">中</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>⭐⭐</td>
-                        <td>第二批国补625亿来了！五一前最后一波</td>
-                        <td>消费/政策</td>
-                        <td>🔥🔥</td>
-                        <td class="risk-low">低</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>⭐⭐</td>
-                        <td>存款进入"1时代"！多家银行4月降息</td>
-                        <td>银行/理财</td>
-                        <td>🔥🔥</td>
-                        <td class="risk-low">低</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>⭐⭐</td>
-                        <td>沃飞长空冲刺科创板，eVTOL万亿赛道开启</td>
-                        <td>科技/投资</td>
-                        <td>🔥🔥</td>
-                        <td class="risk-med">中</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>⭐⭐</td>
-                        <td>甘肃医保8件实事，长护险扩围</td>
-                        <td>医保/民生</td>
-                        <td>🔥</td>
-                        <td class="risk-low">低</td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>⭐⭐</td>
-                        <td>武汉公积金新政！取消户籍限制</td>
-                        <td>房地产/政策</td>
-                        <td>🔥</td>
-                        <td class="risk-low">低</td>
-                    </tr>
-                    <tr>
-                        <td>9</td>
-                        <td>⭐⭐</td>
-                        <td>特朗普对华药品征100%关税</td>
-                        <td>国际/贸易</td>
-                        <td>🔥🔥</td>
-                        <td class="risk-med">中</td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                        <td>⭐⭐</td>
-                        <td>A股4月震荡修复，机构看好科技+消费</td>
-                        <td>股市/策略</td>
-                        <td>🔥</td>
-                        <td class="risk-med">中</td>
-                    </tr>
-                    <tr>
-                        <td>11</td>
-                        <td>⭐</td>
-                        <td>4月新规扎堆落地</td>
-                        <td>民生/政策</td>
-                        <td>🔥</td>
-                        <td class="risk-low">低</td>
-                    </tr>
-                    <tr>
-                        <td>12</td>
-                        <td>⭐</td>
-                        <td>养老金2026年新标准</td>
-                        <td>社保/养老</td>
-                        <td>🔥</td>
-                        <td class="risk-low">低</td>
-                    </tr>
-                    <tr>
-                        <td>13</td>
-                        <td>⭐</td>
-                        <td>特朗普访华前瞻</td>
-                        <td>国际/外交</td>
-                        <td>🔥</td>
-                        <td class="risk-med">中</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="footer">
-            <p>本报告由AI财经短视频素材研究员自动生成 | 数据截至2026年4月6日</p>
-            <p>免责声明：本日报仅供参考，不构成投资建议。涉及具体政策以官方文件为准。</p>
-        </div>
+<!-- ===================== 封面 ===================== -->
+<div class="page no-break-after">
+  <div class="cover">
+    <div class="kicker">Daily Brief</div>
+    <h1>短视频素材精选</h1>
+    <div class="date">2026.04.06 · Monday</div>
+    <div class="stats">
+      <div class="stat"><div class="num">3</div><div class="label">参考脚本</div></div>
+      <div class="stat"><div class="num">13</div><div class="label">重点素材</div></div>
+      <div class="stat"><div class="num">3</div><div class="label">今日热点</div></div>
     </div>
+    <div class="topic-box">
+      <div class="label">Today's Focus</div>
+      <div class="text">长护险第六险 · 医保骗保被罚 · 险企年报6.6%收益 · 存款降息</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 参考脚本 ===================== -->
+<div class="page">
+  <div class="chapter">
+    <div class="ch-label">Reference Scripts</div>
+    <div class="ch-title">参考脚本</div>
+    <div class="ch-sub">视频号爆款结构 · 反转悬念文案 · 可直接二创</div>
+  </div>
+
+  <!-- 脚本1：长护险 -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">01</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s1">社保民生</span>
+        <div class="sh-title">社保"第六险"来了！失能老人护理费能报销，有人每月省4000块</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">极高热度</span>
+          <span class="meta-chip chip-type">民生解读</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">国家刚刚宣布：社保"第六险"来了！到2028年，每一个中国人都能享受这项保障——但前提是，你现在就得搞清楚！有人每月能报销4000块护理费，你符不符合条件？</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">4月1日，中办国办联合发文，宣布长期护理险正式结束10年试点，进入全国推行阶段。什么是长护险？简单说就是：你老了、病了、失去自理能力了，国家派人来照顾你，护理费由医保和长护险基金报销一部分。</div>
+      <div class="body-line">重点来了！长护险主要面向两类人：一是重度失能人员（躺在床上不能自理的）；二是中度失能人员（有部分自理能力但需要辅助的）。申请流程是：先去定点机构评估失能等级，然后选择居家护理、机构护理或社区护理其中一种，护理费用由长护险报销50%-80%。</div>
+      <div class="body-line">北京的王阿姨，她老伴5年前中风失能，卧床至今。这5年，请护工每月6000块，全自费，3年下来花了30万。4月起，北京正式落地长护险，王阿姨申请后每月报销近4000块，自费降到2000块。5年下来，能省近20万。</div>
+      <div class="body-line">2026年扩大试点城市；2027年更多城市纳入；2028年全国基本覆盖。时间表定了，但申请流程你要提前了解，别等到需要的时候手忙脚乱。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你家有失能老人吗？或者你担心自己老了怎么办？评论区说说你的情况，我帮你看看能不能申请长护险。觉得有用就转发给家人，关注我，每天一条实用财经知识。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"第六险来了！" + 社保卡图标 + 失能护理场景；配图：长护险覆盖人群数据（1.9亿）+ 报销比例图</div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+  <!-- 脚本2：医保骗保 -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">02</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s1">社保法律</span>
+        <div class="sh-title">4月起医保卡千万别这样用！有人被罚100万，有人判刑3年</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">极高热度</span>
+          <span class="meta-chip chip-type">警示解读</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">4月1日起，你的医保卡不是你想怎么用就怎么用了！国家刚刚判了一个案子：有人用医保卡套现，被判了3年！还有药店串换药品骗保，被罚了100万！今天这期视频，我帮你把医保新规全部搞清楚，千万别踩红线！</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">4月1日，国家医保局扔出一颗重磅炸弹！《医疗保障基金使用监督管理条例实施细则》全国统一执行，医保智能监控系统正式上线，覆盖13.7亿参保人。这意味着你医保卡上的每一笔钱，国家都能实时看到。</div>
+      <div class="body-line">第一，倒卖回流药——浙江某连锁药店通过串换药品骗取医保基金，涉及金额超200万元，最终被罚款100万元并吊销医保定点资格。第二，串换药品——用医保卡买保健品谎称药品报销。第三，虚假就医——四川某人伪造病历、虚假就医，骗取医保基金近30万元，被判处有期徒刑3年。</div>
+      <div class="body-line">有人问：我医保卡能给家人用吗？2026年新规明确：职工医保个人账户可以共济给配偶、父母、子女使用，用于他们在定点医药机构的医疗费用。但注意：共济不等于冒用，更不能套现！</div>
+      <div class="body-line">最后提醒：发现骗保行为可以举报！国家医保局规定，举报骗保最高奖励20万元。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你身边有人借医保卡给别人用吗？赶紧告诉他们！转发给家人，尤其是家里有老人的，千万别踩红线。还有什么问题？评论区告诉我。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"4月1日起！医保卡新规来了" + 医保卡图标 + 红色警告标识；配图：三大红线图标 + 浙江药店被罚100万案例</div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+  <!-- 脚本3：险企年报 -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">03</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s2">金融保险</span>
+        <div class="sh-title">保险公司投资收益率6.6%！比银行存款高4倍，他们到底买了什么？</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">高热度</span>
+          <span class="meta-chip chip-type">投资解读</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">保险公司的投资收益率6.6%，比银行存款高4倍！他们到底在买什么？今天这期视频，我把五大险企年报全部扒了一遍，发现他们集体在做一件事——A股散户跟不跟得上？</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">4月2日，五大上市险企年报集中披露：中国人寿净利润1540亿，同比大增44%，投资收益率6.09%；中国平安利润也创新高；五险企合计投资资产突破20.65万亿。这个数字什么概念？相当于全国14亿人每人贡献了1.5万元的保险资金。</div>
+      <div class="body-line">险资的钱流向三个方向：第一，银行股——工行、建行、农行等大行，因为高股息、低波动，是险资的压舱石；第二，科技股——AI、半导体、新能源，2025年险资大幅加码权益投资，新华保险股票基金配置占比高达21%；第三，国债和债券——安全性资产打底。</div>
+      <div class="body-line">为什么险企突然大举入市？因为2025年A股表现好！险资的投资收益直接反映在年报里，44%的利润增长就是这么来的。但要注意：保险公司的钱是"长期钱"，他们可以扛波动，散户不一定能扛得住。</div>
+      <div class="body-line">普通人能跟吗？有三个思路：第一，直接买保险股（但要注意估值）；第二，买重仓银行股的基金；第三，学习险资的资产配置思路——分散投资、高股息、低波动。记住：保险公司的钱有时间成本和监管要求，普通散户不要盲目模仿。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你买过保险股吗？现在是上车机会还是风险？把你的实操经验分享到评论区。觉得有用就转发给股友，关注我，一起聊聊保险投资那些事儿。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"险企年报炸裂！" + K线图图标 + 收益率数字；配图：五大险企收益率对比柱状图</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 重点关注 ===================== -->
+<div class="page">
+  <div class="chapter">
+    <div class="ch-label">Key Highlights</div>
+    <div class="ch-title">重点关注</div>
+    <div class="ch-sub">13条素材线索 · 含2条脚本级内容 · 多角度切入</div>
+  </div>
+
+  <!-- 素材4：以旧换新 → 素材卡片格式（★★★） -->
+  <div class="mat-script-card ss3">
+    <div class="mat-head">
+      <div class="mat-head-row">
+        <div class="mat-title">第二批国补625亿来了！五一前最后一波，手机最高省1000、买房最高补3万</div>
+        <div class="mat-stars"><span class="star-gold">★★★</span></div>
+      </div>
+      <div class="mat-tag-row">
+        <span class="mat-tag" style="background:rgba(231,76,60,0.1);color:#c0392b;">消费政策</span>
+        <span class="mat-tag" style="background:#f5f4f0;color:#888;">高热度</span>
+      </div>
+    </div>
+    <div class="mat-body">
+      <div class="hook">
+        <div class="hook-label">前3秒钩子</div>
+        <div class="hook-text">国家刚宣布：4月份625亿现金补贴到账！五一之前最后一波，买手机最高省1000，买车最高补2万！今天这期视频，我帮你把补贴标准全部搞清楚，错过这波——少则亏几百，多则亏2万！</div>
+      </div>
+      <div class="body-lines">
+        <div class="body-line">商务部刚刚公布数据：今年一季度，以旧换新已经带动消费超过4331亿元，惠及6093万人。首批625亿补贴资金已消耗完毕，4月初第二批625亿正式下达，精准对准五一消费旺季。</div>
+        <div class="body-line">补贴清单说清楚：手机平板智能手表最高补贴1000元；冰箱洗衣机空调最高补贴2000元；汽车以旧换新最高补贴2万元；电动自行车补贴500-800元。各地申领细则不同，部分城市有额外叠加补贴。</div>
+        <div class="body-line">怎么才能拿到最多？第一，先查当地补贴清单；第二，旧机别贱卖，以旧换新时旧机残值可以叠加补贴；第三，线上线下同步对比。补贴名额有限，先到先得！</div>
+      </div>
+      <div class="cta">
+        <div class="cta-label">互动引导</div>
+        <div class="cta-text">你打算买什么？评论区告诉我，我帮你算算能省多少！觉得有用就转发，五一用得上！</div>
+      </div>
+      <div class="cover-tip">
+        <div class="cover-tip-label">封面建议</div>
+        <div class="cover-tip-text">大字"625亿4月到账！"+手机/汽车图标+倒计时元素；配图：各品类补贴金额对比清单</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 素材5：存款降息 → 素材卡片格式（★★★） -->
+  <div class="mat-script-card ss3">
+    <div class="mat-head">
+      <div class="mat-head-row">
+        <div class="mat-title">存款正式进入"1时代"！多家银行4月降息，你的钱还能放哪？</div>
+        <div class="mat-stars"><span class="star-gold">★★★</span></div>
+      </div>
+      <div class="mat-tag-row">
+        <span class="mat-tag" style="background:rgba(52,152,219,0.1);color:#2980b9;">银行理财</span>
+        <span class="mat-tag" style="background:#f5f4f0;color:#888;">高热度</span>
+      </div>
+    </div>
+    <div class="mat-body">
+      <div class="hook">
+        <div class="hook-label">前3秒钩子</div>
+        <div class="hook-text">存100万一年少赚4000块！存款利率正式跌破2%，进入"1时代"。多家银行4月集体降息，你存在银行里的钱，正在悄悄缩水！</div>
+      </div>
+      <div class="body-lines">
+        <div class="body-line">4月起，吉林银行、厦门银行等多家中小银行下调存款利率，中长期定存普遍跌破2%进入"1时代"。部分银行5年期利率甚至出现倒挂——比3年期还低，这在银行业内极为罕见。</div>
+        <div class="body-line">中金公司预测，2026年全年将有2-4万亿元存款流向非存款领域。钱会去哪里？两个方向：一是银行理财R2/R3级"固收+"产品；二是分红型保险，重回银保渠道C位。</div>
+        <div class="body-line">分红险3.5%演示利率很诱人，但注意：这是演示利率，不是保证收益！保险公司模拟的预期收益，实际可能为零。购买前一定要仔细阅读保险条款，别被销售误导。</div>
+      </div>
+      <div class="cta">
+        <div class="cta-label">互动引导</div>
+        <div class="cta-text">你的钱放哪了？评论区说说，我在下一期帮你分析最适合你的理财方式。</div>
+      </div>
+      <div class="cover-tip">
+        <div class="cover-tip-label">封面建议</div>
+        <div class="cover-tip-text">大字"存款进入1时代！"+银行图标+下降箭头；配图：各银行利率对比表+存款搬家指南</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ★★★ 必做素材 1-3 -->
+<div class="page">
+  <!-- 素材1 -->
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">长护险"第六险"来了！2028年全覆盖，但90%的人还不知道怎么申请</div>
+      <div class="mat-stars"><span class="star-gold">★★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">中办、国办联合发文，长护险结束10年试点正式全国推行。4月1日起全国统一失能评估标准实施，2028年底前实现制度全覆盖。目前覆盖超1.9亿人，累计基金支出超850亿元</div></div>
+    <div class="mat-row"><div class="mat-key">⚡ 争议</div><div class="mat-val">调查显示90%的人还不知道自己是否符合条件、如何申请。申请流程复杂，各地标准不一</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">实用角度：长护险谁能申请？怎么申请？报销比例多少？故事角度：北京王阿姨每月省4000的真实案例</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">40-60岁人群、家里有老人者、养老规划者、保险从业者</div></div>
+    <div class="mat-source">📊 来源：国新办新闻发布会（3月26日）；国家医保局</div>
+  </div>
+
+  <!-- 素材2 -->
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">4月起医保卡别乱用！有人骗保被罚100万，有人直接判刑3年</div>
+      <div class="mat-stars"><span class="star-gold">★★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">医保智能监控系统全国联网正式落地，三大骗保行为被重点打击：倒卖回流药（浙江某药店被罚100万）、串换药品、虚假就医（四川某人被判刑3年）。13.7亿参保人全部纳入实时监控</div></div>
+    <div class="mat-row"><div class="mat-key">⚡ 争议</div><div class="mat-val">从"事后追责"升级为"事前预防+实时监控"，正常共济与骗保的边界在哪里？</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">警示角度：三大红线千万别碰。实用角度：医保卡可以给家人用吗？举报骗保最高奖励20万元</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">所有参保人员、药店从业者、医疗从业者、中老年群体</div></div>
+    <div class="mat-source">📊 来源：国家医保局令第7号（4月1日起）；央视新闻4月2日</div>
+  </div>
+
+  <!-- 素材3 -->
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">险企年报炸裂！收益率最高6.6%，5万亿险资在A股买了这些</div>
+      <div class="mat-stars"><span class="star-gold">★★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">五大A股上市险企2025年年报集中披露，合计投资资产突破20.65万亿元。中国人寿收益率6.09%，净利润同比大增44.1%达1540.78亿元。新华保险股票基金配置占比达21%</div></div>
+    <div class="mat-row"><div class="mat-key">⚡ 争议</div><div class="mat-val">险资大举入市是托底信号还是另有逻辑？分红险3.5%演示利率能信吗？</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">数据角度：五大险企成绩单全对比。揭秘角度：5万亿险资买了什么？理财角度：分红险不是存款</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">股票投资者、理财用户、保险消费者、银行储户</div></div>
+    <div class="mat-source">📊 来源：五大上市险企2025年年报（4月2日）；东方财富</div>
+  </div>
+</div>
+
+<!-- ★★ 重点关注 4-6 -->
+<div class="page">
+  <!-- 素材6 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">沃飞长空冲刺科创板！"成都造"eVTOL要上市，万亿低空经济赛道开启</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">四川沃飞长空科技股份有限公司4月2日办理辅导备案登记，拟冲刺科创板IPO。若成功将成为A股"eVTOL第一股"，吉利科技集团是其背后股东</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">低空经济已被视为万亿级新赛道，亿航智能此前订单爆发，固态电池+碳纤维技术突破推动城际通勤革命</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">概念角度：什么是eVTOL？产业链角度：哪些A股公司已布局？投资角度：IPO值不值得打新？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">科技爱好者、股票投资者、航空迷</div></div>
+    <div class="mat-source">📊 来源：同花顺（4月4日）；证监会网站（4月2日）</div>
+  </div>
+
+  <!-- 素材7 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">甘肃医保8件民生实事发布，长期护理险扩围，生育补贴提高</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">4月2日甘肃省医保局发布2026年度8件医保民生实事，涵盖生育保障、长期护理险扩围、异地就医便利化、药品准入加速等</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">长期护理险试点扩围意味着甘肃失能老人护理费用有望由医保部分覆盖</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">民生角度：甘肃人注意！2026年医保8件实事长护险可以申请了。对比角度：各省2026年医保改革哪家强？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">甘肃及西北地区居民、中老年家庭、育龄人群</div></div>
+    <div class="mat-source">📊 来源：新华网甘肃频道（4月4日）；甘肃省医保局</div>
+  </div>
+
+  <!-- 素材8 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">武汉公积金新政！取消户籍限制，外地人可在武汉贷款买房</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">4月2日起武汉公积金政策重大调整：取消户籍限制，外地缴存职工可在武汉申请公积金贷款；调整贷款套数认定标准，更利好刚需</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">公积金贷款利率3.1%，比商业贷款低约1个百分点，贷款100万30年可省利息约20万元</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">实用角度：外地人在武汉能用公积金贷款了，附申请条件。算账角度：公积金贷款vs商业贷款差多少利息？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">武汉购房者、外地想在武汉买房者</div></div>
+    <div class="mat-source">📊 来源：武汉住房公积金管理中心（4月2日）</div>
+  </div>
+</div>
+
+<!-- ★★ 重点关注 7-10 -->
+<div class="page">
+  <!-- 素材9 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">特朗普对华关税博弈，药品征100%关税，部分制成品征25%</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">白宫宣布依据《1962年贸易扩展法》第232条，对进口药品征收100%关税（120天后生效），对部分制成品征收25%关税</div></div>
+    <div class="mat-row"><div class="mat-key">⚡ 争议</div><div class="mat-val">此前特朗普援引《国际紧急经济权力法》实施的关税政策被最高法院裁定越权，转而启用232条款</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">影响角度：对中国人买药有什么影响？时间线角度：2017-2026年关税博弈全貌</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">进出口从业者、投资者、宏观政策关注者</div></div>
+    <div class="mat-source">📊 来源：华尔街见闻（4月3日）；白宫公告</div>
+  </div>
+
+  <!-- 素材10 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">A股4月震荡修复，机构看好科技+消费双主线</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">2026年4月份A股整体处于"震荡修复、静待方向"的关键窗口期。外部风险逐步落地，机构普遍看好科技（AI/半导体）和消费（以旧换新相关）双主线</div></div>
+    <div class="mat-row"><div class="mat-key">⚡ 争议</div><div class="mat-val">4月能否突破震荡格局？外部风险（中美贸易谈判、特朗普关税）走向</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">策略角度：4月A股操作指南。板块角度：以旧换新+科技双重催化</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">A股投资者、基金持有者</div></div>
+    <div class="mat-source">📊 来源：同花顺（4月6日）；东方财富研报</div>
+  </div>
+
+  <!-- 素材11 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">4月新规扎堆落地：信用修复、未成年人保护、医疗管理、消费维权</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">4月起轻微失信信息原则上不再公示；未成年人保护升级；消费维权7天无理由退货范围进一步扩大</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">从"惩戒为主"向"修复为主"的社会治理转型</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">实用角度：4月起这些新规与你息息相关。解读角度：国家为什么推动信用修复机制？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">全体网民、消费者、失信主体（待修复群体）</div></div>
+    <div class="mat-source">📊 来源：央视新闻（4月2日）；中国政府网</div>
+  </div>
+
+  <!-- 素材12 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">养老金2026年新标准，60岁正常退休vs延迟退休，差距有多大？</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">缴费年限30年的参保者，退休后月养老金普遍比15年的高出40%-60%。延迟1年退休，每月多领100-200元，计发月数从139个月减至132个月</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">对比角度：60岁正常退vs延迟退休真实案例。规划角度：2026年办理退休4大变化</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">临近退休人员、70后80后、灵活就业参保者</div></div>
+    <div class="mat-source">📊 来源：腾讯新闻（4月3日）；人社部2026年最新政策</div>
+  </div>
+
+  <!-- 素材13 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">特朗普访华前瞻：时隔9年首次访问，中美关系进入新阶段</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">特朗普将于2026年4月对中国进行正式访问，这是时隔9年的首次访华。访问预计将涉及贸易协议、科技竞争、能源安全等核心议题</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">外交角度：这次谈什么？对A股有什么影响？历史角度：中美关税时间线看贸易博弈</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">宏观政策关注者、A股投资者、外交爱好者</div></div>
+    <div class="mat-source">📊 来源：复旦大学中美研究中心（4月2日）；财联社</div>
+  </div>
+</div>
+
+<!-- ===================== 底部 ===================== -->
+<div class="page no-break-after">
+  <div class="page-footer">
+    <div class="brand">素材日报</div>
+    <div class="sub">每日 12:00 自动生成 · 仅供内容参考</div>
+  </div>
+</div>
+
 </body>
 </html>
