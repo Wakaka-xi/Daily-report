@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>财经素材日报 | 2026-04-05</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;background:#f0f2f5;color:#1a1a1a;max-width:600px;margin:0 auto;padding-bottom:60px}
+
+/* Header */
+.header{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);color:#fff;padding:18px 16px 14px;border-radius:0 0 20px 20px}
+.header-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.header-title{font-size:16px;font-weight:700;letter-spacing:1px}
+.header-date{font-size:11px;opacity:.7}
+.header-sub{font-size:12px;opacity:.85;margin-bottom:14px}
+
+/* Stats row */
+.stats-row{display:flex;gap:6px;flex-wrap:wrap}
+.stat-chip{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:600}
+.s-red{background:rgba(244,67,54,.15);color:#ff6b6b;border:1px solid rgba(244,67,54,.3)}
+.s-orange{background:rgba(255,152,0,.15);color:#ffb347;border:1px solid rgba(255,152,0,.3)}
+.s-blue{background:rgba(33,150,243,.15);color:#64b5f6;border:1px solid rgba(33,150,243,.3)}
+.s-green{background:rgba(76,175,80,.15);color:#81c784;border:1px solid rgba(76,175,80,.3)}
+.s-purple{background:rgba(156,39,176,.15);color:#ce93d8;border:1px solid rgba(156,39,176,.3)}
+
+/* Section titles */
+.section-title{display:flex;align-items:center;gap:8px;padding:16px 14px 8px;font-size:14px;font-weight:700;color:#1a1a2e}
+.section-title .icon{font-size:16px}
+.dot-red{width:4px;height:4px;background:#ff5252;border-radius:50%;display:inline-block}
+.dot-orange{width:4px;height:4px;background:#ff9800;border-radius:50%;display:inline-block}
+.dot-blue{width:4px;height:4px;background:#2196f3;border-radius:50%;display:inline-block}
+.dot-green{width:4px;height:4px;background:#4caf50;border-radius:50%;display:inline-block}
+.dot-purple{width:4px;height:4px;background:#9c27b0;border-radius:50%;display:inline-block}
+
+/* Script cards */
+.script-card{background:#fff;border-radius:14px;margin:10px 14px;padding:16px;box-shadow:0 2px 12px rgba(0,0,0,.08);overflow:hidden}
+.card-tag{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:10px;font-size:10px;font-weight:700;margin-bottom:8px}
+.tag-finance{background:#e3f2fd;color:#1565c0}
+.tag-shebao{background:#fce4ec;color:#c62828}
+.tag-policy{background:#fff3e0;color:#e65100}
+.tag-stock{background:#f3e5f5;color:#6a1b9a}
+.tag-insurance{background:#e8f5e9;color:#2e7d32}
+.script-title{font-size:14px;font-weight:700;color:#1a1a2e;margin-bottom:10px;line-height:1.4}
+.hook{background:linear-gradient(135deg,#fff9f0 0%,#fff3e0 100%);border-left:3px solid #ff9800;border-radius:10px;padding:10px 12px;margin-bottom:12px}
+.hook-label{font-size:10px;font-weight:700;color:#ff9800;margin-bottom:4px;letter-spacing:.5px}
+.hook-text{font-size:13px;color:#333;line-height:1.6}
+.block{display:flex;gap:8px;margin-bottom:10px;padding-left:2px}
+.block-time{font-size:10px;font-weight:700;color:#fff;background:#90a4ae;border-radius:6px;padding:2px 6px;white-space:nowrap;height:fit-content;flex-shrink:0}
+.block-time.orange{background:#ff9800}
+.block-time.blue{background:#2196f3}
+.block-time.green{background:#4caf50}
+.block-time.purple{background:#9c27b0}
+.block-time.red{background:#e53935}
+.block-body{font-size:12.5px;color:#444;line-height:1.65;flex:1}
+.cta{background:#fffde7;border:1px solid #ffd54f;border-radius:10px;padding:9px 12px;margin-top:10px}
+.cta-label{font-size:10px;font-weight:700;color:#f9a825;margin-bottom:4px}
+.cta-text{font-size:12.5px;color:#555;line-height:1.6}
+.peiyin{background:#f5f5f5;border-radius:8px;padding:8px 10px;margin-top:8px}
+.peiyin-label{font-size:10px;color:#888;margin-bottom:3px}
+.peiyin-text{font-size:12px;color:#666;line-height:1.5}
+
+/* Star 3 list */
+.mat-list{padding:0 14px;list-style:none}
+.mat-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid #f0f0f0;position:relative}
+.mat-item:last-child{border-bottom:none}
+.mat-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.mat-num{font-size:13px;font-weight:700;color:#1a1a2e;flex-shrink:0;width:18px;text-align:center}
+.mat-content{flex:1}
+.mat-title{font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:3px;line-height:1.4}
+.mat-meta{font-size:11px;color:#888;margin-bottom:3px}
+.mat-desc{font-size:12px;color:#555;line-height:1.55;margin-bottom:3px}
+.mat-tags{display:flex;flex-wrap:wrap;gap:4px}
+.mat-tag{display:inline-block;padding:2px 7px;border-radius:8px;font-size:10px;font-weight:600}
+.t-red{background:#ffebee;color:#c62828}
+.t-orange{background:#fff3e0;color:#e65100}
+.t-blue{background:#e3f2fd;color:#1565c0}
+.t-green{background:#e8f5e9;color:#2e7d32}
+.t-purple{background:#f3e5f5;color:#6a1b9a}
+.t-gray{background:#f5f5f5;color:#666}
+
+/* Risk */
+.risk-hint{font-size:10px;color:#999;margin-top:4px;font-style:italic}
+
+/* Stars in list */
+.star{display:inline-block;color:#ff9800;font-size:10px;margin-right:2px}
+
+/* Divider */
+.divider{height:1px;background:#eee;margin:4px 14px}
+
+/* Footer */
+.footer{text-align:center;padding:20px 14px 10px;font-size:11px;color:#aaa}
+.footer-brand{font-size:13px;font-weight:700;color:#1a1a2e;margin-bottom:4px}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-top">
+    <span class="header-title">📊 财经短视频素材日报</span>
+    <span class="header-date">2026.04.05 周日</span>
+  </div>
+  <div class="header-sub">每天 12:00 自动更新 · 博主教你做财经短视频</div>
+  <div class="stats-row">
+    <span class="stat-chip s-red">🔥 3条必做</span>
+    <span class="stat-chip s-orange">⭐ 7条关注</span>
+    <span class="stat-chip s-blue">📌 3条补充</span>
+    <span class="stat-chip s-green">💰 消费·医保</span>
+    <span class="stat-chip s-purple">📈 A股·科技</span>
+  </div>
+</div>
+
+<!-- TOP1 Script -->
+<div class="section-title">
+  <span class="dot-red"></span> TOP1 必做脚本 · 医保新规
+</div>
+<div class="script-card">
+  <div class="card-tag tag-shebao">🏥 社保·民生</div>
+  <div class="script-title">4月起医保卡别乱用！13.7亿人新规来了，做错涉嫌违法</div>
+  <div class="hook">
+    <div class="hook-label">🎯 前3秒钩子</div>
+    <div class="hook-text">4月1日起，你的医保卡不是你想怎么用就怎么用了！13.7亿参保人全部纳入实时监控，有5件事千万别做，做错了——轻则罚款，重则涉嫌违法！</div>
+  </div>
+  <div class="block">
+    <div class="block-time orange">00-10s</div>
+    <div class="block-body"><strong>制造焦虑：</strong>4月1日，国家医保局扔出重磅炸弹！《医疗保障基金使用监督管理条例实施细则》全国统一执行，医保卡上的每一笔钱，国家都能实时看到。</div>
+  </div>
+  <div class="block">
+    <div class="block-time red">10-35s</div>
+    <div class="block-body"><strong>三大红线：</strong>①倒卖回流药=骗保；②串换药品（用医保买保健品）=造假；③虚假就医套取医保=诈骗。这三条，以前是灰色地带，现在明确违法！</div>
+  </div>
+  <div class="block">
+    <div class="block-time green">35-60s</div>
+    <div class="block-body"><strong>慢病患者利好：</strong>高血压、糖尿病、心脏病三类慢病认定流程简化、报销比例提高、异地就医直接结算，4月起不用再跑断腿。</div>
+  </div>
+  <div class="block">
+    <div class="block-time blue">60-75s</div>
+    <div class="block-body"><strong>智能监控：</strong>覆盖13.7亿人的监控系统已上线，异常购药、异常就医自动预警。正常用药不用担心，但别动歪脑筋。</div>
+  </div>
+  <div class="cta">
+    <div class="cta-label">💬 互动引导</div>
+    <div class="cta-text">医保卡是救命钱，不是套现工具！转发给家人，尤其是有老人的。评论区告诉我还想了解什么？</div>
+  </div>
+  <div class="peiyin">
+    <div class="peiyin-label">🖼 封面建议</div>
+    <div class="peiyin-text">大字"4月1日起！医保卡新规来了"+医保卡图标+红色警告标识；配图：国家医保局公告截图</div>
+  </div>
+</div>
+
+<!-- TOP2 Script -->
+<div class="section-title">
+  <span class="dot-orange"></span> TOP2 必做脚本 · 以旧换新
+</div>
+<div class="script-card">
+  <div class="card-tag tag-policy">💰 消费·政策</div>
+  <div class="script-title">625亿国家补贴4月开抢！五一前最后一波，手机最高省1000，买车最高补2万</div>
+  <div class="hook">
+    <div class="hook-label">🎯 前3秒钩子</div>
+    <div class="hook-text">国家刚宣布：4月份625亿现金补贴到账！五一之前最后一波，买手机最高省1000，买车最高补2万！错过这波——少则亏几百，多则亏2万！</div>
+  </div>
+  <div class="block">
+    <div class="block-time orange">00-12s</div>
+    <div class="block-body"><strong>政策背景：</strong>商务部数据：今年一季度以旧换新带动消费<strong>超4331亿元</strong>，惠及<strong>6093万人</strong>。现在第二批625亿补贴正式下达，精准对准五一消费旺季！</div>
+  </div>
+  <div class="block">
+    <div class="block-time blue">12-40s</div>
+    <div class="block-body"><strong>补贴标准：</strong>📱手机平板手表最高<strong>1000元</strong>；�冰箱洗衣机空调最高<strong>2000元</strong>；🚗汽车以旧换新最高<strong>2万元</strong>；🛵电动自行车<strong>500-800元</strong>。各地细则不同，部分城市有叠加补贴！</div>
+  </div>
+  <div class="block">
+    <div class="block-time green">40-65s</div>
+    <div class="block-body"><strong>申领技巧：</strong>①先查当地补贴清单；②旧机别贱卖，残值可叠加；③线上线下同步比价；④注意"先涨价再补贴"套路，付款前截图比价！</div>
+  </div>
+  <div class="block">
+    <div class="block-time purple">65-78s</div>
+    <div class="block-body"><strong>紧迫提示：</strong>补贴名额有限，先到先得。五一前是窗口期，现在不抢五一后悔！</div>
+  </div>
+  <div class="cta">
+    <div class="cta-label">💬 互动引导</div>
+    <div class="cta-text">你打算买什么？评论区告诉我，我帮你算算能省多少！觉得有用就转发，五一用得上！</div>
+  </div>
+  <div class="peiyin">
+    <div class="peiyin-label">🖼 封面建议</div>
+    <div class="peiyin-text">大字"625亿4月到账！"+手机/汽车图标+倒计时元素；配图：各品类补贴金额对比表格</div>
+  </div>
+</div>
+
+<!-- TOP3 Script -->
+<div class="section-title">
+  <span class="dot-purple"></span> TOP3 必做脚本 · A股清剿
+</div>
+<div class="script-card">
+  <div class="card-tag tag-stock">📈 股市·监管</div>
+  <div class="script-title">证监会周末不休息！10家公司被查，散户如何识别即将ST的股票？</div>
+  <div class="hook">
+    <div class="hook-label">🎯 前3秒钩子</div>
+    <div class="hook-text">4月3日周五晚上，证监会一口气发了10家公司的处罚通知！有人财务造假将被ST，有人直接退市！散户踩雷的人周一醒来——账户可能直接腰斩！</div>
+  </div>
+  <div class="block">
+    <div class="block-time orange">00-15s</div>
+    <div class="block-body"><strong>事件概述：</strong>4月3日晚证监会披露：<strong>10家</strong>上市公司同一天被查被罚，其中<strong>4家</strong>被正式立案调查。*ST观典因信披违规被立案，保壳之路再添变数。周末集中披露10家，历史罕见！</div>
+  </div>
+  <div class="block">
+    <div class="block-time red">15-45s</div>
+    <div class="block-body"><strong>典型案例：</strong>*ST长药连续3年财务造假，被证监会责令改正，最终被强制退市。3月20日已进退市整理期——进去10块钱，出来可能只剩几毛钱！</div>
+  </div>
+  <div class="block">
+    <div class="block-time blue">45-75s</div>
+    <div class="block-body"><strong>三个排雷信号：</strong>①连续2年被出具非标审计意见；②频繁更换会计师事务所；③业绩突然变脸+存货/应收大增。符合任意一条多留心眼！</div>
+  </div>
+  <div class="block">
+    <div class="block-time purple">75-88s</div>
+    <div class="block-body"><strong>监管信号：</strong>2026年以来A股退市加速，财务造假类退市驶入快车道。监管层态度明确：<strong>应退尽退</strong>！</div>
+  </div>
+  <div class="cta">
+    <div class="cta-label">💬 互动引导</div>
+    <div class="cta-text">你手里有股票吗？评论区说出代码，我帮你看看有没有风险！（仅供参考，不构成投资建议）</div>
+  </div>
+  <div class="peiyin">
+    <div class="peiyin-label">🖼 封面建议</div>
+    <div class="peiyin-text">大字"证监会周末出手！"+警告图标+数字10突出；配图：ST/退市风险三个信号清单</div>
+  </div>
+</div>
+
+<!-- ⭐⭐⭐ Materials List -->
+<div class="section-title">
+  <span class="dot-red"></span> ⭐⭐⭐ 必做素材（3条）
+</div>
+<ul class="mat-list">
+  <li class="mat-item">
+    <span class="mat-dot" style="background:#ff5252"></span>
+    <div class="mat-content">
+      <div class="mat-title"><span class="star">⭐⭐⭐</span> 医保新规4月1日全国落地，13.7亿人就医规则改变</div>
+      <div class="mat-meta">📅 央视新闻 4月2日 | 👁 社保/民生 | 🔥🔥🔥热度</div>
+      <div class="mat-desc">国家医保局第7号令：倒卖回流药/串换药品/虚假就医三大行为被重点打击，慢病患者认定简化+异地结算加速。智能监控覆盖13.7亿参保人。</div>
+      <div class="mat-tags">
+        <span class="mat-tag t-red">🏥 医保</span>
+        <span class="mat-tag t-orange">13.7亿人</span>
+        <span class="mat-tag t-blue">智能监控</span>
+      </div>
+    </div>
+  </li>
+  <li class="mat-item">
+    <span class="mat-dot" style="background:#ff9800"></span>
+    <div class="mat-content">
+      <div class="mat-title"><span class="star">⭐⭐⭐</span> 以旧换新第二批625亿来了，五一前最后一波</div>
+      <div class="mat-meta">📅 商务部/央视新闻 4月4日 | 👁 消费/政策 | 🔥🔥🔥热度</div>
+      <div class="mat-desc">一季度带动消费<strong>4331.7亿元</strong>，惠及<strong>6093万人次</strong>。4月初第二批625亿下达，精准对接五一旺季。手机最高省1000，汽车最高补2万，先到先得！</div>
+      <div class="mat-tags">
+        <span class="mat-tag t-orange">💰 625亿</span>
+        <span class="mat-tag t-red">消费补贴</span>
+        <span class="mat-tag t-blue">五一窗口</span>
+      </div>
+    </div>
+  </li>
+  <li class="mat-item">
+    <span class="mat-dot" style="background:#9c27b0"></span>
+    <div class="mat-content">
+      <div class="mat-title"><span class="star">⭐⭐⭐</span> A股大雷！财务造假10家公司被查，证监会周末不休息</div>
+      <div class="mat-meta">📅 东方财富 4月4日 | 👁 股市/监管 | 🔥🔥🔥热度</div>
+      <div class="mat-desc">4月3日晚10家上市公司被查被罚，4家被立案。*ST长药连续3年造假，已被强制退市（3月20日进退市整理期）。*ST观典涉嫌信披违规被立案。A股"应退尽退"风暴持续。</div>
+      <div class="mat-tags">
+        <span class="mat-tag t-red">ST/退市</span>
+        <span class="mat-tag t-purple">财务造假</span>
+        <span class="mat-tag t-blue">监管风暴</span>
+      </div>
+    </div>
+  </li>
+</ul>
+
+<!-- ⭐⭐ Materials List -->
+<div class="section-title">
+  <span class="dot-orange"></span> ⭐⭐ 重点关注素材（7条）
+</div>
+<ul class="mat-list">
+  <li class="mat-item">
+    <span class="mat-dot" style="background:#ff9800"></span>
+    <div class="mat-content">
+      <div class="mat-title"><span class="star">⭐⭐</span> 养老金2026年新标准，60岁正常退休vs延迟退休差距对比</div>
+      <div class="mat-meta">📅 腾讯新闻 4月3日 | 👁 社保/养老 | 🔥🔥热度</div>
+      <div class="mat-desc">延迟1年退休每月多领<strong>100-200元</strong>；缴费30年比15年养老金高<strong>40%-60%</strong>。弹性退休政策下三类人不允许延迟。</div>
+      <div class="mat-tags">
+        <span class="mat-tag t-blue">养老金</span>
+        <span class="mat-tag t-green">弹性退休</span>
+      </div>
+    </div>
+  </li>
+  <li class="mat-item">
+    <span class="mat-dot" style="background:#4caf50"></span>
+    <div class="mat-content">
+      <div class="mat-title"><span class="star">⭐⭐</span> 保险业年报亮眼，五家上市险企净利润增22.4%，险资万亿买A股</div>
+      <div class="mat-meta">📅 《财经》杂志 4月2日 | 👁 金融/保险 | 🔥🔥热度</div>
+      <div class="mat-desc">中国平安/中国人寿/中国人保/中国太保/新华保险五家险企归母净利润合计大增<strong>22.4%</strong>，险资股票投资增加逾<strong>1万亿元</strong>。分红险转型+银保渠道崛起。</div>
+      <div class="mat-tags">
+        <span class="mat-tag t-green">保险股</span>
+        <span class="mat-tag t-purple">万亿险资</span>
+      </div>
+    </div>
+  </li>
+  <li class="mat-item">
+    <span class="mat-dot" style="background:#2196f3"></span>
+    <div class="mat-content">
+      <div class="mat-title"><span class="star">⭐⭐</span> 沃飞长空冲刺科创板，eVTOL"飞行汽车"万亿赛道开启</div>
+      <div class="mat-meta">📅 同花顺 4月4日 | 👁 科技/投资 | 🔥🔥热度</div>
+      <div class="mat-desc">沃飞长空4月2日启动科创板辅导备案，拟冲刺A股"eVTOL第一股"，吉利科技集团背景。亿航智能订单爆发，低空经济万亿市场加速落地。</div>
+      <div class="mat-tags">
+        <span class="mat-tag t-blue">eVTOL</span>
+        <span class="mat-tag t-purple">科创板</span>
+      </div>
+    </div>
+  </li>
+  <li class="mat-item">
+    <span class="mat-dot" style="background:#ff9800"></span>
+    <div class="mat-content">
+      <div class="mat-title"><span class="star">⭐⭐</span> 特朗普对华关税：药品征100%，部分制成品征25%</div>
+      <div class="mat-meta">📅 华尔街见闻 4月3日 | 👁 国际/贸易 | 🔥🔥热度</div>
+      <div class="mat-desc">依据232条款，美国将对进口药品征收<strong>100%关税</strong>（120天后生效），对部分制成品征<strong>25%关税</strong>。此前232条款最高法院裁定越权，转而启用232条款。</div>
+      <div class="mat-tags">
+        <span class="mat-tag t-red">关税</span>
+        <span class="mat-tag t-orange">特朗普</span>
+      </div>
+    </div>
+  </li>
+  <li class="mat-item">
+    <span class="mat-dot" style="background:#4caf50"></span>
+    <div class="mat-content">
+      <div class="mat-title"><span class="star">⭐⭐</span> 60%档缴15年社保，2026年退休真实对比案例</div>
+      <div class="mat-meta">📅 腾讯新闻 4月3日 | 👁 社保/民生 | 🔥🔥热度</div>
+      <div class="mat-desc">河南老李按60%最低档缴15年，2026年满60岁面临正常退vs延迟4-6个月的选择。人社部测算：延迟1年每月多领100-200元，计发月数从139→132。</div>
+      <div class="mat-tags">
+        <span class="mat-tag t-green">退休</span>
+        <span class="mat-tag t-blue">社保</span>
+      </div>
+    </div>
+  </li>
+  <li class="mat-item">
+    <span class="mat-dot" style="background:#9c27b0"></span>
+    <div class="mat-content">
+      <div class="mat-title"><span class="star">⭐⭐</span> 甘肃医保8件民生实事：长期护理险扩围、生育补贴提高</div>
+      <div class="mat-meta">📅 新华网 4月4日 | 👁 医保/民生</div>
+      <div class="mat-desc">甘肃省医保局发布2026年8件实事：生育保障、长期护理险扩围、药品准入加速、便捷服务。长期护理险试点扩围，失能老人护理费有望由医保部分覆盖。</div>
+      <div class="mat-tags">
+        <span class="mat-tag t-purple">长护险</span>
+        <span class="mat-tag t-green">生育补贴</span>
+      </div>
+    </div>
+  </li>
+  <li class="mat-item">
+    <span class="mat-dot" style="background:#2196f3"></span>
+    <div class="mat-content">
+      <div class="mat-title"><span class="star">⭐⭐</span> A股4月震荡修复，机构看好科技+消费双主线</div>
+      <div class="mat-meta">📅 雪球/同花顺 | 👁 股市/策略</div>
+      <div class="mat-desc">4月A股整体处于"震荡修复、静待方向"关键窗口期。中美贸易谈判+特朗普关税逐步落地，国内政策托底明确。机构主线：科技（AI/半导体）+消费（以旧换新）。</div>
+      <div class="mat-tags">
+        <span class="mat-tag t-blue">A股策略</span>
+        <span class="mat-tag t-purple">科技+消费</span>
+      </div>
+    </div>
+  </li>
+</ul>
+
+<!-- ⭐ Materials List -->
+<div class="section-title">
+  <span class="dot-blue"></span> ⭐ 补充视角（3条）
+</div>
+<ul class="mat-list">
+  <li class="mat-item">
+    <span class="mat-dot" style="background:#90a4ae"></span>
+    <div class="mat-content">
+      <div class="mat-title"><span class="star">⭐</span> 4月新规扎堆落地：轻微失信不再公示、未成年人保护升级</div>
+      <div class="mat-meta">📅 央视新闻/中国政府网 4月2日 | 👁 民生/政策</div>
+      <div class="mat-desc">轻微失信信息原则上不再公示（发改委推动信用修复机制）；未成年人保护升级；消费维权7天无理由退货范围扩大。从"惩戒为主"向"修复为主"的社会治理转型。</div>
+      <div class="mat-tags">
+        <span class="mat-tag t-gray">新规</span>
+        <span class="mat-tag t-blue">信用修复</span>
+      </div>
+    </div>
+  </li>
+  <li class="mat-item">
+    <span class="mat-dot" style="background:#90a4ae"></span>
+    <div class="mat-content">
+      <div class="mat-title"><span class="star">⭐</span> 保险开门红变奏：浮动分红型取代固定收益，银保渠道崛起</div>
+      <div class="mat-meta">📅 蓝鲸新闻/东方财富 | 👁 金融/保险</div>
+      <div class="mat-desc">2026年保险业：产品从"固定收益类"转向"浮动分红型"；渠道从个险主导转向银保渠道发力。保险不再是"类存款"，分红不确定性增加。</div>
+      <div class="mat-tags">
+        <span class="mat-tag t-gray">分红险</span>
+        <span class="mat-tag t-green">银保渠道</span>
+      </div>
+    </div>
+  </li>
+  <li class="mat-item">
+    <span class="mat-dot" style="background:#90a4ae"></span>
+    <div class="mat-content">
+      <div class="mat-title"><span class="star">⭐</span> 特朗普访华前瞻：时隔9年首次访问，中美关系新阶段</div>
+      <div class="mat-meta">📅 复旦大学中美研究中心 4月2日 | 👁 国际/外交</div>
+      <div class="mat-desc">特朗普预计2026年4月访华，系9年来首次。2025年10月中美元首峰会后双方关系出现积极信号（美国延长技术转让关税豁免至2026年11月）。访问涉及贸易协议、科技竞争、能源安全等核心议题。</div>
+      <div class="mat-tags">
+        <span class="mat-tag t-gray">外交</span>
+        <span class="mat-tag t-purple">中美关系</span>
+      </div>
+    </div>
+  </li>
+</ul>
+
+<!-- Footer stats grid -->
+<div style="padding:14px;background:#fff;margin:10px 14px;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,.06)">
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:8px;text-align:center">
+    <div><div style="font-size:18px;font-weight:800;color:#ff5252">3</div><div style="font-size:10px;color:#888">⭐⭐⭐必做</div></div>
+    <div><div style="font-size:18px;font-weight:800;color:#ff9800">7</div><div style="font-size:10px;color:#888">⭐⭐关注</div></div>
+    <div><div style="font-size:18px;font-weight:800;color:#2196f3">3</div><div style="font-size:10px;color:#888">⭐补充</div></div>
+    <div><div style="font-size:18px;font-weight:800;color:#4caf50">5</div><div style="font-size:10px;color:#888">社保民生</div></div>
+    <div><div style="font-size:18px;font-weight:800;color:#9c27b0">5</div><div style="font-size:10px;color:#888">财经投资</div></div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="footer-brand">📊 财经短视频素材日报</div>
+  <div>2026-04-05 | 每日12:00自动更新 | 共13条素材</div>
+  <div style="margin-top:4px;color:#bbb">数据来源：财联社/东方财富/央视新闻/证监会等</div>
+</div>
+
+</body>
+</html>
