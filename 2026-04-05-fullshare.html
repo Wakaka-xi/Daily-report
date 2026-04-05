@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>素材日报 2026-04-05</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #f0ede8; font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+  .page { width: 400px; margin: 20px auto; background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,0.08); }
+
+  /* ========== 封面 ========== */
+  .cover { background: linear-gradient(160deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%); padding: 52px 32px 48px; text-align: center; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: -60px; right: -60px; width: 240px; height: 240px; background: radial-gradient(circle, rgba(243,156,18,0.12) 0%, transparent 70%); border-radius: 50%; }
+  .cover::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 180px; height: 180px; background: radial-gradient(circle, rgba(52,152,219,0.1) 0%, transparent 70%); border-radius: 50%; }
+  .cover .kicker { display: inline-block; font-size: 10px; letter-spacing: 5px; color: rgba(243,156,18,0.7); text-transform: uppercase; margin-bottom: 24px; }
+  .cover h1 { color: #fff; font-size: 28px; font-weight: 700; line-height: 1.35; margin-bottom: 18px; letter-spacing: -0.5px; position: relative; z-index: 1; }
+  .cover .date { color: rgba(255,255,255,0.4); font-size: 13px; margin-bottom: 32px; letter-spacing: 2px; }
+  .cover .stats { display: flex; justify-content: center; gap: 36px; padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 24px; }
+  .cover .stat { text-align: center; }
+  .cover .stat .num { color: #fff; font-size: 28px; font-weight: 700; }
+  .cover .stat .label { color: rgba(255,255,255,0.35); font-size: 11px; margin-top: 5px; letter-spacing: 1px; }
+  .cover .topic-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 16px 20px; text-align: left; position: relative; z-index: 1; }
+  .cover .topic-box .label { font-size: 10px; color: rgba(243,156,18,0.6); letter-spacing: 3px; margin-bottom: 10px; }
+  .cover .topic-box .text { color: rgba(255,255,255,0.88); font-size: 13px; line-height: 1.8; }
+
+  /* ========== 章节标题 ========== */
+  .chapter { padding: 36px 28px 20px; border-bottom: 1px solid #f0ebe4; }
+  .chapter .ch-label { font-size: 10px; letter-spacing: 3px; color: #c9a96e; text-transform: uppercase; margin-bottom: 8px; }
+  .chapter .ch-title { font-size: 20px; font-weight: 700; color: #1a1a2e; letter-spacing: -0.3px; }
+  .chapter .ch-sub { font-size: 12px; color: #999; margin-top: 5px; }
+
+  /* ========== 脚本卡片 ========== */
+  .script-card { padding: 24px 28px; border-bottom: 1px solid #f0ebe4; }
+  .script-card .sh { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px; }
+  .script-card .rank { width: 38px; height: 38px; background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #c9a96e; font-size: 14px; font-weight: 700; flex-shrink: 0; }
+  .script-card .sh-body { flex: 1; }
+  .script-card .sh-tag { display: inline-block; font-size: 10px; padding: 3px 10px; border-radius: 6px; margin-bottom: 9px; font-weight: 600; }
+  .tag-s1 { background: rgba(231,76,60,0.1); color: #c0392b; }
+  .tag-s2 { background: rgba(230,126,34,0.1); color: #d35400; }
+  .tag-s3 { background: rgba(52,152,219,0.1); color: #2980b9; }
+  .tag-s4 { background: rgba(149,165,166,0.12); color: #7f8c8d; }
+  .script-card .sh-title { font-size: 15px; font-weight: 700; color: #1a1a2e; line-height: 1.45; }
+  .script-card .sh-meta { display: flex; gap: 8px; margin-top: 8px; }
+  .script-card .meta-chip { font-size: 10px; padding: 2px 8px; border-radius: 4px; }
+  .chip-hot { background: rgba(231,76,60,0.08); color: #c0392b; }
+  .chip-type { background: #f5f4f0; color: #888; }
+
+  /* 钩子 */
+  .hook { background: linear-gradient(135deg, #fffbf0, #fff8e8); border: 1px solid rgba(243,156,18,0.15); border-left: 4px solid #f39c12; border-radius: 12px; padding: 14px 16px; margin-bottom: 16px; }
+  .hook-label { font-size: 10px; font-weight: 700; color: #c9a96e; letter-spacing: 1.5px; margin-bottom: 6px; }
+  .hook-text { font-size: 13.5px; color: #3d3d3d; line-height: 1.75; }
+
+  /* 正文 */
+  .body-lines { padding: 0 2px; }
+  .body-line { font-size: 13px; color: #555; line-height: 1.9; margin-bottom: 14px; padding-left: 18px; position: relative; }
+  .body-line:last-child { margin-bottom: 0; }
+  .body-line::before { content: ''; position: absolute; left: 0; top: 11px; width: 5px; height: 5px; background: #c9a96e; border-radius: 50%; }
+
+  /* 互动引导 */
+  .cta { background: #fffde7; border: 1px solid rgba(243,156,18,0.15); border-radius: 10px; padding: 12px 16px; margin-top: 14px; }
+  .cta-label { font-size: 10px; color: #c9a96e; letter-spacing: 1.5px; margin-bottom: 5px; }
+  .cta-text { font-size: 12.5px; color: #666; line-height: 1.6; }
+
+  /* 封面建议 */
+  .cover-tip { background: #f9f8f5; border-radius: 8px; padding: 10px 14px; margin-top: 10px; }
+  .cover-tip-label { font-size: 10px; color: #bbb; margin-bottom: 4px; }
+  .cover-tip-text { font-size: 12px; color: #888; line-height: 1.55; }
+
+  /* ========== 素材卡片 ========== */
+  .mat-card { margin: 0 18px 14px; background: #faf9f7; border: 1px solid #f0ebe4; border-radius: 14px; padding: 18px; position: relative; overflow: hidden; }
+  .mat-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; }
+  .mat-card.ss3::before { background: linear-gradient(180deg, #e74c3c, #c0392b); }
+  .mat-card.ss2::before { background: linear-gradient(180deg, #3498db, #2980b9); }
+  .mat-card.ss1::before { background: linear-gradient(180deg, #95a5a6, #7f8c8d); }
+  .mat-card .mat-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; gap: 12px; }
+  .mat-card .mat-title { font-size: 14px; font-weight: 600; color: #1a1a2e; line-height: 1.5; flex: 1; }
+  .mat-card .mat-stars { font-size: 13px; flex-shrink: 0; padding-top: 2px; }
+  .star-gold { color: #f39c12; }
+  .star-gray { color: #ddd; }
+  .mat-row { display: flex; gap: 8px; margin-bottom: 9px; align-items: flex-start; }
+  .mat-row:last-child { margin-bottom: 0; }
+  .mat-key { font-size: 12px; color: #8a8a8a; width: 64px; flex-shrink: 0; padding-top: 1px; font-weight: 500; letter-spacing: 0.3px; }
+  .mat-val { font-size: 13px; color: #333; line-height: 1.65; flex: 1; }
+  .mat-source { margin-top: 12px; padding-top: 10px; border-top: 1px solid #ece8e2; font-size: 11px; color: #999; letter-spacing: 0.3px; }
+
+  /* ========== 底部 ========== */
+  .page-footer { background: #1a1a2e; padding: 28px 32px; text-align: center; }
+  .page-footer .brand { font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.8); margin-bottom: 5px; letter-spacing: 3px; }
+  .page-footer .sub { font-size: 10px; color: rgba(255,255,255,0.3); }
+
+  /* ========== 打印分页控制 ========== */
+  @media print {
+    .script-card, .mat-card, .cover, .chapter, .page-footer {
+      page-break-inside: avoid !important;
+      break-inside: avoid !important;
+      -webkit-column-break-inside: avoid !important;
+    }
+    .cover { page-break-after: avoid !important; }
+    .chapter { page-break-before: avoid !important; page-break-after: avoid !important; }
+    .page-footer { page-break-before: avoid !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 封面 -->
+  <div class="cover">
+    <div class="kicker">Daily Brief</div>
+    <h1>短视频素材精选</h1>
+    <div class="date">2026.04.05 · Sunday</div>
+    <div class="stats">
+      <div class="stat"><div class="num">5</div><div class="label">参考脚本</div></div>
+      <div class="stat"><div class="num">13</div><div class="label">重点素材</div></div>
+      <div class="stat"><div class="num">3</div><div class="label">今日热点</div></div>
+    </div>
+    <div class="topic-box">
+      <div class="label">Today's Focus</div>
+      <div class="text">医保基金监管 · 个人养老金 · 保险资金 · 消费补贴</div>
+    </div>
+  </div>
+
+  <!-- 参考脚本 -->
+  <div class="chapter">
+    <div class="ch-label">Reference Scripts</div>
+    <div class="ch-title">参考脚本</div>
+    <div class="ch-sub">视频号爆款结构 · 反转悬念文案 · 可直接二创</div>
+  </div>
+
+  <!-- 脚本1：医保新规 -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">01</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s1">社保民生</span>
+        <div class="sh-title">4月起医保卡别乱用！13.7亿人新规来了，做错涉嫌违法</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">极高热度</span>
+          <span class="meta-chip chip-type">民生解读</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">4月1日起，你的医保卡不是你想怎么用就怎么用了！13.7亿参保人全部纳入实时监控，有5件事千万别做，做错了——轻则罚款，重则涉嫌违法！</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">你可能不知道，从4月1号开始，国家医保局悄悄上线了一套系统，能实时看到13.7亿人的每一笔医保消费。你以为没人管？大错特错。</div>
+      <div class="body-line">更让人意外的是，以前你以为没事的三种操作，现在全被明确定性为违法：倒卖回流药、串换药品、虚假就医套取医保——以前是灰色地带，现在是诈骗。</div>
+      <div class="body-line">但别急着担心。政策也有好消息：高血压、糖尿病、心脏病这三类慢病患者，认定流程简化了，异地就医可以直接结算，再也不用为了报销跑断腿。</div>
+      <div class="body-line">这套系统上线，正常看病买药不受影响，但如果你的医保卡经常给家里人买药、或者卡里钱经常莫名其妙变少——那你可得小心了。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">医保卡是救命钱，不是套现工具！转发给家人，尤其是有老人的。评论区告诉我还想了解什么？</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"4月1日起！医保卡新规来了"+医保卡图标+红色警告标识；配图：国家医保局公告截图</div>
+    </div>
+  </div>
+
+  <!-- 脚本2：养老金 -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">02</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s1">社保养老</span>
+        <div class="sh-title">缴15年vs缴30年，养老金差多少？算完我震惊了</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">极高热度</span>
+          <span class="meta-chip chip-type">对比测算</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">缴15年和缴30年养老保险，退休后领的钱差一倍，但多交的15年到底值不值？真实数据算出来，连我自己都震惊了！</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">我邻居老李今年60要退休了，他一直按最低档缴了15年。结果他一看账单，发现一个问题：再多缴几年，退休后每月能多拿1400多。</div>
+      <div class="body-line">人社部最新数据告诉我真相：按60%档缴15年，退休月领约1800；按100%档缴30年，月领约3200。多缴15年多花18万，但每月多拿1400——算下来，72岁就回本了。</div>
+      <div class="body-line">但这里有个关键问题很多人不知道：国家正在研究动态调整缴费上限，现在每年最多缴12000，以后可能缴更多才能享受同等税优——越早缴满，越划算。</div>
+      <div class="body-line">还有一个被忽视的趋势：人社部明确要提高基础养老金最低标准。缴得越多、缴得越久，政策红利拿得越多——这才是养老最大的薅羊毛机会。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你缴了多少年？现在一个月要交多少钱？评论区说说，我帮你算算退休能拿多少！</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"缴30年vs15年，养老金差一倍！"+计算器图标+感叹号；配图：不同缴费档次养老金对比表</div>
+    </div>
+  </div>
+
+  <!-- 脚本3：险企年报 -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">03</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s2">金融保险</span>
+        <div class="sh-title">上市险企净利润涨22.4%，保险为什么比银行还赚钱？</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">高热度</span>
+          <span class="meta-chip chip-type">行业解读</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">保险行业去年净利润涨了22.4%，比银行还赚钱，凭什么？我们买的保险，钱到底去哪了？</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">五大上市险企年报出炉，净利润集体爆发：平安日赚超3亿，国寿利润大增——很多人第一反应是：他们是不是在薅投保人的羊毛？</div>
+      <div class="body-line">但真相恰恰相反。保险赚钱靠两件事：①产品卖得好，分红险、万能险需求旺盛；②投资赚了，A股反弹让险资收益率大幅提升，五大险企股票投资规模增加了1万亿。</div>
+      <div class="body-line">这里有个反常识：保险资金正在加速买入A股，而且专挑银行、电力、公路港口这类高股息股票——这不是冒险，是稳赚。IFRS 17新会计准则下，险资更偏好稳定分红。</div>
+      <div class="body-line">那么问题来了：普通人买保险，到底怎么选？记住一个原则：医疗险+重疾险优先，分红险、理财险靠后。别被业务员忽悠，年保费300到5000，足够覆盖大病风险。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你买过保险吗？买亏了还是买对了？评论区说说经历，下期帮你测评主流保险产品。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"保险净利润涨22%！凭什么比银行还赚"+保险图标；配图：五大险企利润对比图表</div>
+    </div>
+  </div>
+
+  <!-- 脚本4：以旧换新 -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">04</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s3">消费政策</span>
+        <div class="sh-title">625亿国家补贴4月开抢！五一前最后一波，最多省2000</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-type">政策解读</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">国家刚宣布：4月份625亿现金补贴到账！五一之前最后一波，买手机最高省1000，买车最高补2万！错过这波——少则亏几百，多则亏2万！</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">商务部刚刚公布：一季度以旧换新带动消费4331亿，惠及6093万人。看到这个数字你就知道，这不是小打小闹，是真金白银的国家大礼包。</div>
+      <div class="body-line">但问题来了：为什么一季度那么火，大家都抢？因为补贴名额真的有限，先到先得。现在4月第二批625亿下来了，正好对上五一黄金周——这可能是上半年的最后一波大机会。</div>
+      <div class="body-line">补贴清单说清楚：手机平板手表最高1000，冰箱洗衣机空调最高2000，汽车最高2万。但北京已经出了细则，绿色平板电视额外补1000——各地不同，一定要查本地清单。</div>
+      <div class="body-line">最后提醒一个坑：有些商家先涨价再打折，等你付款的时候才发现比不补贴还贵。记住付款前截图比价，别被套路了！</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你打算买什么？评论区告诉我，我帮你算算能省多少！觉得有用就转发，五一用得上！</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"625亿4月到账！"+手机/汽车图标+倒计时元素；配图：各品类补贴金额对比清单</div>
+    </div>
+  </div>
+
+  <!-- 脚本5：A股退市 -->
+  <div class="script-card" style="border-bottom:none">
+    <div class="sh">
+      <div class="rank">05</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s4">股市监管</span>
+        <div class="sh-title">证监会周末不休息！10家公司被查，散户如何排雷？</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-type">股市热点</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">4月3日周五晚上，证监会一口气发了10家公司的处罚通知！有人财务造假将被ST，有人直接退市！周一醒来——账户可能直接腰斩！</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">很多人炒ST股、炒小市值，觉得有庄家在就不会跌。但周末证监会一纸公告，打破了所有幻想：10家公司同一天被查被罚，4家被正式立案——这在A股历史上极其罕见。</div>
+      <div class="body-line">最惨的是*ST长药，连续3年财务造假，3月20日已经进了退市整理期。有人10块钱进去，现在可能只剩几毛——这就是炒ST的代价，血本无归不是说着玩的。</div>
+      <div class="body-line">但我告诉你一个更恐怖的事实：还有很多公司，表面看起来没事，其实早就埋了雷。怎么识别？记住三个信号：①连续2年被出具非标审计意见；②频繁更换会计师事务所；③业绩突然变脸。</div>
+      <div class="body-line">监管层的态度已经很清楚了：应退尽退。2026年开始，ST股、退市股的炒作空间越来越小。散户唯一正确的选择——远离垃圾股，珍爱账户。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你手里有股票吗？评论区说出代码，我帮你看看有没有风险！（仅供参考，不构成投资建议）</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"证监会周末出手！"+警告图标+数字10突出；配图：ST/退市风险三个信号清单</div>
+    </div>
+  </div>
+
+  <!-- ========== 重点关注素材 ========== -->
+  <div class="chapter">
+    <div class="ch-label">Key Highlights</div>
+    <div class="ch-title">重点关注</div>
+    <div class="ch-sub">13条素材线索 · 结构化信息 · 多角度切入</div>
+  </div>
+
+  <!-- 素材1 -->
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">医保基金监管升级：解读2025年飞检三大变化</div>
+      <div class="mat-stars"><span class="star-gold">★★★</span></div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">📌 核心</div>
+      <div class="mat-val">国家医保局2025年飞检启动，重点查影像检验、康复理疗；覆盖13.7亿参保人，2024年支出4.2万亿</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">⚡ 争议</div>
+      <div class="mat-val">过度检查被打击，但正常医疗需求是否会被误伤？智能监控边界在哪里？</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">🎯 角度</div>
+      <div class="mat-val">普通人如何利用规则保护自己医保权益；慢病患者迎来哪些实质利好</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">👥 受众</div>
+      <div class="mat-val">中老年群体、慢病患者家庭、医保参保人群</div>
+    </div>
+    <div class="mat-source">📊 来源：国家医保局官网 · 2026-04-05</div>
+  </div>
+
+  <!-- 素材2 -->
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">个人养老金制度全面实施：缴费上限将动态调整</div>
+      <div class="mat-stars"><span class="star-gold">★★★</span></div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">📌 核心</div>
+      <div class="mat-val">年缴上限12000元享税优，36地先行2025全国推广；人社部正研究动态调整缴费上限</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">⚡ 争议</div>
+      <div class="mat-val">个人养老金收益率能否跑赢通胀？账户流动性差，年轻人是否值得参与？</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">🎯 角度</div>
+      <div class="mat-val">不同收入群体参与划算程度测算；基金产品扩容至200只如何选</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">👥 受众</div>
+      <div class="mat-val">工薪阶层、30-50岁有养老规划意识人群、个税缴纳者</div>
+    </div>
+    <div class="mat-source">📊 来源：人力资源和社会保障部 · 2026-04-05</div>
+  </div>
+
+  <!-- 素材3 -->
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">保险资金加速布局A股：偏好高股息板块</div>
+      <div class="mat-stars"><span class="star-gold">★★★</span></div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">📌 核心</div>
+      <div class="mat-val">险资1-2月净买入近百亿，偏好银行、电力、公路港口等高股息板块；IFRS 17实施后险资更偏好稳定分红</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">⚡ 争议</div>
+      <div class="mat-val">险资入市是托底信号还是另有逻辑？高股息板块是否已估值过高？</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">🎯 角度</div>
+      <div class="mat-val">险资重仓股名单挖掘；高股息策略在当前市场环境下的有效性分析</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">👥 受众</div>
+      <div class="mat-val">股票投资者、财经内容受众、机构投资者关注群体</div>
+    </div>
+    <div class="mat-source">📊 来源：金融监管总局 · 2026-04-05</div>
+  </div>
+
+  <!-- 素材4 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">首批10个省份以旧换新补贴资金全部下达</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">📌 核心</div>
+      <div class="mat-val">一季度带动消费4331.7亿元，惠及6093万人次；4月第二批625亿下达，精准对接五一</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">💡 亮点</div>
+      <div class="mat-val">北京出台绿色平板电视最高补1000元细则；各地叠加补贴不同，需实时关注本地政策</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">🎯 角度</div>
+      <div class="mat-val">各品类补贴金额对比；申领避坑指南；五一前窗口期倒计时</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">👥 受众</div>
+      <div class="mat-val">有换新需求的普通消费者、家庭用户、3C产品购买者</div>
+    </div>
+    <div class="mat-source">📊 来源：商务部 · 2026-04-05</div>
+  </div>
+
+  <!-- 素材5 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">基本养老服务扩大到全体老年人群</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">📌 核心</div>
+      <div class="mat-val">养老服务对象从特定群体扩展到全体老年人群；长期护理险试点扩围，失能老人护理费有望由医保部分覆盖</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">⚡ 争议</div>
+      <div class="mat-val">养老服务资金来源如何保障？服务质量如何监管？城乡差距是否会扩大？</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">🎯 角度</div>
+      <div class="mat-val">长期护理险如何申请；不同城市养老服务对比；老龄化社会的机遇与挑战</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">👥 受众</div>
+      <div class="mat-val">中老年群体及其子女、养老从业者、政策关注者</div>
+    </div>
+    <div class="mat-source">📊 来源：民政部 · 2026-04-05</div>
+  </div>
+
+  <!-- 素材6 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">5大上市险企2024年净利润合计超2700亿</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">📌 核心</div>
+      <div class="mat-val">五大险企归母净利润大增22.4%；保险开门红变奏：浮动分红型取代固定收益，银保渠道崛起</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">💡 亮点</div>
+      <div class="mat-val">分红险不确定性增加，险企转型对普通消费者购买决策的影响</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">🎯 角度</div>
+      <div class="mat-val">保险股年报解读；2026年保险产品怎么买才不被坑</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">👥 受众</div>
+      <div class="mat-val">保险消费者、股票投资者、金融行业从业者</div>
+    </div>
+    <div class="mat-source">📊 来源：上市公司公告汇总 · 2026-04-05</div>
+  </div>
+
+  <!-- 素材7 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">人社部拟推动提高基础养老金最低标准</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">📌 核心</div>
+      <div class="mat-val">人社部推进基础养老金最低标准调整；与延迟退休政策形成组合拳，多缴长缴导向明确</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">⚡ 争议</div>
+      <div class="mat-val">养老金调整幅度能否跑赢物价上涨？年轻人缴费积极性如何保障？</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">🎯 角度</div>
+      <div class="mat-val">历年养老金调整幅度对比；不同缴费年限领取金额差距算账</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">👥 受众</div>
+      <div class="mat-val">退休人群、即将退休人群、养老规划关注者</div>
+    </div>
+    <div class="mat-source">📊 来源：人力资源和社会保障部 · 2026-04-05</div>
+  </div>
+
+  <!-- 素材8 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">A股10家上市公司被立案调查，多与财务造假相关</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">📌 核心</div>
+      <div class="mat-val">4月3日证监会同天披露10家公司被查被罚，4家被正式立案；A股"应退尽退"监管风暴持续</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">⚡ 争议</div>
+      <div class="mat-val">散户如何识别财务造假？ST股炒作风险是否被低估？</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">🎯 角度</div>
+      <div class="mat-val">被查公司名单逐个分析；排雷三信号实操应用；监管趋势解读</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">👥 受众</div>
+      <div class="mat-val">A股散户投资者、财经内容受众、机构投资者</div>
+    </div>
+    <div class="mat-source">📊 来源：证监会 · 2026-04-05</div>
+  </div>
+
+  <!-- 素材9 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">沃飞长空冲刺科创板：eVTOL"飞行汽车"万亿赛道开启</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">📌 核心</div>
+      <div class="mat-val">沃飞长空4月2日启动科创板辅导备案，拟冲刺A股"eVTOL第一股"，吉利科技集团背景；亿航智能订单爆发</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">💡 亮点</div>
+      <div class="mat-val">低空经济万亿市场加速落地；eVTOL商业化进程超预期</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">🎯 角度</div>
+      <div class="mat-val">eVTOL产业链投资机会；低空经济概念股挖掘</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">👥 受众</div>
+      <div class="mat-val">科技爱好者、股票投资者、新兴产业关注者</div>
+    </div>
+    <div class="mat-source">📊 来源：同花顺 · 2026-04-05</div>
+  </div>
+
+  <!-- 素材10 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">特朗普对华关税：药品征100%，部分制成品征25%</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">📌 核心</div>
+      <div class="mat-val">依据232条款，美国将对进口药品征收100%关税（120天后生效），对部分制成品征25%关税</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">⚡ 争议</div>
+      <div class="mat-val">对华影响几何？原料药、医疗器械出口是否受冲击？</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">🎯 角度</div>
+      <div class="mat-val">对中国药企的影响分析；替代投资机会；中美贸易走向研判</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">👥 受众</div>
+      <div class="mat-val">财经投资者、外贸从业者、国际局势关注者</div>
+    </div>
+    <div class="mat-source">📊 来源：华尔街见闻 · 2026-04-05</div>
+  </div>
+
+  <!-- 素材11 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">个人养老金基金产品数量扩容至200只</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">📌 核心</div>
+      <div class="mat-val">个人养老金基金产品池扩容至200只，覆盖多种风险偏好；为缴费上限动态调整做准备</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">🎯 角度</div>
+      <div class="mat-val">200只产品横向对比；如何从中挑选适合自己的</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">👥 受众</div>
+      <div class="mat-val">养老规划人群、基金投资者</div>
+    </div>
+    <div class="mat-source">📊 来源：证监会 · 2026-04-05</div>
+  </div>
+
+  <!-- 素材12 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">多地银行下调消费贷利率至2.5%以下</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">📌 核心</div>
+      <div class="mat-val">消费贷利率持续下探，部分银行优质客户利率跌破2.5%；消费刺激政策持续加码</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">⚡ 争议</div>
+      <div class="mat-val">低利率消费贷是否存在过度授信风险？年轻人负债率是否会攀升？</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">🎯 角度</div>
+      <div class="mat-val">消费贷省钱攻略；低利率背后的风险提示</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">👥 受众</div>
+      <div class="mat-val">有消费融资需求的年轻人、理性借贷关注者</div>
+    </div>
+    <div class="mat-source">📊 来源：银行公告 · 2026-04-05</div>
+  </div>
+
+  <!-- 素材13 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">A股上市公司年内累计回购超600亿元</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">📌 核心</div>
+      <div class="mat-val">A股年内回购规模超600亿元；回购潮通常被视为公司认为股价被低估的信号</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">🎯 角度</div>
+      <div class="mat-val">大额回购公司名单追踪；回购潮与市场底的关联分析</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">👥 受众</div>
+      <div class="mat-val">股票投资者、价值投资关注者</div>
+    </div>
+    <div class="mat-source">📊 来源：Wind · 2026-04-05</div>
+  </div>
+
+  <!-- 底部 -->
+  <div class="page-footer">
+    <div class="brand">素材日报</div>
+    <div class="sub">每日 14:00 自动生成 · 仅供内容参考</div>
+  </div>
+
+</div>
+</body>
+</html>
