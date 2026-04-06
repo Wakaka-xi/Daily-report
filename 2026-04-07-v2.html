@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>保险财经素材日报 · 2026年4月7日</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;background:#0f1923;color:#e8eaf0;font-size:14px;line-height:1.6}
+
+  /* ===== 封面页 ===== */
+  .cover{min-height:100vh;background:linear-gradient(145deg,#0f1923 0%,#1a1a2e 40%,#16213e 70%,#0f3460 100%);display:flex;flex-direction:column;justify-content:center;align-items:center;padding:40px 24px;page-break-after:always}
+  .cover-badge{background:rgba(255,107,0,0.15);border:1px solid rgba(255,107,0,0.4);color:#ff9500;font-size:11px;padding:4px 14px;border-radius:20px;margin-bottom:20px;letter-spacing:1px}
+  .cover-title{font-size:26px;font-weight:800;text-align:center;line-height:1.3;margin-bottom:8px;background:linear-gradient(135deg,#ffffff,#a0c4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .cover-sub{font-size:13px;color:#8a9bb0;text-align:center;margin-bottom:36px}
+  .cover-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;width:100%;max-width:320px;margin-bottom:36px}
+  .stat-box{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px 8px;text-align:center}
+  .stat-num{font-size:22px;font-weight:700;color:#fff;display:block}
+  .stat-label{font-size:10px;color:#8a9bb0;margin-top:3px}
+  .cover-topics{width:100%;max-width:320px}
+  .topic-row{display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(255,255,255,0.04);border-radius:10px;margin-bottom:8px}
+  .topic-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+  .dot-red{background:#ff4d6d}
+  .dot-orange{background:#ff9500}
+  .dot-blue{background:#4cc9f0}
+  .topic-text{font-size:12px;color:#c8d0dc}
+  .cover-footer{margin-top:30px;font-size:11px;color:#4a5568;text-align:center}
+
+  /* ===== 分区页头 ===== */
+  .section-page{min-height:100vh;padding:0 0 40px 0;page-break-after:always}
+  .page-header{background:linear-gradient(90deg,#1a1a2e,#16213e);padding:24px 20px 20px;border-bottom:2px solid rgba(255,149,0,0.3);margin-bottom:0}
+  .page-header-label{font-size:10px;color:#ff9500;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
+  .page-header-title{font-size:20px;font-weight:700;color:#fff}
+  .page-header-sub{font-size:12px;color:#8a9bb0;margin-top:4px}
+  .page-body{padding:16px}
+
+  /* ===== 脚本卡片 ===== */
+  .script-card{background:#fff;border-radius:14px;box-shadow:0 4px 24px rgba(0,0,0,0.35);margin-bottom:20px;overflow:hidden}
+  .script-header{background:linear-gradient(135deg,#1a1a2e,#16213e);padding:16px 18px}
+  .script-num{font-size:10px;color:#ff9500;letter-spacing:1px;margin-bottom:4px}
+  .script-title{font-size:15px;font-weight:700;color:#fff;line-height:1.4}
+  .script-meta{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+  .script-tag{font-size:10px;padding:3px 8px;border-radius:10px;font-weight:600}
+  .tag-green{background:rgba(52,211,153,0.15);color:#34d399;border:1px solid rgba(52,211,153,0.3)}
+  .tag-orange{background:rgba(255,149,0,0.15);color:#ff9500;border:1px solid rgba(255,149,0,0.3)}
+  .tag-blue{background:rgba(76,201,240,0.15);color:#4cc9f0;border:1px solid rgba(76,201,240,0.3)}
+  .tag-red{background:rgba(255,77,109,0.15);color:#ff4d6d;border:1px solid rgba(255,77,109,0.3)}
+  .script-body{padding:16px 18px}
+  .hook{background:linear-gradient(135deg,#fff8f0,#fff3e6);border:1.5px solid #ffb347;border-radius:10px;padding:12px 14px;margin-bottom:14px}
+  .hook-label{font-size:10px;font-weight:700;color:#ff9500;margin-bottom:6px;letter-spacing:1px}
+  .hook-text{font-size:13px;color:#5a3e00;line-height:1.6;font-weight:500}
+  .block{display:flex;gap:12px;margin-bottom:12px;align-items:flex-start}
+  .block-tag{background:#1a1a2e;color:#4cc9f0;font-size:10px;font-weight:700;padding:3px 8px;border-radius:6px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+  .block-text{font-size:13px;color:#2d3748;line-height:1.65}
+  .block-text strong{color:#c05000;font-weight:700}
+  .cta{background:linear-gradient(135deg,#fffef0,#fff9cc);border:1px solid #f0d000;border-radius:10px;padding:11px 14px;margin-top:12px}
+  .cta-label{font-size:10px;color:#b07800;font-weight:700;margin-bottom:4px}
+  .cta-text{font-size:12px;color:#5a4500;line-height:1.5}
+  .img-tip{background:#f0f4ff;border-radius:8px;padding:10px 12px;margin-top:10px}
+  .img-tip-label{font-size:10px;color:#4a7fe0;font-weight:700;margin-bottom:4px}
+  .img-tip-text{font-size:12px;color:#3a4a6a}
+
+  /* ===== 素材卡片 ===== */
+  .mat-section-header{padding:14px 16px 8px;background:linear-gradient(90deg,#1a1a2e,#16213e);margin-bottom:0}
+  .mat-section-label{font-size:10px;color:#8a9bb0;letter-spacing:1px}
+  .mat-section-title{font-size:16px;font-weight:700;color:#fff;margin-top:2px}
+  .mat-card{background:#1e2a3a;border-radius:12px;margin:12px 16px;padding:14px 16px;border-left:3px solid #4cc9f0}
+  .mat-card.orange-border{border-left-color:#ff9500}
+  .mat-card.red-border{border-left-color:#ff4d6d}
+  .mat-card.green-border{border-left-color:#34d399}
+  .mat-card.purple-border{border-left-color:#a78bfa}
+  .mat-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:8px}
+  .mat-stars{font-size:14px;flex-shrink:0}
+  .mat-title{font-size:14px;font-weight:700;color:#e8eaf0;line-height:1.4;flex:1}
+  .mat-source{font-size:11px;color:#6b7c93;margin-bottom:8px}
+  .mat-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+  .mat-tag{font-size:10px;padding:2px 8px;border-radius:10px}
+  .mat-body{font-size:12px;color:#b0bec5;line-height:1.6}
+  .mat-body strong{color:#e8eaf0;font-weight:600}
+  .mat-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+  .mat-item{background:rgba(255,255,255,0.04);border-radius:8px;padding:8px 10px}
+  .mat-item-label{font-size:10px;color:#6b7c93;margin-bottom:3px}
+  .mat-item-val{font-size:11px;color:#c8d0dc;line-height:1.4}
+  .mat-data{background:rgba(76,201,240,0.06);border:1px solid rgba(76,201,240,0.15);border-radius:8px;padding:8px 10px;margin-top:10px;font-size:11px;color:#9ab8d0}
+
+  /* ===== 统计表格 ===== */
+  .stats-table{padding:0 16px 24px}
+  .stats-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:12px}
+  .stats-cell{background:#1e2a3a;border-radius:8px;padding:8px 4px;text-align:center}
+  .stats-num{font-size:15px;font-weight:700;color:#fff;display:block}
+  .stats-label{font-size:9px;color:#6b7c93;margin-top:2px}
+  .stats-row{display:flex;overflow-x:auto;gap:8px;padding-bottom:4px}
+  .priority-table{width:100%;border-collapse:collapse;margin-top:12px;font-size:11px}
+  .priority-table th{background:#1a2a3a;color:#8a9bb0;padding:8px 6px;text-align:left;font-weight:600;border-bottom:1px solid rgba(255,255,255,0.08)}
+  .priority-table td{padding:8px 6px;border-bottom:1px solid rgba(255,255,255,0.05);color:#c8d0dc;vertical-align:top}
+  .priority-table tr:last-child td{border-bottom:none}
+
+  /* ===== 分页 ===== */
+  @media print {
+    .section-page,.cover{page-break-after:always}
+    body{background:#fff}
+  }
+  @media (max-width:480px) {
+    .cover-title{font-size:22px}
+    .mat-row{grid-template-columns:1fr}
+    .stats-grid{grid-template-columns:repeat(3,1fr)}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== 第1页：封面 ===== -->
+<div class="cover">
+  <div class="cover-badge">📊 保险财经素材日报 PLUS</div>
+  <div class="cover-title">4月7日<br>短视频素材日报</div>
+  <div class="cover-sub">2026年04月07日（周一）· 关税冲击专题</div>
+  <div class="cover-stats">
+    <div class="stat-box">
+      <span class="stat-num">13</span>
+      <div class="stat-label">今日素材</div>
+    </div>
+    <div class="stat-box">
+      <span class="stat-num" style="color:#ff9500">3</span>
+      <div class="stat-label">⭐⭐⭐必做</div>
+    </div>
+    <div class="stat-box">
+      <span class="stat-num" style="color:#4cc9f0">3</span>
+      <div class="stat-label">完整脚本</div>
+    </div>
+  </div>
+  <div class="cover-topics">
+    <div class="topic-row">
+      <div class="topic-dot dot-red"></div>
+      <div class="topic-text">🔥 养老金22连涨悬念！通知迟迟未发，4类人确定多涨</div>
+    </div>
+    <div class="topic-row">
+      <div class="topic-dot dot-orange"></div>
+      <div class="topic-text">🏦 国有大行三年期1.25%！存100万利息仅12500元</div>
+    </div>
+    <div class="topic-row">
+      <div class="topic-dot dot-blue"></div>
+      <div class="topic-text">📉 关税黑色星期一！A股节后首日冲击散户怎么办</div>
+    </div>
+  </div>
+  <div class="cover-footer">数据来源：人社部 · 四大行官网 · 东方财富 · 财联社<br>AI财经素材研究员自动生成 · 内容仅供参考</div>
+</div>
+
+<!-- ===== 第2-4页：参考脚本 ===== -->
+
+<!-- 脚本1 -->
+<div class="section-page">
+  <div class="page-header">
+    <div class="page-header-label">📽 参考脚本 01/03</div>
+    <div class="page-header-title">养老金22连涨悬念</div>
+    <div class="page-header-sub">素材1 ⭐⭐⭐ · 预估88秒 · 社保/养老</div>
+  </div>
+  <div class="page-body">
+    <div class="script-card">
+      <div class="script-header">
+        <div class="script-num">SCRIPT 01 · ⭐⭐⭐ 必做</div>
+        <div class="script-title">养老金到底涨没涨？4月7日还没通知，内部信号已经来了！</div>
+        <div class="script-meta">
+          <span class="script-tag tag-green">社保/养老</span>
+          <span class="script-tag tag-orange">88秒</span>
+          <span class="script-tag tag-blue">1.8亿受众</span>
+        </div>
+      </div>
+      <div class="script-body">
+        <div class="hook">
+          <div class="hook-label">🎯 前3秒钩子</div>
+          <div class="hook-text">"今天是4月7日！国家养老金的调整通知还没发！但我已经查到内部信号——有人今年多涨<strong>120元</strong>，有人原地不动，<strong>95%的人还不知道自己是哪种！</strong>"</div>
+        </div>
+
+        <div class="block">
+          <div class="block-tag">00:00-00:12</div>
+          <div class="block-text">钩子+悬念：今天4月7日，全国<strong>1.8亿退休人员</strong>等了3个多月——养老金到底涨不涨？人社部和财政部官网直到今天还没发正式通知。但别急！往年惯例是4月下旬到5月上旬才发文，现在不发是正常的。今天帮你把内部信号整理出来了。</div>
+        </div>
+
+        <div class="block">
+          <div class="block-tag">00:12-00:35</div>
+          <div class="block-text">核心①涨是肯定的：3月22日财政部在中国发展高层论坛明确表态，养老金将继续稳步上调；养老金已连涨<strong>21年</strong>，2026年将是<strong>第22年</strong>；政府工作报告将养老金列为硬指标。预计调幅<strong>4%-5%</strong>。</div>
+        </div>
+
+        <div class="block">
+          <div class="block-tag">00:35-01:00</div>
+          <div class="block-text">核心②谁涨得多？打破"普涨"惯例，变成<strong>"提低控高"</strong>！退休早的老工人+工龄40年以上+城乡居民参保者+高龄老人涨幅最高。案例：黑龙江退休矿工老李，月养老金1800元，今年可能多领<strong>120元</strong>；上海机关退休干部月领6000元，涨幅仅3%约180元。</div>
+        </div>
+
+        <div class="block">
+          <div class="block-tag">01:00-01:15</div>
+          <div class="block-text">通知时间：最早4月下旬，最晚5月底，<strong>补发从1月起补齐</strong>。通知下来后，一次性可能补发4-5个月的差额！</div>
+        </div>
+
+        <div class="block">
+          <div class="block-tag">01:15-01:28</div>
+          <div class="block-text">结尾互动：你是哪类退休人员？预测自己今年能涨多少？评论区告诉我！关注我，通知一出第一时间帮你解读！</div>
+        </div>
+
+        <div class="cta">
+          <div class="cta-label">💬 结尾互动引导</div>
+          <div class="cta-text">"你家老人退休多少年了？预测今年能涨多少？评论区见！转发给家人，让他们少焦虑！"</div>
+        </div>
+
+        <div class="img-tip">
+          <div class="img-tip-label">🖼 配图文案建议</div>
+          <div class="img-tip-text">封面："养老金22连涨！4月7日还没通知？" + 悬念表情<br>配图1：养老金22年连涨时间轴（2005-2026）<br>配图2："提低控高"4类受益人群图示<br>字幕条：补发可追溯至1月1日</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 脚本2 -->
+<div class="section-page">
+  <div class="page-header">
+    <div class="page-header-label">📽 参考脚本 02/03</div>
+    <div class="page-header-title">国有大行利率史上最低</div>
+    <div class="page-header-sub">素材2 ⭐⭐⭐ · 预估95秒 · 银行/理财</div>
+  </div>
+  <div class="page-body">
+    <div class="script-card">
+      <div class="script-header">
+        <div class="script-num">SCRIPT 02 · ⭐⭐⭐ 必做</div>
+        <div class="script-title">国有大行三年存款利率1.25%！存100万到期只拿37500元，钱往哪放？</div>
+        <div class="script-meta">
+          <span class="script-tag tag-orange">银行/理财</span>
+          <span class="script-tag tag-green">95秒</span>
+          <span class="script-tag tag-blue">全体储户</span>
+        </div>
+      </div>
+      <div class="script-body">
+        <div class="hook">
+          <div class="hook-label">🎯 前3秒钩子</div>
+          <div class="hook-text">"国有大行三年期存款利率，现在是<strong>1.25%</strong>！有人把100万存进工行，3年后利息只有<strong>37500块</strong>。而2021年同等操作，利息是<strong>100500块</strong>！这4年，你的钱缩水了<strong>63000元</strong>，但你什么都没做错！今天帮你找出路。"</div>
+        </div>
+
+        <div class="block">
+          <div class="block-tag">00:00-00:15</div>
+          <div class="block-text">震惊开场：四大行最新利率——三年期<strong>1.25%</strong>，五年期<strong>1.30%</strong>（倒挂！），活期<strong>0.1%</strong>。存100万三年利息<strong>37500元</strong>，折算每天34元，连一杯奶茶都不够。2021年同等操作：<strong>100500元</strong>，每天92元。</div>
+        </div>
+
+        <div class="block">
+          <div class="block-tag">00:15-00:45</div>
+          <div class="block-text">核心①为什么越来越低？LPR持续下调；日本曾走过"零利率20年"；中金公司预测2026年将有<strong>2-4万亿存款</strong>离开银行，流向国债、保险、理财、黄金。</div>
+        </div>
+
+        <div class="block">
+          <div class="block-tag">00:45-01:10</div>
+          <div class="block-text">核心②4个替代方案对比：<br>① <strong>国债3年期约2.35%</strong>，最安全，但要抢；<br>② <strong>银行理财R2级约2.5%-3%</strong>，不保本但历史亏损概率低；<br>③ <strong>分红型保险演示利率3.5%</strong>，不是保证收益；<br>④ <strong>黄金今年已涨53%</strong>，高位入场风险大。建议：国债+理财组合，黄金不超过资产10%。</div>
+        </div>
+
+        <div class="block">
+          <div class="block-tag">01:10-01:25</div>
+          <div class="block-text">警惕高息陷阱：超过<strong>4%的产品必须问清楚钱怎么运作</strong>。有人追求高息买城投债，对方暴雷血本无归。</div>
+        </div>
+
+        <div class="cta">
+          <div class="cta-label">💬 结尾互动引导</div>
+          <div class="cta-text">"你现在的存款放在哪里？评论区说说你的理财组合，我来帮你看看合不合理！转发给家人，别让他们的钱睡大觉。"</div>
+        </div>
+
+        <div class="img-tip">
+          <div class="img-tip-label">🖼 配图文案建议</div>
+          <div class="img-tip-text">封面："三年存100万，利息只有37500元！" + 金融图标<br>配图1：2021 vs 2026存款利率对比柱状图<br>配图2：4大替代品收益/风险对比表<br>警示字幕：超过4%必须问清楚</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 脚本3 -->
+<div class="section-page">
+  <div class="page-header">
+    <div class="page-header-label">📽 参考脚本 03/03</div>
+    <div class="page-header-title">关税黑色星期一</div>
+    <div class="page-header-sub">素材3 ⭐⭐⭐ · 预估92秒 · A股/策略</div>
+  </div>
+  <div class="page-body">
+    <div class="script-card">
+      <div class="script-header">
+        <div class="script-num">SCRIPT 03 · ⭐⭐⭐ 必做</div>
+        <div class="script-title">清明节收假！关税黑色星期一，有人今天被埋30万——A股怎么操作？</div>
+        <div class="script-meta">
+          <span class="script-tag tag-red">A股/策略</span>
+          <span class="script-tag tag-orange">92秒</span>
+          <span class="script-tag tag-blue">投资者</span>
+        </div>
+      </div>
+      <div class="script-body">
+        <div class="hook">
+          <div class="hook-label">🎯 前3秒钩子</div>
+          <div class="hook-text">"今天开盘，A股遭遇节后第一天——关税黑色星期一！<strong>有人清明节前4月3日提前清仓锁定收益；有人今天开盘就被砸进去了30万。</strong>到底该怎么操作？我帮你分析3个关键信号！"</div>
+        </div>
+
+        <div class="block">
+          <div class="block-tag">00:00-00:15</div>
+          <div class="block-text">紧迫开场：清明假期，A股休市但海外没有。特朗普关税冲击持续，美股、港股大幅下跌。参照：2025年4月7日A股"史诗级黑色星期一"——沪指跌<strong>7.34%</strong>，创业板跌<strong>12.5%</strong>，近3000只股票跌停。今天会更惨还是更稳？</div>
+        </div>
+
+        <div class="block">
+          <div class="block-tag">00:15-00:45</div>
+          <div class="block-text">核心①今次 vs 去年3大区别：① <strong>国内政策托底更强</strong>，国家队已在待命；② <strong>A股估值更低</strong>，恐慌抛售空间有限；③ <strong>人民币汇率更稳</strong>，外资不至于大幅出逃。中信建投：下跌有限，不必悲观。</div>
+        </div>
+
+        <div class="block">
+          <div class="block-tag">00:45-01:10</div>
+          <div class="block-text">核心②3个操作信号：<br>① <strong>看量</strong>：成交超1万亿=恐慌，缩量下跌=最后一跌；<br>② <strong>看板块</strong>：科技股跌幅明显小于大盘=资金护盘；<br>③ <strong>看国家队</strong>：中央汇金、国家队ETF净买入=最强底部信号。</div>
+        </div>
+
+        <div class="block">
+          <div class="block-tag">01:10-01:22</div>
+          <div class="block-text">总结：长期持有者不必恐慌，中美谈判信号仍在；短线操作今天先观察，不急着抄底也不追杀，等方向明朗再动。</div>
+        </div>
+
+        <div class="cta">
+          <div class="cta-label">💬 结尾互动引导</div>
+          <div class="cta-text">"今天你的账户跌了多少？评论区说说你的仓位和策略，我在线帮大家分析！别忘了关注我，每天早盘前发信号。"</div>
+        </div>
+
+        <div class="img-tip">
+          <div class="img-tip-label">🖼 配图文案建议</div>
+          <div class="img-tip-text">封面："关税黑色星期一！A股今天怎么办？" + K线下跌箭头<br>配图1：2025年4月7日 vs 今日跌幅对比<br>配图2：3个操作信号示意图<br>警示字幕：市场有风险，投资需谨慎</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 第5-10页：重点关注素材 ===== -->
+
+<!-- 第5页：脚本素材升级卡 + 素材4/5 -->
+<div class="section-page">
+  <div class="mat-section-header">
+    <div class="mat-section-label">🔍 FOCUS MATERIALS</div>
+    <div class="mat-section-title">重点关注素材（1-5）</div>
+  </div>
+
+  <!-- 素材1升级卡 -->
+  <div class="mat-card orange-border" style="margin-top:14px">
+    <div class="mat-top">
+      <div class="mat-title">养老金22连涨悬念！通知未发，4类人确定多涨</div>
+      <div class="mat-stars">⭐⭐⭐</div>
+    </div>
+    <div class="mat-source">📌 财政部3月22日表态 · 人社部工作会议精神 · 搜狐/腾讯财经4月1日</div>
+    <div class="mat-tags">
+      <span class="mat-tag" style="background:rgba(255,149,0,0.15);color:#ff9500;border:1px solid rgba(255,149,0,0.3)">社保/养老</span>
+      <span class="mat-tag" style="background:rgba(52,211,153,0.12);color:#34d399;border:1px solid rgba(52,211,153,0.25)">受众1.8亿人</span>
+      <span class="mat-tag" style="background:rgba(255,77,109,0.1);color:#ff4d6d;border:1px solid rgba(255,77,109,0.25)">🔥必做</span>
+    </div>
+    <div class="mat-body">
+      <strong>争议点：</strong>截至4月7日正式通知未发，3月22日财政部已确认继续上涨。打破21年"普涨"模式，"提低控高"：低收入老工人每月多<strong>80-120元</strong>，高收入退休干部涨幅受控。
+    </div>
+    <div class="mat-row">
+      <div class="mat-item">
+        <div class="mat-item-label">最佳角度</div>
+        <div class="mat-item-val">焦虑解惑型：到底涨不涨+通知为何迟迟未发</div>
+      </div>
+      <div class="mat-item">
+        <div class="mat-item-label">目标受众</div>
+        <div class="mat-item-val">退休人员、家有老人的50+人群</div>
+      </div>
+    </div>
+    <div class="mat-data">📊 预计调幅4%-5% · 低收入多涨80-120元 · 补发从1月起 · 连涨21年→第22年</div>
+  </div>
+
+  <!-- 素材2升级卡 -->
+  <div class="mat-card red-border">
+    <div class="mat-top">
+      <div class="mat-title">国有大行三年期1.25%！存100万利息仅12500元</div>
+      <div class="mat-stars">⭐⭐⭐</div>
+    </div>
+    <div class="mat-source">📌 四大行2026年4月1日最新挂牌利率 · 腾讯财经4月1日 · 中金公司研报</div>
+    <div class="mat-tags">
+      <span class="mat-tag" style="background:rgba(255,77,109,0.15);color:#ff4d6d;border:1px solid rgba(255,77,109,0.3)">银行/理财</span>
+      <span class="mat-tag" style="background:rgba(52,211,153,0.12);color:#34d399;border:1px solid rgba(52,211,153,0.25)">全体储户</span>
+      <span class="mat-tag" style="background:rgba(255,77,109,0.1);color:#ff4d6d;border:1px solid rgba(255,77,109,0.25)">🔥必做</span>
+    </div>
+    <div class="mat-body">
+      <strong>争议点：</strong>五年期<strong>1.30%</strong>反而低于部分产品（利率倒挂）。存100万三年利息<strong>37500元</strong>，2021年同等操作是<strong>100500元</strong>，5年缩水63000元。中金预测2-4万亿存款将离开银行。
+    </div>
+    <div class="mat-row">
+      <div class="mat-item">
+        <div class="mat-item-label">最佳角度</div>
+        <div class="mat-item-val">震惊+出路型：利息缩水63000元，钱该往哪放？</div>
+      </div>
+      <div class="mat-item">
+        <div class="mat-item-label">目标受众</div>
+        <div class="mat-item-val">50岁以上储户、退休人员、理财小白</div>
+      </div>
+    </div>
+    <div class="mat-data">📊 三年期1.25% · 五年期1.30% · 活期0.1% · 国债替代：3年期约2.35% · 存款流出预测2-4万亿</div>
+  </div>
+
+  <!-- 素材3升级卡 -->
+  <div class="mat-card" style="border-left-color:#4cc9f0">
+    <div class="mat-top">
+      <div class="mat-title">关税黑色星期一！A股节后首日冲击，散户如何应对</div>
+      <div class="mat-stars">⭐⭐⭐</div>
+    </div>
+    <div class="mat-source">📌 东方财富2026年4月7日 · 中信建投研报 · 财联社4月7日早间</div>
+    <div class="mat-tags">
+      <span class="mat-tag" style="background:rgba(76,201,240,0.15);color:#4cc9f0;border:1px solid rgba(76,201,240,0.3)">A股/策略</span>
+      <span class="mat-tag" style="background:rgba(52,211,153,0.12);color:#34d399;border:1px solid rgba(52,211,153,0.25)">A股投资者</span>
+      <span class="mat-tag" style="background:rgba(255,77,109,0.1);color:#ff4d6d;border:1px solid rgba(255,77,109,0.25)">🔥必做</span>
+    </div>
+    <div class="mat-body">
+      <strong>争议点：</strong>去年4月7日沪指暴跌7.34%/创业板-12.5%，今日是否重演？国内政策托底更强，A股估值偏低，中信建投判断"下跌有限不必悲观"。3个操作信号：看量/看板块/看国家队。
+    </div>
+    <div class="mat-row">
+      <div class="mat-item">
+        <div class="mat-item-label">最佳角度</div>
+        <div class="mat-item-val">操盘型：3个止损信号判断是恐慌还是反转</div>
+      </div>
+      <div class="mat-item">
+        <div class="mat-item-label">目标受众</div>
+        <div class="mat-item-val">A股投资者、基金持有者</div>
+      </div>
+    </div>
+    <div class="mat-data">📊 2025年4月7日沪指-7.34% · 关税：额外全球+10% · 中信建投：好于2025年4月</div>
+  </div>
+
+  <!-- 素材4 -->
+  <div class="mat-card green-border">
+    <div class="mat-top">
+      <div class="mat-title">养老金个人账户可继承！90%的人不知道自己账户有多少钱</div>
+      <div class="mat-stars">⭐⭐</div>
+    </div>
+    <div class="mat-source">📌 人社部2026年社保问答系列（3月28日）</div>
+    <div class="mat-tags">
+      <span class="mat-tag" style="background:rgba(52,211,153,0.15);color:#34d399;border:1px solid rgba(52,211,153,0.3)">社保/民生</span>
+      <span class="mat-tag" style="background:rgba(255,255,255,0.08);color:#8a9bb0">⭐⭐关注</span>
+    </div>
+    <div class="mat-body">缴费30年月薪1万职工个人账户积累约<strong>22万元</strong>，去世后可由法定继承人继承。每年4月是查询余额最佳时机。
+    </div>
+    <div class="mat-data">📊 个人账户缴费比例8% · 缴30年月薪1万积累约22万 · 查询：电子社保卡APP</div>
+  </div>
+
+  <!-- 素材5 -->
+  <div class="mat-card orange-border">
+    <div class="mat-top">
+      <div class="mat-title">银保"小账"新规！返佣被全面封堵，银行卖保险还能信吗？</div>
+      <div class="mat-stars">⭐⭐</div>
+    </div>
+    <div class="mat-source">📌 金融监管总局银保渠道监管文件（2026年4月初）· 新浪财经</div>
+    <div class="mat-tags">
+      <span class="mat-tag" style="background:rgba(255,149,0,0.15);color:#ff9500;border:1px solid rgba(255,149,0,0.3)">保险/消费</span>
+      <span class="mat-tag" style="background:rgba(255,255,255,0.08);color:#8a9bb0">⭐⭐关注</span>
+    </div>
+    <div class="mat-body">金融监管总局新规全面封堵银保"小账"返佣（此前高达<strong>3%-5%</strong>）。短期销售压力增大，高质量产品有望回归。消费者：银行推销动机更纯了？还是懒得卖了？
+    </div>
+    <div class="mat-data">📊 2025年银保保费收入超1万亿 · 小账返佣率：3%-5% · 新规：全面封堵账外违规费用</div>
+  </div>
+</div>
+
+<!-- 第6页：素材6-10 -->
+<div class="section-page">
+  <div class="mat-section-header">
+    <div class="mat-section-label">🔍 FOCUS MATERIALS</div>
+    <div class="mat-section-title">重点关注素材（6-10）</div>
+  </div>
+
+  <!-- 素材6 -->
+  <div class="mat-card" style="border-left-color:#ffd700;margin-top:14px">
+    <div class="mat-top">
+      <div class="mat-title">黄金突破4600美元！国内金价约1100元/克，现在还能买吗？</div>
+      <div class="mat-stars">⭐⭐</div>
+    </div>
+    <div class="mat-source">📌 金投网（2026年4月3日）· 国际金价实时行情</div>
+    <div class="mat-tags">
+      <span class="mat-tag" style="background:rgba(255,215,0,0.15);color:#ffd700;border:1px solid rgba(255,215,0,0.3)">投资/理财</span>
+      <span class="mat-tag" style="background:rgba(255,77,109,0.1);color:#ff4d6d">避险资产</span>
+      <span class="mat-tag" style="background:rgba(255,255,255,0.08);color:#8a9bb0">⭐⭐关注</span>
+    </div>
+    <div class="mat-body">关税冲击下避险需求爆发，国际金价突破<strong>4600美元/盎司</strong>，国内约<strong>1100元/克</strong>，一年涨幅约<strong>53%</strong>。去年750元买入现已浮盈47%，高位追入者面临风险。
+    </div>
+    <div class="mat-data">📊 2026年4月金价约4600美元 · 国内约1100元/克 · 一年涨幅53% · 2025年4月约3000美元</div>
+  </div>
+
+  <!-- 素材7 -->
+  <div class="mat-card" style="border-left-color:#a78bfa">
+    <div class="mat-top">
+      <div class="mat-title">新能源车险4358万辆承保，亏损56亿，保费为何还不降？</div>
+      <div class="mat-stars">⭐⭐</div>
+    </div>
+    <div class="mat-source">📌 中国精算师协会、中国银保信（2026年3月底）· 新浪财经保险频道</div>
+    <div class="mat-tags">
+      <span class="mat-tag" style="background:rgba(167,139,250,0.15);color:#a78bfa;border:1px solid rgba(167,139,250,0.3)">保险/消费</span>
+      <span class="mat-tag" style="background:rgba(255,255,255,0.08);color:#8a9bb0">⭐⭐关注</span>
+    </div>
+    <div class="mat-body">2026年承保新能源车<strong>4358万辆</strong>，保费约<strong>1900亿元</strong>，整体仍亏损约<strong>56亿元</strong>。新能源车险保费约为燃油车<strong>2倍</strong>，车主骂声不断，险企仍在亏。四部门2025年联合出台新规，2026年是关键落地年。
+    </div>
+    <div class="mat-data">📊 承保4358万辆 · 保费1900亿 · 亏损56亿 · 新能源:燃油保费比≈2:1</div>
+  </div>
+
+  <!-- 素材8 -->
+  <div class="mat-card green-border">
+    <div class="mat-top">
+      <div class="mat-title">2026年个税专项扣除新增！这3类人今年能多省1万块</div>
+      <div class="mat-stars">⭐⭐</div>
+    </div>
+    <div class="mat-source">📌 税务总局2025年8月新政（2026年1月1日起施行）</div>
+    <div class="mat-tags">
+      <span class="mat-tag" style="background:rgba(52,211,153,0.15);color:#34d399;border:1px solid rgba(52,211,153,0.3)">税务/民生</span>
+      <span class="mat-tag" style="background:rgba(255,255,255,0.08);color:#8a9bb0">⭐⭐关注</span>
+    </div>
+    <div class="mat-body">2026年1月起：赡养老人扣除提至每月<strong>3000元</strong>（独生子女），3岁以下照护提至<strong>3000元/月</strong>，首套房贷利息提至<strong>1500元/月</strong>。三项叠加年最高减税约<strong>1.2万元</strong>。
+    </div>
+    <div class="mat-data">📊 赡养老人3000/月↑（原2000）· 婴幼儿照护3000/月↑（原1000）· 房贷利息1500/月↑（原1000）</div>
+  </div>
+
+  <!-- 素材9 -->
+  <div class="mat-card" style="border-left-color:#ff4d6d">
+    <div class="mat-top">
+      <div class="mat-title">特朗普访华在即！关税施压+外交访问同步，中美谈判关键期</div>
+      <div class="mat-stars">⭐⭐</div>
+    </div>
+    <div class="mat-source">📌 财联社（2026年4月初）· 华尔街见闻 · 复旦大学中美研究中心</div>
+    <div class="mat-tags">
+      <span class="mat-tag" style="background:rgba(255,77,109,0.15);color:#ff4d6d;border:1px solid rgba(255,77,109,0.3)">国际/外交</span>
+      <span class="mat-tag" style="background:rgba(255,255,255,0.08);color:#8a9bb0">⭐⭐关注</span>
+    </div>
+    <div class="mat-body">"边加关税边访华"——典型的"边打边谈"策略。市场高度关注：此次访问能否推动关税和解？对A股、人民币和出口企业有何影响？历史上每次中美外交破冰后，A股都有哪些板块先涨？
+    </div>
+    <div class="mat-data">📊 上次美国总统访华：2017年 · 关税豁免延长至2026年11月（科技领域）</div>
+  </div>
+
+  <!-- 素材10 -->
+  <div class="mat-card" style="border-left-color:#4cc9f0">
+    <div class="mat-top">
+      <div class="mat-title">多城公积金放大招！外地人可贷、额度提高、审批加快</div>
+      <div class="mat-stars">⭐⭐</div>
+    </div>
+    <div class="mat-source">📌 武汉公积金管理中心（4月2日）· 成都/南京公积金Q1新政 · 财联社汇总</div>
+    <div class="mat-tags">
+      <span class="mat-tag" style="background:rgba(76,201,240,0.15);color:#4cc9f0;border:1px solid rgba(76,201,240,0.3)">房地产/政策</span>
+      <span class="mat-tag" style="background:rgba(255,255,255,0.08);color:#8a9bb0">⭐⭐关注</span>
+    </div>
+    <div class="mat-body">武汉率先取消公积金贷款户籍限制，成都最高额度提至<strong>120万元</strong>。公积金利率<strong>3.1%</strong> vs 商业贷款约<strong>4.2%</strong>，贷100万30年省<strong>约20万利息</strong>。
+    </div>
+    <div class="mat-data">📊 公积金3.1% · 商贷约4.2% · 贷100万30年省20万 · 成都额度升至120万</div>
+  </div>
+</div>
+
+<!-- 第7页：补充素材 11-13 + 统计表 -->
+<div class="section-page">
+  <div class="mat-section-header">
+    <div class="mat-section-label">📎 SUPPLEMENTARY</div>
+    <div class="mat-section-title">补充视角素材（11-13）</div>
+  </div>
+
+  <!-- 素材11 -->
+  <div class="mat-card" style="border-left-color:#6b7c93;margin-top:14px">
+    <div class="mat-top">
+      <div class="mat-title">城乡居民养老险缴费档次调整，有人月领养老金翻倍</div>
+      <div class="mat-stars">⭐</div>
+    </div>
+    <div class="mat-source">📌 人社部城乡居民养老保险最新政策（2026年3月）· 腾讯新闻3月30日</div>
+    <div class="mat-tags">
+      <span class="mat-tag" style="background:rgba(255,255,255,0.08);color:#8a9bb0">社保/农村</span>
+      <span class="mat-tag" style="background:rgba(255,255,255,0.06);color:#6b7c93">⭐补充</span>
+    </div>
+    <div class="mat-body">全国<strong>1.8亿</strong>城乡居民养老保险领取者，月均养老金约200-400元。2026年部分省份提高缴费档次上限，多缴多得，政府补贴也同步增加。
+    </div>
+    <div class="mat-data">📊 城乡居民参保：5.4亿人 · 领取：1.8亿人 · 月均200-400元</div>
+  </div>
+
+  <!-- 素材12 -->
+  <div class="mat-card" style="border-left-color:#6b7c93">
+    <div class="mat-top">
+      <div class="mat-title">互联网保险投诉量激增50%！这3类坑最常见</div>
+      <div class="mat-stars">⭐</div>
+    </div>
+    <div class="mat-source">📌 金融监管总局2025年互联网保险消费投诉通报（2026年3月底）</div>
+    <div class="mat-tags">
+      <span class="mat-tag" style="background:rgba(255,255,255,0.08);color:#8a9bb0">保险/消费</span>
+      <span class="mat-tag" style="background:rgba(255,255,255,0.06);color:#6b7c93">⭐补充</span>
+    </div>
+    <div class="mat-body">2025年互联网保险投诉同比增约<strong>50%</strong>。TOP3：①理赔难②自动续费偷扣保费③网红无资质销售保险。
+    </div>
+    <div class="mat-data">📊 投诉增幅约50% · TOP3：理赔难/自动续费/销售误导</div>
+  </div>
+
+  <!-- 素材13 -->
+  <div class="mat-card" style="border-left-color:#6b7c93">
+    <div class="mat-top">
+      <div class="mat-title">延迟退休2026年落地！你是哪类人，延迟几个月？</div>
+      <div class="mat-stars">⭐</div>
+    </div>
+    <div class="mat-source">📌 人社部延迟退休政策（2026年1月1日起推进）· 知乎财经2026年3月</div>
+    <div class="mat-tags">
+      <span class="mat-tag" style="background:rgba(255,255,255,0.08);color:#8a9bb0">社保/退休</span>
+      <span class="mat-tag" style="background:rgba(255,255,255,0.06);color:#6b7c93">⭐补充</span>
+    </div>
+    <div class="mat-body">2026年1月起渐进式延迟退休正式推进。第一批：<strong>1977年出生男性</strong>（延1个月），<strong>1979年出生女工人</strong>（延1个月）。最终目标：男65岁，女60岁，2039年完成。
+    </div>
+    <div class="mat-data">📊 渐进节奏：每4个月+1个月 · 最终目标：男65/女60 · 2039年完成</div>
+  </div>
+
+  <!-- 优先级总表 -->
+  <div class="stats-table" style="margin-top:20px">
+    <div style="padding:0 0 10px">
+      <div style="font-size:10px;color:#ff9500;letter-spacing:1px">📋 PRIORITY TABLE</div>
+      <div style="font-size:16px;font-weight:700;color:#fff;margin-top:4px">素材优先级总表</div>
+    </div>
+    <table class="priority-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>素材</th>
+          <th>星级</th>
+          <th>标签</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>养老金22连涨悬念</td><td>⭐⭐⭐</td><td><span class="mat-tag" style="background:rgba(255,149,0,0.15);color:#ff9500">社保</span></td></tr>
+        <tr><td>2</td><td>国有大行利率史上最低</td><td>⭐⭐⭐</td><td><span class="mat-tag" style="background:rgba(255,77,109,0.15);color:#ff4d6d">理财</span></td></tr>
+        <tr><td>3</td><td>关税黑色星期一A股</td><td>⭐⭐⭐</td><td><span class="mat-tag" style="background:rgba(76,201,240,0.15);color:#4cc9f0">股市</span></td></tr>
+        <tr><td>4</td><td>养老金个人账户余额可继承</td><td>⭐⭐</td><td><span class="mat-tag" style="background:rgba(52,211,153,0.12);color:#34d399">社保</span></td></tr>
+        <tr><td>5</td><td>银保小账新规封堵</td><td>⭐⭐</td><td><span class="mat-tag" style="background:rgba(255,149,0,0.12);color:#ff9500">保险</span></td></tr>
+        <tr><td>6</td><td>黄金突破4600美元</td><td>⭐⭐</td><td><span class="mat-tag" style="background:rgba(255,215,0,0.12);color:#ffd700">投资</span></td></tr>
+        <tr><td>7</td><td>新能源车险亏损56亿</td><td>⭐⭐</td><td><span class="mat-tag" style="background:rgba(167,139,250,0.12);color:#a78bfa">保险</span></td></tr>
+        <tr><td>8</td><td>个税专项扣除新增省1万</td><td>⭐⭐</td><td><span class="mat-tag" style="background:rgba(52,211,153,0.12);color:#34d399">税务</span></td></tr>
+        <tr><td>9</td><td>特朗普访华+关税谈判</td><td>⭐⭐</td><td><span class="mat-tag" style="background:rgba(255,77,109,0.12);color:#ff4d6d">外交</span></td></tr>
+        <tr><td>10</td><td>多城公积金放大招</td><td>⭐⭐</td><td><span class="mat-tag" style="background:rgba(76,201,240,0.12);color:#4cc9f0">房产</span></td></tr>
+        <tr><td>11</td><td>城乡居民养老险档次调整</td><td>⭐</td><td><span class="mat-tag" style="background:rgba(255,255,255,0.06);color:#8a9bb0">社保</span></td></tr>
+        <tr><td>12</td><td>互联网保险投诉暴涨50%</td><td>⭐</td><td><span class="mat-tag" style="background:rgba(255,255,255,0.06);color:#8a9bb0">保险</span></td></tr>
+        <tr><td>13</td><td>延迟退休2026年落地</td><td>⭐</td><td><span class="mat-tag" style="background:rgba(255,255,255,0.06);color:#8a9bb0">退休</span></td></tr>
+      </tbody>
+    </table>
+    <div class="stats-grid" style="margin-top:16px">
+      <div class="stats-cell"><span class="stats-num" style="color:#ff9500">13</span><div class="stats-label">总素材数</div></div>
+      <div class="stats-cell"><span class="stats-num" style="color:#ff4d6d">3</span><div class="stats-label">⭐⭐⭐必做</div></div>
+      <div class="stats-cell"><span class="stats-num" style="color:#4cc9f0">7</span><div class="stats-label">⭐⭐关注</div></div>
+      <div class="stats-cell"><span class="stats-num" style="color:#8a9bb0">3</span><div class="stats-label">⭐补充</div></div>
+      <div class="stats-cell"><span class="stats-num" style="color:#34d399">3</span><div class="stats-label">完整脚本</div></div>
+    </div>
+    <div style="text-align:center;color:#4a5568;font-size:10px;margin-top:16px">AI财经素材研究员自动生成 · 数据截至2026年4月7日 · 内容仅供参考</div>
+  </div>
+</div>
+
+</body>
+</html>
