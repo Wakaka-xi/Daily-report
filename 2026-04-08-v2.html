@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>素材日报 2026-04-08</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #f0ede8; font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+
+  /* ========== 分页基础 ========== */
+  @page { size: A4 portrait; margin: 0; }
+  .page {
+    width: 794px;
+    margin: 0 auto;
+    background: #fff;
+    overflow: hidden;
+    position: relative;
+    break-after: page;
+    break-before: page;
+  }
+  .page.no-break-after { break-after: auto; }
+  .page.no-break-before { break-before: auto; }
+
+  /* ========== 封面 ========== */
+  .cover { background: linear-gradient(160deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%); padding: 60px 52px 56px; text-align: center; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: -60px; right: -60px; width: 260px; height: 260px; background: radial-gradient(circle, rgba(243,156,18,0.12) 0%, transparent 70%); border-radius: 50%; }
+  .cover::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(52,152,219,0.1) 0%, transparent 70%); border-radius: 50%; }
+  .cover .kicker { display: inline-block; font-size: 11px; letter-spacing: 6px; color: rgba(243,156,18,0.7); text-transform: uppercase; margin-bottom: 28px; }
+  .cover h1 { color: #fff; font-size: 34px; font-weight: 700; line-height: 1.3; margin-bottom: 20px; letter-spacing: -0.5px; position: relative; z-index: 1; }
+  .cover .date { color: rgba(255,255,255,0.4); font-size: 14px; margin-bottom: 36px; letter-spacing: 3px; }
+  .cover .stats { display: flex; justify-content: center; gap: 52px; padding: 28px 0; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 28px; }
+  .cover .stat { text-align: center; }
+  .cover .stat .num { color: #fff; font-size: 32px; font-weight: 700; }
+  .cover .stat .label { color: rgba(255,255,255,0.35); font-size: 12px; margin-top: 6px; letter-spacing: 1px; }
+  .cover .topic-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 18px 24px; text-align: left; position: relative; z-index: 1; }
+  .cover .topic-box .label { font-size: 11px; color: rgba(243,156,18,0.6); letter-spacing: 3px; margin-bottom: 10px; }
+  .cover .topic-box .text { color: rgba(255,255,255,0.88); font-size: 14px; line-height: 1.9; }
+
+  /* ========== 章节标题 ========== */
+  .chapter { padding: 44px 48px 28px; border-bottom: 1px solid #f0ebe4; }
+  .chapter .ch-label { font-size: 11px; letter-spacing: 4px; color: #c9a96e; text-transform: uppercase; margin-bottom: 10px; }
+  .chapter .ch-title { font-size: 24px; font-weight: 700; color: #1a1a2e; letter-spacing: -0.3px; }
+  .chapter .ch-sub { font-size: 13px; color: #999; margin-top: 6px; }
+
+  /* ========== 脚本卡片 ========== */
+  .script-card { padding: 28px 48px; border-bottom: 1px solid #f0ebe4; }
+  .script-card .sh { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
+  .script-card .rank { width: 44px; height: 44px; background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #c9a96e; font-size: 16px; font-weight: 700; flex-shrink: 0; }
+  .script-card .sh-body { flex: 1; }
+  .script-card .sh-tag { display: inline-block; font-size: 11px; padding: 3px 12px; border-radius: 7px; margin-bottom: 10px; font-weight: 600; }
+  .tag-s1 { background: rgba(231,76,60,0.1); color: #c0392b; }
+  .tag-s2 { background: rgba(230,126,34,0.1); color: #d35400; }
+  .tag-s3 { background: rgba(52,152,219,0.1); color: #2980b9; }
+  .script-card .sh-title { font-size: 17px; font-weight: 700; color: #1a1a2e; line-height: 1.5; }
+  .script-card .sh-meta { display: flex; gap: 10px; margin-top: 10px; }
+  .script-card .meta-chip { font-size: 11px; padding: 3px 10px; border-radius: 5px; }
+  .chip-hot { background: rgba(231,76,60,0.08); color: #c0392b; }
+  .chip-type { background: #f5f4f0; color: #888; }
+
+  /* 钩子 */
+  .hook { background: linear-gradient(135deg, #fffbf0, #fff8e8); border: 1px solid rgba(243,156,18,0.15); border-left: 4px solid #f39c12; border-radius: 14px; padding: 16px 18px; margin-bottom: 18px; }
+  .hook-label { font-size: 11px; font-weight: 700; color: #c9a96e; letter-spacing: 2px; margin-bottom: 8px; }
+  .hook-text { font-size: 14.5px; color: #3d3d3d; line-height: 1.85; }
+
+  /* 时间块 */
+  .time-block { background: #faf9f7; border-left: 3px solid #c9a96e; padding: 10px 14px; margin-bottom: 10px; border-radius: 0 8px 8px 0; }
+  .time-block .time-label { color: #c9a96e; font-weight: 700; font-size: 12px; display: block; margin-bottom: 4px; }
+  .time-block .time-content { color: #555; font-size: 13.5px; line-height: 1.7; }
+
+  /* 正文 */
+  .body-lines { padding: 0 2px; }
+  .body-line { font-size: 14px; color: #555; line-height: 2; margin-bottom: 14px; padding-left: 20px; position: relative; }
+  .body-line:last-child { margin-bottom: 0; }
+  .body-line::before { content: ''; position: absolute; left: 0; top: 12px; width: 6px; height: 6px; background: #c9a96e; border-radius: 50%; }
+
+  /* 互动引导 */
+  .cta { background: #fffde7; border: 1px solid rgba(243,156,18,0.15); border-radius: 12px; padding: 14px 18px; margin-top: 16px; }
+  .cta-label { font-size: 11px; color: #c9a96e; letter-spacing: 2px; margin-bottom: 6px; }
+  .cta-text { font-size: 13.5px; color: #666; line-height: 1.7; }
+
+  /* 封面建议 */
+  .cover-tip { background: #f9f8f5; border-radius: 10px; padding: 12px 16px; margin-top: 12px; }
+  .cover-tip-label { font-size: 11px; color: #bbb; margin-bottom: 5px; }
+  .cover-tip-text { font-size: 13px; color: #888; line-height: 1.65; }
+
+  /* ========== 素材卡片（含脚本内容版）========== */
+  .mat-script-card { margin: 0 28px 18px; background: #faf9f7; border: 1px solid #f0ebe4; border-radius: 16px; overflow: hidden; position: relative; }
+  .mat-script-card::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; }
+  .mat-script-card.ss3::before { background: linear-gradient(180deg, #e74c3c, #c0392b); }
+  .mat-script-card.ss2::before { background: linear-gradient(180deg, #3498db, #2980b9); }
+  .mat-script-card.ss1::before { background: linear-gradient(180deg, #95a5a6, #7f8c8d); }
+
+  .mat-script-card .mat-head { padding: 18px 20px 14px; }
+  .mat-script-card .mat-head-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; }
+  .mat-script-card .mat-title { font-size: 15px; font-weight: 600; color: #1a1a2e; line-height: 1.5; flex: 1; }
+  .mat-script-card .mat-stars { font-size: 14px; flex-shrink: 0; padding-top: 2px; }
+  .star-gold { color: #F5A623; }
+  .star-gray { color: #ddd; }
+  .mat-script-card .mat-tag-row { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+  .mat-script-card .mat-tag { font-size: 11px; padding: 2px 10px; border-radius: 6px; font-weight: 600; }
+  .mat-script-card .mat-body { padding: 0 20px 18px; }
+
+  /* ========== 素材卡片（纯结构版）========== */
+  .mat-card { margin: 0 28px 18px; background: #faf9f7; border: 1px solid #f0ebe4; border-radius: 16px; padding: 18px 20px; position: relative; overflow: hidden; }
+  .mat-card::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; }
+  .mat-card.ss3::before { background: linear-gradient(180deg, #e74c3c, #c0392b); }
+  .mat-card.ss2::before { background: linear-gradient(180deg, #3498db, #2980b9); }
+  .mat-card.ss1::before { background: linear-gradient(180deg, #95a5a6, #7f8c8d); }
+  .mat-card .mat-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; gap: 14px; }
+  .mat-card .mat-title { font-size: 15px; font-weight: 600; color: #1a1a2e; line-height: 1.5; flex: 1; }
+  .mat-card .mat-stars { font-size: 14px; flex-shrink: 0; padding-top: 2px; }
+  .mat-row { display: flex; gap: 10px; margin-bottom: 10px; align-items: flex-start; }
+  .mat-row:last-child { margin-bottom: 0; }
+  .mat-key { font-size: 13px; color: #8a8a8a; width: 68px; flex-shrink: 0; padding-top: 1px; font-weight: 500; }
+  .mat-val { font-size: 14px; color: #333; line-height: 1.75; flex: 1; }
+  .mat-source { margin-top: 12px; padding-top: 10px; border-top: 1px solid #ece8e2; font-size: 12px; color: #999; }
+  .mat-tag-row-card { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+  .mat-tag-card { font-size: 11px; padding: 2px 10px; border-radius: 6px; font-weight: 600; }
+
+  /* 标签颜色 */
+  .tag-yiliao { background: rgba(74,144,217,0.1); color: #4A90D9; }
+  .tag-shebao { background: rgba(82,196,26,0.1); color: #52C41A; }
+  .tag-zhengce { background: rgba(114,46,209,0.1); color: #722ED1; }
+  .tag-shishi { background: rgba(250,140,22,0.1); color: #FA8C16; }
+  .tag-licai { background: rgba(235,47,150,0.1); color: #EB2F96; }
+  .tag-gupiao { background: rgba(24,144,255,0.1); color: #1890FF; }
+  .tag-baoxian { background: rgba(19,194,194,0.1); color: #13C2C2; }
+  .tag-qiche { background: rgba(82,196,26,0.1); color: #389e0d; }
+
+  /* ========== 底部页脚 ========== */
+  .page-footer { background: #1a1a2e; padding: 32px 48px; text-align: center; }
+  .page-footer .brand { font-size: 16px; font-weight: 700; color: rgba(255,255,255,0.8); margin-bottom: 6px; letter-spacing: 4px; }
+  .page-footer .sub { font-size: 11px; color: rgba(255,255,255,0.3); }
+</style>
+</head>
+<body>
+
+<!-- ===================== 封面 ===================== -->
+<div class="page no-break-after">
+  <div class="cover">
+    <div class="kicker">Daily Brief</div>
+    <h1>短视频素材精选</h1>
+    <div class="date">2026.04.08 · Wednesday</div>
+    <div class="stats">
+      <div class="stat"><div class="num">3</div><div class="label">参考脚本</div></div>
+      <div class="stat"><div class="num">13</div><div class="label">重点素材</div></div>
+      <div class="stat"><div class="num">3</div><div class="label">今日热点</div></div>
+    </div>
+    <div class="topic-box">
+      <div class="label">Today's Focus</div>
+      <div class="text">50万亿定存到期搬家潮 · 个人养老金上限涨到2万 · 深圳车电分离车险试点 · A股国家队护盘反弹</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 脚本1 ===================== -->
+<div class="page">
+  <div class="chapter">
+    <div class="ch-label">Reference Scripts</div>
+    <div class="ch-title">参考脚本</div>
+    <div class="ch-sub">视频号爆款结构 · 反转悬念文案 · 可直接二创</div>
+  </div>
+
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">01</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s1">银行理财</span>
+        <div class="sh-title">50万亿定存到期！续存利息腰斩，上海阿姨30万少了18000元——钱该搬去哪？</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">极高热度</span>
+          <span class="meta-chip chip-type">理财攻略</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">上海有个张阿姨，2023年在工行存了30万三年期，利率3.25%，到期利息<strong>29250元</strong>！今天她去续存，银行告诉她：现在三年期只有1.25%了，同样的钱，利息只有<strong>11250元</strong>——<strong>少了18000块</strong>！但她什么都没做错。今天帮大家找钱该放哪里。</div>
+    </div>
+    <div class="body-lines">
+      <div class="time-block">
+        <span class="time-label">【00:00-00:12】钩子+真实案例</span>
+        <span class="time-content">张阿姨的遭遇不是个例。2026年，全国约有<strong>50-70万亿</strong>居民定期存款集中到期！这批钱大部分是2023年存进去的，当时利率还在3%以上，现在续存利率跌到<strong>1.25%</strong>——年利息直接腰斩。</span>
+      </div>
+      <div class="time-block">
+        <span class="time-label">【00:12-00:35】为什么大家都在观望</span>
+        <span class="time-content">很多人到期后不知道该怎么做，就直接续存——这是最懒但损失最大的选择。利率已经进入"1时代"，银行存款的本质是你借钱给银行，利率低了说明借得太便宜，应该换个方向。</span>
+      </div>
+      <div class="time-block">
+        <span class="time-label">【00:35-01:05】5个出路对比</span>
+        <span class="time-content"><strong>①国债</strong>：3年期约2.35%，最安全，但要抢；<strong>②银行理财R2</strong>：年化约2.5%-3%，历史亏损率极低；<strong>③分红险</strong>：演示收益3.5%，注意这不是保证收益；<strong>④中小银行高息定存</strong>：吉林银行等1.85%-2%，<strong>50万以内存款保险保护</strong>；<strong>⑤黄金/权益基金</strong>：风险承受能力高者再考虑。</span>
+      </div>
+      <div class="time-block">
+        <span class="time-label">【01:05-01:22】关键警示</span>
+        <span class="time-content">最重要的提醒：<strong>承诺固定收益超4%的产品</strong>，必须问清楚底层资产是什么！2026年Q1已有多起城投债延期兑付，有老人把80万养老钱存进去取不出来了！</span>
+      </div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你的存款快到期了吗？打算怎么处理？评论区说说，我帮你看看适不适合！转发给家人，别让他们续存白白少1.8万！关注我，每天一条存钱干货。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"50万亿定存今年到期！" + 利息对比数字（29250 vs 11250）；配图：5个出路对比表（安全性/收益率/门槛）；警示字幕：超4%固定收益要追问底层</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 脚本2 ===================== -->
+<div class="page">
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">02</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s2">社保理财</span>
+        <div class="sh-title">个人养老金上限悄悄涨到2万！月薪2万每年省税4000，但90%的人根本没存</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">高热度</span>
+          <span class="meta-chip chip-type">省税攻略</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">个人养老金账户年存上限，悄悄从1.2万提到<strong>2万</strong>了！月薪2万的人每年存满，合法少交<strong>4000块</strong>个税！但是——全国<strong>1.5亿人</strong>开了账户，有统计显示<strong>90%一分没存</strong>！今天帮你搞清楚：这2万到底值不值得存？</div>
+    </div>
+    <div class="body-lines">
+      <div class="time-block">
+        <span class="time-label">【00:00-00:12】钩子+悬念</span>
+        <span class="time-content">今天这期视频可能价值一张机票——帮你合法少交税。个人养老金，有人说它是中国版401K，有人说是坑。到底是什么？</span>
+      </div>
+      <div class="time-block">
+        <span class="time-label">【00:12-00:35】三句话搞懂怎么省税</span>
+        <span class="time-content">第一，存钱进去能<strong>减税</strong>：当年存多少，应纳税额就少多少，上限2万/年。第二，账户内投资<strong>免收益税</strong>。第三，退休取出来统一按<strong>3%缴税</strong>——无论之前税率是20%还是25%。北京小陈月薪2万，每年存满2万，省税<strong>4000元</strong>！</span>
+      </div>
+      <div class="time-block">
+        <span class="time-label">【00:35-01:00】为什么90%的人没用上</span>
+        <span class="time-content">原因：①觉得锁定到退休不灵活；②不知道能省多少税；③怕投资亏——其实1256只产品里有存款类极保守产品，本金几乎无风险。</span>
+      </div>
+      <div class="time-block">
+        <span class="time-label">【01:00-01:18】适合谁？不适合谁？</span>
+        <span class="time-content"><strong>适合</strong>：月薪1万以上、还有20年以上才退休、不急用这笔钱的人。税率越高省得越多。<strong>不适合</strong>：收入低、随时可能急用钱、距退休不足10年的人。</span>
+      </div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你有没有开个人养老金账户？存了多少？或者有什么疑问？评论区告诉我，我帮你算一算省了多少税！觉得有用就转发给同事，大家一起合法省税！</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"个人养老金上限2万！月薪2万省税4000！"；配图：不同月薪对应省税金额表；字幕条：退休取出来只交3%的税</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 脚本3 ===================== -->
+<div class="page">
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">03</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s3">保险改革</span>
+        <div class="sh-title">新能源车险终于要降价了！深圳试点车电分离，有车主保费有望降3000元</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">高热度</span>
+          <span class="meta-chip chip-type">政策解读</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">买了新能源车的注意！深圳刚宣布——新能源车险要改革了！"车电分离"方案落地。有车主现在每年交<strong>9000元</strong>综合险，改革后有望降到<strong>6000元</strong>——<strong>省3000块</strong>！今天帮你搞清楚：这次真的能降下来吗？全国什么时候轮到你？</div>
+    </div>
+    <div class="body-lines">
+      <div class="time-block">
+        <span class="time-label">【00:00-00:12】钩子+现象</span>
+        <span class="time-content">同品牌同价位SUV，燃油版综合险3000多，新能源版要6000-9000——<strong>贵了一倍</strong>！这不是保险公司欺负你，是因为电池赔付成本极高。</span>
+      </div>
+      <div class="time-block">
+        <span class="time-label">【00:12-00:40】为什么新能源车险贵？</span>
+        <span class="time-content">换一块电池动辄<strong>5-15万元</strong>！全国新能源车险4358万辆，保费收入1900亿，但亏了<strong>56亿</strong>。车主嫌贵、险企叫亏——这就是死局。</span>
+      </div>
+      <div class="time-block">
+        <span class="time-label">【00:40-01:05】车电分离怎么解？</span>
+        <span class="time-content">核心逻辑：<strong>把车险和电池险分开</strong>。整车险不包含电池损坏，保费大幅降低；电池险与厂商质保联动，减少险企赔付压力。深圳某特斯拉Model 3：<strong>9000元→6000元</strong>，省约3000元。</span>
+      </div>
+      <div class="time-block">
+        <span class="time-label">【01:05-01:20】全国什么时候推？</span>
+        <span class="time-content">好消息：金融监管总局+工信部+交通部+商务部<strong>四部门2025年1月已联合发文</strong>支持，深圳是首个实质落地城市。预计2026年底-2027年初，主要城市基本覆盖。</span>
+      </div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你是新能源车主吗？你的年险保费多少钱？评论区报一下，我看看哪款车最吃亏！转发给新能源车主，等降价再续保。关注我，政策落地第一时间帮你解读！</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"新能源车险降价！车电分离来了！"；配图：整车险+电池险分离示意图；Model 3对比：9000→6000；警示字幕：深圳试点，全国推广时间待定</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 重点关注 ===================== -->
+<div class="page">
+  <div class="chapter">
+    <div class="ch-label">Key Highlights</div>
+    <div class="ch-title">重点关注</div>
+    <div class="ch-sub">8条核心素材 · 精准选题 · 多角度切入</div>
+  </div>
+
+  <!-- 素材4：A股反弹 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">A股今日大反弹！国家队凌晨集体发声，中央汇金再次增持宽基ETF</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-tag-row-card">
+      <span class="mat-tag-card tag-gupiao">股市策略</span>
+      <span class="mat-tag-card tag-shishi">时事热点</span>
+    </div>
+    <div class="mat-row"><div class="mat-key">来源</div><div class="mat-val">澎湃新闻4月8日；东方财富4月8日；中央汇金公告</div></div>
+    <div class="mat-row"><div class="mat-key">争议点</div><div class="mat-val">4月7日遭关税冲击下跌后，4月8日清晨国家队集体表态：中央汇金再次增持ETF、国家金融监管总局上调险资权益比例上限。A股随即反弹，农林牧渔、食品饮料领涨。这是典型的"国家队确认底部"信号，历史上每次集体表态后1-2周内A股往往触底。</div></div>
+    <div class="mat-row"><div class="mat-key">角度</div><div class="mat-val">A：3个信号判断底部是否确认｜B：历史规律复盘：国家队出手后A股怎么走？</div></div>
+    <div class="mat-row"><div class="mat-key">受众</div><div class="mat-val">A股投资者、基金持有者</div></div>
+    <div class="mat-source">参考数据：中央汇金增持宽基ETF；险资权益上限上调；历史上国家队集体发声均出现阶段性底部</div>
+  </div>
+
+  <!-- 素材5：城乡居民养老金163元 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">城乡居民基础养老金涨到163元！但农村老人月领只有这点，4月账户要换了</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-tag-row-card">
+      <span class="mat-tag-card tag-shebao">社保民生</span>
+      <span class="mat-tag-card tag-zhengce">政策</span>
+    </div>
+    <div class="mat-row"><div class="mat-key">来源</div><div class="mat-val">腾讯新闻2026年4月6日；搜狐财经4月2日</div></div>
+    <div class="mat-row"><div class="mat-key">争议点</div><div class="mat-val">全国城乡居民基础养老金最低标准从143元提至<strong>163元/月</strong>（第8次上调）。但现实冲击：城市退休职工平均月养老金约3000-4000元，与农村老人差距高达20-30倍。4月同步落地：多地养老金统一发放至社保卡金融账户，未激活者已出现到账延迟！</div></div>
+    <div class="mat-row"><div class="mat-key">角度</div><div class="mat-val">A：城市4000元 vs 农村163元——差距与努力｜B：4月换账户提醒，如何激活社保卡金融账户</div></div>
+    <div class="mat-row"><div class="mat-key">受众</div><div class="mat-val">农村家庭、城市有农村老人的子女、政策关注者</div></div>
+    <div class="mat-source">参考数据：163元/月（最低标准）；城市职工平均养老金3000-4000元；5.4亿参保人、1.8亿领取者</div>
+  </div>
+</div>
+
+<div class="page">
+  <!-- 素材6：中小银行高息 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">存款到期后：中小银行三年期1.85%，比四大行高0.6%，30万3年多收5400元</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-tag-row-card">
+      <span class="mat-tag-card tag-licai">理财银行</span>
+    </div>
+    <div class="mat-row"><div class="mat-key">来源</div><div class="mat-val">搜狐财经2026年2月11日；东方金诚3月17日研究报告</div></div>
+    <div class="mat-row"><div class="mat-key">争议点</div><div class="mat-val">四大行三年期1.25%，吉林银行、成都农商行等中小银行1.85%-2%。关键安全底线：<strong>50万元以内有存款保险保障</strong>（政府兜底），可放心分散存至高息中小银行。超50万风险自担。30万存3年：大行利息11250元 vs 中小银行16650元，多5400元。</div></div>
+    <div class="mat-row"><div class="mat-key">角度</div><div class="mat-val">A：四大行vs中小银行，利息差怎么算｜B：存款保险科普——50万以内中小银行和大行一样安全</div></div>
+    <div class="mat-row"><div class="mat-key">受众</div><div class="mat-val">银行储户、保守理财型人群、50岁以上人群</div></div>
+    <div class="mat-source">参考数据：四大行1.25% vs 中小银行1.85%；30万3年差5400元；存款保险上限50万/家银行</div>
+  </div>
+
+  <!-- 素材7：关税4月9日节点 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">关税博弈4月9日是关键节点！特朗普访华消息持续发酵，A股方向怎么判断？</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-tag-row-card">
+      <span class="mat-tag-card tag-shishi">国际时事</span>
+      <span class="mat-tag-card tag-gupiao">股市影响</span>
+    </div>
+    <div class="mat-row"><div class="mat-key">来源</div><div class="mat-val">复旦中美研究中心4月3日；华尔街见闻4月7日早餐FM；财联社4月7日</div></div>
+    <div class="mat-row"><div class="mat-key">争议点</div><div class="mat-val">4月9日是市场预期的"更高关税生效日"窗口。同时特朗普访华消息持续发酵，中方取消对美光伏退税，中美处于"边打边谈"胶着态势。参考2025年4月10日关税暂停：美股道指单日暴涨近3000点，若历史重演A股将大幅反弹。</div></div>
+    <div class="mat-row"><div class="mat-key">角度</div><div class="mat-val">A：看3个信号判断特朗普会否暂停关税｜B：复盘2025年4月10日暴涨那次，2026年能重演吗</div></div>
+    <div class="mat-row"><div class="mat-key">受众</div><div class="mat-val">A股投资者、外贸从业者、宏观政策关注者</div></div>
+    <div class="mat-source">参考数据：2025年4月10日道指+8%；关税暂停触发条件；特朗普访华预计4月内</div>
+  </div>
+</div>
+
+<div class="page">
+  <!-- 素材8：公积金账户 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">你的公积金账户里有多少钱？4月最佳查询时机，有人发现账户里躺着30万没用过</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-tag-row-card">
+      <span class="mat-tag-card tag-zhengce">房产政策</span>
+      <span class="mat-tag-card tag-shebao">民生</span>
+    </div>
+    <div class="mat-row"><div class="mat-key">来源</div><div class="mat-val">住建部公积金中心年度报告2026年3月；财联社多城政策汇总</div></div>
+    <div class="mat-row"><div class="mat-key">争议点</div><div class="mat-val">每年4月公积金完成年度利息归集，是查询余额最佳时机。全国职工平均余额约<strong>5.8万元</strong>，缴满10年可达<strong>25-35万元</strong>。超70%的缴存职工从未使用过！公积金贷款利率3.1% vs 商业贷款4.2%，贷100万30年<strong>省20万利息</strong>。</div></div>
+    <div class="mat-row"><div class="mat-key">角度</div><div class="mat-val">A：4月查一查，你的账户里有多少钱｜B：有人缴了15年没用，相当于放弃了20万利息优惠</div></div>
+    <div class="mat-row"><div class="mat-key">受众</div><div class="mat-val">在职人员（尤其缴公积金满5年以上）、购房需求人群</div></div>
+    <div class="mat-source">参考数据：全国平均5.8万；10年缴存者25-35万；100万30年利息差20万；武汉取消户籍限制</div>
+  </div>
+
+  <!-- 素材9：银保小账封堵后 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">银保"小账"封堵后：分红险3.5%演示收益能信吗？哪些险企实际分红表现好？</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-tag-row-card">
+      <span class="mat-tag-card tag-baoxian">保险理财</span>
+    </div>
+    <div class="mat-row"><div class="mat-key">来源</div><div class="mat-val">新浪财经4月初；金融监管总局银保渠道合规文件</div></div>
+    <div class="mat-row"><div class="mat-key">争议点</div><div class="mat-val">"小账"封堵后，高质量分红险回归C位。关键问题：3.5%演示收益 vs 1.5%-2%保证收益，差距巨大。判断一家险企分红能力的核心指标：查看近3年实际<strong>分红实现率</strong>（中国人寿、泰康、平安历史表现较好）。</div></div>
+    <div class="mat-row"><div class="mat-key">角度</div><div class="mat-val">A：如何判断分红险靠不靠谱？3个指标教你甄别｜B：分红险3.5%/国债2.35%/理财3%三者对比</div></div>
+    <div class="mat-row"><div class="mat-key">受众</div><div class="mat-val">银行储户、保险消费者、中老年理财群体</div></div>
+    <div class="mat-source">参考数据：分红险演示利率3.5%（非保证）；国债2.35%；银行理财R2约2.5-3%；小账返佣此前3%-5%</div>
+  </div>
+</div>
+
+<div class="page">
+  <!-- 素材10：外卖骑手工伤险 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">外卖骑手、网约车司机可以交工伤保险了！月缴20元，出事最高赔50万</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-tag-row-card">
+      <span class="mat-tag-card tag-shebao">社保民生</span>
+      <span class="mat-tag-card tag-zhengce">政策</span>
+    </div>
+    <div class="mat-row"><div class="mat-key">来源</div><div class="mat-val">人社部2026年工伤保险扩面政策（2026年3月通知）；财联社</div></div>
+    <div class="mat-row"><div class="mat-key">争议点</div><div class="mat-val">全国外卖骑手超<strong>700万人</strong>，新业态灵活就业约2亿人，此前完全无工伤保障。2026年新规：可自主参加工伤保险，月缴约20-80元。核心对比：平台事故补偿约<strong>1.5-3万元</strong>，正式工伤保险最高赔付<strong>10-50万元</strong>，差距10-30倍。</div></div>
+    <div class="mat-row"><div class="mat-key">角度</div><div class="mat-val">A：骑手每月20块保50万，你会参加吗｜B：平台赔1万vs工伤保险赔50万，这差距</div></div>
+    <div class="mat-row"><div class="mat-key">受众</div><div class="mat-val">外卖骑手、网约车司机、灵活就业人员（约2亿人群）</div></div>
+    <div class="mat-source">参考数据：全国骑手700万人；月缴20-80元；平台补偿1.5-3万 vs 工伤保险10-50万；新业态灵活就业2亿</div>
+  </div>
+
+  <!-- 素材11-13：补充视角 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">4月养老金换账户提醒：未激活社保卡金融账户，已有人延迟到账半个月</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-tag-row-card">
+      <span class="mat-tag-card tag-shebao">社保提醒</span>
+    </div>
+    <div class="mat-row"><div class="mat-key">争议点</div><div class="mat-val">多地养老金统一发放至社保卡金融账户（第三代），原存折/银行卡停用。很多老人领到新社保卡但未激活金融功能，导致养老金延迟到账。需去银行柜台激活。</div></div>
+    <div class="mat-row"><div class="mat-key">受众</div><div class="mat-val">退休人员、家有老人的子女</div></div>
+    <div class="mat-source">激活方式：银行柜台/ATM/社保卡APP均可</div>
+  </div>
+
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">高息城投债2026年Q1多起违约！承诺4%以上固定收益必须问清楚底层资产</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-tag-row-card">
+      <span class="mat-tag-card tag-licai">理财警示</span>
+    </div>
+    <div class="mat-row"><div class="mat-key">争议点</div><div class="mat-val">存款利率下降后，市场高息理财泛滥。2026年Q1已有多起城投债延期兑付，有老人80万养老钱被套。识别标准：承诺固定收益超过4%的产品，必须追问底层资产。</div></div>
+    <div class="mat-row"><div class="mat-key">受众</div><div class="mat-val">中老年投资者、银行理财用户、退休储蓄人群</div></div>
+    <div class="mat-source">风险信号：超4%固定收益；城投债不等于政府信用；正规理财不承诺固定高收益</div>
+  </div>
+
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">新能源车购置税免税延至2027年，但2026年起新增技术门槛，部分车型被踢出名单</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-tag-row-card">
+      <span class="mat-tag-card tag-qiche">消费汽车</span>
+    </div>
+    <div class="mat-row"><div class="mat-key">争议点</div><div class="mat-val">2026年新增续航/电池能量密度/快充性能门槛，部分热销车型从免税名单中移出。以23万车型为例，可省税约<strong>2.1万元</strong>，购车前务必核查最新工信部目录。</div></div>
+    <div class="mat-row"><div class="mat-key">受众</div><div class="mat-val">购车意向人群、换车家庭</div></div>
+    <div class="mat-source">政策依据：工信部/财政部/税务总局联合公告（2025年10月）；免税延至2027年底</div>
+  </div>
+
+  <div class="page-footer">
+    <div class="brand">素材日报</div>
+    <div class="sub">2026.04.08 · 数据截至当日 · AI财经短视频素材研究员 · 仅供参考</div>
+  </div>
+</div>
+
+</body>
+</html>
