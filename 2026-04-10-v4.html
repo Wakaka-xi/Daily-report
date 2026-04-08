@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><title>素材日报 2026年4月10日（周四）</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#f0ede8;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+.page{width:794px;margin:0 auto;background:#fff;break-after:page;position:relative}
+.cover{background:linear-gradient(160deg,#1a1a2e,#16213e,#0f3460);padding:60px 52px;text-align:center;min-height:560px;display:flex;flex-direction:column;justify-content:center}
+.cover .date{display:inline-block;background:rgba(255,255,255,0.15);color:#fff;padding:8px 24px;border-radius:20px;font-size:14px;margin-bottom:30px;backdrop-filter:blur(10px)}
+.cover h1{color:#fff;font-size:42px;margin-bottom:12px;font-weight:700}
+.cover .subtitle{color:rgba(255,255,255,0.8);font-size:18px;margin-bottom:50px}
+.cover .stats{display:flex;justify-content:center;gap:50px;margin-top:20px}
+.cover .stat{text-align:center}
+.cover .stat .num{color:#ffd700;font-size:48px;font-weight:700;line-height:1}
+.cover .stat .label{color:rgba(255,255,255,0.7);font-size:13px;margin-top:8px}
+.cover .footer{position:absolute;bottom:40px;left:0;right:0;text-align:center;color:rgba(255,255,255,0.5);font-size:12px}
+.chapter{background:#e74c3c;padding:16px 28px;font-size:14px;font-weight:600;color:#fff}
+.chapter.blue{background:#3498db}
+.chapter.green{background:#27ae60}
+.script-card{margin:20px 28px;background:#fff;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.08);overflow:hidden;border:1px solid #eee}
+.script-header{background:linear-gradient(135deg,#e74c3c,#c0392b);color:#fff;padding:16px 20px;display:flex;align-items:center;gap:12px}
+.script-header .num{background:rgba(255,255,255,0.2);padding:4px 12px;border-radius:6px;font-size:13px;font-weight:600}
+.script-header h3{flex:1;font-size:16px;font-weight:600}
+.script-header .duration{background:rgba(255,255,255,0.2);padding:4px 10px;border-radius:4px;font-size:12px}
+.script-meta{display:flex;gap:16px;padding:12px 20px;background:#f8f9fa;border-bottom:1px solid #eee;font-size:12px;color:#666}
+.script-meta span{display:flex;align-items:center;gap:4px}
+.script-hook{background:#fff3f3;padding:16px 20px;border-left:4px solid #e74c3c}
+.script-hook .label{color:#e74c3c;font-size:12px;font-weight:600;margin-bottom:6px}
+.script-hook .text{font-size:14px;color:#333;line-height:1.6}
+.script-timeline{padding:16px 20px}
+.script-timeline .item{display:flex;gap:16px;padding:12px 0;border-bottom:1px dashed #eee}
+.script-timeline .item:last-child{border-bottom:none}
+.script-timeline .time{min-width:90px;color:#3498db;font-size:12px;font-weight:600;padding-top:2px}
+.script-timeline .content{flex:1}
+.script-timeline .title{font-size:14px;font-weight:600;color:#333;margin-bottom:4px}
+.script-timeline .desc{font-size:13px;color:#666;line-height:1.5}
+.script-ending{background:#f0fff4;padding:16px 20px;display:flex;align-items:flex-start;gap:12px}
+.script-ending .icon{color:#27ae60;font-size:20px}
+.script-ending .text{font-size:13px;color:#27ae60;line-height:1.6}
+.material-section{padding:20px 28px}
+.material-section h3{font-size:16px;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid}
+.material-section h3.red{border-color:#e74c3c;color:#e74c3c}
+.material-section h3.blue{border-color:#3498db;color:#3498db}
+.material-section h3.green{border-color:#27ae60;color:#27ae60}
+.material-card{background:#fff;border-radius:10px;padding:18px;margin-bottom:14px;box-shadow:0 1px 6px rgba(0,0,0,0.06);border-left:4px solid}
+.material-card.star3{border-color:#e74c3c}
+.material-card.star2{border-color:#3498db}
+.material-card.star1{border-color:#27ae60}
+.material-card h4{font-size:15px;color:#333;margin-bottom:10px;display:flex;align-items:flex-start;gap:8px}
+.material-card h4 .star{font-size:12px}
+.material-card h4 .star.s3{color:#e74c3c}
+.material-card h4 .star.s2{color:#3498db}
+.material-card h4 .star.s1{color:#27ae60}
+.material-card .highlight{font-size:13px;color:#555;line-height:1.6;margin:10px 0;padding:12px;background:#f8f9fa;border-radius:6px}
+.material-card .angles{font-size:12px;color:#666;margin-top:10px}
+.material-card .angles strong{color:#333}
+.material-card .risk{font-size:12px;color:#e67e22;margin-top:8px;padding:8px 12px;background:#fff8e6;border-radius:4px}
+.material-card .data-list{font-size:12px;color:#666;margin-top:10px;display:flex;flex-wrap:wrap;gap:6px}
+.material-card .data-list span{background:#f0f0f0;padding:3px 8px;border-radius:3px}
+.table-wrap{padding:20px 28px}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{background:#2c3e50;color:#fff;padding:10px 12px;text-align:left;font-weight:500}
+td{padding:10px 12px;border-bottom:1px solid #eee;color:#333}
+tr:nth-child(even){background:#f8f9fa}
+.page-footer{padding:16px 28px;background:#f8f9fa;text-align:center;font-size:11px;color:#999}
+</style></head><body>
+
+<div class="page">
+  <div class="cover">
+    <div class="date">2026年4月10日（周四）</div>
+    <h1>短视频素材精选</h1>
+    <p class="subtitle">保险 / 财经 / 民生</p>
+    <div class="stats">
+      <div class="stat">
+        <div class="num">3</div>
+        <div class="label">参考脚本</div>
+      </div>
+      <div class="stat">
+        <div class="num">13</div>
+        <div class="label">重点素材</div>
+      </div>
+      <div class="stat">
+        <div class="num">3</div>
+        <div class="label">今日热点</div>
+      </div>
+    </div>
+    <div class="footer">由AI财经短视频素材研究员生成 | 数据截至2026年4月10日（周四）</div>
+  </div>
+</div><div class="page">
+  <div class="chapter">🎬 参考脚本（来自⭐⭐⭐必做素材）</div>
+<div class="script-card">
+  <div class="script-header">
+    <span class="num">脚本1</span>
+    <h3>养老金22连涨本周见分晓！有人每月多涨200元，有人只有40元——差距怎么算的？</h3>
+    <span class="duration">90秒</span>
+  </div>
+  <div class="script-meta">
+    <span>📌 素材1 ⭐⭐⭐</span>
+  </div>
+  <div class="script-hook">
+    <div class="label">🎯 前3秒钩子</div>
+    <div class="text">"养老金22连涨，最快本周就发通知了！但今年有个重大变化：有人每月多涨200块，有人只涨40块——国家这次专门'劫富济贫'，你是哪种？"</div>
+  </div>
+  <div class="script-timeline">
+    
+        <div class="item">
+          <div class="time">00:00-00:15<br><small>悬念开场</small></div>
+          <div class="content">
+            <div class="desc">4月10日，养老金22连涨进入最后倒计时。根据历年规律，正式通知最晚4月下旬发布，但4月中旬是最大概率窗口。这意味着，全国1.8亿退休人员最迟下周就能知道确切消息了。</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="time">00:15-00:45<br><small>核心内容①</small></div>
+          <div class="content">
+            <div class="desc">今年最大的变化：打破21年'普涨'惯例，改成'提低控高'！什么意思？低收入的人多涨，高收入的人少涨。举例：月薪1800的老工人王大爷，今年可能多涨130元（约7%）；月薪7000的退休干部李叔叔，今年可能只涨210元（约3%）。</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="time">00:45-01:10<br><small>核心内容②</small></div>
+          <div class="content">
+            <div class="desc">三类人多涨：第一，工龄40年以上的老工人；第二，低收入的退休人员；第三，75岁以上的高龄老人（还有额外加码）。但要注意：这是全国统筹的最低标准，各地根据基金收支情况会有差异。</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="time">01:10-01:25<br><small>散户启示</small></div>
+          <div class="content">
+            <div class="desc">等通知下来，记得查两个东西：第一，你的调整方案属于哪一档；第二，1月至今的差额会一次性补发。如果5月才发通知，你可能一次性能领到好几个月的差额！</div>
+          </div>
+        </div>
+  </div>
+  <div class="script-ending">
+    <span class="icon">💬</span>
+    <div class="text">你家老人是哪种情况？预测今年能涨多少？评论区说说，我帮你算算！转发给家里退休的人，让他们安心等通知。<br><br><strong>配图建议：</strong>封面：大字'养老金22连涨本周发！' + 问号表情 + 社保卡图标</div>
+  </div>
+</div>
+<div class="script-card">
+  <div class="script-header">
+    <span class="num">脚本2</span>
+    <h3>AI科技股4月大分化！有人爆赚有人被套，半导体和算力谁是真正主线？</h3>
+    <span class="duration">88秒</span>
+  </div>
+  <div class="script-meta">
+    <span>📌 素材2 ⭐⭐⭐</span>
+  </div>
+  <div class="script-hook">
+    <div class="label">🎯 前3秒钩子</div>
+    <div class="text">"AI科技股4月突然分化了！有人追半导体赚疯了，有人买AI概念股被套15%——同样是科技股，差距怎么这么大？机构最新研报说出了真相！"</div>
+  </div>
+  <div class="script-timeline">
+    
+        <div class="item">
+          <div class="time">00:00-00:15<br><small>现象描述</small></div>
+          <div class="content">
+            <div class="desc">4月的科技股行情，让很多人懵了。一边是半导体、AI算力方向持续强势，相关基金净值屡创新高；另一边是前期热炒的AI概念股开始回调，部分个股高位回落超过15%。同样是科技股，为什么差距这么大？</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="time">00:15-00:45<br><small>核心内容①</small></div>
+          <div class="content">
+            <div class="desc">安联投资最新报告说了关键一点：2026年AI投资逻辑正在转变——从'概念炒作'转向'业绩验证'。什么意思？之前只要沾上AI概念就能涨，现在不行了！市场开始看公司有没有真正的收入和利润。</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="time">00:45-01:10<br><small>核心内容②</small></div>
+          <div class="content">
+            <div class="desc">真正受益的三个方向：第一，半导体设备——国产替代加速，业绩最扎实；第二，AI算力——大模型训练需要海量算力，需求确定性高；第三，应用落地——真正能把AI用到具体场景的公司，比如智能驾驶、医疗AI。</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="time">01:10-01:20<br><small>散户建议</small></div>
+          <div class="content">
+            <div class="desc">普通投资者怎么办？三个建议：第一，别追高——高位个股回调风险大；第二，看业绩——季报、年报公布期，关注有真实收入的公司；第三，分散配置——科技股波动大，别把所有钱押在一个方向。</div>
+          </div>
+        </div>
+  </div>
+  <div class="script-ending">
+    <span class="icon">💬</span>
+    <div class="text">你买过AI科技股吗？现在是赚是亏？评论区说说你的持仓和逻辑，我来帮你分析！觉得有用就转发给股友，关注我，每天一条财经解读。<br><br><strong>配图建议：</strong>封面：大字'AI科技股大分化！' + 半导体芯片图标 + K线图</div>
+  </div>
+</div>
+<div class="script-card">
+  <div class="script-header">
+    <span class="num">脚本3</span>
+    <h3>625亿补贴4月最后10天！手机省1000、家电省2000、汽车省2万——五一前最后一波</h3>
+    <span class="duration">85秒</span>
+  </div>
+  <div class="script-meta">
+    <span>📌 素材3 ⭐⭐⭐</span>
+  </div>
+  <div class="script-hook">
+    <div class="label">🎯 前3秒钩子</div>
+    <div class="text">"国家刚发625亿补贴！手机最高省1000块，家电最高省2000，汽车最高省2万——五一之前最后窗口期，错过这波，再等半年！今天帮你把能省多少钱全部算清楚！"</div>
+  </div>
+  <div class="script-timeline">
+    
+        <div class="item">
+          <div class="time">00:00-00:12<br><small>紧迫开场</small></div>
+          <div class="content">
+            <div class="desc">商务部刚刚公布数据：今年一季度，以旧换新已经带动消费超过4331亿元。第一批625亿已经用完了，4月初第二批625亿正式下达。五一假期是政策执行的关键节点，补贴名额有限，先到先得！</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="time">00:12-00:40<br><small>核心内容①</small></div>
+          <div class="content">
+            <div class="desc">能补多少？说清楚：第一，手机、平板、智能手表，最高补贴1000元；第二，冰箱、洗衣机、空调，最高补贴2000元；第三，汽车以旧换新，最高补贴2万元；第四，电动自行车，补贴500-800元。各地申领细则不同，部分城市还有额外叠加补贴。</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="time">00:40-01:05<br><small>核心内容②</small></div>
+          <div class="content">
+            <div class="desc">三个技巧：第一，先查当地补贴清单——每个城市可能不一样；第二，旧机别贱卖——以旧换新时，旧机残值可以叠加补贴；第三，线上线下同步对比——有时候线上价格+补贴更划算。</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="time">01:05-01:15<br><small>倒计时提醒</small></div>
+          <div class="content">
+            <div class="desc">五一假期是最后窗口！假期前申请，才能确保补贴到账。五一之后政策怎么调整，谁也不知道。所以：想买的，抓紧！</div>
+          </div>
+        </div>
+  </div>
+  <div class="script-ending">
+    <span class="icon">💬</span>
+    <div class="text">你打算买什么？评论区告诉我，我帮你算算能省多少！觉得有用就转发，五一用得上！<br><br><strong>配图建议：</strong>封面：大字'625亿补贴最后10天！' + 手机/汽车图标 + 倒计时元素</div>
+  </div>
+</div></div><div class="page">
+  <div class="chapter">⭐⭐⭐ 必做素材</div>
+  <div class="material-section">
+<div class="material-card star3">
+  <h4>
+    <span class="star s3">⭐⭐⭐</span>
+    <strong>养老金22连涨倒计时！人社部最快本周发布，3类人多涨实锤</strong>
+  </h4>
+  <div style="font-size:12px;color:#666;margin-bottom:8px">📰 人社部2026年工作会议；搜狐财经（4月8日）；财政部中国发展高层论坛3月表态</div>
+  <div class="highlight">2026年养老金22连涨已进入最后倒计时阶段。根据历年规律，正式通知最晚在4月下旬发布，但4月中旬是关键窗口期。最新的调整信号显示：本次打破21年'普涨'惯例，改为'提低控高'精准调控。工龄40年以上/月薪较低/高龄退休者涨幅更高；机关事业单位高收入人群涨幅受控。整体调幅预计4%-5%，低收入老工人每月多涨80-120元，高龄（75岁+）还有额外加码。北京王阿姨退休20年，月养老金2800元，今年预计多涨约130元；上海某退休干部月养老金7000元，涨幅可能只有3%，约210元。</div>
+  <div class="angles"><strong>可选角度：</strong><div>• 养老金通知什么时候发？历年规律告诉你——最快本周，最晚五一前</div><div>• 同样退休有人多涨200有人只涨40！2026年'提低控高'怎么算的？</div><div>• 距离退休还有5年/10年注意！多缴费、长缴费才是王道</div></div>
+  <div class="risk">⚠️ 养老金调整涉及地区差异，需注明'以当地社保局核算为准'</div>
+  <div class="data-list"><span>• 连涨记录：连续21年，2026年将达22连涨</span><span>• 覆盖人数：城镇职工+城乡居民约1.8亿人</span><span>• 预计调幅：约4%-5%</span><span>• 低收入老工人多涨：每月约80-120元</span><span>• 高龄加码：75岁、80岁以上有额外倾斜</span><span>• 正式通知发布窗口：4月中旬至5月上旬</span></div>
+</div>
+<div class="material-card star3">
+  <h4>
+    <span class="star s3">⭐⭐⭐</span>
+    <strong>AI科技股4月大分化！算力/半导体领涨，哪些细分赛道还能追？</strong>
+  </h4>
+  <div style="font-size:12px;color:#666;margin-bottom:8px">📰 安联基金2026年4月投资报告；东方财富（4月9日）；同花顺科技板块数据</div>
+  <div class="highlight">2026年4月，AI科技股呈现明显分化格局。机构数据显示，近期市场热点集中在科技成长领域，半导体、AI算力、中证2000增强等方向基金表现突出。但与此同时，前期涨幅过大的AI概念股开始回调，部分个股高位回落超过15%。核心问题：科技股行情是否已经见顶？安联投资指出，2026年那些能够区分长期结构性驱动因素与短期市场情绪的投资者，才可能获得超额收益。AI技术进入应用落地关键期，业绩验证将成关键词。</div>
+  <div class="angles"><strong>可选角度：</strong><div>• 4月科技股谁涨最多？半导体/AI/算力三大方向全对比</div><div>• 科技股高位分化！这3个信号出现千万别追</div><div>• AI进入业绩验证期！什么样的公司才能穿越周期？</div></div>
+  <div class="risk">⚠️ 科技股波动大，不构成投资建议</div>
+  <div class="data-list"><span>• 4月热点方向：半导体、AI算力、中证2000增强</span><span>• AI五大趋势：规模化、代理式AI、数据重塑、治理、人才转型</span><span>• 2026年科技主线：从概念炒作转向业绩验证</span></div>
+</div>
+<div class="material-card star3">
+  <h4>
+    <span class="star s3">⭐⭐⭐</span>
+    <strong>625亿补贴4月最后冲刺！五一前窗口期缩短，手机/家电/汽车怎么省最多？</strong>
+  </h4>
+  <div style="font-size:12px;color:#666;margin-bottom:8px">📰 商务部2026年以旧换新政策（1月8日）；央视新闻（4月4日）；国家发改委</div>
+  <div class="highlight">2026年一季度消费品以旧换新已带动销售额超4331.7亿元，惠及6093.3万人次。首批625亿补贴资金已消耗完毕，4月初第二批625亿正式下达，精准对接五一消费旺季。补贴清单：手机平板最高补贴1000元；冰箱洗衣机空调最高补贴2000元；汽车以旧换新最高补贴2万元；电动自行车补贴500-800元。五一假期是政策执行的关键节点，补贴名额有限，先到先得。专家提醒：旧机别贱卖，以旧换新时旧机残值可叠加补贴；各地申领细则不同，部分城市有额外叠加补贴。</div>
+  <div class="angles"><strong>可选角度：</strong><div>• 625亿补贴4月开抢！五一前最后窗口期，错过等半年</div><div>• 2026年国补完整攻略：手机省1000、家电省2000、汽车省2万</div><div>• 手把手教你拿最多补贴：旧机残值+国补叠加技巧</div></div>
+  <div class="risk">⚠️ 各地补贴申领细则不同，以当地最新公告为准</div>
+  <div class="data-list"><span>• 一季度销售额：4331.7亿元</span><span>• 惠及人次：6093.3万</span><span>• 第二批补贴：625亿元（4月初下达）</span><span>• 手机最高补贴：1000元</span><span>• 家电最高补贴：2000元</span><span>• 汽车最高补贴：2万元</span></div>
+</div></div></div><div class="page">
+  <div class="chapter blue">⭐⭐ 重点关注</div>
+  <div class="material-section">
+<div class="material-card star2">
+  <h4>
+    <span class="star s2">⭐⭐</span>
+    <strong>存款搬家加速！2026年预计2-4万亿离开银行，国债理财保险怎么选？</strong>
+  </h4>
+  <div style="font-size:12px;color:#666;margin-bottom:8px">📰 中金公司研究报告；吉林银行、厦门银行利率公告（2026年4月）</div>
+  <div class="highlight">2026年4月存款利率持续下行，中小银行再度下调中长期存款利率，三年期定存跌破2%进入'1时代'。中金公司预测，2026年全年将有2-4万亿元存款离开银行，流向国债、银行理财、分红险等替代品。但超过4%的'类存款'产品需谨慎，避免落入非标理财陷阱。</div>
+  <div class="angles"><strong>可选角度：</strong><div>• 存100万一年利息12500元！存款'1时代'怎么办？</div><div>• 国债、理财、分红险：存款搬家三大去向怎么选？</div></div>
+  <div class="risk">⚠️ 理财产品不保本，分红险演示利率非保证</div>
+  <div class="data-list"><span>• 存款搬家规模预测：2-4万亿元/年</span><span>• 部分银行三年定存利率：1.8%左右</span><span>• 国债3年期参考利率：约2.35%</span></div>
+</div>
+<div class="material-card star2">
+  <h4>
+    <span class="star s2">⭐⭐</span>
+    <strong>城乡居民养老金4月缴费季！最低1000元最高9000元，多缴真的多领？</strong>
+  </h4>
+  <div style="font-size:12px;color:#666;margin-bottom:8px">📰 北京市人社局（3月27日）；人社部城乡居民养老保险政策</div>
+  <div class="highlight">2026年城乡居民基本养老保险缴费标准已公布，最低年缴费1000元，最高年缴费9000元。缴费越多，政府补贴越多，退休后领取的养老金也越高。但对于低收入农村居民来说，每年1000元也是一笔不小的开支，需要算清楚投入产出比。</div>
+  <div class="angles"><strong>可选角度：</strong><div>• 城乡居民养老险多缴能多领吗？15年缴费对比算给你看</div><div>• 4月缴费季！错过缴费影响养老金发放</div></div>
+  
+  <div class="data-list"><span>• 最低缴费标准：年1000元</span><span>• 最高缴费标准：年9000元</span><span>• 政府补贴：缴费越多补贴越多</span></div>
+</div>
+<div class="material-card star2">
+  <h4>
+    <span class="star s2">⭐⭐</span>
+    <strong>银保渠道规则重塑！五大险企银保'量价'齐涨，竞争转入深水区</strong>
+  </h4>
+  <div style="font-size:12px;color:#666;margin-bottom:8px">📰 财经中国网（4月8日）；金融监管总局银保渠道监管文件</div>
+  <div class="highlight">2026年4月8日最新数据显示，五大上市险企银保渠道呈现'量价'齐涨态势。在规则重塑后，竞争转入'深水区'。此前封堵'小账'的新规落地，银保渠道销售生态正在改变，消费者选择银行保险产品时需要更加关注产品本身而非销售激励。</div>
+  <div class="angles"><strong>可选角度：</strong><div>• 五大险企银保成绩单出炉！谁卖得最好？</div><div>• 银保新规下，银行推销保险该怎么选？</div></div>
+  
+  <div class="data-list"><span>• 五大险企银保渠道：量价齐涨</span><span>• 新规核心：封堵账外违规费用</span></div>
+</div>
+<div class="material-card star2">
+  <h4>
+    <span class="star s2">⭐⭐</span>
+    <strong>A股4月震荡修复！机构看好科技+消费双主线，配置机会来了？</strong>
+  </h4>
+  <div style="font-size:12px;color:#666;margin-bottom:8px">📰 同花顺（4月9日）；东方财富研报；平安证券、中银证券4月月报</div>
+  <div class="highlight">2026年4月A股整体处于'震荡修复、静待方向'的关键窗口期。外部风险逐步落地，机构普遍看好科技（AI/半导体）和消费（以旧换新相关）双主线。4月9日A股强势反弹，逾4500股上涨，显示市场信心有所恢复。但短期反弹不代表趋势反转，投资者需关注业绩验证。</div>
+  <div class="angles"><strong>可选角度：</strong><div>• 4月A股怎么走？机构最新配置建议</div><div>• 4500股上涨≠可以追！3个指标判断反弹能否持续</div></div>
+  <div class="risk">⚠️ 市场有风险，投资需谨慎</div>
+  <div class="data-list"><span>• 4月主线：科技（AI/半导体）+ 消费（以旧换新）</span><span>• 4月9日上涨个股：逾4500只</span></div>
+</div>
+<div class="material-card star2">
+  <h4>
+    <span class="star s2">⭐⭐</span>
+    <strong>黄金跌破4900美元后反弹！机构仍看涨，普通人现在买还是卖？</strong>
+  </h4>
+  <div style="font-size:12px;color:#666;margin-bottom:8px">📰 金投网（4月7日）；川观新闻（4月6日）；瑞银、汇丰银行策略报告</div>
+  <div class="highlight">2026年4月黄金价格大幅震荡。4月7日金价一度跌破4900美元关口，较此前4810美元高点有所回调。但机构观点分歧：瑞银策略师预计今年金价仍有望创下新高；汇丰银行重申对黄金的中长期看涨立场。数据显示，金价跌破4900美元后，买盘正在增大，部分散户开始入场。</div>
+  <div class="angles"><strong>可选角度：</strong><div>• 黄金跌破4900美元！机构为什么还说能涨？</div><div>• 黄金还能买吗？纸黄金、实物金条、黄金ETF对比</div></div>
+  <div class="risk">⚠️ 黄金价格波动较大，不构成投资建议</div>
+  <div class="data-list"><span>• 4月7日金价：跌破4900美元/盎司</span><span>• 过去一年涨幅：约61.50%</span><span>• 瑞银预测：2026年金价仍有望创新高</span></div>
+</div>
+<div class="material-card star2">
+  <h4>
+    <span class="star s2">⭐⭐</span>
+    <strong>多城公积金政策松绑延续！武汉打响第一枪后，更多城市跟进</strong>
+  </h4>
+  <div style="font-size:12px;color:#666;margin-bottom:8px">📰 武汉住房公积金管理中心（4月2日）；成都、杭州、南京公积金管理中心（2026年Q1）</div>
+  <div class="highlight">武汉4月2日率先取消公积金贷款户籍限制后，成都、南京、杭州等多个城市在Q1陆续出台公积金宽松政策。公积金贷款利率3.1% vs 商业贷款约4.2%，贷100万30年相差约20万元利息。但政策落地需要时间，部分城市申请流程仍然繁琐。</div>
+  <div class="angles"><strong>可选角度：</strong><div>• 多城公积金大放开！外地人也能用，附最新城市名单</div><div>• 公积金贷100万30年差20万，但3种情况商贷更合算</div></div>
+  
+  <div class="data-list"><span>• 公积金贷款利率：3.1%</span><span>• 商业贷款利率：约4.2%</span><span>• 贷100万30年利差：约20万元</span></div>
+</div>
+<div class="material-card star2">
+  <h4>
+    <span class="star s2">⭐⭐</span>
+    <strong>险资权益配置比例上限或上调！万亿增量资金蓄势待发</strong>
+  </h4>
+  <div style="font-size:12px;color:#666;margin-bottom:8px">📰 金融监管总局；保险行业协会（2026年4月）</div>
+  <div class="highlight">监管层正在研究上调保险资金权益投资比例上限。当前保险资金权益投资比例上限为45%，部分机构呼吁上调至50%甚至更高。若政策落地，理论上可释放万亿级增量资金进入A股市场。但险资投资风格稳健，大规模入市的节奏和力度仍需观察。</div>
+  <div class="angles"><strong>可选角度：</strong><div>• 险资权益上限提高意味着什么？万亿资金怎么配置？</div><div>• 险资最新持仓动向：哪些板块被重点关注？</div></div>
+  <div class="risk">⚠️ 险资配置以稳健为主，不会大规模追高</div>
+  <div class="data-list"><span>• 当前权益投资上限：45%</span><span>• 潜在增量资金：万亿级</span><span>• 险资偏好：低估值、高股息、稳增长</span></div>
+</div></div></div><div class="page">
+  <div class="chapter green">⭐ 补充视角</div>
+  <div class="material-section">
+<div class="material-card star1">
+  <h4>
+    <span class="star s1">⭐</span>
+    <strong>特斯拉FSD将在中国落地？智能驾驶竞争加剧</strong>
+  </h4>
+  <div style="font-size:12px;color:#666;margin-bottom:8px">📰 财经杂志（2026年4月）；汽车行业动态</div>
+  <div class="highlight">特斯拉FSD（全自动驾驶）入华传闻持续发酵。智能驾驶已成为车企竞争的核心战场，华为、小鹏等国产车企在该领域持续发力。</div>
+  <div class="angles"><strong>可选角度：</strong><div>• 特斯拉FSD入华谁能受益？</div><div>• 智能驾驶产业链投资机会</div></div>
+  
+  <div class="data-list"></div>
+</div>
+<div class="material-card star1">
+  <h4>
+    <span class="star s1">⭐</span>
+    <strong>商业航天进入发展新阶段，A股相关概念股受益</strong>
+  </h4>
+  <div style="font-size:12px;color:#666;margin-bottom:8px">📰 同花顺（2026年4月）</div>
+  <div class="highlight">商业航天已被视为万亿级新赛道，相关A股概念股持续受到关注。</div>
+  <div class="angles"><strong>可选角度：</strong><div>• 商业航天产业链全景图</div><div>• A股商业航天概念股盘点</div></div>
+  
+  <div class="data-list"></div>
+</div>
+<div class="material-card star1">
+  <h4>
+    <span class="star s1">⭐</span>
+    <strong>特朗普访华在即！5月14-15日是关键节点</strong>
+  </h4>
+  <div style="font-size:12px;color:#666;margin-bottom:8px">📰 白宫公告（3月25日）；财联社</div>
+  <div class="highlight">特朗普将于5月14-15日对中国进行国事访问，这是时隔9年后美国总统再次访华。访问预计涉及贸易协议、科技竞争、能源安全等核心议题。</div>
+  <div class="angles"><strong>可选角度：</strong><div>• 特朗普访华三大看点</div><div>• 对A股影响的历史规律</div></div>
+  
+  <div class="data-list"><span>• 访华日期：5月14-15日</span><span>• 上次美国总统访华：2017年</span></div>
+</div></div>
+  <div class="table-wrap">
+    <table>
+      <tr><th>#</th><th>标题</th><th>星级</th><th>热度</th></tr><tr><td>1</td><td>养老金22连涨倒计时！人社部最快本周发布，3类人多涨实锤</td><td>⭐⭐⭐</td><td>🔥🔥🔥</td></tr><tr><td>2</td><td>AI科技股4月大分化！算力/半导体领涨，哪些细分赛道还能追？</td><td>⭐⭐⭐</td><td>🔥🔥🔥</td></tr><tr><td>3</td><td>625亿补贴4月最后冲刺！五一前窗口期缩短，手机/家电/汽车怎么省最多？</td><td>⭐⭐⭐</td><td>🔥🔥🔥</td></tr><tr><td>4</td><td>存款搬家加速！2026年预计2-4万亿离开银行，国债理财保险怎么选？</td><td>⭐⭐</td><td>🔥🔥</td></tr><tr><td>5</td><td>城乡居民养老金4月缴费季！最低1000元最高9000元，多缴真的多领？</td><td>⭐⭐</td><td>🔥🔥</td></tr><tr><td>6</td><td>银保渠道规则重塑！五大险企银保'量价'齐涨，竞争转入深水区</td><td>⭐⭐</td><td>🔥🔥</td></tr><tr><td>7</td><td>A股4月震荡修复！机构看好科技+消费双主线，配置机会来了？</td><td>⭐⭐</td><td>🔥🔥</td></tr><tr><td>8</td><td>黄金跌破4900美元后反弹！机构仍看涨，普通人现在买还是卖？</td><td>⭐⭐</td><td>🔥🔥</td></tr><tr><td>9</td><td>多城公积金政策松绑延续！武汉打响第一枪后，更多城市跟进</td><td>⭐⭐</td><td>🔥🔥</td></tr><tr><td>10</td><td>险资权益配置比例上限或上调！万亿增量资金蓄势待发</td><td>⭐⭐</td><td>🔥🔥</td></tr><tr><td>11</td><td>特斯拉FSD将在中国落地？智能驾驶竞争加剧</td><td>⭐</td><td>🔥</td></tr><tr><td>12</td><td>商业航天进入发展新阶段，A股相关概念股受益</td><td>⭐</td><td>🔥</td></tr><tr><td>13</td><td>特朗普访华在即！5月14-15日是关键节点</td><td>⭐</td><td>🔥</td></tr></table>
+  </div>
+  <div class="page-footer">素材日报 | 数据截至 2026年4月10日（周四） | 仅供内容创作参考</div>
+</div>
+</body></html>
