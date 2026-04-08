@@ -1,136 +1,209 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>保险财经短视频素材日报</title>
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #0f1923; font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; min-height: 100vh; }
-
-  .header { background: linear-gradient(135deg, #1a2a3a 0%, #0f1923 100%); padding: 40px 24px 32px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.06); }
-  .header .logo { font-size: 13px; letter-spacing: 6px; color: rgba(201,169,110,0.7); margin-bottom: 16px; text-transform: uppercase; }
-  .header h1 { color: #fff; font-size: 26px; font-weight: 700; margin-bottom: 10px; }
-  .header .sub { color: rgba(255,255,255,0.35); font-size: 13px; }
-
-  .container { max-width: 680px; margin: 0 auto; padding: 28px 20px 60px; }
-
-  .section-label { font-size: 11px; letter-spacing: 4px; color: rgba(201,169,110,0.6); text-transform: uppercase; margin-bottom: 18px; margin-top: 8px; }
-
-  .card { background: #1a2a3a; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 22px 24px; margin-bottom: 14px; text-decoration: none; display: block; transition: all 0.2s ease; position: relative; overflow: hidden; }
-  .card:hover { background: #1e3044; border-color: rgba(201,169,110,0.3); transform: translateY(-1px); }
-  .card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, #c9a96e, #f39c12); border-radius: 0; }
-
-  .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
-  .card-date { color: #c9a96e; font-size: 16px; font-weight: 700; }
-  .card-tags { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
-  .tag { font-size: 11px; padding: 3px 10px; border-radius: 20px; font-weight: 600; }
-  .tag-latest { background: rgba(255,107,0,0.15); color: #ff9500; border: 1px solid rgba(255,107,0,0.25); }
-  .tag-normal { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.45); }
-
-  .card-title { color: rgba(255,255,255,0.88); font-size: 15px; font-weight: 600; line-height: 1.5; margin-bottom: 12px; }
-  .card-keywords { display: flex; gap: 8px; flex-wrap: wrap; }
-  .keyword { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.4); font-size: 12px; padding: 3px 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.06); }
-
-  .card-arrow { position: absolute; right: 22px; top: 50%; transform: translateY(-50%); color: rgba(201,169,110,0.4); font-size: 18px; }
-
-  .footer { text-align: center; padding: 20px; color: rgba(255,255,255,0.2); font-size: 12px; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>保险素材日报 - 首页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #0f1923;
+            font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            color: #fff;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #c9a96e, #f39c12);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .header p {
+            color: rgba(255,255,255,0.5);
+            font-size: 14px;
+        }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-bottom: 48px;
+            padding: 24px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat .num {
+            font-size: 28px;
+            font-weight: 700;
+            color: #c9a96e;
+        }
+        .stat .label {
+            font-size: 12px;
+            color: rgba(255,255,255,0.4);
+            margin-top: 4px;
+        }
+        .section-title {
+            font-size: 14px;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .card-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(201,169,110,0.3);
+            transform: translateY(-2px);
+        }
+        .card-date {
+            background: rgba(201,169,110,0.15);
+            color: #c9a96e;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .card-content {
+            flex: 1;
+        }
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .card-topics {
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+        }
+        .card-arrow {
+            color: rgba(255,255,255,0.3);
+            font-size: 20px;
+        }
+        .tag-latest {
+            background: rgba(255,107,0,0.15);
+            color: #ff9500;
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            margin-left: 12px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .footer p {
+            color: rgba(255,255,255,0.3);
+            font-size: 12px;
+        }
+    </style>
 </head>
 <body>
-
-<div class="header">
-  <div class="logo">Daily Brief</div>
-  <h1>保险财经短视频素材日报</h1>
-  <div class="sub">每日12:00自动更新 · 精选财经/社保/保险热点素材</div>
-</div>
-
-<div class="container">
-  <div class="section-label">最近日报</div>
-
-  <!-- 2026-04-08 最新 -->
-  <a href="2026-04-08-v2.html" class="card">
-    <div class="card-top">
-      <div class="card-date">2026年04月08日</div>
-      <div class="card-tags">
-        <span class="tag tag-latest">最新</span>
-        <span class="tag tag-normal">周三</span>
-      </div>
+    <div class="container">
+        <div class="header">
+            <h1>保险素材日报</h1>
+            <p>每日财经短视频素材精选</p>
+        </div>
+        
+        <div class="stats">
+            <div class="stat">
+                <div class="num">7</div>
+                <div class="label">最近7天</div>
+            </div>
+            <div class="stat">
+                <div class="num">13</div>
+                <div class="label">每日素材</div>
+            </div>
+            <div class="stat">
+                <div class="num">3</div>
+                <div class="label">参考脚本</div>
+            </div>
+        </div>
+        
+        <div class="section-title">最近7天日报</div>
+        <div class="card-list">
+            <a href="2026-04-09-v2.html" class="card">
+                <div class="card-date">04月09日</div>
+                <div class="card-content">
+                    <div class="card-title">A股强势反弹 · 黄金震荡 · 险资40万亿<span class="tag-latest">最新</span></div>
+                    <div class="card-topics">4500股上涨 · 金价4800美元 · 科技股回暖</div>
+                </div>
+                <div class="card-arrow">→</div>
+            </a>
+            <a href="2026-04-08-v2.html" class="card">
+                <div class="card-date">04月08日</div>
+                <div class="card-content">
+                    <div class="card-title">国家队护盘 · 险资比例上调 · 特朗普访华</div>
+                    <div class="card-topics">央行+汇金+金融监管总局 · 万亿增量资金</div>
+                </div>
+                <div class="card-arrow">→</div>
+            </a>
+            <a href="2026-04-07-v2.html" class="card">
+                <div class="card-date">04月07日</div>
+                <div class="card-content">
+                    <div class="card-title">养老金22连涨 · 存款利率1.25% · 关税冲击</div>
+                    <div class="card-topics">养老金悬念 · 国有大行降息 · 黑色星期一</div>
+                </div>
+                <div class="card-arrow">→</div>
+            </a>
+            <a href="2026-04-06-v3.html" class="card">
+                <div class="card-date">04月06日</div>
+                <div class="card-content">
+                    <div class="card-title">长护险第六险 · 医保新规 · 险企年报</div>
+                    <div class="card-topics">长护险申请攻略 · 医保卡新规 · 6.6%收益</div>
+                </div>
+                <div class="card-arrow">→</div>
+            </a>
+            <a href="2026-04-05-v2.html" class="card">
+                <div class="card-date">04月05日</div>
+                <div class="card-content">
+                    <div class="card-title">医保新规落地 · 以旧换新625亿 · A股清剿</div>
+                    <div class="card-topics">三大红线 · 国补攻略 · 财务造假排雷</div>
+                </div>
+                <div class="card-arrow">→</div>
+            </a>
+        </div>
+        
+        <div class="footer">
+            <p>每日 12:00 自动生成 · 仅供内容参考</p>
+        </div>
     </div>
-    <div class="card-title">50万亿定存到期搬家潮 · 个人养老金上限2万 · 深圳车电分离车险改革</div>
-    <div class="card-keywords">
-      <span class="keyword">存款搬家</span>
-      <span class="keyword">个人养老金</span>
-      <span class="keyword">车电分离</span>
-      <span class="keyword">A股反弹</span>
-      <span class="keyword">工伤保险</span>
-    </div>
-    <div class="card-arrow">›</div>
-  </a>
-
-  <!-- 2026-04-07 -->
-  <a href="2026-04-07-v2.html" class="card">
-    <div class="card-top">
-      <div class="card-date">2026年04月07日</div>
-      <div class="card-tags">
-        <span class="tag tag-normal">周二</span>
-      </div>
-    </div>
-    <div class="card-title">养老金22连涨悬念 · 国有大行三年期1.25% · 关税黑色星期一</div>
-    <div class="card-keywords">
-      <span class="keyword">养老金调整</span>
-      <span class="keyword">存款利率</span>
-      <span class="keyword">A股关税</span>
-      <span class="keyword">公积金</span>
-      <span class="keyword">个税</span>
-    </div>
-    <div class="card-arrow">›</div>
-  </a>
-
-  <!-- 2026-04-06 -->
-  <a href="2026-04-06-v3.html" class="card">
-    <div class="card-top">
-      <div class="card-date">2026年04月06日</div>
-      <div class="card-tags">
-        <span class="tag tag-normal">周一</span>
-      </div>
-    </div>
-    <div class="card-title">长护险第六险落地 · 医保骗保被罚100万 · 险企年报6.6%收益</div>
-    <div class="card-keywords">
-      <span class="keyword">长护险</span>
-      <span class="keyword">医保新规</span>
-      <span class="keyword">险企年报</span>
-      <span class="keyword">eVTOL</span>
-      <span class="keyword">分红险</span>
-    </div>
-    <div class="card-arrow">›</div>
-  </a>
-
-  <!-- 2026-04-05 -->
-  <a href="2026-04-05-v2.html" class="card">
-    <div class="card-top">
-      <div class="card-date">2026年04月05日</div>
-      <div class="card-tags">
-        <span class="tag tag-normal">周日</span>
-      </div>
-    </div>
-    <div class="card-title">医保新规4月落地 · 以旧换新625亿 · A股财务造假清剿</div>
-    <div class="card-keywords">
-      <span class="keyword">医保监控</span>
-      <span class="keyword">以旧换新</span>
-      <span class="keyword">ST退市</span>
-      <span class="keyword">险企年报</span>
-      <span class="keyword">关税</span>
-    </div>
-    <div class="card-arrow">›</div>
-  </a>
-
-</div>
-
-<div class="footer">
-  素材日报 · AI财经短视频素材研究员 · 数据仅供参考<br>
-  <a href="https://Wakaka-xi.github.io/Daily-report/" style="color:rgba(255,255,255,0.3);text-decoration:none;">Wakaka-xi.github.io/Daily-report</a>
-</div>
-
 </body>
 </html>
