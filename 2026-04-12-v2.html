@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>素材日报 2026-04-12</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #f0ede8; font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+
+  /* ========== 分页基础 ========== */
+  @page { size: A4 portrait; margin: 0; }
+  .page {
+    width: 794px;
+    margin: 0 auto;
+    background: #fff;
+    overflow: hidden;
+    position: relative;
+    break-after: page;
+    break-before: page;
+  }
+  .page.no-break-after { break-after: auto; }
+  .page.no-break-before { break-before: auto; }
+
+  /* ========== 封面 ========== */
+  .cover { background: linear-gradient(160deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%); padding: 60px 52px 56px; text-align: center; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: -60px; right: -60px; width: 260px; height: 260px; background: radial-gradient(circle, rgba(243,156,18,0.12) 0%, transparent 70%); border-radius: 50%; }
+  .cover::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(52,152,219,0.1) 0%, transparent 70%); border-radius: 50%; }
+  .cover .kicker { display: inline-block; font-size: 11px; letter-spacing: 6px; color: rgba(243,156,18,0.7); text-transform: uppercase; margin-bottom: 28px; }
+  .cover h1 { color: #fff; font-size: 34px; font-weight: 700; line-height: 1.3; margin-bottom: 20px; letter-spacing: -0.5px; position: relative; z-index: 1; }
+  .cover .date { color: rgba(255,255,255,0.4); font-size: 14px; margin-bottom: 36px; letter-spacing: 3px; }
+  .cover .stats { display: flex; justify-content: center; gap: 52px; padding: 28px 0; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 28px; }
+  .cover .stat { text-align: center; }
+  .cover .stat .num { color: #fff; font-size: 32px; font-weight: 700; }
+  .cover .stat .label { color: rgba(255,255,255,0.35); font-size: 12px; margin-top: 6px; letter-spacing: 1px; }
+  .cover .topic-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 18px 24px; text-align: left; position: relative; z-index: 1; }
+  .cover .topic-box .label { font-size: 11px; color: rgba(243,156,18,0.6); letter-spacing: 3px; margin-bottom: 10px; }
+  .cover .topic-box .text { color: rgba(255,255,255,0.88); font-size: 14px; line-height: 1.9; }
+
+  /* ========== 章节标题 ========== */
+  .chapter { padding: 44px 48px 28px; border-bottom: 1px solid #f0ebe4; }
+  .chapter .ch-label { font-size: 11px; letter-spacing: 4px; color: #c9a96e; text-transform: uppercase; margin-bottom: 10px; }
+  .chapter .ch-title { font-size: 24px; font-weight: 700; color: #1a1a2e; letter-spacing: -0.3px; }
+  .chapter .ch-sub { font-size: 13px; color: #999; margin-top: 6px; }
+
+  /* ========== 脚本卡片 ========== */
+  .script-card { padding: 28px 48px; border-bottom: 1px solid #f0ebe4; }
+  .script-card .sh { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
+  .script-card .rank { width: 44px; height: 44px; background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #c9a96e; font-size: 16px; font-weight: 700; flex-shrink: 0; }
+  .script-card .sh-body { flex: 1; }
+  .script-card .sh-tag { display: inline-block; font-size: 11px; padding: 3px 12px; border-radius: 7px; margin-bottom: 10px; font-weight: 600; }
+  .tag-s1 { background: rgba(231,76,60,0.1); color: #c0392b; }
+  .tag-s2 { background: rgba(230,126,34,0.1); color: #d35400; }
+  .tag-s3 { background: rgba(52,152,219,0.1); color: #2980b9; }
+  .script-card .sh-title { font-size: 17px; font-weight: 700; color: #1a1a2e; line-height: 1.5; }
+  .script-card .sh-meta { display: flex; gap: 10px; margin-top: 10px; }
+  .script-card .meta-chip { font-size: 11px; padding: 3px 10px; border-radius: 5px; }
+  .chip-hot { background: rgba(231,76,60,0.08); color: #c0392b; }
+  .chip-type { background: #f5f4f0; color: #888; }
+
+  /* 钩子 */
+  .hook { background: linear-gradient(135deg, #fffbf0, #fff8e8); border: 1px solid rgba(243,156,18,0.15); border-left: 4px solid #f39c12; border-radius: 14px; padding: 16px 18px; margin-bottom: 18px; }
+  .hook-label { font-size: 11px; font-weight: 700; color: #c9a96e; letter-spacing: 2px; margin-bottom: 8px; }
+  .hook-text { font-size: 14.5px; color: #3d3d3d; line-height: 1.85; }
+
+  /* 正文 */
+  .body-lines { padding: 0 2px; }
+  .body-line { font-size: 14px; color: #555; line-height: 2; margin-bottom: 16px; padding-left: 20px; position: relative; }
+  .body-line:last-child { margin-bottom: 0; }
+  .body-line::before { content: ''; position: absolute; left: 0; top: 12px; width: 6px; height: 6px; background: #c9a96e; border-radius: 50%; }
+
+  /* 时间轴 */
+  .time-block { background: #faf9f7; border-left: 3px solid #c9a96e; padding: 10px 14px; margin-bottom: 10px; border-radius: 0 8px 8px 0; }
+  .time-block .time { color: #c9a96e; font-weight: 700; font-size: 12px; margin-right: 8px; }
+  .time-block .content { color: #555; font-size: 14px; line-height: 1.7; display: inline; }
+
+  /* 互动引导 */
+  .cta { background: #fffde7; border: 1px solid rgba(243,156,18,0.15); border-radius: 12px; padding: 14px 18px; margin-top: 16px; }
+  .cta-label { font-size: 11px; color: #c9a96e; letter-spacing: 2px; margin-bottom: 6px; }
+  .cta-text { font-size: 13.5px; color: #666; line-height: 1.7; }
+
+  /* 封面建议 */
+  .cover-tip { background: #f9f8f5; border-radius: 10px; padding: 12px 16px; margin-top: 12px; }
+  .cover-tip-label { font-size: 11px; color: #bbb; margin-bottom: 5px; }
+  .cover-tip-text { font-size: 13px; color: #888; line-height: 1.65; }
+
+  /* ========== 素材卡片 ========== */
+  .mat-card { margin: 0 28px 18px; background: #faf9f7; border: 1px solid #f0ebe4; border-radius: 16px; padding: 18px 20px; position: relative; overflow: hidden; }
+  .mat-card::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; }
+  .mat-card.ss3::before { background: linear-gradient(180deg, #e74c3c, #c0392b); }
+  .mat-card.ss2::before { background: linear-gradient(180deg, #3498db, #2980b9); }
+  .mat-card.ss1::before { background: linear-gradient(180deg, #95a5a6, #7f8c8d); }
+  .mat-card .mat-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; gap: 14px; }
+  .mat-card .mat-title { font-size: 15px; font-weight: 600; color: #1a1a2e; line-height: 1.5; flex: 1; }
+  .mat-card .mat-stars { font-size: 14px; flex-shrink: 0; padding-top: 2px; }
+  .star-gold { color: #f39c12; }
+  .star-gray { color: #ddd; }
+  .mat-row { display: flex; gap: 10px; margin-bottom: 11px; align-items: flex-start; }
+  .mat-row:last-child { margin-bottom: 0; }
+  .mat-key { font-size: 13px; color: #8a8a8a; width: 68px; flex-shrink: 0; padding-top: 1px; font-weight: 500; }
+  .mat-val { font-size: 14px; color: #333; line-height: 1.75; flex: 1; }
+  .mat-source { margin-top: 14px; padding-top: 12px; border-top: 1px solid #ece8e2; font-size: 12px; color: #999; }
+
+  /* ========== 章节分隔 ========== */
+  .sec-header { padding: 28px 28px 14px; }
+  .sec-header .sec-label { font-size: 11px; letter-spacing: 3px; color: #c9a96e; text-transform: uppercase; margin-bottom: 8px; }
+  .sec-header .sec-title { font-size: 18px; font-weight: 700; color: #1a1a2e; }
+
+  /* ========== 优先级表 ========== */
+  .priority-table { margin: 0 28px 28px; border-radius: 14px; overflow: hidden; border: 1px solid #f0ebe4; }
+  .priority-table table { width: 100%; border-collapse: collapse; }
+  .priority-table th { background: #1a1a2e; color: rgba(255,255,255,0.7); font-size: 11px; padding: 11px 14px; text-align: left; letter-spacing: 1px; font-weight: 600; }
+  .priority-table td { font-size: 13px; padding: 11px 14px; border-bottom: 1px solid #f0ebe4; color: #333; line-height: 1.5; }
+  .priority-table tr:last-child td { border-bottom: none; }
+  .priority-table tr:nth-child(even) td { background: #faf9f7; }
+  .badge { display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 5px; font-weight: 600; }
+  .badge-insurance { background: rgba(231,76,60,0.1); color: #c0392b; }
+  .badge-social { background: rgba(46,204,113,0.1); color: #27ae60; }
+  .badge-finance { background: rgba(52,152,219,0.1); color: #2980b9; }
+  .badge-macro { background: rgba(155,89,182,0.1); color: #8e44ad; }
+  .badge-consume { background: rgba(230,126,34,0.1); color: #d35400; }
+
+  /* ========== 底部页脚 ========== */
+  .page-footer { background: #1a1a2e; padding: 32px 48px; text-align: center; }
+  .page-footer .brand { font-size: 16px; font-weight: 700; color: rgba(255,255,255,0.8); margin-bottom: 6px; letter-spacing: 4px; }
+  .page-footer .sub { font-size: 11px; color: rgba(255,255,255,0.3); }
+</style>
+</head>
+<body>
+
+<!-- ===================== 封面 ===================== -->
+<div class="page no-break-after">
+  <div class="cover">
+    <div class="kicker">Daily Brief</div>
+    <h1>短视频素材精选</h1>
+    <div class="date">2026.04.12 · Sunday</div>
+    <div class="stats">
+      <div class="stat"><div class="num">3</div><div class="label">参考脚本</div></div>
+      <div class="stat"><div class="num">13</div><div class="label">重点素材</div></div>
+      <div class="stat"><div class="num">3</div><div class="label">今日热点</div></div>
+    </div>
+    <div class="topic-box">
+      <div class="label">Today's Focus</div>
+      <div class="text">创业板改革八大举措 · 五大险企年报净利润4253亿 · 美伊谈判24小时倒计时</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 参考脚本 ===================== -->
+<div class="page">
+  <div class="chapter">
+    <div class="ch-label">Scripts</div>
+    <div class="ch-title">⭐⭐⭐ 参考脚本</div>
+    <div class="ch-sub">完整口播文案，可直接使用或改编</div>
+  </div>
+
+  <!-- 脚本1 -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">1</div>
+      <div class="sh-body">
+        <div class="sh-tag tag-s1">⭐⭐⭐ 必做</div>
+        <div class="sh-title">创业板改革重大突破！八大举措出台，增设第四套上市标准——哪些人将一夜暴富？</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">🔥 政策利好</span>
+          <span class="meta-chip chip-type">约92秒</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hook">
+      <div class="hook-label">🎯 钩子（前3秒）</div>
+      <div class="hook-text">创业板刚刚宣布重大改革！增设第四套上市标准，专门服务还没盈利的科技公司——有人已经在布局了，你的钱准备好了吗？</div>
+    </div>
+
+    <div class="time-block">
+      <span class="time">【00:00-00:15】</span>
+      <span class="content">4月10日，证监会放大招！正式发布创业板改革意见，八大举措同时推出。最重磅：增设创业板第四套上市标准——专门服务还没盈利但有成长性的优质科技公司！</span>
+    </div>
+    <div class="time-block">
+      <span class="time">【00:15-00:40】</span>
+      <span class="content">什么是第四套上市标准？前三套标准：有盈利、有收入、有现金流。第四套是给还没盈利的优质企业开的绿灯！比如一家AI公司，技术很牛但还在烧钱阶段，以前上不了市，现在有机会了。</span>
+    </div>
+    <div class="time-block">
+      <span class="time">【00:40-01:05】</span>
+      <span class="content">创业板改革利好三大方向：①科技公司——AI、半导体、新能源上市更容易；②券商——投行业务直接受益；③PE/VC——投资企业有了退出通道。4月10日市场已经反应：创业板指大涨3.78%。</span>
+    </div>
+    <div class="time-block">
+      <span class="time">【01:05-01:25】</span>
+      <span class="content">普通投资者怎么把握？三个思路：①关注重仓科技股的ETF（如159915创业板ETF）；②精选主动管理型科技基金；③关注头部券商股。但记住：改革落地需要时间，别追高！</span>
+    </div>
+
+    <div class="cta">
+      <div class="cta-label">💬 互动引导</div>
+      <div class="cta-text">你觉得创业板改革对你有影响吗？你手里有创业板ETF或者科技股吗？评论区说说你的持仓！觉得有用就转发给股友。</div>
+    </div>
+
+    <div class="cover-tip">
+      <div class="cover-tip-label">🖼 配图建议</div>
+      <div class="cover-tip-text">封面：大字"创业板改革八大举措！" + 证监会Logo + 创业板K线图 | 配图：创业板第四套上市标准解读 + 八大改革举措一览</div>
+    </div>
+  </div>
+
+  <!-- 脚本2 -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">2</div>
+      <div class="sh-body">
+        <div class="sh-tag tag-s1">⭐⭐⭐ 必做</div>
+        <div class="sh-title">五大险企年报炸裂！2025年净利润合计4253亿创历史新高，有人靠保险股赚了50%</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">🔥 投资热点</span>
+          <span class="meta-chip chip-type">约88秒</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hook">
+      <div class="hook-label">🎯 钩子（前3秒）</div>
+      <div class="hook-text">五大险企年报出炉，净利润合计4253亿，创历史新高！有人买保险股赚了50%，但普通人能复制吗？今天给你揭秘！</div>
+    </div>
+
+    <div class="time-block">
+      <span class="time">【00:00-00:15】</span>
+      <span class="content">最新数据：A股五大上市险企2025年业绩全部披露，合计归母净利润4252.91亿元，同比大增22.4%！相当于每天净赚11.6亿元！新华保险总投资收益率高达6.6%，创2015年以来最高纪录。</span>
+    </div>
+    <div class="time-block">
+      <span class="time">【00:15-00:40】</span>
+      <span class="content">险企为什么这么赚钱？三大原因：①权益投资大赚——险资股票基金投资收益贡献超70%；②资产规模扩张——五大险企合计投资资产20.7万亿元；③负债端稳定。深圳陈先生2025年初买入中国平安，持有至今收益约48%。</span>
+    </div>
+    <div class="time-block">
+      <span class="time">【00:40-01:05】</span>
+      <span class="content">普通人能跟险资买吗？三个现实：①险资资金量大，可以影响市场定价，你不行；②险资周期长，可以扛住波动，你扛不住；③险资有专业团队，你没有。但普通人有三个思路：买重仓银行股的ETF、关注险资举牌个股、学习险资的分散投资思路。</span>
+    </div>
+    <div class="time-block">
+      <span class="time">【01:05-01:20】</span>
+      <span class="content">最后提醒：险资收益率不代表你能赚到同样的钱。保险股波动也不小，过去业绩不代表未来表现。投资有风险，入市需谨慎！</span>
+    </div>
+
+    <div class="cta">
+      <div class="cta-label">💬 互动引导</div>
+      <div class="cta-text">你买过保险股吗？或者持有保险相关的基金？评论区分享你的经验！觉得有用就转发给股友。</div>
+    </div>
+
+    <div class="cover-tip">
+      <div class="cover-tip-label">🖼 配图建议</div>
+      <div class="cover-tip-text">封面：大字"险企年报4253亿！" + 五大险企Logo + 收益率对比图 | 配图：五大险企2025年净利润对比柱状图</div>
+    </div>
+  </div>
+
+  <!-- 脚本3 -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">3</div>
+      <div class="sh-body">
+        <div class="sh-tag tag-s1">⭐⭐⭐ 必做</div>
+        <div class="sh-title">美伊谈判进入24小时倒计时！中东停火悬而未决——你的黄金、原油、A股都要受影响！</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">🔥 地缘热点</span>
+          <span class="meta-chip chip-type">约90秒</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hook">
+      <div class="hook-label">🎯 钩子（前3秒）</div>
+      <div class="hook-text">美伊谈判进入24小时倒计时！4月8日达成的停火协议，可能随时破裂——你的黄金、原油、A股都在受影响！</div>
+    </div>
+
+    <div class="time-block">
+      <span class="time">【00:00-00:15】</span>
+      <span class="content">4月8日，美国和伊朗达成两周临时停火协议，中东局势迎来转机。但4月11日，新华网报道：谈判进入24小时关键节点！三大核心分歧悬而未决，随时可能翻盘。</span>
+    </div>
+    <div class="time-block">
+      <span class="time">【00:15-00:40】</span>
+      <span class="content">三大分歧解析：①核武器问题——美国要求伊朗全面弃核，伊朗直接拒绝；②制裁解除——伊朗要求先解除制裁再谈，美国不同意；③黎巴嫩停火——以色列4月10日还在轰炸，伊朗威胁退出停火协议。</span>
+    </div>
+    <div class="time-block">
+      <span class="time">【00:40-01:05】</span>
+      <span class="content">中东局势直接影响三类资产：①黄金——避险情绪推高金价，4月10日报4751美元/盎司；②原油——霍尔木兹海峡每天过境全球20%的石油，一旦封锁油价暴涨；③A股——科技股受益于创业板改革，地缘风险影响有限。</span>
+    </div>
+    <div class="time-block">
+      <span class="time">【01:05-01:25】</span>
+      <span class="content">普通人怎么应对？三个建议：①黄金配置不超过资产的10%，别追高；②原油相关资产控制仓位；③A股聚焦国内政策主线（创业板改革、内需提振），减少海外风险敞口。</span>
+    </div>
+
+    <div class="cta">
+      <div class="cta-label">💬 互动引导</div>
+      <div class="cta-text">你觉得美伊能谈成吗？停火还是继续打？评论区说说你的判断！觉得有用就转发，关注我。</div>
+    </div>
+
+    <div class="cover-tip">
+      <div class="cover-tip-label">🖼 配图建议</div>
+      <div class="cover-tip-text">封面：大字"美伊谈判24小时倒计时！" + 霍尔木兹海峡地图 + 黄金原油K线 | 配图：三大分歧解析图 + 黄金、原油、A股受影响对比</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== ⭐⭐重点素材 ===================== -->
+<div class="page">
+  <div class="sec-header">
+    <div class="sec-label">Materials</div>
+    <div class="sec-title">⭐⭐ 重点关注</div>
+  </div>
+
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">银行存款利率全面进入"1时代"！2026年4月最新利率出炉</div>
+      <div class="mat-stars"><span class="star-gold">★★★</span></div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">争议点</div>
+      <div class="mat-val">2026年4月1日起全国各大银行执行最新存款利率，建设银行、农业银行全面下调，活期0.1%、一年期1.35%、三年期1.55%。部分银行出现利率"倒挂"。</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">数据</div>
+      <div class="mat-val">活期≈0.1% | 一年期≈1.35% | 三年期≈1.55% | 五年期≈1.65%</div>
+    </div>
+    <div class="mat-source">来源：新浪财经/ZAKER/四大行官网</div>
+  </div>
+
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">城乡居民养老金标准上调至163元！每月多20块，1.7亿人受益</div>
+      <div class="mat-stars"><span class="star-gold">★★★</span></div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">争议点</div>
+      <div class="mat-val">2026年1月1日起全国城乡居民基础养老金最低标准从143元提高至163元，每月增加20元，惠及约1.7亿人。</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">数据</div>
+      <div class="mat-val">基础养老金：143元→163元/月 | 每月多20元 | 受益人数：约1.7亿</div>
+    </div>
+    <div class="mat-source">来源：国家人社部/北京市人社局</div>
+  </div>
+
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">创业板改革对A股影响几何？机构看好科技+券商双主线</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">争议点</div>
+      <div class="mat-val">创业板改革"八大举措"发布后，机构普遍看好科技股+券商双主线。4月10日深成指涨2.24%，创业板指涨3.78%。</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">数据</div>
+      <div class="mat-val">4月10日深成指涨幅：2.24% | 创业板指涨幅：3.78%</div>
+    </div>
+    <div class="mat-source">来源：证监会/央视新闻/每日经济新闻</div>
+  </div>
+
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">闪迪将纳入纳斯达克100指数！4月20日正式生效</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">争议点</div>
+      <div class="mat-val">纳斯达克宣布闪迪公司将于4月20日正式成为纳斯达克100指数成份股，替代软件巨头Atlassian。</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">数据</div>
+      <div class="mat-val">生效时间：2026年4月20日 | 替代标的：Atlassian</div>
+    </div>
+    <div class="mat-source">来源：纳斯达克官方公告</div>
+  </div>
+
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">新能源车险承保亏损56亿！2025年赔付率超100%</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">争议点</div>
+      <div class="mat-val">2025年新能源车险行业承保亏损56亿元，承保赔付率超过100%。主因：电池维修成本高、出险率高、配件价格不透明。</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">数据</div>
+      <div class="mat-val">承保亏损：56亿元 | 承保赔付率：超100%</div>
+    </div>
+    <div class="mat-source">来源：财经中国网/保险行业协会</div>
+  </div>
+
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">存款搬家加速！中金预测2026年2-4万亿流出银行</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">争议点</div>
+      <div class="mat-val">在存款利率持续下行背景下，中金预测2026年全年将有2-4万亿元存款离开银行，流向国债、银行理财R2级、分红型保险。</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">数据</div>
+      <div class="mat-val">存款搬家规模：2-4万亿元 | 国债3年期：约2.35%</div>
+    </div>
+    <div class="mat-source">来源：中金公司研究报告</div>
+  </div>
+
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">城乡居民养老保险4月缴费进行中！最低1000元，最高9000元</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">争议点</div>
+      <div class="mat-val">北京已公布2026年度缴费标准：最低1000元/年，最高9000元/年，缴费期4月-11月。</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">数据</div>
+      <div class="mat-val">北京缴费标准：1000-9000元/年（13档）| 政府补贴：200-300元/年</div>
+    </div>
+    <div class="mat-source">来源：北京市人社局</div>
+  </div>
+</div>
+
+<!-- ===================== ⭐补充视角 ===================== -->
+<div class="page no-break-after">
+  <div class="sec-header">
+    <div class="sec-label">Extended View</div>
+    <div class="sec-title">⭐ 补充视角</div>
+  </div>
+
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">外资险企高管变动频繁！汇丰保险经纪董事长换人</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">要点</div>
+      <div class="mat-val">罗素萍获批担任汇丰保险经纪董事长，2026年以来多家外资险企在华机构进行高管调整或业务收缩。</div>
+    </div>
+    <div class="mat-source">来源：金融监管总局批复</div>
+  </div>
+
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">互联网保险消费投诉同比增长50%！这3类纠纷最常见</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">要点</div>
+      <div class="mat-val">TOP3投诉：理赔纠纷、自动续费偷扣保费、销售误导。新规4月10日起已明确禁止"静默续费"。</div>
+    </div>
+    <div class="mat-source">来源：金融监管总局</div>
+  </div>
+
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">个人养老金实际缴存率仅30%！7000万人开户不存钱</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">要点</div>
+      <div class="mat-val">截至2026年3月末开户超7000万，但实际缴存比例仅约30%。主因：流动性顾虑、收益感知弱、操作门槛高。</div>
+    </div>
+    <div class="mat-source">来源：人力资源和社会保障部</div>
+  </div>
+
+  <!-- 优先级总表 -->
+  <div class="priority-table">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>标题</th>
+          <th>星级</th>
+          <th>标签</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>创业板改革八大举措！增设第四套上市标准</td>
+          <td><span class="badge badge-finance">⭐⭐⭐</span></td>
+          <td>政策/股市</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>五大险企年报净利润4253亿创历史新高</td>
+          <td><span class="badge badge-insurance">⭐⭐⭐</span></td>
+          <td>金融/保险</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>美伊谈判24小时倒计时！中东停火悬而未决</td>
+          <td><span class="badge badge-macro">⭐⭐⭐</span></td>
+          <td>宏观/投资</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>银行存款利率全面进入"1时代"</td>
+          <td><span class="badge badge-finance">⭐⭐</span></td>
+          <td>银行/理财</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>城乡居民养老金标准上调至163元</td>
+          <td><span class="badge badge-social">⭐⭐</span></td>
+          <td>社保/民生</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>创业板改革对A股影响几何？机构看好双主线</td>
+          <td><span class="badge badge-finance">⭐⭐</span></td>
+          <td>股市/策略</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>闪迪将纳入纳斯达克100指数</td>
+          <td><span class="badge badge-finance">⭐⭐</span></td>
+          <td>美股/科技</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>新能源车险承保亏损56亿！赔付率超100%</td>
+          <td><span class="badge badge-insurance">⭐⭐</span></td>
+          <td>保险/消费</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>存款搬家加速！中金预测2-4万亿流出银行</td>
+          <td><span class="badge badge-finance">⭐⭐</span></td>
+          <td>银行/理财</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>城乡居民养老保险4月缴费进行中</td>
+          <td><span class="badge badge-social">⭐⭐</span></td>
+          <td>社保/民生</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>外资险企高管变动频繁</td>
+          <td><span class="badge badge-insurance">⭐</span></td>
+          <td>保险/行业</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>互联网保险消费投诉同比增长50%</td>
+          <td><span class="badge badge-insurance">⭐</span></td>
+          <td>保险/消费</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>个人养老金实际缴存率仅30%</td>
+          <td><span class="badge badge-social">⭐</span></td>
+          <td>社保/理财</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 页脚 -->
+  <div class="page-footer">
+    <div class="brand">保险/财经短视频素材日报</div>
+    <div class="sub">AI财经短视频素材研究员 · 数据截至2026年4月12日</div>
+  </div>
+</div>
+
+</body>
+</html>
