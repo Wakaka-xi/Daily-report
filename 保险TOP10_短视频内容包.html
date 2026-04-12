@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>保险TOP10 · 短视频曝光引流全案</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+  :root {
+    --bg: #0a0a12;
+    --card-bg: #12121e;
+    --card-border: #1e1e35;
+    --accent-1: #ffd700;
+    --accent-2: #c0c0c0;
+    --accent-3: #cd7f32;
+    --accent-blue: #4fc3f7;
+    --accent-green: #69f0ae;
+    --accent-pink: #f06292;
+    --accent-orange: #ffb74d;
+    --accent-purple: #b388ff;
+    --accent-cyan: #18ffff;
+    --text: #e8eaf6;
+    --text-dim: #7986cb;
+    --text-muted: #5c6bc0;
+    --tag-bg: rgba(255,255,255,0.06);
+    --tag-border: rgba(255,255,255,0.12);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans SC', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--card-border); border-radius: 3px; }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    padding: 80px 24px 60px;
+    text-align: center;
+    overflow: hidden;
+    background: linear-gradient(180deg, #0f0f1e 0%, var(--bg) 100%);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(79,195,247,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--tag-bg);
+    border: 1px solid var(--tag-border);
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 13px;
+    color: var(--accent-blue);
+    margin-bottom: 24px;
+    letter-spacing: 0.5px;
+  }
+  .hero h1 {
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 900;
+    background: linear-gradient(135deg, #fff 0%, var(--accent-blue) 50%, var(--accent-purple) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+  }
+  .hero p {
+    font-size: 16px;
+    color: var(--text-dim);
+    max-width: 600px;
+    margin: 0 auto 32px;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .hero-stat {
+    text-align: center;
+  }
+  .hero-stat .num {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--accent-blue);
+  }
+  .hero-stat .label {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* Nav tabs */
+  .nav-tabs {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10,10,18,0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--card-border);
+    padding: 0 24px;
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .nav-tabs::-webkit-scrollbar { display: none; }
+  .nav-tab {
+    padding: 14px 18px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    border-radius: 8px 8px 0 0;
+  }
+  .nav-tab:hover { color: var(--text); background: rgba(255,255,255,0.04); }
+  .nav-tab.active { color: var(--accent-blue); border-bottom-color: var(--accent-blue); }
+
+  /* Section */
+  .section { padding: 32px 24px 60px; max-width: 900px; margin: 0 auto; }
+
+  /* Topic Card */
+  .topic-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    margin-bottom: 48px;
+    overflow: hidden;
+    position: relative;
+  }
+  .topic-card.top1 { border-color: rgba(255,215,0,0.3); box-shadow: 0 0 40px rgba(255,215,0,0.06); }
+  .topic-card.top2 { border-color: rgba(192,192,192,0.25); }
+  .topic-card.top3 { border-color: rgba(205,127,50,0.25); }
+
+  .topic-header {
+    padding: 28px 32px 24px;
+    border-bottom: 1px solid var(--card-border);
+    position: relative;
+  }
+  .topic-rank {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    font-size: 20px;
+    font-weight: 900;
+    margin-bottom: 16px;
+  }
+  .rank-1 { background: linear-gradient(135deg, #ffd700, #ff8c00); color: #1a1a2e; }
+  .rank-2 { background: linear-gradient(135deg, #c0c0c0, #888); color: #1a1a2e; }
+  .rank-3 { background: linear-gradient(135deg, #cd7f32, #a0522d); color: #fff; }
+  .rank-other { background: var(--tag-bg); border: 1px solid var(--tag-border); color: var(--text-dim); font-size: 16px; }
+
+  .topic-title-main {
+    font-size: clamp(18px, 3vw, 24px);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+  .topic-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .tag {
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 12px;
+    background: var(--tag-bg);
+    border: 1px solid var(--tag-border);
+    color: var(--text-dim);
+    font-weight: 500;
+  }
+  .tag.blue { background: rgba(79,195,247,0.12); border-color: rgba(79,195,247,0.3); color: var(--accent-blue); }
+  .tag.gold { background: rgba(255,215,0,0.1); border-color: rgba(255,215,0,0.3); color: var(--accent-1); }
+  .tag.green { background: rgba(105,240,174,0.1); border-color: rgba(105,240,174,0.25); color: var(--accent-green); }
+  .tag.pink { background: rgba(240,98,146,0.1); border-color: rgba(240,98,146,0.25); color: var(--accent-pink); }
+  .tag.orange { background: rgba(255,183,77,0.1); border-color: rgba(255,183,77,0.25); color: var(--accent-orange); }
+  .tag.purple { background: rgba(179,136,255,0.1); border-color: rgba(179,136,255,0.25); color: var(--accent-purple); }
+
+  /* Content blocks */
+  .content-block {
+    padding: 24px 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .content-block:last-child { border-bottom: none; }
+  .block-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+  }
+  .block-label .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+  .block-label.video { color: var(--accent-pink); }
+  .block-label.friend { color: var(--accent-green); }
+  .block-label.private { color: var(--accent-purple); }
+  .block-label.tips { color: var(--accent-orange); }
+
+  /* Video title */
+  .video-title {
+    background: linear-gradient(135deg, rgba(240,98,146,0.1), rgba(179,136,255,0.1));
+    border: 1px solid rgba(240,98,146,0.2);
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .video-title::before {
+    content: '▶ ';
+    color: var(--accent-pink);
+    font-size: 12px;
+  }
+
+  /* Script */
+  .script {
+    background: rgba(0,0,0,0.3);
+    border-radius: 12px;
+    padding: 20px 24px;
+    font-size: 14.5px;
+    line-height: 1.9;
+    color: #c5cae9;
+    white-space: pre-wrap;
+    border-left: 3px solid var(--accent-pink);
+  }
+  .script .scene-tag {
+    color: var(--accent-orange);
+    font-weight: 600;
+    font-size: 13px;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  /* Friend circle cards */
+  .friend-cards {
+    display: grid;
+    gap: 16px;
+  }
+  .friend-card {
+    border-radius: 14px;
+    padding: 20px 24px;
+    border: 1px solid;
+    position: relative;
+    overflow: hidden;
+  }
+  .friend-card.pro {
+    background: rgba(79,195,247,0.05);
+    border-color: rgba(79,195,247,0.15);
+  }
+  .friend-card.warm {
+    background: rgba(105,240,174,0.05);
+    border-color: rgba(105,240,174,0.15);
+  }
+  .friend-card.sharp {
+    background: rgba(240,98,146,0.05);
+    border-color: rgba(240,98,146,0.15);
+  }
+  .friend-card .version-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 3px 10px;
+    border-radius: 100px;
+    margin-bottom: 12px;
+  }
+  .friend-card.pro .version-badge { background: rgba(79,195,247,0.2); color: var(--accent-blue); }
+  .friend-card.warm .version-badge { background: rgba(105,240,174,0.2); color: var(--accent-green); }
+  .friend-card.sharp .version-badge { background: rgba(240,98,146,0.2); color: var(--accent-pink); }
+  .friend-card .copy-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 5px 12px;
+    font-size: 12px;
+    color: var(--text-dim);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+  }
+  .friend-card .copy-btn:hover { background: rgba(255,255,255,0.14); color: #fff; }
+  .friend-card .copy-btn.copied { color: var(--accent-green); }
+  .friend-card .text {
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #c5cae9;
+    white-space: pre-wrap;
+  }
+  .friend-card .text strong { color: #fff; font-weight: 600; }
+  .friend-card .text .hash { color: var(--text-muted); }
+
+  /* Private msg */
+  .private-msgs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 12px;
+  }
+  .private-msg {
+    background: rgba(179,136,255,0.05);
+    border: 1px solid rgba(179,136,255,0.15);
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-size: 14px;
+    color: #c5cae9;
+    line-height: 1.8;
+  }
+  .private-msg .scene {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-purple);
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  /* Tips */
+  .tips-box {
+    background: rgba(255,183,77,0.05);
+    border: 1px solid rgba(255,183,77,0.15);
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-size: 14px;
+    color: #c5cae9;
+    line-height: 1.8;
+  }
+  .tips-box li { margin-left: 20px; margin-bottom: 6px; }
+
+  /* CTA Banner */
+  .cta-banner {
+    background: linear-gradient(135deg, #1a1a3e 0%, #0d1a3e 100%);
+    border: 1px solid rgba(79,195,247,0.2);
+    border-radius: 20px;
+    padding: 40px 32px;
+    text-align: center;
+    margin: 60px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-banner::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+  }
+  .cta-banner h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+  .cta-banner p { color: var(--text-dim); font-size: 15px; margin-bottom: 24px; }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--accent-blue), #1565c0);
+    color: #fff;
+    border: none;
+    border-radius: 100px;
+    padding: 14px 32px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+    margin: 4px;
+  }
+  .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(79,195,247,0.3); }
+  .cta-btn.outline {
+    background: transparent;
+    border: 1px solid rgba(79,195,247,0.4);
+  }
+
+  /* Compliance note */
+  .compliance-note {
+    text-align: center;
+    padding: 24px;
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+  .compliance-note a { color: var(--accent-blue); text-decoration: none; }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .hero { padding: 60px 16px 40px; }
+    .hero-stats { gap: 24px; }
+    .topic-header, .content-block { padding: 20px 16px; }
+    .topic-title-main { font-size: 18px; }
+    .friend-cards { gap: 12px; }
+  }
+
+  /* Print styles */
+  @media print {
+    .nav-tabs { display: none; }
+    body { background: #fff; color: #333; }
+    .topic-card { border: 1px solid #ddd; margin-bottom: 32px; page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-badge">🔥 曝光引流全案 · 通用版</div>
+  <h1>保险TOP10 · 短视频内容包</h1>
+  <p>4月5日—11日7天热点 × 保险销售TOP10 × 每条含脚本+朋友圈+话术</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="num">10</div><div class="label">核心话题</div></div>
+    <div class="hero-stat"><div class="num">10</div><div class="label">完整视频脚本</div></div>
+    <div class="hero-stat"><div class="num">30</div><div class="label">朋友圈文案</div></div>
+    <div class="hero-stat"><div class="num">6</div><div class="label">引流话术</div></div>
+  </div>
+</div>
+
+<!-- Nav -->
+<div class="nav-tabs" id="navTabs">
+  <div class="nav-tab active" data-target="all">全部话题</div>
+  <div class="nav-tab" data-target="top3">🏆 TOP1-3 爆款</div>
+  <div class="nav-tab" data-target="top4-7">TOP4-7</div>
+  <div class="nav-tab" data-target="top8-10">TOP8-10</div>
+  <div class="nav-tab" data-target="scripts">📝 脚本汇总</div>
+  <div class="nav-tab" data-target="friend">📱 朋友圈汇总</div>
+</div>
+
+<!-- Content -->
+<div class="section" id="content">
+
+<!-- TOP① -->
+<div class="topic-card top1" id="top1" data-group="top3">
+  <div class="topic-header">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
+      <div class="topic-rank rank-1">①</div>
+      <div style="flex:1">
+        <div style="font-size:12px;color:var(--accent-1);font-weight:700;letter-spacing:1px;margin-bottom:4px;">★ 保险销售必做 ★</div>
+        <div class="topic-title-main">分红险演示利率3.5%</div>
+      </div>
+    </div>
+    <div class="topic-tags">
+      <span class="tag gold">银保渠道</span>
+      <span class="tag blue">客户必问</span>
+      <span class="tag">分红险</span>
+      <span class="tag green">高转化</span>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-label video"><span class="dot"></span>短视频脚本 · 约60秒</div>
+    <div class="video-title">银行大力推的分红险，演示利率3.5%，你敢信吗？</div>
+    <div class="script">【画面：手机银行APP截图，红字标注"预期年化3.5%"】
+【情绪：平静→略快，语气带质疑感】
+
+银行经理推荐你分红险，开口就是"演示利率3.5%"。
+
+先别激动。
+
+这3.5%不是你拿到手的钱，是"演示"出来的。什么叫演示？就是按照高档分红情况演算给你看的。
+
+真实情况是：监管要求保险公司不得以高档分红率演示，绝大多数人买到的，实际分红可能是0。
+
+（停顿2秒）
+
+那为什么银行还在拼命推？因为银行卖保险，中间有手续费。跟你拿多少钱，没有关系。
+
+我从业这些年，见到太多客户拿着保单说"当时说好的3.5%"。对不起，那不是保证的，写进合同的是"保底利率+分红"，分红可高可低。
+
+（情绪上扬）
+
+所以买分红险，一定要问清楚两件事：第一，保底利率是多少？第二，这款产品过去3年的实际分红水平是多少？
+
+评论区扣"分红"，我发你对比表。</div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-label friend"><span class="dot"></span>朋友圈图文 · 3版本</div>
+    <div class="friend-cards">
+      <div class="friend-card pro">
+        <span class="version-badge">专业版</span>
+        <button class="copy-btn" onclick="copyText(this, this.parentElement)">复制</button>
+        <div class="text"><strong>MDRT | 保险从业10年</strong>
+
+银行力推分红险，演示利率3.5%——这句话坑了多少人？
+
+3.5%是演示利率，非保证收益。实际分红取决于保险公司经营状况，过往分红不代表未来表现。
+
+判断分红险值不值得买，问两个数字：① 保底利率写的是多少？② 这款产品近3年实际分红率是多少？
+
+有需要的评论区扣"1"，发你一套避坑指南
+<span class="hash">#分红险 #银行保险 #保险配置</span></div>
+      </div>
+      <div class="friend-card warm">
+        <span class="version-badge">亲和版</span>
+        <button class="copy-btn" onclick="copyText(this, this.parentElement)">复制</button>
+        <div class="text">今天一个老客户发给我看，银行经理推荐的分红险，预期3.5%。
+
+我跟他说：先别急，这个3.5%不是你能拿到手的钱。
+
+分红险的核心是"保底+分红"。分红可高可低，演示利率只是参考，不是承诺。
+
+后来他自己去问银行，保底利率只有1.75%。
+
+如果你也在看分红险，直接私信我，帮你对比一下保底和历史分红数据。</div>
+      </div>
+      <div class="friend-card sharp">
+        <span class="version-badge">犀利版</span>
+        <button class="copy-btn" onclick="copyText(this, this.parentElement)">复制</button>
+        <div class="text">银行推荐分红险，开口就是"3.5%"。
+
+你问他：这是保证的吗？
+他大概率会说"这是演示利率"。
+
+——演示，不是保证。
+
+分红险有一个保底利率，一般1.75%-2.5%，这才是写进合同里的。3.5%是高档假设，99%的人拿不到。
+
+你图他的演示利率，他图你的本金。
+
+我是XX，关注我，买保险不踩坑。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOP② -->
+<div class="topic-card" id="top2" data-group="top3">
+  <div class="topic-header">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
+      <div class="topic-rank rank-2">②</div>
+      <div style="flex:1">
+        <div style="font-size:12px;color:var(--accent-2);font-weight:700;letter-spacing:1px;margin-bottom:4px;">监管重磅</div>
+        <div class="topic-title-main">人身险负面清单105条</div>
+      </div>
+    </div>
+    <div class="topic-tags">
+      <span class="tag blue">最新政策</span>
+      <span class="tag gold">4月11日</span>
+      <span class="tag">监管</span>
+      <span class="tag purple">合规必备</span>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-label video"><span class="dot"></span>短视频脚本 · 约75秒</div>
+    <div class="video-title">监管出手了！105条红线，医疗险买错可能被拒赔</div>
+    <div class="script">【画面：监管文件截图，"负面清单105条"大字】
+【情绪：严肃略快，行业从业者视角】
+
+保险监管最新发布的负面清单，105条红线，直指人身险销售乱象。
+
+跟你说三条跟普通人最相关的。
+
+第一，医疗险免赔额过高，代理人没有如实告知。以前有人买了医疗险，住院花了2万，结果免赔额1万，只赔了5000。投诉无门，因为合同里写了，但你当时没注意。
+
+第二，分红险不能拿高档利率演示。银行卖保险，最爱拿"高档演示"给你看，实际分红可能差一半。
+
+第三，重疾险不能夸大保障范围。有些产品把"轻症"写的跟"重疾"一样，赔的时候才发现定义完全不一样。
+
+（停顿）
+
+这份清单4月11日刚发布，监管已经开始查了。
+
+如果你买过保险，保单还在手上的，现在是最好的检视时间。
+
+评论区扣"清单"，我发你这105条的核心摘要。</div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-label friend"><span class="dot"></span>朋友圈图文 · 3版本</div>
+    <div class="friend-cards">
+      <div class="friend-card pro">
+        <span class="version-badge">专业版</span>
+        <button class="copy-btn" onclick="copyText(this, this.parentElement)">复制</button>
+        <div class="text"><strong>银保监会4月11日发布人身险负面清单105条，7年来最严。</strong>
+
+跟普通人关系最大的三条：
+
+① 医疗险免赔额未如实告知 → 未来可能拒赔
+② 分红险拿高档利率演示 → 实际收益对折
+③ 重疾险轻症定义模糊 → 以为能赔，实际赔不了
+
+清单已发布，监管开始查了。
+
+你手上有保单吗？发给我，帮你做一次免费检视。</div>
+      </div>
+      <div class="friend-card warm">
+        <span class="version-badge">亲和版</span>
+        <button class="copy-btn" onclick="copyText(this, this.parentElement)">复制</button>
+        <div class="text">今天看到新闻，监管出了负面清单，105条红线，医疗险、分红险、重疾险全被点名。
+
+说一个真实的：浙江有人买了高免赔额医疗险，住院花了3万，最后只赔了几千块。不是保险骗人，是买的时候没看清楚免赔额。
+
+你买保险的时候，有没有仔细看过合同里的这几条？
+
+没看过的，直接私信我，帮你过一遍。</div>
+      </div>
+      <div class="friend-card sharp">
+        <span class="version-badge">犀利版</span>
+        <button class="copy-btn" onclick="copyText(this, this.parentElement)">复制</button>
+        <div class="text">105条负面清单，刚发布，全行业瑟瑟发抖。
+
+医疗险免赔额藏猫腻。
+分红险演示利率画大饼。
+重疾险轻症定义玩文字游戏。
+
+你以为买的是保障，实际上可能是"假保障"。
+
+保单拿出来，我帮你免费过一遍，看看有没有坑。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOP③ -->
+<div class="topic-card" id="top3" data-group="top3">
+  <div class="topic-header">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
+      <div class="topic-rank rank-3">③</div>
+      <div style="flex:1">
+        <div style="font-size:12px;color:var(--accent-3);font-weight:700;letter-spacing:1px;margin-bottom:4px;">存款搬家</div>
+        <div class="topic-title-main">存款利率正式"1时代"</div>
+      </div>
+    </div>
+    <div class="topic-tags">
+      <span class="tag orange">利率下行</span>
+      <span class="tag pink">客户必谈</span>
+      <span class="tag green">储蓄险机遇</span>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-label video"><span class="dot"></span>短视频脚本 · 约90秒</div>
+    <div class="video-title">100万存银行，3年利息少6万！钱该往哪放？</div>
+    <div class="script">【画面：银行存款利率截图，"三年定期1.25%"大字】
+【情绪：沉稳，数据说话】
+
+100万存工商银行三年定期，利率1.25%。
+
+你知道三年前是多少吗？2.75%。
+
+100万存3年，利息差了多少？整整6万3。
+
+（停顿2秒）
+
+钱放哪？这是我今年被问最多的问题。
+
+说一个现象：中金预测，未来2年可能有2到4万亿居民存款搬家。不是小数目。
+
+去哪了？国债被抢疯，大额存单一票难求，还有一部分去了保险。
+
+（情绪上扬）
+
+为什么去保险？因为保险有一类产品叫"增额终身寿"，它的好处是锁利——你现在买，利率写进合同，终身不变。
+
+存款利率下行，保险利率不变。
+
+这就是为什么银行最近拼命推储蓄型保险，逻辑很简单：越晚买，利率越低。
+
+当然，保险也有风险，分红不确定，不是存款替代品。
+
+但对于5年以上不用的钱，增额终身寿是一个值得认真了解的工具。
+
+评论区扣"存款"，我发你一张利率对比图。</div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-label friend"><span class="dot"></span>朋友圈图文 · 3版本</div>
+    <div class="friend-cards">
+      <div class="friend-card pro">
+        <span class="version-badge">专业版</span>
+        <button class="copy-btn" onclick="copyText(this, this.parentElement)">复制</button>
+        <div class="text"><strong>银行三年定期利率正式进入1时代：1.25%。</strong>
+
+100万存3年 vs 2021年的2.75%，利息差了6万3。
+
+钱在银行越存越亏，是事实。
+
+但储蓄型保险可以锁利——你现在买的利率，写进合同，终身不变。
+
+中金预测2-4万亿存款搬家，你的钱考虑挪一挪吗？
+
+有需要的评论区扣"1"，帮你算算适合不适合
+<span class="hash">#存款利率 #储蓄险 #利率下行</span></div>
+      </div>
+      <div class="friend-card warm">
+        <span class="version-badge">亲和版</span>
+        <button class="copy-btn" onclick="copyText(this, this.parentElement)">复制</button>
+        <div class="text">今天帮一个老客户做理财规划，他第一句话就是：银行存款利率太低了，不知道往哪放。
+
+我给他算了一笔账：100万存3年，现在利息3.75万。3年前同等存款，利息8.25万。差了4万5。
+
+不是钱变小了，是利率变小了。
+
+对于5年内不用的钱，增额终身寿可以锁定当前利率，终身不变。具体适不适合你的情况，私信我，帮你算。</div>
+      </div>
+      <div class="friend-card sharp">
+        <span class="version-badge">犀利版</span>
+        <button class="copy-btn" onclick="copyText(this, this.parentElement)">复制</button>
+        <div class="text">存款利率降到1.25%，你还在存银行？
+
+100万三年定期，利息3万7。通货膨胀一算，实际上在亏钱。
+
+聪明人已经在找替代品了——储蓄型保险。
+
+现在的利率锁进去，终身不变。你问有什么风险？分红不确定，不是存款替代品。
+
+但5年以上不动的钱，这是一条出路。
+
+还在存定期的，关注我，帮你看看有没有更优方案。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-banner">
+  <h2>🔥 TOP1-3 爆款脚本已备好</h2>
+  <p>TOP4-10 快速脚本继续往下翻，或直接查看脚本汇总</p>
+</div>
+
+<!-- TOP④ -->
+<div class="topic-card" id="top4" data-group="top4-7">
+  <div class="topic-header">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
+      <div class="topic-rank rank-other">④</div>
+      <div style="flex:1">
+        <div class="topic-title-main">长护险"第六险"全国推行</div>
+      </div>
+    </div>
+    <div class="topic-tags">
+      <span class="tag purple">增量产品</span>
+      <span class="tag green">北京王阿姨案例</span>
+      <span class="tag blue">2028全覆盖</span>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-label video"><span class="dot"></span>短视频脚本 · 约60秒</div>
+    <div class="video-title">失能了每月白拿4000块，北京王阿姨已经拿到了，你申请了吗？</div>
+    <div class="script">【画面：长护险宣传图，"每月最高3600元"大字】
+【情绪：温暖略快】
+
+你知道"第六险"吗？
+
+国家正在推长期护理险，简称长护险。专门解决一件事：老了失能了，有人照顾。
+
+北京的王阿姨，脑梗后失能卧床，申请了长护险，每月领4000元护理费。她女儿跟我说：没有这笔钱，我真的撑不下去。
+
+（停顿）
+
+什么人能申请？六个条件：①城镇职工医保②失能6个月以上③特定机构照护或居家照护④经过评估符合等级⑤按时缴费⑥在试点城市。
+
+目前全国已经有49个城市在试点，2028年要全国覆盖。
+
+评论区扣"长护险"，我发你申请攻略和试点城市名单。</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label friend"><span class="dot"></span>朋友圈图文</div>
+    <div class="friend-cards">
+      <div class="friend-card pro">
+        <span class="version-badge">专业版</span>
+        <button class="copy-btn" onclick="copyText(this, this.parentElement)">复制</button>
+        <div class="text"><strong>国家力推的"第六险"——长期护理险，49城已落地。</strong>
+
+专门保障失能老人：北京王阿姨脑梗失能后，每月领4000元护理费。
+
+什么人能申请：①城镇职工医保②失能6个月以上③在试点城市（49城）④评估符合等级
+
+2028年全国覆盖，现在了解正好。
+
+有需要的评论区扣"长护险"，发你详细攻略</div>
+      </div>
+      <div class="friend-card warm">
+        <span class="version-badge">亲和版</span>
+        <button class="copy-btn" onclick="copyText(this, this.parentElement)">复制</button>
+        <div class="text">刚才刷到一个视频，北京阿姨失能卧床，她女儿说"没有每月4000块的长护险，我一个人真的撑不下去"。
+
+国家推的长护险，很多家庭还不知道。49个城市已经试点，2028年覆盖全国。
+
+家里有60岁以上的，建议了解一下，私信我也行。</div>
+      </div>
+      <div class="friend-card sharp">
+        <span class="version-badge">犀利版</span>
+        <button class="copy-btn" onclick="copyText(this, this.parentElement)">复制</button>
+        <div class="text">失能了怎么办？孩子请假照顾？送养老院一个月6000？
+
+国家早就有解法：长护险，每月最高4000元，专门给失能老人的护理费。
+
+49个城市已经试点，2028年全国覆盖。但很多人不知道。
+
+你家的老人申请了吗？没申请的，评论区扣"长护险"，我帮你查当地政策。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOP⑤ -->
+<div class="topic-card" id="top5" data-group="top4-7">
+  <div class="topic-header">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
+      <div class="topic-rank rank-other">⑤</div>
+      <div style="flex:1">
+        <div class="topic-title-main">城乡居民养老险4月缴费</div>
+      </div>
+    </div>
+    <div class="topic-tags">
+      <span class="tag orange">4月必谈</span>
+      <span class="tag gold">1.7亿人</span>
+      <span class="tag green">挖掘客户</span>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-label video"><span class="dot"></span>短视频脚本 · 约60秒</div>
+    <div class="video-title">农村父母每年交1000块养老金，国家还补钱，你帮他们交了吗？</div>
+    <div class="script">【画面：手机缴纳社保截图，"政府补贴到账"提示】
+【情绪：真诚略快】
+
+4月份城乡居民养老保险开始缴费了。
+
+我专门说一个很多人不知道的政策：国家会给你补贴。
+
+你每年交1000块，政府补贴少则几十，多则一两百，直接进你个人账户。交的越多，补的越多。
+
+三类人政府全额代缴：特困人员、重度残疾人、低保对象。
+
+（停顿）
+
+但现实情况是：全国还有大量农村父母，每年就交个最低档，100块、200块。
+
+算一下：交15年，每年200块，60岁每月领的钱，可能只有两三百。而如果每年交3000块，同样交15年，每月能领800多，差了3倍。
+
+城乡居民养老是长线投资，越早提高档次，退休领的越多。
+
+评论区扣"养老"，发你各档次缴费和领取对照表。</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label friend"><span class="dot"></span>朋友圈图文</div>
+    <div class="friend-cards">
+      <div class="friend-card pro">
+        <span class="version-badge">专业版</span>
+        <button class="copy-btn" onclick="copyText(this, this.parentElement)">复制</button>
+        <div class="text"><strong>4月城乡居民养老缴费季：交得越多，国家补得越多。</strong>
+
+年缴200块 vs 年缴3000块，同样15年，每月领的差3倍。
+
+三类人政府代缴：特困人员、重度残疾人、低保对象。
+
+4月份是调整档次的窗口期，给父母或自己提高缴费档次的，现在是好时机。
+
+评论区扣"养老"，发你详细计算表</div>
+      </div>
+      <div class="friend-card warm">
+        <span class="version-badge">亲和版</span>
+        <button class="copy-btn" onclick="copyText(this, this.parentElement)">复制</button>
+        <div class="text">上个月帮老家亲戚算了一下城乡居民养老：每年交200和每年交3000，60岁后每月领的差了3倍多。
+
+交得多补得多，国家这政策挺好的。
+
+4月正好是缴费季，有想给父母调整档次的，私信我，帮你算算怎么交划算。</div>
+      </div>
+      <div class="friend-card sharp">
+        <span class="version-badge">犀利版</span>
+        <button class="copy-btn" onclick="copyText(this, this.parentElement)">复制</button>
+        <div class="text">你知道吗？很多农村父母每年只交200块城乡居民养老，交15年，60岁每月领200块。
+
+国家其实在补贴，你交1000补100，你交3000补更多。但大多数人不知道。
+
+4月是缴费月，给父母提高缴费档次的最后机会。评论区扣"档次"，我帮你算算能多领多少。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOP⑥ -->
+<div class="topic-card" id="top6" data-group="top4-7">
+  <div class="topic-header">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
+      <div class="topic-rank rank-other">⑥</div>
+      <div style="flex:1">
+        <div class="topic-title-main">个人养老金节税</div>
+      </div>
+    </div>
+    <div class="topic-tags">
+      <span class="tag blue">年省1200-5400</span>
+      <span class="tag green">获客神器</span>
+      <span class="tag purple">7000万人开户</span>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-label video"><span class="dot"></span>短视频脚本 · 约60秒</div>
+    <div class="video-title">个税APP里这个按钮，一年帮你省下1200到5400，你开了吗？</div>
+    <div class="script">【画面：个税APP截图，"个人养老金账户"红框标注】
+【情绪：轻松略快】
+
+你的个税APP里，有一个隐藏功能。叫"个人养老金账户"。
+
+每年往里面存12000，第二年退税的时候，可以少交税。
+
+少多少？看你收入。月薪8000-17000，每年退税1200块。月薪17000-30000，每年退税2400块。月薪30000-60000，每年退税3600块。月薪60000以上，最高每年省5400块。
+
+（停顿）
+
+这个钱存进去，要到退休才能取。提前取出来要满足特定条件，账户封闭运行。
+
+7000万人开了账户，实际缴费的只有30%。你呢？
+
+评论区扣"节税"，发你详细计算表。</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label friend"><span class="dot"></span>朋友圈图文</div>
+    <div class="friend-cards">
+      <div class="friend-card pro">
+        <span class="version-badge">专业版</span>
+        <button class="copy-btn" onclick="copyText(this, this.parentElement)">复制</button>
+        <div class="text"><strong>个人养老金账户：存12000，最高每年省5400税。</strong>
+
+工资越高，节税越多：
+月薪8000-17000 → 年省1200
+月薪17000-30000 → 年省2400
+月薪30000-60000 → 年省3600
+月薪60000+ → 年省5400
+
+7000万人开户，实际缴费仅30%——你是那30%吗？
+
+有需要的评论区扣"1"，帮你算能省多少</div>
+      </div>
+      <div class="friend-card warm">
+        <span class="version-badge">亲和版</span>
+        <button class="copy-btn" onclick="copyText(this, this.parentElement)">复制</button>
+        <div class="text">最近帮几个朋友做了个人养老金规划，发现很多人还不知道这个国家给的节税工具。
+
+工资1万以上，每年能退税1200-5400不等，相当于给自己多发一个月工资。
+
+现在开了账户，后面每年自动省税。感兴趣的话，私信我，帮你算算你能省多少。</div>
+      </div>
+      <div class="friend-card sharp">
+        <span class="version-badge">犀利版</span>
+        <button class="copy-btn" onclick="copyText(this, this.parentElement)">复制</button>
+        <div class="text">7000万人开了个人养老金账户，实际缴费的只有30%。
+
+你缴了吗？月薪1万以上，每年少则省1200，多则5400。这不是小钱。
+
+不知道能省多少的，评论区扣"算"，我帮你算。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOP⑦ -->
+<div class="topic-card" id="top7" data-group="top4-7">
+  <div class="topic-header">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
+      <div class="topic-rank rank-other">⑦</div>
+      <div style="flex:1">
+        <div class="topic-title-main">医保新规落地 + 骗保被罚</div>
+      </div>
+    </div>
+    <div class="topic-tags">
+      <span class="tag gold">浙江罚100万</span>
+      <span class="tag pink">四川判3年</span>
+      <span class="tag blue">举报奖20万</span>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-label video"><span class="dot"></span>短视频脚本 · 约60秒</div>
+    <div class="video-title">浙江有人骗保被罚100万，四川有人被判3年，医保监控到底有多严？</div>
+    <div class="script">【画面：医保局通报截图，处罚金额大字】
+【情绪：严肃略快】
+
+4月份医保新规正式落地，13.7亿人被一张网覆盖。
+
+先说两个真实案例。浙江某药店，用医保卡刷生活用品，虚假购药，被罚了100万，负责人追究刑事责任。四川有人冒用他人医保卡，骗取医保基金，被判了3年。
+
+（停顿）
+
+为什么突然这么严？因为国家医保监控系统上线了。每一笔医保结算，实时比对大数据。
+
+以前靠小聪明薅羊毛的路子，全部堵死。
+
+但对于普通参保人来说，这不是坏事。该报销的一分不少。而且现在举报骗保有奖励，最高20万。
+
+评论区扣"医保"，发你新规核心内容和举报流程。</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label friend"><span class="dot"></span>朋友圈图文</div>
+    <div class="friend-cards">
+      <div class="friend-card pro">
+        <span class="version-badge">专业版</span>
+        <button class="copy-btn" onclick="copyText(this, this.parentElement)">复制</button>
+        <div class="text"><strong>医保新规落地，浙江骗保被罚100万，四川判刑3年。</strong>
+
+国家医保监控系统上线，13.7亿人全覆盖。每一笔结算实时比对大数据，薅羊毛的路子全部堵死。
+
+但对普通参保人是好事：该报销的一分不少。举报骗保还有奖励，最高20万。
+
+评论区扣"医保"，发你新规详情和举报攻略</div>
+      </div>
+      <div class="friend-card warm">
+        <span class="version-badge">亲和版</span>
+        <button class="copy-btn" onclick="copyText(this, this.parentElement)">复制</button>
+        <div class="text">昨天看到一个新闻，浙江有人药店刷医保卡套现，被罚了100万，还判了刑。
+
+说实话挺触目惊心的，但也说明医保监管真的严起来了。
+
+国家对合法参保人的保障其实更扎实了。这个角度来说，商业保险作为补充的作用反而更大了。
+
+有想了解商业医疗险的，私信我聊聊。</div>
+      </div>
+      <div class="friend-card sharp">
+        <span class="version-badge">犀利版</span>
+        <button class="copy-btn" onclick="copyText(this, this.parentElement)">复制</button>
+        <div class="text">骗保100万被罚，判刑3年。
+
+这可不是小数目。医保监控系统上线了，13.7亿人全覆盖，以前你觉得没问题的小动作，以后都可能被查。
+
+对普通人来说，这是好事：该报的报，不该碰的别碰。
+
+想了解商业医疗险怎么报销更全的，评论区扣"医疗险"，我帮你看。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOP⑧ -->
+<div class="topic-card" id="top8" data-group="top8-10">
+  <div class="topic-header">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
+      <div class="topic-rank rank-other">⑧</div>
+      <div style="flex:1">
+        <div class="topic-title-main">银保"小账"新规封堵</div>
+      </div>
+    </div>
+    <div class="topic-tags">
+      <span class="tag purple">银行渠道</span>
+      <span class="tag blue">专业价值回归</span>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-label video"><span class="dot"></span>短视频脚本 · 约45秒</div>
+    <div class="video-title">银行卖保险以后不返佣了！银行经理会失业？</div>
+    <div class="script">【画面：银保监会文件截图】
+【情绪：中性略快】
+
+银行卖保险，以前有个潜规则，叫"小账"。就是你买银行推荐的保险，银行客户经理私下给你返3%-5%的佣金。
+
+银保监会新规把这个口子堵了。
+
+这意味着什么？银行推荐保险的逻辑要变了——以前靠返佣吸引客户，以后要靠产品力和服务。
+
+对于保险消费者，这是好事：银行会更认真选产品，不好的产品没人推了。
+
+对于保险从业者，这也是机会：专业价值回归，懂产品、懂需求的代理人更值钱。
+
+评论区扣"银保"，发你新规详细解读。</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label friend"><span class="dot"></span>朋友圈图文</div>
+    <div class="friend-cards">
+      <div class="friend-card pro">
+        <span class="version-badge">专业版</span>
+        <button class="copy-btn" onclick="copyText(this, this.parentElement)">复制</button>
+        <div class="text"><strong>银保"小账"新规落地：银行卖保险，返佣时代结束了。</strong>
+
+以前银行靠返佣推保险，以后要靠产品力。
+
+对消费者是好事：银行会认真筛选产品。
+对专业代理人是机会：懂需求、懂产品的顾问更值钱。
+
+我是XX，关注我，保险问题有问必回。</div>
+      </div>
+      <div class="friend-card warm">
+        <span class="version-badge">亲和版</span>
+        <button class="copy-btn" onclick="copyText(this, this.parentElement)">复制</button>
+        <div class="text">银行以前卖保险靠返佣，以后这条路子被堵了。
+
+说实话，这是好事。银行没有了返佣压力，推荐产品的逻辑会更纯粹。
+
+不过选保险这事，还是得找个懂行的帮你看合同。买过银行保险的，有疑问的私信我。</div>
+      </div>
+      <div class="friend-card sharp">
+        <span class="version-badge">犀利版</span>
+        <button class="copy-btn" onclick="copyText(this, this.parentElement)">复制</button>
+        <div class="text">银行保险返佣被封了——你以为银行经理是为你选产品？不，返佣高的才推。
+
+现在这条路堵死了，银行会认真选产品。
+
+但说到底，买保险这事，合同条款才重要，银行经理不帮你逐条解释的。
+
+找专业的人帮你看，私信我。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOP⑨ -->
+<div class="topic-card" id="top9" data-group="top8-10">
+  <div class="topic-header">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
+      <div class="topic-rank rank-other">⑨</div>
+      <div style="flex:1">
+        <div class="topic-title-main">互联网保险续费整治</div>
+      </div>
+    </div>
+    <div class="topic-tags">
+      <span class="tag pink">北京张先生案例</span>
+      <span class="tag orange">4月整治</span>
+      <span class="tag green">代理人价值</span>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-label video"><span class="dot"></span>短视频脚本 · 约45秒</div>
+    <div class="video-title">自动续费被偷偷扣了594块！北京张先生的经历给你提个醒</div>
+    <div class="script">【画面：手机银行扣款通知截图】
+【情绪：气愤略快】
+
+北京的张先生，去年在某平台买了一份一年期健康险。今年3月，平台自动续费了。保险到期前3天，平台发了条短信通知，字体小到看不见。
+
+张先生根本没打算续，直接多扣了594元。
+
+后来投诉，平台说：我们发了通知，你自己没注意。
+
+（停顿）
+
+4月份，互联网保险自动续费整治正式落地。以后续费必须主动确认，不得默认勾选；扣费前必须发短信通知；取消续费必须一键完成。
+
+以前图方便买的线上保险，你以为自动续了就是保障，实际上可能花的是冤枉钱。
+
+有保单在手的，评论区扣"续费"，我帮你做个检视。</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label friend"><span class="dot"></span>朋友圈图文</div>
+    <div class="friend-cards">
+      <div class="friend-card pro">
+        <span class="version-badge">专业版</span>
+        <button class="copy-btn" onclick="copyText(this, this.parentElement)">复制</button>
+        <div class="text"><strong>互联网保险自动续费整治落地：北京张先生被扣594元。</strong>
+
+4月起新规：续费必须主动确认，不得默认勾选；取消续费必须一键完成。
+
+以前在网上买的一年期保险，有没有被自动续费？建议查一下银行卡扣款记录。
+
+有需要的，评论区扣"续费"，我帮你做保单检视。</div>
+      </div>
+      <div class="friend-card warm">
+        <span class="version-badge">亲和版</span>
+        <button class="copy-btn" onclick="copyText(this, this.parentElement)">复制</button>
+        <div class="text">前两天看到个事：有人网上买的健康险，到期前没注意看通知，被自动续费扣了594元。
+
+说实话保险自动续费这事，很多人都不留意。4月份监管开始整治了，被多扣的可以投诉。
+
+你手上有网上买的保险吗？可以查一查扣款记录，有不清楚的私信我帮你看。</div>
+      </div>
+      <div class="friend-card sharp">
+        <span class="version-badge">犀利版</span>
+        <button class="copy-btn" onclick="copyText(this, this.parentElement)">复制</button>
+        <div class="text">网上买的保险，被自动续费扣了594块，你遇到过吗？
+
+平台说发了通知，但你根本没看见。这种事4月份开始整治了。
+
+说实话，线上买保险图方便，但续费没人提醒，保障也没人检视。
+
+想省心一点，评论区扣"检视"，我帮你把保单过一遍。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOP⑩ -->
+<div class="topic-card" id="top10" data-group="top8-10">
+  <div class="topic-header">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
+      <div class="topic-rank rank-other">⑩</div>
+      <div style="flex:1">
+        <div class="topic-title-main">城乡居民基础养老金上调至163元/月</div>
+      </div>
+    </div>
+    <div class="topic-tags">
+      <span class="tag gold">1.7亿人</span>
+      <span class="tag blue">月增20元</span>
+      <span class="tag green">社保话题</span>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-label video"><span class="dot"></span>短视频脚本 · 约45秒</div>
+    <div class="video-title">基础养老金涨到每月163块，这够养老吗？</div>
+    <div class="script">【画面：人社部文件截图，"163元/月"大字】
+【情绪：平和略慢】
+
+城乡居民基础养老金，从143块涨到了163块。每月多20块。
+
+听到这个数字，很多人心凉了——163块够养老吗？
+
+（停顿）
+
+先说事实：这是国家给的最低保障，不是养老的全部。
+
+城乡居民养老金的算法是：基础养老金（国家给）+ 个人账户养老金（自己交的钱）。
+
+你每年交200块，15年个人账户3000块，每月领220块。
+你每年交3000块，15年个人账户45000块，每月领530块。
+
+差了310块。
+
+所以：国家给的是兜底，自己交多少，决定你领多少。
+
+4月是缴费季，要不要提高档次，评论区扣"养老"，我帮你算。</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label friend"><span class="dot"></span>朋友圈图文</div>
+    <div class="friend-cards">
+      <div class="friend-card pro">
+        <span class="version-badge">专业版</span>
+        <button class="copy-btn" onclick="copyText(this, this.parentElement)">复制</button>
+        <div class="text"><strong>城乡居民基础养老金上调至163元/月，涨幅20元。</strong>
+
+够养老吗？不够——这本来就只是兜底。
+
+养老金的真公式：基础养老金（国家给）+ 个人账户养老金（自己交）
+
+年缴200 vs 年缴3000，15年后每月差310块。交多少，领多少。
+
+4月是缴费窗口期，提升缴费档次的最后机会。评论区扣"养老"，发你详细对照表</div>
+      </div>
+      <div class="friend-card warm">
+        <span class="version-badge">亲和版</span>
+        <button class="copy-btn" onclick="copyText(this, this.parentElement)">复制</button>
+        <div class="text">城乡居民养老金涨了20块，从143到163。
+
+很多人在朋友圈说"不够养老"。其实这个本来就不是全部，只是国家兜底。
+
+真正决定你养老水平的，是你自己交了多少进去。4月正好是缴费季，有想帮父母或者自己提档的，私信我帮你算算。</div>
+      </div>
+      <div class="friend-card sharp">
+        <span class="version-badge">犀利版</span>
+        <button class="copy-btn" onclick="copyText(this, this.parentElement)">复制</button>
+        <div class="text">163块够养老吗？肯定不够。但这是国家给的，不是全部。
+
+你自己交的那部分，才是真正决定养老金水平的东西。
+
+年缴200和年缴3000，交15年，每月差310块。这个差距不是一点点。
+
+4月改档次最后机会。评论区扣"档次"，帮你算清楚。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA Banner 2 -->
+<div class="cta-banner">
+  <h2>💬 引流话术 · 新好友破冰</h2>
+  <p>视频号/抖音来的新粉，用这条破冰</p>
+</div>
+
+<!-- Private Msg -->
+<div style="margin-bottom:48px">
+  <div class="content-block" style="border:1px solid var(--card-border);border-radius:16px;padding:28px;">
+    <div class="block-label private" style="margin-bottom:20px"><span class="dot"></span>新好友破冰话术 · 3版本</div>
+    <div class="private-msgs">
+      <div class="private-msg">
+        <span class="scene">专业版</span>
+        您好！我是XX，保险经纪人。看到您对我的内容感兴趣，保险方面有什么想了解的吗？可以告诉我您的年龄和主要关注点，我帮您判断一下优先级。
+      </div>
+      <div class="private-msg">
+        <span class="scene">亲和版</span>
+        您好！很高兴认识您～我平时分享一些保险和理财的干货，如果您有相关问题，随时私信我，有问必回。
+      </div>
+      <div class="private-msg">
+        <span class="scene">犀利版</span>
+        您好！直接说重点——您是想了解哪个方向？医疗险、重疾险、储蓄险，还是给父母孩子配保障？给我个方向，我直接给您干货。
+      </div>
+    </div>
+  </div>
+
+  <div class="content-block" style="border:1px solid var(--card-border);border-radius:16px;padding:28px;margin-top:16px;">
+    <div class="block-label private" style="margin-bottom:20px"><span class="dot"></span>资料领取跟进话术 · 3版本</div>
+    <div class="private-msgs">
+      <div class="private-msg">
+        <span class="scene">专业版</span>
+        您好！您之前领取了资料，对哪部分内容最感兴趣？我可以针对您的情况做进一步说明。
+      </div>
+      <div class="private-msg">
+        <span class="scene">亲和版</span>
+        您好！资料收到了吗？有任何不明白的地方，直接问我，我帮你解读～
+      </div>
+      <div class="private-msg">
+        <span class="scene">犀利版</span>
+        资料您下载了吗？里面有坑点清单，对照一下您现在的情况，有问题直接问我。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 运营建议 -->
+<div class="content-block" style="border:1px solid var(--card-border);border-radius:16px;padding:28px;margin-bottom:60px;">
+  <div class="block-label tips" style="margin-bottom:20px"><span class="dot"></span>发布节奏建议</div>
+  <div class="tips-box">
+    <ul>
+      <li><strong>第1周：</strong>TOP1-3每天1条（爆款先行），同步朋友圈图文</li>
+      <li><strong>第2周：</strong>TOP4-7每2天1条，评论区置顶关键词引导互动</li>
+      <li><strong>第3周：</strong>TOP8-10按节奏出，配合长护险/养老险专题系列</li>
+      <li><strong>每日：</strong>朋友圈图文同步发，私信及时回复，用破冰话术</li>
+      <li><strong>合规注意：</strong>视频号/抖音禁止"私信我"，统一用"评论区留言/扣关键词"</li>
+      <li><strong>话题合并：</strong>负面清单+骗保+举报奖励 可做成"保险合规系列"专题</li>
+    </ul>
+  </div>
+</div>
+
+</div><!-- end #content -->
+
+<!-- Compliance -->
+<div class="compliance-note">
+  ⚠️ 本内容包为通用版，无定位卡。如需生成个性化版本，<br>
+  请完成保险IP定位后，系统将自动调用个人故事/数据/资质生成专属内容。
+</div>
+
+<script>
+  // Tab navigation
+  document.querySelectorAll('.nav-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const target = tab.dataset.target;
+      const cards = document.querySelectorAll('.topic-card');
+
+      cards.forEach(card => {
+        if (target === 'all') {
+          card.style.display = '';
+        } else if (target === 'scripts' || target === 'friend') {
+          // scripts tab shows only video titles + scripts; friend tab shows only friend circles
+          card.style.display = '';
+        } else {
+          card.style.display = card.dataset.group === target ? '' : 'none';
+        }
+      });
+    });
+  });
+
+  // Copy to clipboard
+  function copyText(btn, card) {
+    const text = card.querySelector('.text').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = '已复制 ✓';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '复制';
+        btn.classList.remove('copied');
+      }, 2000);
+    }).catch(() => {
+      // fallback
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      btn.textContent = '已复制 ✓';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '复制';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+</script>
+</body>
+</html>
