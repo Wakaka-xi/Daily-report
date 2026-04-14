@@ -2,136 +2,96 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>短视频素材日报 - 汇总首页</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>素材日报 · 汇总</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; background: #f5f5f5; color: #333; line-height: 1.6; }
-  
-  .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 40px 24px; text-align: center; color: white; }
-  .header h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
-  .header .sub { font-size: 13px; color: rgba(255,255,255,0.6); }
-  
-  .container { padding: 20px 16px; max-width: 600px; margin: 0 auto; }
-  
-  .date-group { margin-bottom: 24px; }
-  .date-label { font-size: 14px; font-weight: 600; color: #666; margin-bottom: 12px; padding-left: 8px; border-left: 3px solid #e74c3c; }
-  
-  .card { background: white; border-radius: 12px; padding: 16px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); display: flex; justify-content: space-between; align-items: center; }
-  .card-info { flex: 1; }
-  .card-date { font-size: 16px; font-weight: 600; color: #1a1a2e; margin-bottom: 4px; }
-  .card-topics { font-size: 12px; color: #888; line-height: 1.5; }
-  .card-btn { background: #e74c3c; color: white; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; text-decoration: none; flex-shrink: 0; margin-left: 12px; }
-  
-  .today { border: 2px solid #e74c3c; }
-  .today .card-date { color: #e74c3c; }
-  
-  .footer { text-align: center; padding: 30px 20px; color: #999; font-size: 12px; }
+  body { background: #f0ede8; font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; min-height: 100vh; }
+  .container { max-width: 600px; margin: 0 auto; padding: 24px 16px 40px; }
+  .header { text-align: center; padding: 32px 0 24px; }
+  .header h1 { font-size: 22px; font-weight: 700; color: #1a1a2e; letter-spacing: -0.3px; }
+  .header .sub { font-size: 12px; color: #999; margin-top: 6px; letter-spacing: 1px; }
+  .list { display: flex; flex-direction: column; gap: 12px; }
+  .card { background: #fff; border-radius: 14px; padding: 18px 20px; display: flex; align-items: center; gap: 16px; text-decoration: none; color: inherit; box-shadow: 0 1px 4px rgba(0,0,0,0.04); transition: transform 0.15s, box-shadow 0.15s; }
+  .card:active { transform: scale(0.98); }
+  .card .date-badge { width: 52px; height: 52px; background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0; }
+  .card .date-badge .month { font-size: 10px; color: rgba(255,255,255,0.5); letter-spacing: 1px; }
+  .card .date-badge .day { font-size: 20px; color: #fff; font-weight: 700; line-height: 1.2; }
+  .card .info { flex: 1; min-width: 0; }
+  .card .info .title { font-size: 15px; font-weight: 600; color: #1a1a2e; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .card .info .tags { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+  .card .info .tag { font-size: 10px; padding: 2px 8px; border-radius: 5px; font-weight: 600; }
+  .tag-hot { background: rgba(231,76,60,0.08); color: #c0392b; }
+  .tag-new { background: rgba(52,152,219,0.1); color: #2980b9; }
+  .card .arrow { color: #ddd; font-size: 18px; flex-shrink: 0; }
+  .footer { text-align: center; padding: 32px 0 16px; font-size: 11px; color: #bbb; letter-spacing: 1px; }
 </style>
 </head>
 <body>
-
-<div class="header">
-  <h1>短视频素材日报</h1>
-  <div class="sub">保险/财经/社保热点 · 每日更新</div>
-</div>
-
 <div class="container">
-
-  <div class="date-group">
-    <div class="date-label">今天 · 4月14日</div>
-    <div class="card today">
-      <div class="card-info">
-        <div class="card-date">2026年4月14日</div>
-        <div class="card-topics">美伊局势封锁霍尔木兹海峡 · 保险板块逆势上涨0.78% · 银行股高管密集增持 · 储蓄国债开售</div>
-      </div>
-      <a href="2026-04-14-v2.html" class="card-btn">查看</a>
-    </div>
+  <div class="header">
+    <h1>📰 素材日报</h1>
+    <div class="sub">每日财经短视频素材精选 · 最近7天</div>
   </div>
-
-  <div class="date-group">
-    <div class="date-label">4月13日</div>
-    <div class="card">
-      <div class="card-info">
-        <div class="card-date">2026年4月13日</div>
-        <div class="card-topics">A股一季报业绩暴增 · 美伊谈判无果而终 · 存款利率进入"1时代"</div>
+  <div class="list">
+    <a class="card" href="2026-04-15-v2.html">
+      <div class="date-badge"><span class="month">04月</span><span class="day">15</span></div>
+      <div class="info">
+        <div class="title">A股放量站上4000点 · 一季度社融近15万亿 · 电动汽车出口暴增77.5%</div>
+        <div class="tags"><span class="tag tag-new">今天</span><span class="tag tag-hot">🔥🔥🔥</span></div>
       </div>
-      <a href="2026-04-13-v2.html" class="card-btn">查看</a>
-    </div>
-  </div>
-
-  <div class="date-group">
-    <div class="date-label">4月12日</div>
-    <div class="card">
-      <div class="card-info">
-        <div class="card-date">2026年4月12日</div>
-        <div class="card-topics">创业板改革八大举措 · 五大险企年报4253亿 · 美伊谈判24小时倒计时</div>
+      <span class="arrow">›</span>
+    </a>
+    <a class="card" href="2026-04-14-v2.html">
+      <div class="date-badge"><span class="month">04月</span><span class="day">14</span></div>
+      <div class="info">
+        <div class="title">美伊局势升级封锁霍尔木兹海峡 · 保险板块逆势上涨 · 银行股高管密集增持</div>
+        <div class="tags"><span class="tag tag-hot">🔥🔥🔥</span></div>
       </div>
-      <a href="2026-04-12-v2.html" class="card-btn">查看</a>
-    </div>
-  </div>
-
-  <div class="date-group">
-    <div class="date-label">4月11日</div>
-    <div class="card">
-      <div class="card-info">
-        <div class="card-date">2026年4月11日</div>
-        <div class="card-topics">人身险负面清单105条 · 互联网平台价格新规 · 城乡居民养老保险缴费</div>
+      <span class="arrow">›</span>
+    </a>
+    <a class="card" href="2026-04-13-v2.html">
+      <div class="date-badge"><span class="month">04月</span><span class="day">13</span></div>
+      <div class="info">
+        <div class="title">A股一季报业绩暴增45家预增超100% · 美伊谈判无果而终 · 存款利率进入"1时代"</div>
+        <div class="tags"><span class="tag tag-hot">🔥🔥🔥</span></div>
       </div>
-      <a href="2026-04-11-v2.html" class="card-btn">查看</a>
-    </div>
-  </div>
-
-  <div class="date-group">
-    <div class="date-label">4月10日</div>
-    <div class="card">
-      <div class="card-info">
-        <div class="card-date">2026年4月10日</div>
-        <div class="card-topics">险资6.4万亿加码入市 · 存款利率再降 · 第二批国补625亿到账</div>
+      <span class="arrow">›</span>
+    </a>
+    <a class="card" href="2026-04-12-v2.html">
+      <div class="date-badge"><span class="month">04月</span><span class="day">12</span></div>
+      <div class="info">
+        <div class="title">创业板改革八大举措 · 五大险企年报净利润4253亿 · 美伊谈判24小时倒计时</div>
+        <div class="tags"><span class="tag tag-hot">🔥🔥🔥</span></div>
       </div>
-      <a href="2026-04-10-v5.html" class="card-btn">查看</a>
-    </div>
-  </div>
-
-  <div class="date-group">
-    <div class="date-label">4月9日</div>
-    <div class="card">
-      <div class="card-info">
-        <div class="card-date">2026年4月9日</div>
-        <div class="card-topics">A股强势反弹4500股上涨 · 黄金4800美元震荡 · 险资40万亿权益配置</div>
+      <span class="arrow">›</span>
+    </a>
+    <a class="card" href="2026-04-11-v2.html">
+      <div class="date-badge"><span class="month">04月</span><span class="day">11</span></div>
+      <div class="info">
+        <div class="title">人身险负面清单105条 · 互联网平台价格新规 · 城乡居民养老保险缴费</div>
+        <div class="tags"><span class="tag tag-hot">🔥🔥🔥</span></div>
       </div>
-      <a href="2026-04-09-v2.html" class="card-btn">查看</a>
-    </div>
-  </div>
-
-  <div class="date-group">
-    <div class="date-label">4月8日</div>
-    <div class="card">
-      <div class="card-info">
-        <div class="card-date">2026年4月8日</div>
-        <div class="card-topics">国家队护盘 · 险资比例上调 · 特朗普访华</div>
+      <span class="arrow">›</span>
+    </a>
+    <a class="card" href="2026-04-10-v2.html">
+      <div class="date-badge"><span class="month">04月</span><span class="day">10</span></div>
+      <div class="info">
+        <div class="title">险资6.4万亿加码入市 · 存款利率再降 · 第二批国补625亿到账</div>
+        <div class="tags"><span class="tag tag-hot">🔥🔥🔥</span></div>
       </div>
-      <a href="2026-04-08-v2.html" class="card-btn">查看</a>
-    </div>
-  </div>
-
-  <div class="date-group">
-    <div class="date-label">4月7日</div>
-    <div class="card">
-      <div class="card-info">
-        <div class="card-date">2026年4月7日</div>
-        <div class="card-topics">养老金22连涨 · 存款利率1.25% · 关税黑色星期一</div>
+      <span class="arrow">›</span>
+    </a>
+    <a class="card" href="2026-04-09-v2.html">
+      <div class="date-badge"><span class="month">04月</span><span class="day">09</span></div>
+      <div class="info">
+        <div class="title">A股强势反弹4500股上涨 · 黄金4800美元震荡 · 险资40万亿权益配置</div>
+        <div class="tags"><span class="tag tag-hot">🔥🔥🔥</span></div>
       </div>
-      <a href="2026-04-07-v3.html" class="card-btn">查看</a>
-    </div>
+      <span class="arrow">›</span>
+    </a>
   </div>
-
+  <div class="footer">AI财经短视频素材研究员 · 每日自动生成</div>
 </div>
-
-<div class="footer">
-  <p>AI财经短视频素材研究员 · 每日 12:00 更新</p>
-  <p style="margin-top: 4px;">数据截至 2026年4月14日</p>
-</div>
-
 </body>
 </html>
