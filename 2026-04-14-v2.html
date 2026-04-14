@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>短视频素材日报 - 2026.04.14</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; background: #f5f5f5; color: #333; line-height: 1.6; }
+  
+  /* 封面样式 */
+  .cover { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 48px 32px; text-align: center; color: white; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: -50%; right: -20%; width: 400px; height: 400px; background: rgba(255,255,255,0.03); border-radius: 50%; }
+  .kicker { font-size: 12px; color: rgba(255,255,255,0.5); letter-spacing: 6px; text-transform: uppercase; margin-bottom: 16px; }
+  .cover h1 { font-size: 32px; font-weight: 700; margin-bottom: 12px; letter-spacing: 2px; }
+  .date { font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 32px; }
+  .stats { display: flex; justify-content: center; gap: 40px; margin-bottom: 32px; }
+  .stat { text-align: center; }
+  .stat .num { font-size: 36px; font-weight: 700; color: #e74c3c; }
+  .stat .label { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 4px; }
+  .topic-box { background: rgba(255,255,255,0.08); border-radius: 12px; padding: 16px 24px; margin-top: 8px; }
+  .topic-box .label { font-size: 11px; color: rgba(255,255,255,0.4); margin-bottom: 8px; }
+  .topic-box .text { font-size: 14px; color: rgba(255,255,255,0.9); line-height: 1.6; }
+  
+  /* 章节标题 */
+  .chapter { background: white; padding: 32px 24px 16px; border-bottom: 1px solid #f0f0f0; }
+  .ch-label { font-size: 11px; color: #999; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
+  .ch-title { font-size: 22px; font-weight: 700; color: #1a1a2e; margin-bottom: 8px; }
+  .ch-sub { font-size: 13px; color: #999; }
+  
+  /* 脚本卡片 */
+  .script-card { background: white; margin: 0 16px 16px; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .sh { background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 20px; display: flex; gap: 16px; align-items: flex-start; }
+  .rank { width: 40px; height: 40px; background: #1a1a2e; color: white; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; flex-shrink: 0; }
+  .sh-body { flex: 1; }
+  .sh-tag { display: inline-block; font-size: 11px; padding: 4px 10px; border-radius: 6px; font-weight: 600; margin-bottom: 8px; }
+  .tag-s1 { background: rgba(231,76,60,0.1); color: #c0392b; }
+  .tag-s2 { background: rgba(52,152,219,0.1); color: #2980b9; }
+  .sh-title { font-size: 16px; font-weight: 600; color: #1a1a2e; line-height: 1.5; margin-bottom: 10px; }
+  .sh-meta { display: flex; gap: 8px; flex-wrap: wrap; }
+  .meta-chip { font-size: 11px; padding: 3px 10px; border-radius: 20px; }
+  .chip-hot { background: rgba(231,76,60,0.1); color: #c0392b; }
+  .chip-type { background: rgba(149,165,166,0.15); color: #7f8c8d; }
+  
+  .body-content { padding: 20px; }
+  .hook { background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%); border-left: 4px solid #e74c3c; padding: 16px; border-radius: 0 12px 12px 0; margin-bottom: 20px; }
+  .hook-label { font-size: 12px; color: #e74c3c; font-weight: 600; margin-bottom: 8px; }
+  .hook-text { font-size: 14px; color: #333; line-height: 1.8; }
+  
+  .body-lines { margin-bottom: 20px; }
+  .body-line { font-size: 14px; color: #444; line-height: 1.9; margin-bottom: 14px; padding-left: 16px; position: relative; }
+  .body-line::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; background: #e74c3c; border-radius: 50%; }
+  .body-line:last-child { margin-bottom: 0; }
+  
+  .cta { background: #f8f9fa; padding: 16px; border-radius: 12px; margin-bottom: 16px; }
+  .cta-label { font-size: 12px; color: #666; font-weight: 600; margin-bottom: 8px; }
+  .cta-text { font-size: 14px; color: #333; line-height: 1.8; }
+  
+  .cover-tip { background: #f0f7ff; padding: 16px; border-radius: 12px; border-left: 4px solid #3498db; }
+  .cover-tip-label { font-size: 12px; color: #3498db; font-weight: 600; margin-bottom: 8px; }
+  .cover-tip-text { font-size: 13px; color: #555; line-height: 1.7; }
+  
+  /* 素材卡片 */
+  .mat-section { background: white; padding: 24px 16px; }
+  .mat-card { margin-bottom: 16px; background: #faf9f7; border: 1px solid #f0ebe4; border-radius: 16px; padding: 18px 20px; position: relative; overflow: hidden; }
+  .mat-card::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; }
+  .mat-card.ss3::before { background: linear-gradient(180deg, #e74c3c, #c0392b); }
+  .mat-card.ss2::before { background: linear-gradient(180deg, #3498db, #2980b9); }
+  .mat-card.ss1::before { background: linear-gradient(180deg, #95a5a6, #7f8c8d); }
+  .mat-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; gap: 12px; }
+  .mat-title { font-size: 15px; font-weight: 600; color: #1a1a2e; line-height: 1.5; flex: 1; }
+  .mat-stars { font-size: 14px; flex-shrink: 0; }
+  .star-gold { color: #f39c12; }
+  .star-gray { color: #bdc3c7; }
+  .mat-tag-row { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+  .mat-tag { font-size: 11px; padding: 3px 10px; border-radius: 6px; font-weight: 500; }
+  .mat-row { display: flex; gap: 10px; margin-bottom: 10px; align-items: flex-start; }
+  .mat-row:last-child { margin-bottom: 0; }
+  .mat-key { font-size: 12px; color: #888; width: 60px; flex-shrink: 0; padding-top: 2px; }
+  .mat-val { font-size: 13px; color: #444; line-height: 1.7; flex: 1; }
+  .mat-source { margin-top: 12px; padding-top: 10px; border-top: 1px solid #ece8e2; font-size: 11px; color: #999; }
+  
+  /* 页脚 */
+  .footer { background: #1a1a2e; padding: 24px; text-align: center; }
+  .footer-brand { font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.8); margin-bottom: 4px; letter-spacing: 3px; }
+  .footer-sub { font-size: 11px; color: rgba(255,255,255,0.4); }
+</style>
+</head>
+<body>
+
+<!-- 封面 -->
+<div class="cover">
+  <div class="kicker">Daily Brief</div>
+  <h1>短视频素材精选</h1>
+  <div class="date">2026.04.14 · Tuesday</div>
+  <div class="stats">
+    <div class="stat"><div class="num">3</div><div class="label">参考脚本</div></div>
+    <div class="stat"><div class="num">13</div><div class="label">重点素材</div></div>
+    <div class="stat"><div class="num">3</div><div class="label">今日热点</div></div>
+  </div>
+  <div class="topic-box">
+    <div class="label">Today's Focus</div>
+    <div class="text">美伊局势封锁霍尔木兹海峡 · 万能险新规5月实施 · 银行股高管密集增持 · 储蓄国债开售</div>
+  </div>
+</div>
+
+<!-- 参考脚本 -->
+<div class="chapter">
+  <div class="ch-label">Reference Scripts</div>
+  <div class="ch-title">参考脚本</div>
+  <div class="ch-sub">视频号爆款结构 · 反转悬念文案 · 可直接二创</div>
+</div>
+
+<!-- 脚本1：美伊局势 -->
+<div class="script-card">
+  <div class="sh">
+    <div class="rank">01</div>
+    <div class="sh-body">
+      <span class="sh-tag tag-s1">宏观/投资</span>
+      <div class="sh-title">美伊谈判彻底破裂！特朗普下令封锁霍尔木兹海峡——油价暴涨8%，你的加油费要涨多少？</div>
+      <div class="sh-meta">
+        <span class="meta-chip chip-hot">极高热度</span>
+        <span class="meta-chip chip-type">地缘解读</span>
+      </div>
+    </div>
+  </div>
+  <div class="body-content">
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">美伊谈判彻底谈崩了！特朗普刚刚下令封锁霍尔木兹海峡——油价暴涨8%，92号汽油可能要涨回8块钱！今天这期视频，我帮你算清楚：你的加油费每月要多花多少钱？</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">4月13日，美伊第三轮谈判在巴基斯坦伊斯兰堡无果而终，美方率先退场。特朗普随后宣布对伊朗实施"极限施压"，并计划封锁霍尔木兹海峡。这是全球最重要的石油运输通道，每天过境石油2100万桶，占全球石油贸易量的20%以上！</div>
+      <div class="body-line">消息一出，布伦特原油从71美元暴涨至77美元，涨幅超8%。对国内的影响：①成品油价格上调——92号汽油可能从7.2元涨回8元时代；②加油成本增加——按每月加100升算，每月多支出80-100元；③物流成本上升——快递、外卖配送费可能跟涨。</div>
+      <div class="body-line">地缘冲突升级，三类资产受影响：第一，石油股——中国石油、中国石化逆势上涨；第二，黄金——避险需求推高金价；第三，航运股——霍尔木兹海峡封锁，全球航运成本上升。但要注意：地缘风险极高，波动剧烈，普通人谨慎参与。</div>
+      <div class="body-line">面对油价上涨，普通人怎么应对？三个建议：第一，趁涨价前加满油，能省一点是一点；第二，关注新能源汽车——用电成本远低于用油；第三，投资上控制仓位，不要盲目追热点。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你觉得油价会涨到多少？8块还是9块？评论区说说你的判断！觉得有用就转发给车主朋友，关注我，每天帮你看懂国际大事对钱袋子的影响。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"霍尔木兹海峡被封锁！"+ 油价暴涨图标 + 加油站场景；配图：霍尔木兹海峡地图 + 全球石油运输路线；字幕提示：地缘政治风险极高，投资需谨慎</div>
+    </div>
+  </div>
+</div>
+
+<!-- 脚本2：万能险新规 -->
+<div class="script-card">
+  <div class="sh">
+    <div class="rank">02</div>
+    <div class="sh-body">
+      <span class="sh-tag tag-s1">保险/政策</span>
+      <div class="sh-title">万能险新规来了！5月1日起5年期以下产品全部停售——已买的保单怎么办？现在买还来得及吗？</div>
+      <div class="sh-meta">
+        <span class="meta-chip chip-hot">极高热度</span>
+        <span class="meta-chip chip-type">政策解读</span>
+      </div>
+    </div>
+  </div>
+  <div class="body-content">
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">你买的万能险可能要绝版了！5月1日起，5年期以下的万能险全部停售——监管刚刚发文，已经买了的怎么办？现在买还来得及吗？今天这期视频给你说清楚！</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">4月25日，国家金融监管总局发布万能险新规，5月1日起正式实施！核心变化：禁止开发5年期以下的万能险产品，短期理财型万能险彻底退出市场。目前市面上约30%的万能险是5年期以下的，这些产品要在5月1日前全部停售。</div>
+      <div class="body-line">已经买了万能险的朋友放心，你的保单不受影响，继续按原合同执行。但注意：①结算利率可能调整——保险公司每月公布，不是固定的；②提前退保有损失——前5年退保手续费较高；③5年后才能自由支取。</div>
+      <div class="body-line">5月1日前还能买5年期以下的万能险，但我不建议你冲动购买。原因：①短期产品收益不确定——结算利率随市场波动；②退保成本高——前几年退保亏损大；③有更好的替代品——国债、大额存单、分红险。如果你确实想买，选结算利率高、手续费低的产品。</div>
+      <div class="body-line">万能险不是唯一选择。替代品对比：①国债——3年期1.63%，安全但额度难抢；②大额存单——3年期1.55%-1.65%，起存20万；③分红险——演示利率3.5%，长期持有收益更稳。根据自己的资金期限和风险偏好选择。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你买过万能险吗？结算利率多少？评论区分享你的经验！还有不懂的问我，帮你看看保单合不合理。觉得有用就转发给身边买保险的朋友。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"万能险新规5月实施！"+ 保险单图标 + 倒计时元素；配图：万能险产品停售时间线（5月1日截止）；字幕提示：购买保险前仔细阅读产品说明书</div>
+    </div>
+  </div>
+</div>
+
+<!-- 脚本3：银行股高管增持 -->
+<div class="script-card">
+  <div class="sh">
+    <div class="rank">03</div>
+    <div class="sh-body">
+      <span class="sh-tag tag-s2">金融/投资</span>
+      <div class="sh-title">银行股高管集体"抄底"！4月超10家银行股东增持——他们看到了什么普通人没看到的？</div>
+      <div class="sh-meta">
+        <span class="meta-chip chip-hot">高热度</span>
+        <span class="meta-chip chip-type">投资解读</span>
+      </div>
+    </div>
+  </div>
+  <div class="body-content">
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">银行股高管集体"抄底"了！4月以来，邮储银行、光大银行、成都银行等超10家银行股东自掏腰包增持——他们到底看到了什么普通人没看到的？今天给你揭秘！</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">4月以来，A股上市银行掀起增持潮。邮储银行控股股东邮政集团计划增持不少于1亿股，金额不少于10亿元；成都银行多名高管合计增持超500万元；光大银行获主要股东持续增持。这是4月A股最集中的产业资本增持行动。</div>
+      <div class="body-line">三大原因：第一，估值低——银行板块市净率平均0.6倍，处于历史低位，相当于6折买资产；第二，股息高——多数银行股股息率超5%，比存款利率高3倍；第三，政策鼓励——监管引导上市公司回购增持，稳定市场预期。</div>
+      <div class="body-line">高管增持释放什么信号？历史数据显示，高管增持后6个月内，股价上涨概率约60%。但要注意：①增持不等于马上涨——短期仍可能波动；②银行股适合长期持有——吃股息比赚差价更稳；③分散投资——单买一只银行股风险集中。</div>
+      <div class="body-line">想投资银行股的，三个思路：第一，选股息率高的——工行、建行、农行股息率都超5%；第二，选估值低的——市净率低于0.7倍的；第三，选业绩稳的——关注年报净利润增速。记住：银行股是"收息资产"，不是"暴富工具"。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你持有银行股吗？或者看好哪只银行股的股息？评论区说说你的持仓！觉得有用就转发给股友，关注我，一起聊聊价值投资那些事儿。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"银行股高管集体增持！"+ 银行图标 + 增持金额数字；配图：4月增持银行名单及增持金额；字幕提示：投资有风险，入市需谨慎</div>
+    </div>
+  </div>
+</div>
+
+<!-- 重点关注 -->
+<div class="chapter">
+  <div class="ch-label">Key Highlights</div>
+  <div class="ch-title">重点关注</div>
+  <div class="ch-sub">13条素材线索 · 含2条脚本级内容 · 多角度切入</div>
+</div>
+
+<div class="mat-section">
+  <!-- 素材4：储蓄国债 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">储蓄国债4月10日开售！3年期1.63%、5年期1.70%，比存款划算吗？</div>
+      <div class="mat-stars"><span class="star-gold">★★</span></div>
+    </div>
+    <div class="mat-tag-row">
+      <span class="mat-tag" style="background:rgba(52,152,219,0.1);color:#2980b9;">理财/国债</span>
+      <span class="mat-tag" style="background:#f5f4f0;color:#888;">高热度</span>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">核心数据</div>
+      <div class="mat-val">3年期利率1.63%，5年期1.70%，利息免征个税</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">对比分析</div>
+      <div class="mat-val">国有大行3年期定存约1.55%，国债略高0.08%；大额存单1.55%-1.65%，国债处于中等水平</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">适合人群</div>
+      <div class="mat-val">追求绝对安全、有中长期闲置资金、年龄较大的投资者</div>
+    </div>
+    <div class="mat-source">来源：财政部（4月10日）、中国人民银行</div>
+  </div>
+
+  <!-- 素材5：医保缴费年限 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">医保缴费年限新规！20余省上调标准，男30年女25年成主流</div>
+      <div class="mat-stars"><span class="star-gold">★★</span></div>
+    </div>
+    <div class="mat-tag-row">
+      <span class="mat-tag" style="background:rgba(52,152,219,0.1);color:#2980b9;">社保/政策</span>
+      <span class="mat-tag" style="background:#f5f4f0;color:#888;">高热度</span>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">涉及范围</div>
+      <div class="mat-val">湖南、山东、广东、江苏、浙江等20余省正式执行新标准</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">解决方案</div>
+      <div class="mat-val">①一次性补缴（约3-5万元）；②继续按月缴费；③转为城乡居民医保</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">典型案例</div>
+      <div class="mat-val">湖南长沙张先生，2026年退休时医保只缴了25年，按新规需补缴5年，一次性补缴约3-5万元</div>
+    </div>
+    <div class="mat-source">来源：国家医保局、各省医保局公告</div>
+  </div>
+
+  <!-- 素材6：A股一季报 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">A股一季报业绩暴增！82家公司披露，45家预增超100%</div>
+      <div class="mat-stars"><span class="star-gold">★★</span></div>
+    </div>
+    <div class="mat-tag-row">
+      <span class="mat-tag" style="background:rgba(52,152,219,0.1);color:#2980b9;">股市/业绩</span>
+      <span class="mat-tag" style="background:#f5f4f0;color:#888;">高热度</span>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">业绩亮点</div>
+      <div class="mat-val">82家公司披露，预喜率超85%；45家预增超100%；德明利预增超53倍</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">爆发赛道</div>
+      <div class="mat-val">科技（AI算力/半导体）、有色金属（铜/铝/稀土）、新能源（锂电/光伏）、医药（创新药/CXO）</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">典型案例</div>
+      <div class="mat-val">德明利主营存储芯片，受益于AI算力需求爆发，一季度净利润预计同比增长5271%-5324%</div>
+    </div>
+    <div class="mat-source">来源：东方财富Choice数据（4月14日）、上海证券报</div>
+  </div>
+
+  <!-- 素材7：存款利率倒挂 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">存款利率"倒挂"加剧！5年期利率低于3年期，银行不想让你存长期？</div>
+      <div class="mat-stars"><span class="star-gold">★★</span></div>
+    </div>
+    <div class="mat-tag-row">
+      <span class="mat-tag" style="background:rgba(52,152,219,0.1);color:#2980b9;">银行/理财</span>
+      <span class="mat-tag" style="background:#f5f4f0;color:#888;">高热度</span>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">倒挂现象</div>
+      <div class="mat-val">部分银行5年期定存利率低于3年期：某国有大行3年期1.55%，5年期仅1.50%</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">倒挂原因</div>
+      <div class="mat-val">银行预期未来利率继续下行，不想锁定长期高成本负债；监管引导降低负债成本</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">替代方案</div>
+      <div class="mat-val">①国债5年期1.70%；②大额存单3年期1.65%；③分红型保险演示利率3.5%</div>
+    </div>
+    <div class="mat-source">来源：新浪财经（4月12日）、中金公司研究报告</div>
+  </div>
+
+  <!-- 素材8：互联网保险投诉 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">互联网保险投诉暴涨50%！自动续费、理赔难成重灾区</div>
+      <div class="mat-stars"><span class="star-gold">★★</span></div>
+    </div>
+    <div class="mat-tag-row">
+      <span class="mat-tag" style="background:rgba(52,152,219,0.1);color:#2980b9;">保险/消费</span>
+      <span class="mat-tag" style="background:#f5f4f0;color:#888;">高热度</span>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">三大投诉</div>
+      <div class="mat-val">①理赔纠纷——材料要求多、审核时间长；②自动续费——不注意被偷扣保费；③销售误导——网红测评夸大收益</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">新规保护</div>
+      <div class="mat-val">4月10日起实施新规，禁止"静默续费"，扣费前3-5天必须发送提醒，取消入口必须清晰可见</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">典型案例</div>
+      <div class="mat-val">北京张先生买意外险默认年费198元，次年自动续费，两年后才发现被扣594元，投诉后全额退款</div>
+    </div>
+    <div class="mat-source">来源：金融监管总局2025年消费投诉通报</div>
+  </div>
+
+  <!-- 素材9：个人养老金 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">个人养老金开户超7000万！实际缴存率仅30%，为什么大家只开户不存钱？</div>
+      <div class="mat-stars"><span class="star-gold">★★</span></div>
+    </div>
+    <div class="mat-tag-row">
+      <span class="mat-tag" style="background:rgba(52,152,219,0.1);color:#2980b9;">社保/理财</span>
+      <span class="mat-tag" style="background:#f5f4f0;color:#888;">中热度</span>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">开户数据</div>
+      <div class="mat-val">截至2026年3月末，开户人数超7000万，实际缴存比例仅约30%（约2100万人）</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">主要原因</div>
+      <div class="mat-val">①流动性顾虑——资金封闭运行至退休；②收益感知弱——分红险收益不确定；③操作门槛——不知道如何选择基金产品</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">专家建议</div>
+      <div class="mat-val">年收入10万以上群体，每年存满12000元，年可省税360-5400元不等</div>
+    </div>
+    <div class="mat-source">来源：人力资源和社会保障部（2026年3月末数据）</div>
+  </div>
+
+  <!-- 素材10：以旧换新 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">以旧换新第二批625亿到账！五一前最后一波，手机最高省1000</div>
+      <div class="mat-stars"><span class="star-gold">★★</span></div>
+    </div>
+    <div class="mat-tag-row">
+      <span class="mat-tag" style="background:rgba(52,152,219,0.1);color:#2980b9;">消费/政策</span>
+      <span class="mat-tag" style="background:#f5f4f0;color:#888;">高热度</span>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">补贴规模</div>
+      <div class="mat-val">全年总规模2500亿元，首批625亿已消耗完毕，4月初第二批625亿正式下达</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">补贴标准</div>
+      <div class="mat-val">手机平板智能手表最高补贴1000元；冰箱洗衣机空调最高2000元；汽车最高2万元；电动自行车500-800元</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">申领方式</div>
+      <div class="mat-val">京东、淘宝等电商平台直接立减；线下门店出示身份证即可办理；每人每类产品限补1次</div>
+    </div>
+    <div class="mat-source">来源：商务部（4月7日）、国家发展改革委</div>
+  </div>
+
+  <!-- 素材11：新能源车险 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">新能源车险承保亏损56亿！2025年赔付率超100%</div>
+      <div class="mat-stars"><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-tag-row">
+      <span class="mat-tag" style="background:rgba(149,165,166,0.15);color:#7f8c8d;">保险/消费</span>
+      <span class="mat-tag" style="background:#f5f4f0;color:#888;">中热度</span>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">亏损数据</div>
+      <div class="mat-val">2025年新能源车险行业承保亏损56亿元，承保赔付率超过100%</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">亏损原因</div>
+      <div class="mat-val">①电池维修成本高——占整车成本40%-60%；②出险率高——年轻驾驶员比例高；③配件价格不透明</div>
+    </div>
+    <div class="mat-source">来源：财经中国网（4月2日）、保险行业协会数据</div>
+  </div>
+
+  <!-- 素材12：延迟退休 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">延迟退休2026年继续推进！1977年出生男性受影响</div>
+      <div class="mat-stars"><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-tag-row">
+      <span class="mat-tag" style="background:rgba(149,165,166,0.15);color:#7f8c8d;">社保/退休</span>
+      <span class="mat-tag" style="background:#f5f4f0;color:#888;">中热度</span>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">受影响人群</div>
+      <div class="mat-val">1977年出生的男性（原60岁，延迟约1个月）；1979年出生的女性工人（原50岁，延迟约1个月）</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">最终目标</div>
+      <div class="mat-val">男65岁，女60岁（2039年完成过渡）</div>
+    </div>
+    <div class="mat-source">来源：人社部延迟退休政策（2026年1月1日起推进）</div>
+  </div>
+
+  <!-- 素材13：险企反洗钱 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">险企接连"栽跟头"！保险业反洗钱监管升级</div>
+      <div class="mat-stars"><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-tag-row">
+      <span class="mat-tag" style="background:rgba(149,165,166,0.15);color:#7f8c8d;">保险/监管</span>
+      <span class="mat-tag" style="background:#f5f4f0;color:#888;">中热度</span>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">监管重点</div>
+      <div class="mat-val">客户尽职调查不到位、可疑交易报告不及时</div>
+    </div>
+    <div class="mat-row">
+      <div class="mat-key">典型案例</div>
+      <div class="mat-val">某寿险公司因客户尽职调查不到位被罚50万元；某财险公司因可疑交易报告不及时被罚30万元</div>
+    </div>
+    <div class="mat-source">来源：央视网财经（4月7日）、中国人民银行分支机构公告</div>
+  </div>
+</div>
+
+<!-- 页脚 -->
+<div class="footer">
+  <div class="footer-brand">DAILY BRIEF</div>
+  <div class="footer-sub">AI财经短视频素材研究员 · 每日更新</div>
+</div>
+
+</body>
+</html>
