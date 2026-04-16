@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>素材日报 2026-04-17</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #f0ede8; font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+  .page {
+    max-width: 480px; margin: 0 auto; background: #fff; min-height: 100vh;
+    box-shadow: 0 0 40px rgba(0,0,0,0.08);
+  }
+
+  /* ========== 封面 ========== */
+  .cover { background: linear-gradient(160deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%); padding: 48px 28px 40px; text-align: center; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(243,156,18,0.12) 0%, transparent 70%); border-radius: 50%; }
+  .cover::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 160px; height: 160px; background: radial-gradient(circle, rgba(52,152,219,0.1) 0%, transparent 70%); border-radius: 50%; }
+  .cover .kicker { display: inline-block; font-size: 11px; letter-spacing: 5px; color: rgba(243,156,18,0.7); text-transform: uppercase; margin-bottom: 20px; }
+  .cover h1 { color: #fff; font-size: 24px; font-weight: 700; line-height: 1.4; margin-bottom: 16px; letter-spacing: -0.3px; position: relative; z-index: 1; }
+  .cover .date { color: rgba(255,255,255,0.4); font-size: 13px; margin-bottom: 28px; letter-spacing: 2px; }
+  .cover .stats { display: flex; justify-content: center; gap: 28px; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 20px; }
+  .cover .stat { text-align: center; }
+  .cover .stat .num { color: #fff; font-size: 26px; font-weight: 700; }
+  .cover .stat .label { color: rgba(255,255,255,0.35); font-size: 11px; margin-top: 4px; letter-spacing: 1px; }
+  .cover .topic-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 14px 18px; text-align: left; position: relative; z-index: 1; }
+  .cover .topic-box .label { font-size: 10px; color: rgba(243,156,18,0.6); letter-spacing: 2px; margin-bottom: 8px; }
+  .cover .topic-box .text { color: rgba(255,255,255,0.88); font-size: 13px; line-height: 1.8; }
+
+  /* ========== 章节标题 ========== */
+  .chapter { padding: 32px 20px 18px; border-bottom: 1px solid #f0ebe4; }
+  .chapter .ch-label { font-size: 10px; letter-spacing: 3px; color: #c9a96e; text-transform: uppercase; margin-bottom: 8px; }
+  .chapter .ch-title { font-size: 20px; font-weight: 700; color: #1a1a2e; letter-spacing: -0.3px; }
+  .chapter .ch-sub { font-size: 12px; color: #999; margin-top: 5px; }
+
+  /* ========== 脚本卡片 ========== */
+  .script-card { padding: 20px 20px; border-bottom: 1px solid #f0ebe4; }
+  .script-card .sh { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; }
+  .script-card .rank { width: 38px; height: 38px; background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #c9a96e; font-size: 14px; font-weight: 700; flex-shrink: 0; }
+  .script-card .sh-body { flex: 1; }
+  .script-card .sh-tag { display: inline-block; font-size: 10px; padding: 2px 10px; border-radius: 6px; margin-bottom: 8px; font-weight: 600; }
+  .tag-s1 { background: rgba(231,76,60,0.1); color: #c0392b; }
+  .tag-s2 { background: rgba(230,126,34,0.1); color: #d35400; }
+  .tag-s3 { background: rgba(52,152,219,0.1); color: #2980b9; }
+  .script-card .sh-title { font-size: 15px; font-weight: 700; color: #1a1a2e; line-height: 1.5; }
+  .script-card .sh-meta { display: flex; gap: 8px; margin-top: 8px; }
+  .script-card .meta-chip { font-size: 10px; padding: 2px 8px; border-radius: 4px; }
+  .chip-hot { background: rgba(231,76,60,0.08); color: #c0392b; }
+  .chip-type { background: #f5f4f0; color: #888; }
+
+  .hook { background: linear-gradient(135deg, #fffbf0, #fff8e8); border: 1px solid rgba(243,156,18,0.15); border-left: 4px solid #f39c12; border-radius: 12px; padding: 14px 16px; margin-bottom: 14px; }
+  .hook-label { font-size: 10px; font-weight: 700; color: #c9a96e; letter-spacing: 2px; margin-bottom: 6px; }
+  .hook-text { font-size: 13.5px; color: #3d3d3d; line-height: 1.85; }
+
+  .body-lines { padding: 0 2px; }
+  .body-line { font-size: 13px; color: #555; line-height: 1.95; margin-bottom: 12px; padding-left: 18px; position: relative; }
+  .body-line:last-child { margin-bottom: 0; }
+  .body-line::before { content: ''; position: absolute; left: 0; top: 11px; width: 5px; height: 5px; background: #c9a96e; border-radius: 50%; }
+
+  .cta { background: #fffde7; border: 1px solid rgba(243,156,18,0.15); border-radius: 10px; padding: 12px 16px; margin-top: 14px; }
+  .cta-label { font-size: 10px; color: #c9a96e; letter-spacing: 2px; margin-bottom: 4px; }
+  .cta-text { font-size: 12.5px; color: #666; line-height: 1.7; }
+
+  .cover-tip { background: #f9f8f5; border-radius: 8px; padding: 10px 14px; margin-top: 10px; }
+  .cover-tip-label { font-size: 10px; color: #bbb; margin-bottom: 4px; }
+  .cover-tip-text { font-size: 12px; color: #888; line-height: 1.65; }
+
+  /* ========== 素材卡片 ========== */
+  .mat-card { margin: 0 16px 14px; background: #faf9f7; border: 1px solid #f0ebe4; border-radius: 14px; padding: 14px 16px; position: relative; overflow: hidden; }
+  .mat-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; }
+  .mat-card.ss3::before { background: linear-gradient(180deg, #e74c3c, #c0392b); }
+  .mat-card.ss2::before { background: linear-gradient(180deg, #3498db, #2980b9); }
+  .mat-card.ss1::before { background: linear-gradient(180deg, #95a5a6, #7f8c8d); }
+  .mat-card .mat-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; gap: 10px; }
+  .mat-card .mat-title { font-size: 14px; font-weight: 600; color: #1a1a2e; line-height: 1.5; flex: 1; }
+  .mat-card .mat-stars { font-size: 13px; flex-shrink: 0; padding-top: 2px; }
+  .star-gold { color: #f39c12; }
+  .star-gray { color: #ddd; }
+  .mat-row { display: flex; gap: 8px; margin-bottom: 8px; align-items: flex-start; }
+  .mat-row:last-child { margin-bottom: 0; }
+  .mat-key { font-size: 12px; color: #8a8a8a; width: 56px; flex-shrink: 0; padding-top: 1px; font-weight: 500; }
+  .mat-val { font-size: 13px; color: #333; line-height: 1.7; flex: 1; }
+  .mat-source { margin-top: 10px; padding-top: 8px; border-top: 1px solid #ece8e2; font-size: 11px; color: #999; }
+
+  /* ========== 底部页脚 ========== */
+  .page-footer { background: #1a1a2e; padding: 24px 28px; text-align: center; }
+  .page-footer .brand { font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.8); margin-bottom: 4px; letter-spacing: 3px; }
+  .page-footer .sub { font-size: 10px; color: rgba(255,255,255,0.3); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ==================== 封面 ==================== -->
+  <div class="cover">
+    <div class="kicker">DAILY REPORT</div>
+    <h1>财经短视频素材日报</h1>
+    <div class="date">2026年4月17日 · 周五</div>
+    <div class="stats">
+      <div class="stat"><div class="num">13</div><div class="label">素材总量</div></div>
+      <div class="stat"><div class="num">3</div><div class="label">⭐⭐⭐必做</div></div>
+      <div class="stat"><div class="num">7</div><div class="label">⭐⭐重点</div></div>
+    </div>
+    <div class="topic-box">
+      <div class="label">🔥 今日热点</div>
+      <div class="text">
+        一季度GDP增5%超预期<br>
+        宁德时代市值反超工商银行跃居A股第二<br>
+        4月21日油价大降0.37元/升，加满省近20元
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 脚本1 ==================== -->
+  <div class="chapter">
+    <div class="ch-label">SCRIPT 01</div>
+    <div class="ch-title">一季度GDP增5%超预期</div>
+    <div class="ch-sub">宏观/经济 · 90秒脚本</div>
+  </div>
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">01</div>
+      <div class="sh-body">
+        <div class="sh-tag tag-s1">⭐⭐⭐ 必做</div>
+        <div class="sh-title">一季度GDP增5%超预期！经济回暖——但老百姓为什么不爱花钱了？</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">🔥 热度峰值</span>
+          <span class="meta-chip chip-type">宏观经济</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">🎯 前3秒钩子</div>
+      <div class="hook-text">"一季度GDP增长5%！超出所有人的预期——但3月消费只增长了1.7%！生产热消费冷，经济到底怎么了？今天这期视频，我帮你搞清楚：数字背后的真实经济温度。"</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line"><strong>【00:00-00:15 数据冲击】</strong>4月16日，国家统计局发布一季度经济数据：GDP 334193亿元，同比增长5.0%，比市场预期的4.8%还高！工业增加值增长6.1%，基建投资增长8.9%，制造业投资增长4.1%——生产端确实在回暖。但看消费数据：3月社零只增长了1.7%，商品零售仅增2.2%。简单说就是：工厂在加速生产，但老百姓不怎么买东西。</div>
+      <div class="body-line"><strong>【00:15-00:40 核心内容①】</strong>三个原因：第一，房地产拖累——一季度房地产开发投资下滑11.2%，很多人还在还房贷消化期，不敢大手笔消费；第二，就业压力——GDP增5%不等于就业好转，青年就业形势仍然严峻，收入预期没跟上；第三，储蓄习惯——经济不确定性下，"存钱"比"花钱"更有安全感。深圳程序员王先生，月薪2万，房贷6000，去年开始主动砍掉聚餐和旅行支出，每月多存5000元。</div>
+      <div class="body-line"><strong>【00:40-01:05 核心内容②】</strong>好消息是：基建投资8.9%说明国家在大力"稳经济"，服务零售额增长5.5%说明旅游、餐饮等服务消费还在回暖。坏消息是：如果消费持续低迷，经济复苏的可持续性会受到挑战。核心数据对比：一季度社零增长2.4%，但去年四季度是1.7%，虽然有改善但力度有限。</div>
+      <div class="body-line"><strong>【01:05-01:25 操作建议】</strong>普通人三个建议：第一，别被"GDP 5%"忽悠了——你所在的城市、行业冷暖可能完全不同；第二，控制负债——房贷月供不超过收入的30%是安全线；第三，别all in投资——经济数据好看不代表股市一定涨，分散配置更安全。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">💬 结尾互动引导</div>
+      <div class="cta-text">"你觉得现在经济好了吗？你的收入和消费有变化吗？评论区说说！觉得有用就转发给家人朋友，关注我，每天帮你搞懂经济数据对钱包的影响。"</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">🖼 配图文案建议</div>
+      <div class="cover-tip-text">封面：大字"GDP增5%超预期！"+ 上升柱状图 + 问号<br>配图1：生产端vs消费端数据对比图<br>配图2：基建投资8.9% vs 房地产-11.2%<br>字幕提示：宏观经济数据仅供参考</div>
+    </div>
+  </div>
+
+  <!-- ==================== 脚本2 ==================== -->
+  <div class="chapter">
+    <div class="ch-label">SCRIPT 02</div>
+    <div class="ch-title">宁德时代市值反超工商银行</div>
+    <div class="ch-sub">股市/新能源 · 88秒脚本</div>
+  </div>
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">02</div>
+      <div class="sh-body">
+        <div class="sh-tag tag-s2">⭐⭐⭐ 必做</div>
+        <div class="sh-title">宁德时代市值反超工商银行！跃居A股第二——"宁王"碾压银行的时代来了？</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">🔥 标志性事件</span>
+          <span class="meta-chip chip-type">股市/新能源</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">🎯 前3秒钩子</div>
+      <div class="hook-text">"A股历史性时刻！宁德时代市值一度突破2万亿，反超工商银行跃居A股第二！一季度净赚207亿涨48%——银行赚的还没一个电池厂多？今天这期视频，给你讲清楚：A股格局大洗牌背后的投资逻辑。"</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line"><strong>【00:00-00:15 事件速览】</strong>4月16日，宁德时代盘中暴涨6%，总市值突破2.02万亿元！盘中连续反超中国石油和工商银行，一度跃居A股总市值第二位！收盘涨幅5.33%报453.98元。同时，创业板指大涨3.17%报3626.27点，续刷近11年新高。4300只股票上涨，全市场近90只涨停——赚钱效应爆棚！</div>
+      <div class="body-line"><strong>【00:15-00:40 核心内容①】</strong>直接催化剂：宁德时代4月15日晚发布一季报——营收1291亿增长52%，净利207亿增长48%，均创历史单季新高！同时宣布投资300亿设立矿业子公司，布局锂矿等上游资源。增长逻辑很清晰：全球新能源汽车渗透率持续提升，储能市场爆发。对比：工商银行市盈率仅6倍，宁德时代22倍——市场愿意给成长更高的溢价。</div>
+      <div class="body-line"><strong>【00:40-01:05 核心内容②】</strong>宁德时代反超工商银行，标志着A股从"银行为王"时代进入了"科技制造为王"的新格局。三大信号：第一，新能源赛道已成为中国经济转型核心驱动力；第二，创业板指创近11年新高，资金持续涌入成长股；第三，算力、电池、资源三条主线正在轮动走强。但注意：盘中冲高回落，收盘暂居A股第三——这个位置仍有分歧。</div>
+      <div class="body-line"><strong>【01:05-01:20 操作建议】</strong>三条思路：第一，别追涨——宁德时代今天盘中涨6%，追进去可能短期被套；第二，看产业链——电池、锂矿、正极材料等产业链公司有跟涨机会；第三，长线思维——宁德时代代表的是中国制造业升级的方向，短期波动不影响长期逻辑。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">💬 结尾互动引导</div>
+      <div class="cta-text">"你持有宁德时代吗？还是更看好银行股的股息？评论区说说你的持仓！觉得有用就转发给股友，关注我，每天帮你看懂市场信号。"</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">🖼 配图文案建议</div>
+      <div class="cover-tip-text">封面：大字"A股第二易主！"+ 宁德时代 vs 工商银行市值对比<br>配图1：宁德时代Q1业绩数据亮点<br>配图2：创业板指走势图（续创近11年新高）<br>字幕提示：股市有风险，投资需谨慎</div>
+    </div>
+  </div>
+
+  <!-- ==================== 脚本3 ==================== -->
+  <div class="chapter">
+    <div class="ch-label">SCRIPT 03</div>
+    <div class="ch-title">4月21日油价大幅下调</div>
+    <div class="ch-sub">民生/消费 · 86秒脚本</div>
+  </div>
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">03</div>
+      <div class="sh-body">
+        <div class="sh-tag tag-s3">⭐⭐⭐ 必做</div>
+        <div class="sh-title">油价大降！4月21日92号汽油每升降0.37元，加满一箱省近20元</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">🔥 民生关注</span>
+          <span class="meta-chip chip-type">消费/油价</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">🎯 前3秒钩子</div>
+      <div class="hook-text">"车主注意！4月21日油价要大降了！92号汽油每升降0.37元，加满一箱省近20元！油价要从9块回到8块时代了——但在降价前这几天，千万别急着加油！"</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line"><strong>【00:00-00:15 数据冲击】</strong>4月16日消息，下一轮成品油调价窗口是4月21日24时。当前原油变化率-11.17%，预计汽柴油每吨下调约480元！折算：92号汽油每升降0.37元，95号汽油每升降0.37元，0号柴油每升降0.34元。加满50升油箱，能省18.5到20元！降价后：北京92号约8.53元，上海约8.49元，广州约8.55元——终于告别9块时代！</div>
+      <div class="body-line"><strong>【00:15-00:40 核心内容①】</strong>油价暴跌的直接原因：美伊谈判预期缓和！特朗普说"对伊战争已结束"，未来两天可能重启谈判。WTI原油此前单日暴跌近8%。但国内油价有"天花板价"和"地板价"机制，加上此前4月7日刚上调过一次（汽油每吨涨420元），这次算是"把之前涨的还回去"。北京车主刘女士，每月加3次油，降价后每月能省约22元，一年省264元。</div>
+      <div class="body-line"><strong>【00:40-01:05 核心内容②】</strong>油价重回8元时代，省的钱不多——但如果考虑新能源车，省的可不止这些。简单算账：92号汽油8.53元/升，每百公里油耗8升，百公里成本约68元；同级别电动车，每百公里电耗15度，家充电价0.5元，百公里成本约7.5元——差将近9倍！当然，新能源车有购车成本、保险贵、贬值快等问题，但长期使用成本确实碾压油车。</div>
+      <div class="body-line"><strong>【01:05-01:18 操作建议】</strong>车主两个建议：第一，4月21日之前尽量少加油，油箱不空就等到降价后再加；第二，如果你每天通勤超过50公里，认真考虑一下新能源——使用成本差距太大了。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">💬 结尾互动引导</div>
+      <div class="cta-text">"你开油车还是电车？准备换吗？评论区说说！觉得有用就转发给车主朋友，关注我，每天一条实用财经知识。"</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">🖼 配图文案建议</div>
+      <div class="cover-tip-text">封面：大字"油价大降0.37元！"+ 加油枪图标 + 下调箭头<br>配图1：油价调整前后对比表<br>配图2：油车vs电车百公里成本对比<br>字幕提示：成品油价格以国家发改委正式通知为准</div>
+    </div>
+  </div>
+
+  <!-- ==================== 素材4-10 ⭐⭐ ==================== -->
+  <div class="chapter">
+    <div class="ch-label">MATERIALS</div>
+    <div class="ch-title">⭐⭐ 重点关注（7条）</div>
+  </div>
+
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">佰维存储一季报炸裂！净利29亿扭亏，AI存储收入暴增496%</div>
+      <div class="mat-stars"><span class="star-gold">⭐⭐</span></div>
+    </div>
+    <div class="mat-row"><span class="mat-key">角度</span><span class="mat-val">单季利润是去年全年3.3倍！AI存储收入11.75亿增496%，算力产业链业绩全面兑现</span></div>
+    <div class="mat-row"><span class="mat-key">数据</span><span class="mat-val">Q1营收68.14亿（+341%）/ 净利28.99亿（扭亏）/ AI存储收入+496%</span></div>
+    <div class="mat-row"><span class="mat-key">风险</span><span class="mat-val">业绩预增不代表股价必涨，投资需谨慎</span></div>
+    <div class="mat-source">证券时报 · 东方财富 · 4月15-16日</div>
+  </div>
+
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">国办印发投资审批改革新规！政府投资实行终身负责制</div>
+      <div class="mat-stars"><span class="star-gold">⭐⭐</span></div>
+    </div>
+    <div class="mat-row"><span class="mat-key">角度</span><span class="mat-val">政府投资决策终身追责，对无序竞争产业可暂停审批——"拍脑袋"决策时代结束</span></div>
+    <div class="mat-row"><span class="mat-key">数据</span><span class="mat-val">国办发〔2026〕13号 / 境外贷款杠杆率0.5→1.5 / 核定上限20亿→100亿</span></div>
+    <div class="mat-row"><span class="mat-key">风险</span><span class="mat-val">政策解读仅供参考，具体以官方发布为准</span></div>
+    <div class="mat-source">国务院办公厅 · 新华网 · 4月15日</div>
+  </div>
+
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">国家医保局发布13个医疗保障场景清单！"个人医保云"来了</div>
+      <div class="mat-stars"><span class="star-gold">⭐⭐</span></div>
+    </div>
+    <div class="mat-row"><span class="mat-key">角度</span><span class="mat-val">个人医保云覆盖全生命周期健康数据——看病将发生三大变化</span></div>
+    <div class="mat-row"><span class="mat-key">数据</span><span class="mat-val">13个场景 / 三大方向：数据应用+服务水平+长护效能 / 涵盖诊前诊中诊后</span></div>
+    <div class="mat-row"><span class="mat-key">风险</span><span class="mat-val">医疗数据安全需关注，以各地推进为准</span></div>
+    <div class="mat-source">人民日报 · 新华网 · 国家医保局 · 4月15日</div>
+  </div>
+
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">中际旭创一季报净利大增200%+！光模块龙头业绩炸裂</div>
+      <div class="mat-stars"><span class="star-gold">⭐⭐</span></div>
+    </div>
+    <div class="mat-row"><span class="mat-key">角度</span><span class="mat-val">宁德时代+佰维存储+中际旭创！AI产业链一季报全面兑现</span></div>
+    <div class="mat-row"><span class="mat-key">数据</span><span class="mat-val">净利增幅超200% / 提前7天披露 / 雪球热度529万</span></div>
+    <div class="mat-row"><span class="mat-key">风险</span><span class="mat-val">不构成投资建议</span></div>
+    <div class="mat-source">雪球 · 中际旭创公告 · 4月17日</div>
+  </div>
+
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">创业板指涨3.17%续创近11年新高！4300股上涨算力电池集体爆发</div>
+      <div class="mat-stars"><span class="star-gold">⭐⭐</span></div>
+    </div>
+    <div class="mat-row"><span class="mat-key">角度</span><span class="mat-val">创业板指3626点创2015年6月以来最高！算力+电池+资源三条主线</span></div>
+    <div class="mat-row"><span class="mat-key">数据</span><span class="mat-val">沪指4055点(+0.7%) / 创业板3626点(+3.17%) / 4300股上涨 / 90只涨停 / 成交2.34万亿</span></div>
+    <div class="mat-row"><span class="mat-key">风险</span><span class="mat-val">股市有风险，投资需谨慎</span></div>
+    <div class="mat-source">金融界 · 观察者网 · 钛媒体 · 4月16日</div>
+  </div>
+
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">纳指连续11日上涨创纪录！标普收盘新高，特斯拉涨超7%</div>
+      <div class="mat-stars"><span class="star-gold">⭐⭐</span></div>
+    </div>
+    <div class="mat-row"><span class="mat-key">角度</span><span class="mat-val">AI算力投资持续加码——Jane Street投60亿美元用CoreWeave云平台</span></div>
+    <div class="mat-row"><span class="mat-key">数据</span><span class="mat-val">纳指+1.59%连续11日涨 / 标普+0.8%创新高 / 特斯拉+7%+ / 科技七巨头+2.22%</span></div>
+    <div class="mat-row"><span class="mat-key">风险</span><span class="mat-val">海外市场波动风险较大</span></div>
+    <div class="mat-source">华尔街见闻 · 新华财经 · 4月16日</div>
+  </div>
+
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">公募一季度调仓曝光！AI基础设施成加仓主线</div>
+      <div class="mat-stars"><span class="star-gold">⭐⭐</span></div>
+    </div>
+    <div class="mat-row"><span class="mat-key">角度</span><span class="mat-val">公募一边卖港股一边发港股基金！47只港股新基金远超前三年</span></div>
+    <div class="mat-row"><span class="mat-key">数据</span><span class="mat-val">年内港股新基金47只 / 加仓AI基础设施+资源股 / 降港股敞口转A股</span></div>
+    <div class="mat-row"><span class="mat-key">风险</span><span class="mat-val">基金调仓信息仅供参考</span></div>
+    <div class="mat-source">金融界 · 东方财富 · 4月16日</div>
+  </div>
+
+  <!-- ==================== 素材11-13 ⭐ ==================== -->
+  <div class="chapter">
+    <div class="ch-label">SUPPLEMENT</div>
+    <div class="ch-title">⭐ 补充视角（3条）</div>
+  </div>
+
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">境外贷款松绑！杠杆率翻3倍，上限20亿→100亿</div>
+      <div class="mat-stars"><span class="star-gold">⭐</span><span class="star-gray">⭐⭐</span></div>
+    </div>
+    <div class="mat-row"><span class="mat-key">数据</span><span class="mat-val">外资银行杠杆率0.5→1.5 / 进出口银行3→3.5 / 核定上限20亿→100亿</span></div>
+    <div class="mat-source">国务院办公厅 · 东方财富 · 4月15-16日</div>
+  </div>
+
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">高盛预测美联储下半年降息两次！2022年通胀冲击不会重演</div>
+      <div class="mat-stars"><span class="star-gold">⭐</span><span class="star-gray">⭐⭐</span></div>
+    </div>
+    <div class="mat-row"><span class="mat-key">数据</span><span class="mat-val">高盛预测下半年降息两次 / 美联储古尔斯比：油价90美元持续数月将传导</span></div>
+    <div class="mat-source">财联社 · 华尔街见闻 · 4月16日</div>
+  </div>
+
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">网络视听大会开幕！微短剧精品创作传播计划发布</div>
+      <div class="mat-stars"><span class="star-gold">⭐</span><span class="star-gray">⭐⭐</span></div>
+    </div>
+    <div class="mat-row"><span class="mat-key">数据</span><span class="mat-val">第13届网络视听大会成都开幕 / 广电总局发布微短剧精品创作传播计划</span></div>
+    <div class="mat-source">中证报 · 华尔街见闻 · 4月15-16日</div>
+  </div>
+
+  <!-- ==================== 页脚 ==================== -->
+  <div class="page-footer">
+    <div class="brand">DAILY REPORT</div>
+    <div class="sub">AI财经短视频素材研究员 · 数据截至2026年4月17日</div>
+  </div>
+
+</div>
+</body>
+</html>
