@@ -3,81 +3,80 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>素材日报 · 汇总首页</title>
+<title>素材日报 - 每日汇总</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #f0ede8; font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; min-height: 100vh; }
-  .header { background: linear-gradient(160deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%); padding: 40px 24px 32px; text-align: center; }
-  .header h1 { color: #fff; font-size: 24px; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; }
-  .header .sub { color: rgba(255,255,255,0.4); font-size: 13px; }
+  body { background: #f0ede8; font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
   .container { max-width: 600px; margin: 0 auto; padding: 20px 16px; }
-  .card { background: #fff; border-radius: 12px; padding: 16px 20px; margin-bottom: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); display: flex; align-items: center; justify-content: space-between; text-decoration: none; transition: transform 0.15s; }
-  .card:hover { transform: translateY(-1px); box-shadow: 0 3px 12px rgba(0,0,0,0.1); }
-  .card .left { flex: 1; }
-  .card .date { font-size: 18px; font-weight: 700; color: #1a1a2e; }
-  .card .weekday { font-size: 12px; color: #999; margin-top: 2px; }
-  .card .badge { display: inline-block; font-size: 11px; padding: 4px 12px; border-radius: 8px; font-weight: 600; background: linear-gradient(135deg, #1a1a2e, #16213e); color: #c9a96e; }
-  .card .arrow { color: #ccc; font-size: 20px; margin-left: 12px; }
-  .footer { text-align: center; padding: 24px; color: #999; font-size: 12px; }
+  .header { text-align: center; padding: 30px 0 20px; }
+  .header h1 { font-size: 28px; font-weight: 700; color: #1a1a2e; margin-bottom: 8px; }
+  .header p { font-size: 13px; color: #999; }
+  .card { background: #fff; border-radius: 16px; padding: 20px; margin-bottom: 14px; border: 1px solid #f0ebe4; display: block; text-decoration: none; color: inherit; transition: box-shadow 0.2s; }
+  .card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+  .card .date { font-size: 13px; color: #c9a96e; font-weight: 600; margin-bottom: 6px; letter-spacing: 1px; }
+  .card .title { font-size: 16px; font-weight: 700; color: #1a1a2e; line-height: 1.5; margin-bottom: 8px; }
+  .card .desc { font-size: 13px; color: #888; line-height: 1.6; }
+  .card .tags { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+  .card .tag { font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+  .tag-hot { background: rgba(231,76,60,0.1); color: #c0392b; }
+  .tag-new { background: rgba(39,174,96,0.1); color: #27ae60; }
+  .footer { text-align: center; padding: 30px 0 20px; font-size: 12px; color: #bbb; }
 </style>
 </head>
 <body>
-<div class="header">
-  <h1>📰 素材日报</h1>
-  <div class="sub">财经短视频素材 · 每日更新</div>
-</div>
 <div class="container">
+  <div class="header">
+    <h1>素材日报</h1>
+    <p>每日财经短视频素材精选 · 最近7天</p>
+  </div>
+
+  <a class="card" href="2026-04-19-v2.html">
+    <div class="date">2026.04.19 · 周日</div>
+    <div class="title">A股"股王"易主！源杰科技超越茅台 / 茅台24年首现双降 / DeepSeek融资百亿美元</div>
+    <div class="desc">13条素材 · 3条完整脚本 · 股王易主的历史性时刻</div>
+    <div class="tags"><span class="tag tag-new">今天</span><span class="tag tag-hot">极高热度</span></div>
+  </a>
+
   <a class="card" href="2026-04-18-v2.html">
-    <div class="left">
-      <div class="date">2026-04-18</div>
-      <div class="weekday">周六 · 霍尔木兹海峡开放 / 幽灵外卖35亿罚单 / Meta裁员10% / 纳指13连涨</div>
-    </div>
-    <span class="badge">最新</span>
-    <span class="arrow">›</span>
+    <div class="date">2026.04.18 · 周六</div>
+    <div class="title">伊朗开放霍尔木兹海峡 / 幽灵外卖罚35.97亿 / Meta裁员10%</div>
+    <div class="desc">13条素材 · 3条完整脚本 · 历史最大罚单+AI替代人类</div>
+    <div class="tags"><span class="tag tag-hot">高热度</span></div>
   </a>
+
   <a class="card" href="2026-04-17-v2.html">
-    <div class="left">
-      <div class="date">2026-04-17</div>
-      <div class="weekday">周五 · GDP增5%超预期 / 宁德时代市值跃居A股第二 / 油价大降</div>
-    </div>
-    <span class="arrow">›</span>
+    <div class="date">2026.04.17 · 周五</div>
+    <div class="title">一季度GDP增5%超预期 / 宁德时代超工商银行 / 油价下调0.37元</div>
+    <div class="desc">13条素材 · 3条完整脚本 · A股格局大洗牌</div>
+    <div class="tags"><span class="tag tag-hot">高热度</span></div>
   </a>
+
   <a class="card" href="2026-04-16-v2.html">
-    <div class="left">
-      <div class="date">2026-04-16</div>
-      <div class="weekday">周四 · 药品价格改革 / 美伊谈判重启油价暴跌 / 医药股逆势涨停</div>
-    </div>
-    <span class="arrow">›</span>
+    <div class="date">2026.04.16 · 周四</div>
+    <div class="title">药品价格大改革 / 美伊谈判油价暴跌 / A股3500股下跌</div>
+    <div class="desc">13条素材 · 3条完整脚本 · 医药股逆势涨停</div>
+    <div class="tags"><span class="tag tag-hot">高热度</span></div>
   </a>
+
   <a class="card" href="2026-04-15-v2.html">
-    <div class="left">
-      <div class="date">2026-04-15</div>
-      <div class="weekday">周三 · A股站上4000点 / 一季度社融近15万亿 / 电动车出口暴增77%</div>
-    </div>
-    <span class="arrow">›</span>
+    <div class="date">2026.04.15 · 周三</div>
+    <div class="title">A股放量站上4000点 / 一季度社融近15万亿 / 电动车出口暴增77.5%</div>
+    <div class="desc">13条素材 · 3条完整脚本</div>
   </a>
+
   <a class="card" href="2026-04-14-v2.html">
-    <div class="left">
-      <div class="date">2026-04-14</div>
-      <div class="weekday">周二 · 美伊封锁海峡油价暴涨 / 保险板块逆势上涨 / 银行高管增持</div>
-    </div>
-    <span class="arrow">›</span>
+    <div class="date">2026.04.14 · 周二</div>
+    <div class="title">美伊局势封锁霍尔木兹海峡 / 保险板块逆势上涨 / 银行股高管增持</div>
+    <div class="desc">13条素材 · 3条完整脚本</div>
   </a>
+
   <a class="card" href="2026-04-13-v2.html">
-    <div class="left">
-      <div class="date">2026-04-13</div>
-      <div class="weekday">周一 · A股一季报暴增45家 / 美伊谈判无果而终 / 存款利率进入1时代</div>
-    </div>
-    <span class="arrow">›</span>
+    <div class="date">2026.04.13 · 周一</div>
+    <div class="title">A股一季报业绩暴增 / 美伊谈判无果 / 存款利率进入"1时代"</div>
+    <div class="desc">13条素材 · 3条完整脚本</div>
   </a>
-  <a class="card" href="2026-04-12-v2.html">
-    <div class="left">
-      <div class="date">2026-04-12</div>
-      <div class="weekday">周日 · 创业板改革八大举措 / 五大险企年报4253亿 / 美伊谈判倒计时</div>
-    </div>
-    <span class="arrow">›</span>
-  </a>
+
+  <div class="footer">每日 07:00 自动生成 · 仅供内容参考</div>
 </div>
-<div class="footer">AI财经短视频素材研究员 · 数据截至2026年4月18日</div>
 </body>
 </html>
