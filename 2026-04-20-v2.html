@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>素材日报 2026-04-20</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #f0ede8; font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+
+  /* ========== 分页基础 ========== */
+  @page { size: A4 portrait; margin: 0; }
+  .page {
+    width: 794px;
+    margin: 0 auto;
+    background: #fff;
+    overflow: hidden;
+    position: relative;
+    break-after: page;
+    break-before: page;
+  }
+  .page.no-break-after { break-after: auto; }
+  .page.no-break-before { break-before: auto; }
+
+  /* ========== 封面 ========== */
+  .cover { background: linear-gradient(160deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%); padding: 60px 52px 56px; text-align: center; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: -60px; right: -60px; width: 260px; height: 260px; background: radial-gradient(circle, rgba(243,156,18,0.12) 0%, transparent 70%); border-radius: 50%; }
+  .cover::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(52,152,219,0.1) 0%, transparent 70%); border-radius: 50%; }
+  .cover .kicker { display: inline-block; font-size: 11px; letter-spacing: 6px; color: rgba(243,156,18,0.7); text-transform: uppercase; margin-bottom: 28px; }
+  .cover h1 { color: #fff; font-size: 34px; font-weight: 700; line-height: 1.3; margin-bottom: 20px; letter-spacing: -0.5px; position: relative; z-index: 1; }
+  .cover .date { color: rgba(255,255,255,0.4); font-size: 14px; margin-bottom: 36px; letter-spacing: 3px; }
+  .cover .stats { display: flex; justify-content: center; gap: 52px; padding: 28px 0; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 28px; }
+  .cover .stat { text-align: center; }
+  .cover .stat .num { color: #fff; font-size: 32px; font-weight: 700; }
+  .cover .stat .label { color: rgba(255,255,255,0.35); font-size: 12px; margin-top: 6px; letter-spacing: 1px; }
+  .cover .topic-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 18px 24px; text-align: left; position: relative; z-index: 1; }
+  .cover .topic-box .label { font-size: 11px; color: rgba(243,156,18,0.6); letter-spacing: 3px; margin-bottom: 10px; }
+  .cover .topic-box .text { color: rgba(255,255,255,0.88); font-size: 14px; line-height: 1.9; }
+
+  /* ========== 章节标题 ========== */
+  .chapter { padding: 44px 48px 28px; border-bottom: 1px solid #f0ebe4; }
+  .chapter .ch-label { font-size: 11px; letter-spacing: 4px; color: #c9a96e; text-transform: uppercase; margin-bottom: 10px; }
+  .chapter .ch-title { font-size: 24px; font-weight: 700; color: #1a1a2e; letter-spacing: -0.3px; }
+  .chapter .ch-sub { font-size: 13px; color: #999; margin-top: 6px; }
+
+  /* ========== 脚本卡片 ========== */
+  .script-card { padding: 28px 48px; border-bottom: 1px solid #f0ebe4; }
+  .script-card .sh { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
+  .script-card .rank { width: 44px; height: 44px; background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #c9a96e; font-size: 16px; font-weight: 700; flex-shrink: 0; }
+  .script-card .sh-body { flex: 1; }
+  .script-card .sh-tag { display: inline-block; font-size: 11px; padding: 3px 12px; border-radius: 7px; margin-bottom: 10px; font-weight: 600; }
+  .tag-s1 { background: rgba(231,76,60,0.1); color: #c0392b; }
+  .tag-s2 { background: rgba(230,126,34,0.1); color: #d35400; }
+  .tag-s3 { background: rgba(52,152,219,0.1); color: #2980b9; }
+  .script-card .sh-title { font-size: 17px; font-weight: 700; color: #1a1a2e; line-height: 1.5; }
+  .script-card .sh-meta { display: flex; gap: 10px; margin-top: 10px; }
+  .script-card .meta-chip { font-size: 11px; padding: 3px 10px; border-radius: 5px; }
+  .chip-hot { background: rgba(231,76,60,0.08); color: #c0392b; }
+  .chip-type { background: #f5f4f0; color: #888; }
+
+  /* 钩子 */
+  .hook { background: linear-gradient(135deg, #fffbf0, #fff8e8); border: 1px solid rgba(243,156,18,0.15); border-left: 4px solid #f39c12; border-radius: 14px; padding: 16px 18px; margin-bottom: 18px; }
+  .hook-label { font-size: 11px; font-weight: 700; color: #c9a96e; letter-spacing: 2px; margin-bottom: 8px; }
+  .hook-text { font-size: 14.5px; color: #3d3d3d; line-height: 1.85; }
+
+  /* 正文 */
+  .body-lines { padding: 0 2px; }
+  .body-line { font-size: 14px; color: #555; line-height: 2; margin-bottom: 16px; padding-left: 20px; position: relative; }
+  .body-line:last-child { margin-bottom: 0; }
+  .body-line::before { content: ''; position: absolute; left: 0; top: 12px; width: 6px; height: 6px; background: #c9a96e; border-radius: 50%; }
+
+  /* 时间轴 */
+  .time-block { background: #faf9f7; border-left: 3px solid #c9a96e; padding: 10px 14px; margin-bottom: 10px; border-radius: 0 8px 8px 0; }
+  .time-block .time { color: #c9a96e; font-weight: 700; font-size: 12px; margin-right: 8px; }
+  .time-block .content { color: #555; font-size: 14px; line-height: 1.7; display: inline; }
+
+  /* 互动引导 */
+  .cta { background: #fffde7; border: 1px solid rgba(243,156,18,0.15); border-radius: 12px; padding: 14px 18px; margin-top: 16px; }
+  .cta-label { font-size: 11px; color: #c9a96e; letter-spacing: 2px; margin-bottom: 6px; }
+  .cta-text { font-size: 13.5px; color: #666; line-height: 1.7; }
+
+  /* 封面建议 */
+  .cover-tip { background: #f9f8f5; border-radius: 10px; padding: 12px 16px; margin-top: 12px; }
+  .cover-tip-label { font-size: 11px; color: #bbb; margin-bottom: 5px; }
+  .cover-tip-text { font-size: 13px; color: #888; line-height: 1.65; }
+
+  /* ========== 素材卡片（混合脚本内容版）========== */
+  .mat-script-card { margin: 0 28px 18px; background: #faf9f7; border: 1px solid #f0ebe4; border-radius: 16px; overflow: hidden; position: relative; }
+  .mat-script-card::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; }
+  .mat-script-card.ss3::before { background: linear-gradient(180deg, #e74c3c, #c0392b); }
+  .mat-script-card.ss2::before { background: linear-gradient(180deg, #3498db, #2980b9); }
+  .mat-script-card.ss1::before { background: linear-gradient(180deg, #95a5a6, #7f8c8d); }
+
+  .mat-script-card .mat-head { padding: 18px 20px 14px; }
+  .mat-script-card .mat-head-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; }
+  .mat-script-card .mat-title { font-size: 15px; font-weight: 600; color: #1a1a2e; line-height: 1.5; flex: 1; }
+  .mat-script-card .mat-stars { font-size: 14px; flex-shrink: 0; padding-top: 2px; }
+  .star-gold { color: #f39c12; }
+  .star-gray { color: #ddd; }
+  .mat-script-card .mat-tag-row { display: flex; gap: 8px; margin-top: 10px; }
+  .mat-script-card .mat-tag { font-size: 11px; padding: 2px 10px; border-radius: 6px; font-weight: 600; }
+
+  .mat-script-card .mat-body { padding: 0 20px 18px; }
+
+  /* 素材卡片（纯结构版）========== */
+  .mat-card { margin: 0 28px 18px; background: #faf9f7; border: 1px solid #f0ebe4; border-radius: 16px; padding: 18px 20px; position: relative; overflow: hidden; }
+  .mat-card::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; }
+  .mat-card.ss3::before { background: linear-gradient(180deg, #e74c3c, #c0392b); }
+  .mat-card.ss2::before { background: linear-gradient(180deg, #3498db, #2980b9); }
+  .mat-card.ss1::before { background: linear-gradient(180deg, #95a5a6, #7f8c8d); }
+  .mat-card .mat-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; gap: 14px; }
+  .mat-card .mat-title { font-size: 15px; font-weight: 600; color: #1a1a2e; line-height: 1.5; flex: 1; }
+  .mat-card .mat-stars { font-size: 14px; flex-shrink: 0; padding-top: 2px; }
+  .mat-row { display: flex; gap: 10px; margin-bottom: 11px; align-items: flex-start; }
+  .mat-row:last-child { margin-bottom: 0; }
+  .mat-key { font-size: 13px; color: #8a8a8a; width: 68px; flex-shrink: 0; padding-top: 1px; font-weight: 500; }
+  .mat-val { font-size: 14px; color: #333; line-height: 1.75; flex: 1; }
+  .mat-source { margin-top: 14px; padding-top: 12px; border-top: 1px solid #ece8e2; font-size: 12px; color: #999; }
+
+  /* ========== 底部页脚 ========== */
+  .page-footer { background: #1a1a2e; padding: 32px 48px; text-align: center; }
+  .page-footer .brand { font-size: 16px; font-weight: 700; color: rgba(255,255,255,0.8); margin-bottom: 6px; letter-spacing: 4px; }
+  .page-footer .sub { font-size: 11px; color: rgba(255,255,255,0.3); }
+</style>
+</head>
+<body>
+
+<!-- ===================== 封面 ===================== -->
+<div class="page no-break-after">
+  <div class="cover">
+    <div class="kicker">Daily Brief</div>
+    <h1>短视频素材精选</h1>
+    <div class="date">2026.04.20 · Monday</div>
+    <div class="stats">
+      <div class="stat"><div class="num">3</div><div class="label">参考脚本</div></div>
+      <div class="stat"><div class="num">13</div><div class="label">重点素材</div></div>
+      <div class="stat"><div class="num">3</div><div class="label">今日热点</div></div>
+    </div>
+    <div class="topic-box">
+      <div class="label">Today's Focus</div>
+      <div class="text">机器人半马夺冠超人类纪录 · 社保第六险全面推行 · 创业板周涨6.65% · LPR今日公布</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 参考脚本 ===================== -->
+<div class="page">
+  <div class="chapter">
+    <div class="ch-label">Reference Scripts</div>
+    <div class="ch-title">参考脚本</div>
+    <div class="ch-sub">视频号爆款结构 · 反转悬念文案 · 可直接二创</div>
+  </div>
+
+  <!-- 脚本1：机器人马拉松 -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">01</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s1">科技震撼</span>
+        <div class="sh-title">机器人50分26秒跑完半马！比人类快6分钟——马拉松，人类最后的倔强也没了？</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">极高热度</span>
+          <span class="meta-chip chip-type">震撼型开场</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">你知道吗？现在跑马拉松，机器人已经比人类快了整整6分钟！4月19号，北京亦庄举办人形机器人半马，荣耀的"闪电"跑了50分26秒——而人类世界纪录是56分42秒。</div>
+    </div>
+    <div class="time-block"><span class="time">00:00-00:08</span><span class="content">开场：抛出震撼数据，机器人比人类快6分钟</span></div>
+    <div class="time-block"><span class="time">00:08-00:25</span><span class="content">数据对比：闪电50分26秒 vs 人类56分42秒（吴向东2025年创造）</span></div>
+    <div class="time-block"><span class="time">00:25-00:45</span><span class="content">背景：去年首届仅6队完赛，今年20余支完赛，技术迭代只用了一年</span></div>
+    <div class="time-block"><span class="time">00:45-00:65</span><span class="content">思考：当AI在每个领域都在突破时，你的技能还剩下多少是AI干不了的？</span></div>
+    <div class="time-block"><span class="time">00:65-00:75</span><span class="content">互动：你觉得下一个被AI取代的职业是什么？</span></div>
+    <div class="time-block"><span class="time">00:75-00:90</span><span class="content">结尾引导：关注我，AI时代的生存法则下期继续聊</span></div>
+    <div class="body-lines">
+      <div class="body-line">4月19日，北京亦庄迎来全球首个人形机器人半程马拉松。21.0975公里的赛道上，百余台人形机器人竞速角逐，最终荣耀"闪电"以50分26秒夺冠——比人类世界纪录快了6分多钟！</div>
+      <div class="body-line">回顾2025年首届人形机器人马拉松，仅6队完赛，大家还在讨论"机器人能不能跑完"。今年呢？20多支队伍完赛，技术迭代速度惊人。</div>
+      <div class="body-line">有人说了，跑步算什么？这不是AI真正厉害的地方。但问题是：当AI在每一个领域都在突破的时候，你的技能还剩下多少是"AI干不了"的？会计、客服、翻译、编程...现在连跑马拉松都被超越了。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你觉得下一个被AI取代的职业会是什么？评论区聊聊。觉得有道理就转发给朋友，关注我，下期继续聊AI时代的生存法则。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"机器人跑赢人类！" + 机器人/马拉松图标 + 50:26数字特效；配图：机器人冲刺画面+人类纪录对比</div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+  <!-- 脚本2：社保第六险 -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">02</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s1">社保民生</span>
+        <div class="sh-title">社保第六险来了！覆盖3亿人、基金支出超1000亿——失能老人终于有人管了？</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">极高热度</span>
+          <span class="meta-chip chip-type">民生解读</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">如果你家里有失能老人，或者你担心自己老了失能怎么办——今天这个视频，你一定要听完。社保第六险来了，2028年全覆盖，覆盖3亿人，已经有330万人受益。</div>
+    </div>
+    <div class="time-block"><span class="time">00:00-00:08</span><span class="content">开场：抛出痛点，家里有失能老人或担心老了失能怎么办</span></div>
+    <div class="time-block"><span class="time">00:08-00:30</span><span class="content">政策解读：3月25日国务院发文，2028年全覆盖，覆盖3亿人，330万人受益</span></div>
+    <div class="time-block"><span class="time">00:30-00:55</span><span class="content">实用干货：怎么缴费（0.3%费率）、谁能享受（失能6个月以上）、什么待遇</span></div>
+    <div class="time-block"><span class="time">00:55-00:70</span><span class="content">情感共鸣：见过太多家庭一个老人生病全家崩溃</span></div>
+    <div class="time-block"><span class="time">00:70-00:85</span><span class="content">互动引导：你家有失能老人吗？觉得有用就转发</span></div>
+    <div class="body-lines">
+      <div class="body-line">4月20号，一个重磅消息：社保第六险，来了。国务院3月25日正式发文，长护险2028年要实现全覆盖。覆盖多少人？3个亿。已经有多少人受益了？330万。基金花了多少钱？超过1000亿。</div>
+      <div class="body-line">那这个东西怎么缴费呢？费率大概0.3%，职工医保的人一般从医保账户直接扣。谁能享受？失能状态持续6个月以上的，经评估认定后就可以申请。能享受什么待遇？专业的护理服务，不用子女辞职亲自照顾，也能有人管。</div>
+      <div class="body-line">我见过太多家庭，一个老人生病，全家崩溃。有人辞了工作，有人花光了积蓄。现在，国家层面的保障来了。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你家有失能老人吗？你觉得长护险能解决问题吗？评论区说说。觉得有用的话，转发给家人看看。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"社保第六险来了！" + 社保卡图标 + 失能护理场景；配图：3亿覆盖人群数据+330万受益人+1000亿基金支出</div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+  <!-- 脚本3：创业板行情 -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">03</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s2">投资理财</span>
+        <div class="sh-title">创业板上周暴涨6.65%！纳指13连涨创34年纪录——牛市还在吗？投资有风险</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">高热度</span>
+          <span class="meta-chip chip-type">数据解读</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">上周创业板暴涨6.65%，纳指连涨13天创下34年纪录——牛市还在吗？先看数据，再泼冷水。</div>
+    </div>
+    <div class="time-block"><span class="time">00:00-00:10</span><span class="content">开场：抛出核心数据，创业板涨6.65%，纳指13连涨</span></div>
+    <div class="time-block"><span class="time">00:10-00:30</span><span class="content">数据呈现：三大指数具体收盘数据对比</span></div>
+    <div class="time-block"><span class="time">00:30-00:55</span><span class="content">背后逻辑：美伊谈判+AI行情持续+科技股领涨</span></div>
+    <div class="time-block"><span class="time">00:55-00:75</span><span class="content">风险提示：奈飞跌10%+美伊反复+A股分化</span></div>
+    <div class="time-block"><span class="time">00:75-00:88</span><span class="content">实用建议：三点注意事项</span></div>
+    <div class="time-block"><span class="time">00:88-00:95</span><span class="content">合规结尾：投资有风险，入市需谨慎，仅供参考</span></div>
+    <div class="body-lines">
+      <div class="body-line">先看数据：创业板上周涨了6.65%，4月18号收盘3678点。纳斯达克更猛，13连涨，上周涨了6.84%。这是1992年以来最长纪录。标普500连创新高，一周涨了4.54%。三大美股连续三周上涨，创近一年最大周涨幅。</div>
+      <div class="body-line">为什么涨？一个原因是美伊谈判重启，油价下跌，通胀压力小了。另一个原因是AI行情还在继续。芯片股连续两天跑赢大盘，微软、特斯拉一周涨了10%以上。A股这边呢？科技股领涨，宁德时代代表的创业板权重持续走强。</div>
+      <div class="body-line">但是——我要泼点冷水。奈飞上周跌了将近10%，因为业绩指引不好。美伊局势还在反复，油价随时可能波动。而且A股整体分化，大盘没怎么涨，主要是创业板和科技股在涨。所以：结构行情，不要追高。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">记住：投资有风险，入市需谨慎。内容仅供参考，不构成投资建议。我们下期见。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"创业板涨6.65%！" + K线图图标 + 牛市元素；配图：纳指13连涨+创业板走势图</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 重点关注 ===================== -->
+<div class="page">
+  <div class="chapter">
+    <div class="ch-label">Key Highlights</div>
+    <div class="ch-title">重点关注</div>
+    <div class="ch-sub">13条素材线索 · 含3条脚本级内容 · 多角度切入</div>
+  </div>
+
+  <!-- 素材4：LPR -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">央行今日公布4月LPR！1年期3.0%、5年期3.5%，你的房贷利率怎么变？</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">4月20日，央行将公布4月LPR报价。市场关注是否调整，此前3月LPR维持不变：1年期3.0%、5年期以上3.5%。LPR直接影响房贷利率和企业融资成本</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">4月财经日历显示LPR报价公布，将影响市场信贷与地产宽松力度</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">实用角度：LPR怎么影响你的房贷月供？解读角度：央行货币政策信号</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">房贷一族、购房刚需、理财用户</div></div>
+    <div class="mat-source">📊 来源：21世纪经济报道（4月20日）；中国人民银行官网</div>
+  </div>
+
+  <!-- 素材5：华为发布会 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">华为Pura 90今日发布！9款新品齐发，"科技春晚"阵容曝光</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">4月20日14:30，华为举办Pura系列及全场景新品发布会。阵容堪称"科技春晚"：Pura 90系列三款手机、Pura X2折叠屏、WATCH 5手表、AI眼镜等9款新品。余承东表示"有更多惊喜"</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">Pura系列时隔多年重回经典渐变设计，这是华为上半年的核心主场</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">科技角度：Pura 90有什么重磅升级？对比角度：华为 vs 苹果怎么选？投资角度：华为产业链受益股</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">科技爱好者、数码用户、华为粉丝、投资者</div></div>
+    <div class="mat-source">📊 来源：华为官方（4月10日）；IT之家（4月19日）</div>
+  </div>
+
+  <!-- 素材6：美伊局势 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">美军袭击伊朗货船！伊朗拒绝参加第二轮谈判——霍尔木兹刚开又要封？</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">4月19日，特朗普称美国代表团20日将在巴基斯坦同伊朗谈判，但伊朗消息人士随即回应：尚无参加第二轮谈判计划。同日，美军在阿曼湾袭击伊朗集装箱货船，伊朗武装部队随后发射无人机打击美方军舰</div></div>
+    <div class="mat-row"><div class="mat-key">⚡ 争议</div><div class="mat-val">此前伊朗宣布开放霍尔木兹海峡导致油价暴跌，最新冲突令局势再度紧张</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">民生角度：油价波动影响你我。对比角度：霍尔木兹开放vs封锁的历史</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">车主、投资者、关心国际局势用户</div></div>
+    <div class="mat-source">📊 来源：央视新闻（4月19-20日）；21世纪经济报道</div>
+  </div>
+
+  <!-- 素材7：恒逸石化 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">A股一季度"增长王"！恒逸石化净利润暴增3773%，化工半导体集体回暖</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">截至4月18日，156家上市公司披露一季报，整体业绩大幅回暖。恒逸石化净利润增幅达3773.77%，暂列A股一季度增速第一。化工、半导体、汽车零部件、工业金属等行业均表现亮眼</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">这与一季度GDP增5%的宏观数据形成印证：工业增加值+6.1%、基建投资+8.9%，实体经济复苏态势明显</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">数据角度：A股季报业绩全扫描。趋势角度：一季度经济开门红信号</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">A股投资者、基金持有者、经济政策关注者</div></div>
+    <div class="mat-source">📊 来源：21世纪经济报道（4月20日）；东方财富</div>
+  </div>
+</div>
+
+<!-- ★★ 重点关注 8-10 -->
+<div class="page">
+  <!-- 素材8：油价 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">油价暴跌后怎么走？21日或迎大幅下调，加满一箱省近20元</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">受霍尔木兹海峡开放消息影响，上周WTI原油暴跌7.86%至84美元/桶，布伦特原油大跌7.01%至92.42美元/桶。WTI周跌13.02%。截至4月14日第5个工作日，原油变化率-6.95%，预计4月21日下调305元/吨，折算0.23-0.26元/升</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">民生角度：加满一箱能省多少钱？趋势角度：油价暴跌背后原因分析</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">车主、投资者、关心物价的用户</div></div>
+    <div class="mat-source">📊 来源：市场调研（4月14日）；新浪财经；华尔街见闻</div>
+  </div>
+
+  <!-- 素材9：灵活就业社保 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">灵活就业社保大变！全国取消户籍限制，外卖骑手、网约车司机都能参保</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">2026年社保体系迎来重大调整，对灵活就业者敞开大门。全国统一大市场建设明确要求全面取消在就业地参保的户籍限制。外卖骑手、网约车司机、自由职业者等3亿灵活就业人员，都可以在工作地参保了</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">此前灵活就业者需回户籍地缴纳社保，现在可以就近参保</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">实用角度：灵活就业者怎么参保？对比角度：和职工社保有什么区别？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">灵活就业者、外卖骑手、网约车司机、自由职业者</div></div>
+    <div class="mat-source">📊 来源：央广网（4月18日）；腾讯新闻</div>
+  </div>
+
+  <!-- 素材10：特斯拉Robotaxi -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">特斯拉Robotaxi进入达拉斯、休斯顿！德州三城运营——自动驾驶离我们多远？</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">特斯拉Robotaxi正式拓展至美国达拉斯和休斯顿，已在得克萨斯州三个城市运营。这标志着特斯拉从电动汽车制造商向自动驾驶出行服务商转型迈出关键一步</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">科技角度：特斯拉自动驾驶最新进展。对比角度：中美自动驾驶谁更强？投资角度：产业链机会</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">科技爱好者、投资者、汽车行业关注者</div></div>
+    <div class="mat-source">📊 来源：IT之家（4月20日）；TechCrunch</div>
+  </div>
+
+  <!-- 素材11：广交会 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">广交会境外采购商创历史新高！16.7万人增长5.9%，中国出口稳了？</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">第139届广交会第一期境外采购商达16.7万人，创历届新高，比上届增长5.9%。释放中国外贸回暖信号</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">经济角度：广交会数据解读。行业角度：哪些行业最受益？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">外贸从业者、经济政策关注者、投资者</div></div>
+    <div class="mat-source">📊 来源：央视新闻（4月17日）；商务部</div>
+  </div>
+
+  <!-- 素材12：12306 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">五一火车票开售！12306将105万笔交易放入慢速队列，拒绝恶意抢票</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">五一假期火车票开售3天内，12306将564万笔交易放入慢速队列，拒绝出票105.6万张，有效遏制恶意抢票行为</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">实用角度：五一怎么抢票才安全？科普角度：12306反抢票机制</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">五一出行人群、关心铁路政策的用户</div></div>
+    <div class="mat-source">📊 来源：铁路12306官网（4月17日）；新华网</div>
+  </div>
+
+  <!-- 素材13：两重建设 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">两重建设第二批清单下达！2168亿支持336个重大项目，基建投资继续发力</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">2026年第二批"两重"建设项目清单下达，安排超长期特别国债资金2168亿元支持336个重大项目。这是扩大内需、拉动基建的重要举措</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">经济角度：两重建设投资解读。机会角度：哪些行业最受益？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">建筑行业从业者、投资者、宏观政策关注者</div></div>
+    <div class="mat-source">📊 来源：国家发改委（4月17日）；新华网</div>
+  </div>
+</div>
+
+<!-- ===================== 底部 ===================== -->
+<div class="page no-break-after">
+  <div class="page-footer">
+    <div class="brand">素材日报</div>
+    <div class="sub">每日 12:00 自动生成 · 仅供内容参考</div>
+  </div>
+</div>
+
+</body>
+</html>
