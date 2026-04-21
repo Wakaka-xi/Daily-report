@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>素材日报 2026-04-22</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #f0ede8; font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+
+  /* ========== 分页基础 ========== */
+  @page { size: A4 portrait; margin: 0; }
+  .page {
+    width: 794px;
+    margin: 0 auto;
+    background: #fff;
+    overflow: hidden;
+    position: relative;
+    break-after: page;
+    break-before: page;
+  }
+  .page.no-break-after { break-after: auto; }
+  .page.no-break-before { break-before: auto; }
+
+  /* ========== 封面 ========== */
+  .cover { background: linear-gradient(160deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%); padding: 60px 52px 56px; text-align: center; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: -60px; right: -60px; width: 260px; height: 260px; background: radial-gradient(circle, rgba(243,156,18,0.12) 0%, transparent 70%); border-radius: 50%; }
+  .cover::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(52,152,219,0.1) 0%, transparent 70%); border-radius: 50%; }
+  .cover .kicker { display: inline-block; font-size: 11px; letter-spacing: 6px; color: rgba(243,156,18,0.7); text-transform: uppercase; margin-bottom: 28px; }
+  .cover h1 { color: #fff; font-size: 34px; font-weight: 700; line-height: 1.3; margin-bottom: 20px; letter-spacing: -0.5px; position: relative; z-index: 1; }
+  .cover .date { color: rgba(255,255,255,0.4); font-size: 14px; margin-bottom: 36px; letter-spacing: 3px; }
+  .cover .stats { display: flex; justify-content: center; gap: 52px; padding: 28px 0; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 28px; }
+  .cover .stat { text-align: center; }
+  .cover .stat .num { color: #fff; font-size: 32px; font-weight: 700; }
+  .cover .stat .label { color: rgba(255,255,255,0.35); font-size: 12px; margin-top: 6px; letter-spacing: 1px; }
+  .cover .topic-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 18px 24px; text-align: left; position: relative; z-index: 1; }
+  .cover .topic-box .label { font-size: 11px; color: rgba(243,156,18,0.6); letter-spacing: 3px; margin-bottom: 10px; }
+  .cover .topic-box .text { color: rgba(255,255,255,0.88); font-size: 14px; line-height: 1.9; }
+
+  /* ========== 章节标题 ========== */
+  .chapter { padding: 44px 48px 28px; border-bottom: 1px solid #f0ebe4; }
+  .chapter .ch-label { font-size: 11px; letter-spacing: 4px; color: #c9a96e; text-transform: uppercase; margin-bottom: 10px; }
+  .chapter .ch-title { font-size: 24px; font-weight: 700; color: #1a1a2e; letter-spacing: -0.3px; }
+  .chapter .ch-sub { font-size: 13px; color: #999; margin-top: 6px; }
+
+  /* ========== 脚本卡片 ========== */
+  .script-card { padding: 28px 48px; border-bottom: 1px solid #f0ebe4; }
+  .script-card .sh { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
+  .script-card .rank { width: 44px; height: 44px; background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #c9a96e; font-size: 16px; font-weight: 700; flex-shrink: 0; }
+  .script-card .sh-body { flex: 1; }
+  .script-card .sh-tag { display: inline-block; font-size: 11px; padding: 3px 12px; border-radius: 7px; margin-bottom: 10px; font-weight: 600; }
+  .tag-s1 { background: rgba(231,76,60,0.1); color: #c0392b; }
+  .tag-s2 { background: rgba(230,126,34,0.1); color: #d35400; }
+  .tag-s3 { background: rgba(52,152,219,0.1); color: #2980b9; }
+  .script-card .sh-title { font-size: 17px; font-weight: 700; color: #1a1a2e; line-height: 1.5; }
+  .script-card .sh-meta { display: flex; gap: 10px; margin-top: 10px; }
+  .script-card .meta-chip { font-size: 11px; padding: 3px 10px; border-radius: 5px; }
+  .chip-hot { background: rgba(231,76,60,0.08); color: #c0392b; }
+  .chip-type { background: #f5f4f0; color: #888; }
+
+  /* 钩子 */
+  .hook { background: linear-gradient(135deg, #fffbf0, #fff8e8); border: 1px solid rgba(243,156,18,0.15); border-left: 4px solid #f39c12; border-radius: 14px; padding: 16px 18px; margin-bottom: 18px; }
+  .hook-label { font-size: 11px; font-weight: 700; color: #c9a96e; letter-spacing: 2px; margin-bottom: 8px; }
+  .hook-text { font-size: 14.5px; color: #3d3d3d; line-height: 1.85; }
+
+  /* 正文 */
+  .body-lines { padding: 0 2px; }
+  .body-line { font-size: 14px; color: #555; line-height: 2; margin-bottom: 16px; padding-left: 20px; position: relative; }
+  .body-line:last-child { margin-bottom: 0; }
+  .body-line::before { content: ''; position: absolute; left: 0; top: 12px; width: 6px; height: 6px; background: #c9a96e; border-radius: 50%; }
+
+  /* 互动引导 */
+  .cta { background: #fffde7; border: 1px solid rgba(243,156,18,0.15); border-radius: 12px; padding: 14px 18px; margin-top: 16px; }
+  .cta-label { font-size: 11px; color: #c9a96e; letter-spacing: 2px; margin-bottom: 6px; }
+  .cta-text { font-size: 13.5px; color: #666; line-height: 1.7; }
+
+  /* 封面建议 */
+  .cover-tip { background: #f9f8f5; border-radius: 10px; padding: 12px 16px; margin-top: 12px; }
+  .cover-tip-label { font-size: 11px; color: #bbb; margin-bottom: 5px; }
+  .cover-tip-text { font-size: 13px; color: #888; line-height: 1.65; }
+
+  /* ========== 素材卡片 ========== */
+  .mat-card { margin: 0 28px 18px; background: #faf9f7; border: 1px solid #f0ebe4; border-radius: 16px; padding: 18px 20px; position: relative; overflow: hidden; }
+  .mat-card::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; }
+  .mat-card.ss3::before { background: linear-gradient(180deg, #e74c3c, #c0392b); }
+  .mat-card.ss2::before { background: linear-gradient(180deg, #3498db, #2980b9); }
+  .mat-card.ss1::before { background: linear-gradient(180deg, #95a5a6, #7f8c8d); }
+  .mat-card .mat-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; gap: 14px; }
+  .mat-card .mat-title { font-size: 15px; font-weight: 600; color: #1a1a2e; line-height: 1.5; flex: 1; }
+  .mat-card .mat-stars { font-size: 14px; flex-shrink: 0; padding-top: 2px; }
+  .star-gold { color: #f39c12; }
+  .star-gray { color: #ddd; }
+  .mat-row { display: flex; gap: 10px; margin-bottom: 11px; align-items: flex-start; }
+  .mat-row:last-child { margin-bottom: 0; }
+  .mat-key { font-size: 13px; color: #8a8a8a; width: 68px; flex-shrink: 0; padding-top: 1px; font-weight: 500; }
+  .mat-val { font-size: 14px; color: #333; line-height: 1.75; flex: 1; }
+  .mat-source { margin-top: 14px; padding-top: 12px; border-top: 1px solid #ece8e2; font-size: 12px; color: #999; }
+
+  /* ========== 底部页脚 ========== */
+  .page-footer { background: #1a1a2e; padding: 32px 48px; text-align: center; }
+  .page-footer .brand { font-size: 16px; font-weight: 700; color: rgba(255,255,255,0.8); margin-bottom: 6px; letter-spacing: 4px; }
+  .page-footer .sub { font-size: 11px; color: rgba(255,255,255,0.3); }
+</style>
+</head>
+<body>
+
+<!-- ===================== 封面 ===================== -->
+<div class="page no-break-after">
+  <div class="cover">
+    <div class="kicker">Daily Brief</div>
+    <h1>短视频素材精选</h1>
+    <div class="date">2026.04.22 · Wednesday</div>
+    <div class="stats">
+      <div class="stat"><div class="num">3</div><div class="label">参考脚本</div></div>
+      <div class="stat"><div class="num">13</div><div class="label">重点素材</div></div>
+      <div class="stat"><div class="num">3</div><div class="label">今日热点</div></div>
+    </div>
+    <div class="topic-box">
+      <div class="label">Today's Focus</div>
+      <div class="text">服务业100万亿目标 · 养老金涨至163元 · 华为高速L3冲刺商用</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 参考脚本1：服务业100万亿 ===================== -->
+<div class="page">
+  <div class="chapter">
+    <div class="ch-label">Reference Scripts</div>
+    <div class="ch-title">参考脚本</div>
+    <div class="ch-sub">视频号爆款结构 · 反转悬念文案 · 可直接二创</div>
+  </div>
+
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">01</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s1">政策解读</span>
+        <div class="sh-title">国务院重磅发文！2030年服务业规模破100万亿——这些行业要起飞了</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">极高热度</span>
+          <span class="meta-chip chip-type">政策解读</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">国家刚刚宣布了一个重磅目标：到2030年，服务业规模要突破100万亿！这意味着什么？你的钱包可能要被影响了。</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">4月21号，国务院正式印发《关于推进服务业扩能提质的意见》。文件太长，我帮你划重点：第一，到2030年，服务业总规模要从现在的80万亿迈上100万亿台阶。第二，贡献率要更高——2025年服务业对GDP增长贡献率61.4%，未来还要更高。</div>
+      <div class="body-line">有人问了，这跟我有什么关系？关系大了。服务业是什么？餐饮、旅游、教育、医疗、快递、电商……都是服务业。100万亿规模意味着：更多的就业机会、更便宜的服务、更高质量的消费。</div>
+      <div class="body-line">那机会在哪？三个方向值得关注：第一，科技服务类公司——软件开发、AI应用、数据服务。第二，现代物流类公司——快递、仓储、冷链。第三，生活服务类——养老、健康、教育。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你觉得哪个行业最受益？评论区说说你的看法。觉得有用就转发给朋友，关注我，每天帮你看懂政策对钱包的影响。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"服务业100万亿！" + 政策文件图标 + 上升趋势；配图：服务业数据可视化（80万亿→100万亿）</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 参考脚本2：养老金涨至163元 ===================== -->
+<div class="page">
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">02</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s1">社保民生</span>
+        <div class="sh-title">养老金4月集中补发！城乡居民基础养老金涨至163元/月，1.8亿人受益</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">极高热度</span>
+          <span class="meta-chip chip-type">民生解读</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">4月份，你的养老金到账了吗？涨了多少钱？有人说每月只涨20块够干什么？但你知道吗，这20块钱背后，是国家每年上千亿的真金白银。</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">4月17号，国务院新闻办正式确认：2026年城乡居民基础养老金的月最低标准，从143元涨到163元。涨了多少？每月多20块，一年多240块。受益人群有多少？全国约1.8亿老年人。</div>
+      <div class="body-line">有人说了，20块钱够干什么？大城市里一顿饭都不够。但你知道吗？这163块钱是"国家托底"标准，各省会根据自己的财政情况上浮。上海的基础养老金已经超过1000块了，北京也有800多。</div>
+      <div class="body-line">我们来算一笔账：如果你月薪5000块，个人缴纳8%进养老金账户，单位缴纳16%。交30年，退休后每月能领多少？大约2000-3000块。这20块的上涨虽然不多，但说明一件事——国家在持续提高养老保障。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你爸妈的养老金涨了多少？评论区说说。或者你自己交的社保，感觉划算吗？关注我，每天一条实用财经知识。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"养老金涨了！" + 社保卡图标 + 1.8亿人受益；配图：各省市养老金对比表</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 参考脚本3：华为高速L3 ===================== -->
+<div class="page">
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">03</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s2">科技汽车</span>
+        <div class="sh-title">华为高速L3自动驾驶真的来了！7城路测冲刺商用——你敢把手离开方向盘吗？</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">高热度</span>
+          <span class="meta-chip chip-type">科技前沿</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">高速上可以松开方向盘了！华为刚刚宣布：L3自动驾驶正在7个城市路测，2026年真的要商用了！</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">先搞清楚概念：L2是什么？你开车，AI帮你踩刹车、保持车道，但你必须时刻盯着。L3是什么？在特定场景下，你可以真正"脱手"了！华为的L3，现在正在测试的是高速场景——也就是说，以后跑高速，你可以松开手，让车自己开。</div>
+      <div class="body-line">7个城市在测：北京、上海、广州、深圳、合肥、武汉、重庆。而且华为还发布了一个黑科技——爆胎稳停。什么意思？高速上爆胎，以前的车可能失控，但华为的技术可以让车稳稳停住。这个技术用在L3上，安全系数大大提升。</div>
+      <div class="body-line">华为 vs 特斯拉 vs 小鹏，谁的自动驾驶更强？特斯拉的FSD在美国很强，但在中国城区还是受限。华为的ADS 3.0在中国路况上下了很大功夫。小鹏的XNGP在高速NOA上也很强。三个选手各有优势，最终看的是谁先真正落地。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你觉得L3自动驾驶来了，你会放心用吗？评论区说说。觉得有用就转发给车友，关注我，每天帮你看懂科技对生活的影响。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"高速可以松手了！" + 自动驾驶图标 + 华为logo；配图：7大城市图标 + L2/L3对比图</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 重点关注 ===================== -->
+<div class="page">
+  <div class="chapter">
+    <div class="ch-label">Key Highlights</div>
+    <div class="ch-title">重点关注</div>
+    <div class="ch-sub">13条素材线索 · 含完整脚本 · 多角度切入</div>
+  </div>
+
+  <!-- 素材4 -->
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">A股沪指涨0.76%逼近4100点！成交额2.58万亿，商业航天概念涨停潮</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">4月20日，沪指报4082.13点（+0.76%），逼近4100点；全市场成交额2.58万亿元，较上日放量1532亿元，超3400只个股上涨，90只涨停。商业航天概念爆发</div></div>
+    <div class="mat-row"><div class="mat-key">⚡ 数据</div><div class="mat-val">沪指4082.13点(+0.76%)；深成指14966.75点(+0.55%)；科创50报1450.52点(+1.91%)</div></div>
+    <div class="mat-source">📊 来源：新浪财经；同花顺（4月20日）</div>
+  </div>
+
+  <!-- 素材5 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">人形机器人进入量产元年！14只概念股业绩增长超30%</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">TrendForce预测2026年全球人形机器人出货量首次突破5万台，较前一年增长超50%。证券时报统计，机构一致预测2026年、2027年净利润增幅均超30%的概念股有14只</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">荣耀"闪电"机器人以50分26秒跑完半马，比人类世界纪录快6分钟</div></div>
+    <div class="mat-source">📊 来源：证券时报（4月21日）；TrendForce</div>
+  </div>
+
+  <!-- 素材6 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">4月LPR出炉！1年期3.0%、5年期3.5%维持不变，连续11个月按兵不动</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">4月20日央行公布4月LPR：1年期3.0%，5年期以上3.5%，均与上月维持不变。连续第11个月保持不变</div></div>
+    <div class="mat-row"><div class="mat-key">💡 分析</div><div class="mat-val">LPR"按兵不动"主要受出口超预期、一季度投资增速回升、消费改善等因素影响</div></div>
+    <div class="mat-source">📊 来源：央行官网（4月20日）；21世纪经济报道</div>
+  </div>
+</div>
+
+<!-- 重点关注续 -->
+<div class="page">
+  <!-- 素材7 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">医保大变！门诊报销90%、检查费直接减半，4月新规全落地</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">4月起全国多项医保新规落地：社区医院门诊报销可达90%；CT、核磁等大型检查费用大幅降低；完善"15分钟医保服务圈"</div></div>
+    <div class="mat-row"><div class="mat-key">💡 案例</div><div class="mat-val">北京王大爷在社区医院开高血压药，每月200元，报销90%后仅需自费20元</div></div>
+    <div class="mat-source">📊 来源：国家医保局；央广网（4月15日）</div>
+  </div>
+
+  <!-- 素材8 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">特斯拉Robotaxi正式进入达拉斯、休斯顿，德州三城运营</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">特斯拉Robotaxi（无人驾驶出租车）正式拓展至美国达拉斯和休斯顿，已在得克萨斯州三个城市运营</div></div>
+    <div class="mat-row"><div class="mat-key">💡 意义</div><div class="mat-val">标志特斯拉从电动汽车制造商向自动驾驶出行服务商转型迈出关键一步</div></div>
+    <div class="mat-source">📊 来源：IT之家（4月20日）；TechCrunch</div>
+  </div>
+
+  <!-- 素材9 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">灵活就业社保大变！全国取消户籍限制，3亿人可参保</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">全国统一大市场建设明确要求全面取消在就业地参保的户籍限制。外卖骑手、网约车司机、自由职业者等3亿灵活就业人员可在工作地参保</div></div>
+    <div class="mat-row"><div class="mat-key">💡 变化</div><div class="mat-val">不再需要回户籍地缴纳，可在工作地直接参保</div></div>
+    <div class="mat-source">📊 来源：央广网（4月18日）；腾讯新闻</div>
+  </div>
+
+  <!-- 素材10 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">美伊局势骤变！伊朗拒绝参加第二轮谈判，油价走势不确定</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">4月19日美军袭击伊朗货船，伊朗拒绝参加第二轮谈判。高盛预警：若霍尔木兹7月才恢复，油价可能冲击120美元/桶</div></div>
+    <div class="mat-row"><div class="mat-key">⚡ 风险</div><div class="mat-val">地缘政治风险极高，油价波动剧烈</div></div>
+    <div class="mat-source">📊 来源：央视新闻（4月19-20日）</div>
+  </div>
+</div>
+
+<!-- 补充视角 -->
+<div class="page">
+  <!-- 素材11 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">保险行业4大核心调整！2026年投保必看指南</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">2026年保险4大调整：①预定利率下调；②分红险演示利率调整；③代理人分级管理；④7月《保险公司资产负债管理办法》实施</div></div>
+    <div class="mat-source">📊 来源：新浪财经（4月19日）；金融界</div>
+  </div>
+
+  <!-- 素材12 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">12306放大招！拦截105万笔恶意抢票，五一出行必看</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">五一假期火车票开售3天内，12306将564万笔交易放入慢速队列，拒绝出票105.6万张，有效遏制恶意抢票</div></div>
+    <div class="mat-source">📊 来源：铁路12306官网（4月17日）</div>
+  </div>
+
+  <!-- 素材13 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">两重建设第二批清单下达！2168亿支持336个重大项目</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">2026年第二批"两重"建设项目清单下达，安排超长期特别国债资金2168亿元支持336个重大项目</div></div>
+    <div class="mat-source">📊 来源：国家发改委（4月17日）；新华网</div>
+  </div>
+</div>
+
+<!-- ===================== 底部 ===================== -->
+<div class="page no-break-after">
+  <div class="page-footer">
+    <div class="brand">素材日报</div>
+    <div class="sub">每日 07:00 自动生成 · 仅供内容参考</div>
+  </div>
+</div>
+
+</body>
+</html>
