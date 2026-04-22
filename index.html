@@ -3,125 +3,82 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>保险/财经短视频素材日报 - 汇总首页</title>
+<title>素材日报 · 历史存档</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { 
-    background: linear-gradient(160deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%); 
-    min-height: 100vh; 
-    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-    padding: 40px 20px;
-  }
-  .container { max-width: 800px; margin: 0 auto; }
-  .header { text-align: center; margin-bottom: 48px; }
-  .header h1 { color: #fff; font-size: 36px; font-weight: 700; margin-bottom: 12px; }
-  .header p { color: rgba(255,255,255,0.5); font-size: 14px; }
-  .cards { display: flex; flex-direction: column; gap: 16px; }
-  .card { 
-    background: rgba(255,255,255,0.95); 
-    border-radius: 16px; 
-    padding: 24px 28px;
-    text-decoration: none;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
-  .card-date { 
-    font-size: 13px; 
-    color: #c9a96e; 
-    font-weight: 600;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-  }
-  .card-title { font-size: 18px; color: #1a1a2e; font-weight: 600; line-height: 1.5; }
-  .card-meta { display: flex; gap: 16px; margin-top: 12px; }
-  .card-tag { 
-    font-size: 11px; 
-    padding: 4px 12px; 
-    border-radius: 6px;
-    background: #f5f4f0;
-    color: #888;
-  }
-  .card-tag.hot { background: rgba(231,76,60,0.1); color: #c0392b; }
-  .footer { text-align: center; margin-top: 48px; color: rgba(255,255,255,0.3); font-size: 12px; }
-  .footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+  body { background: #f0ede8; font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; color: #333; }
+  .container { max-width: 680px; margin: 0 auto; padding: 40px 24px; }
+  .header { text-align: center; margin-bottom: 36px; }
+  .header h1 { font-size: 28px; font-weight: 700; color: #1a1a2e; letter-spacing: -0.5px; }
+  .header .sub { font-size: 13px; color: #999; margin-top: 8px; letter-spacing: 2px; }
+  .date-group { margin-bottom: 28px; }
+  .date-label { font-size: 12px; color: #c9a96e; letter-spacing: 3px; font-weight: 700; margin-bottom: 10px; text-transform: uppercase; }
+  .card { background: #fff; border-radius: 14px; padding: 18px 22px; margin-bottom: 12px; border: 1px solid #f0ebe4; transition: box-shadow 0.2s; text-decoration: none; display: block; }
+  .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+  .card .card-date { font-size: 11px; color: #c9a96e; letter-spacing: 1px; margin-bottom: 6px; }
+  .card .card-title { font-size: 16px; font-weight: 600; color: #1a1a2e; line-height: 1.5; }
+  .card .card-topics { font-size: 13px; color: #888; margin-top: 8px; line-height: 1.6; }
+  .footer { text-align: center; margin-top: 40px; padding: 20px 0; border-top: 1px solid #f0ebe4; }
+  .footer .brand { font-size: 14px; font-weight: 700; color: #1a1a2e; letter-spacing: 4px; }
+  .footer .sub { font-size: 11px; color: #bbb; margin-top: 6px; }
+  .tag { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 5px; margin-right: 4px; font-weight: 600; }
+  .tag-hot { background: rgba(231,76,60,0.1); color: #c0392b; }
+  .tag-new { background: rgba(46,204,113,0.1); color: #27ae60; }
 </style>
 </head>
 <body>
 <div class="container">
   <div class="header">
-    <h1>📺 短视频素材日报</h1>
-    <p>每日07:00自动更新 · 财经/保险/社保/时事热点</p>
+    <h1>📰 素材日报</h1>
+    <div class="sub">保险/财经短视频素材 · 每日更新</div>
   </div>
-  
-  <div class="cards">
-    <a href="2026-04-22-v2.html" class="card" target="_blank">
-      <div class="card-date">2026.04.22 · Wednesday</div>
-      <div class="card-title">⭐今日热点：国务院服务业100万亿目标 / 养老金涨至163元 / 华为高速L3冲刺商用</div>
-      <div class="card-meta">
-        <span class="card-tag hot">新</span>
-        <span class="card-tag">3条脚本</span>
-        <span class="card-tag">13条素材</span>
-      </div>
+
+  <div class="date-group">
+    <div class="date-label">本周</div>
+    <a class="card" href="2026-04-23-v2.html">
+      <div class="card-date">2026-04-23 周四 <span class="tag tag-new">NEW</span></div>
+      <div class="card-title">日本7.7级地震冲击半导体链 / 创业板综指创历史新高 / 油价年内首降</div>
+      <div class="card-topics">日本地震铠侠停产 · CPO光模块1年10倍 · 92号降0.44元加满省22元 · 美伊停火延期布油破百 · 库克卸任苹果CEO</div>
     </a>
-    
-    <a href="2026-04-21-v2.html" class="card" target="_blank">
-      <div class="card-date">2026.04.21 · Tuesday</div>
-      <div class="card-title">美伊谈判破裂！东方证券收购上海证券！长护险申请实操指南</div>
-      <div class="card-meta">
-        <span class="card-tag">3条脚本</span>
-        <span class="card-tag">13条素材</span>
-      </div>
+    <a class="card" href="2026-04-22-v2.html">
+      <div class="card-date">2026-04-22 周三</div>
+      <div class="card-title">国务院服务业100万亿目标 / 养老金涨至163元 / 华为高速L3路测</div>
+      <div class="card-topics">2030年服务业破100万亿 · 城乡居民基础养老金163元 · 华为L3自动驾驶7城路测 · A股逼近4100点</div>
     </a>
-    
-    <a href="2026-04-20-v2.html" class="card" target="_blank">
-      <div class="card-date">2026.04.20 · Monday</div>
-      <div class="card-title">机器人半马夺冠超人类纪录！创业板周涨6.65%！社保第六险来了</div>
-      <div class="card-meta">
-        <span class="card-tag">3条脚本</span>
-        <span class="card-tag">13条素材</span>
-      </div>
+    <a class="card" href="2026-04-21-v2.html">
+      <div class="card-date">2026-04-21 周二</div>
+      <div class="card-title">美伊谈判破裂 / 东方证券收购上海证券 / 长护险申请实操</div>
+      <div class="card-topics">伊朗拒绝谈判油价飙涨 · 券商并购进入深水区 · 社保第六险申请3步搞定</div>
     </a>
-    
-    <a href="2026-04-19-v2.html" class="card" target="_blank">
-      <div class="card-date">2026.04.19 · Sunday</div>
-      <div class="card-title">A股"股王"易主！茅台上市24年首现营收净利双降！DeepSeek首轮融资</div>
-      <div class="card-meta">
-        <span class="card-tag">3条脚本</span>
-        <span class="card-tag">13条素材</span>
-      </div>
-    </a>
-    
-    <a href="2026-04-18-v2.html" class="card" target="_blank">
-      <div class="card-date">2026.04.18 · Saturday</div>
-      <div class="card-title">伊朗开放霍尔木兹海峡美油暴跌！幽灵外卖7家平台被罚35.97亿！Meta裁员</div>
-      <div class="card-meta">
-        <span class="card-tag">3条脚本</span>
-        <span class="card-tag">13条素材</span>
-      </div>
-    </a>
-    
-    <a href="2026-04-17-v2.html" class="card" target="_blank">
-      <div class="card-date">2026.04.17 · Friday</div>
-      <div class="card-title">一季度GDP增5%超预期！宁德时代市值反超工商银行！油价大幅下调</div>
-      <div class="card-meta">
-        <span class="card-tag">3条脚本</span>
-        <span class="card-tag">13条素材</span>
-      </div>
-    </a>
-    
-    <a href="2026-04-16-v2.html" class="card" target="_blank">
-      <div class="card-date">2026.04.16 · Thursday</div>
-      <div class="card-title">药品价格机制重大改革！美伊谈判重启油价暴跌！A股3500股下跌</div>
-      <div class="card-meta">
-        <span class="card-tag">3条脚本</span>
-        <span class="card-tag">13条素材</span>
-      </div>
+    <a class="card" href="2026-04-20-v2.html">
+      <div class="card-date">2026-04-20 周一</div>
+      <div class="card-title">机器人半马夺冠超人类纪录 / 创业板周涨6.65% / 社保第六险2028全覆盖</div>
+      <div class="card-topics">机器人50分26秒超越人类 · 纳指13连涨创34年纪录 · 长护险覆盖3亿人</div>
     </a>
   </div>
-  
+
+  <div class="date-group">
+    <div class="date-label">上周</div>
+    <a class="card" href="2026-04-19-v2.html">
+      <div class="card-date">2026-04-19 周日</div>
+      <div class="card-title">A股"股王"易主 / 茅台上市24年首现双降 / DeepSeek融资百亿</div>
+      <div class="card-topics">源杰科技1445元超越茅台 · 茅台营收净利双降 · DeepSeek首轮融资估值百亿</div>
+    </a>
+    <a class="card" href="2026-04-18-v2.html">
+      <div class="card-date">2026-04-18 周六</div>
+      <div class="card-title">伊朗开放霍尔木兹海峡 / 幽灵外卖7家被罚35.97亿 / Meta裁员10%</div>
+      <div class="card-topics">美油暴跌近8% · 7家外卖平台被罚35.97亿 · Meta用AI算力换人</div>
+    </a>
+    <a class="card" href="2026-04-17-v2.html">
+      <div class="card-date">2026-04-17 周五</div>
+      <div class="card-title">一季度GDP增5% / 宁德时代市值反超工行 / 油价大幅下调</div>
+      <div class="card-topics">GDP超预期5% · 宁德时代跃居A股第二 · 4月21日油价下调约0.37元</div>
+    </a>
+  </div>
+
   <div class="footer">
-    <p>数据来源：新华社、央视新闻、21世纪经济报道、金融界等</p>
-    <p style="margin-top:8px;">Powered by <a href="https://github.com/Wakaka-xi/Daily-report">GitHub Pages</a></p>
+    <div class="brand">素材日报</div>
+    <div class="sub">每日 12:00 自动生成 · Powered by Xi's 2号位</div>
   </div>
 </div>
 </body>
