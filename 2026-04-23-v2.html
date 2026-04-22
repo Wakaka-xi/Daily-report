@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>素材日报 2026-04-23</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #f0ede8; font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+
+  /* ========== 分页基础 ========== */
+  @page { size: A4 portrait; margin: 0; }
+  .page {
+    width: 794px;
+    margin: 0 auto;
+    background: #fff;
+    overflow: hidden;
+    position: relative;
+    break-after: page;
+    break-before: page;
+  }
+  .page.no-break-after { break-after: auto; }
+  .page.no-break-before { break-before: auto; }
+
+  /* ========== 封面 ========== */
+  .cover { background: linear-gradient(160deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%); padding: 60px 52px 56px; text-align: center; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: -60px; right: -60px; width: 260px; height: 260px; background: radial-gradient(circle, rgba(243,156,18,0.12) 0%, transparent 70%); border-radius: 50%; }
+  .cover::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(52,152,219,0.1) 0%, transparent 70%); border-radius: 50%; }
+  .cover .kicker { display: inline-block; font-size: 11px; letter-spacing: 6px; color: rgba(243,156,18,0.7); text-transform: uppercase; margin-bottom: 28px; }
+  .cover h1 { color: #fff; font-size: 34px; font-weight: 700; line-height: 1.3; margin-bottom: 20px; letter-spacing: -0.5px; position: relative; z-index: 1; }
+  .cover .date { color: rgba(255,255,255,0.4); font-size: 14px; margin-bottom: 36px; letter-spacing: 3px; }
+  .cover .stats { display: flex; justify-content: center; gap: 52px; padding: 28px 0; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 28px; }
+  .cover .stat { text-align: center; }
+  .cover .stat .num { color: #fff; font-size: 32px; font-weight: 700; }
+  .cover .stat .label { color: rgba(255,255,255,0.35); font-size: 12px; margin-top: 6px; letter-spacing: 1px; }
+  .cover .topic-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 18px 24px; text-align: left; position: relative; z-index: 1; }
+  .cover .topic-box .label { font-size: 11px; color: rgba(243,156,18,0.6); letter-spacing: 3px; margin-bottom: 10px; }
+  .cover .topic-box .text { color: rgba(255,255,255,0.88); font-size: 14px; line-height: 1.9; }
+
+  /* ========== 章节标题 ========== */
+  .chapter { padding: 44px 48px 28px; border-bottom: 1px solid #f0ebe4; }
+  .chapter .ch-label { font-size: 11px; letter-spacing: 4px; color: #c9a96e; text-transform: uppercase; margin-bottom: 10px; }
+  .chapter .ch-title { font-size: 24px; font-weight: 700; color: #1a1a2e; letter-spacing: -0.3px; }
+  .chapter .ch-sub { font-size: 13px; color: #999; margin-top: 6px; }
+
+  /* ========== 脚本卡片 ========== */
+  .script-card { padding: 28px 48px; border-bottom: 1px solid #f0ebe4; }
+  .script-card .sh { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
+  .script-card .rank { width: 44px; height: 44px; background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #c9a96e; font-size: 16px; font-weight: 700; flex-shrink: 0; }
+  .script-card .sh-body { flex: 1; }
+  .script-card .sh-tag { display: inline-block; font-size: 11px; padding: 3px 12px; border-radius: 7px; margin-bottom: 10px; font-weight: 600; }
+  .tag-s1 { background: rgba(231,76,60,0.1); color: #c0392b; }
+  .tag-s2 { background: rgba(230,126,34,0.1); color: #d35400; }
+  .tag-s3 { background: rgba(52,152,219,0.1); color: #2980b9; }
+  .script-card .sh-title { font-size: 17px; font-weight: 700; color: #1a1a2e; line-height: 1.5; }
+  .script-card .sh-meta { display: flex; gap: 10px; margin-top: 10px; }
+  .script-card .meta-chip { font-size: 11px; padding: 3px 10px; border-radius: 5px; }
+  .chip-hot { background: rgba(231,76,60,0.08); color: #c0392b; }
+  .chip-type { background: #f5f4f0; color: #888; }
+
+  /* 钩子 */
+  .hook { background: linear-gradient(135deg, #fffbf0, #fff8e8); border: 1px solid rgba(243,156,18,0.15); border-left: 4px solid #f39c12; border-radius: 14px; padding: 16px 18px; margin-bottom: 18px; }
+  .hook-label { font-size: 11px; font-weight: 700; color: #c9a96e; letter-spacing: 2px; margin-bottom: 8px; }
+  .hook-text { font-size: 14.5px; color: #3d3d3d; line-height: 1.85; }
+
+  /* 正文 */
+  .body-lines { padding: 0 2px; }
+  .body-line { font-size: 14px; color: #555; line-height: 2; margin-bottom: 16px; padding-left: 20px; position: relative; }
+  .body-line:last-child { margin-bottom: 0; }
+  .body-line::before { content: ''; position: absolute; left: 0; top: 12px; width: 6px; height: 6px; background: #c9a96e; border-radius: 50%; }
+
+  /* 时间轴 */
+  .time-block { background: #faf9f7; border-left: 3px solid #c9a96e; padding: 10px 14px; margin-bottom: 10px; border-radius: 0 8px 8px 0; }
+  .time-block .time { color: #c9a96e; font-weight: 700; font-size: 12px; margin-right: 8px; }
+  .time-block .content { color: #555; font-size: 14px; line-height: 1.7; display: inline; }
+
+  /* 互动引导 */
+  .cta { background: #fffde7; border: 1px solid rgba(243,156,18,0.15); border-radius: 12px; padding: 14px 18px; margin-top: 16px; }
+  .cta-label { font-size: 11px; color: #c9a96e; letter-spacing: 2px; margin-bottom: 6px; }
+  .cta-text { font-size: 13.5px; color: #666; line-height: 1.7; }
+
+  /* 封面建议 */
+  .cover-tip { background: #f9f8f5; border-radius: 10px; padding: 12px 16px; margin-top: 12px; }
+  .cover-tip-label { font-size: 11px; color: #bbb; margin-bottom: 5px; }
+  .cover-tip-text { font-size: 13px; color: #888; line-height: 1.65; }
+
+  /* ========== 素材卡片 ========== */
+  .mat-script-card { margin: 0 28px 18px; background: #faf9f7; border: 1px solid #f0ebe4; border-radius: 16px; overflow: hidden; position: relative; }
+  .mat-script-card::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; }
+  .mat-script-card.ss3::before { background: linear-gradient(180deg, #e74c3c, #c0392b); }
+  .mat-script-card.ss2::before { background: linear-gradient(180deg, #3498db, #2980b9); }
+  .mat-script-card.ss1::before { background: linear-gradient(180deg, #95a5a6, #7f8c8d); }
+
+  .mat-script-card .mat-head { padding: 18px 20px 14px; }
+  .mat-script-card .mat-head-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; }
+  .mat-script-card .mat-title { font-size: 15px; font-weight: 600; color: #1a1a2e; line-height: 1.5; flex: 1; }
+  .mat-script-card .mat-stars { font-size: 14px; flex-shrink: 0; padding-top: 2px; }
+  .star-gold { color: #f39c12; }
+  .star-gray { color: #ddd; }
+  .mat-script-card .mat-tag-row { display: flex; gap: 8px; margin-top: 10px; }
+  .mat-script-card .mat-tag { font-size: 11px; padding: 2px 10px; border-radius: 6px; font-weight: 600; }
+
+  .mat-script-card .mat-body { padding: 0 20px 18px; }
+
+  .mat-card { margin: 0 28px 18px; background: #faf9f7; border: 1px solid #f0ebe4; border-radius: 16px; padding: 18px 20px; position: relative; overflow: hidden; }
+  .mat-card::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; }
+  .mat-card.ss3::before { background: linear-gradient(180deg, #e74c3c, #c0392b); }
+  .mat-card.ss2::before { background: linear-gradient(180deg, #3498db, #2980b9); }
+  .mat-card.ss1::before { background: linear-gradient(180deg, #95a5a6, #7f8c8d); }
+  .mat-card .mat-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; gap: 14px; }
+  .mat-card .mat-title { font-size: 15px; font-weight: 600; color: #1a1a2e; line-height: 1.5; flex: 1; }
+  .mat-card .mat-stars { font-size: 14px; flex-shrink: 0; padding-top: 2px; }
+  .mat-row { display: flex; gap: 10px; margin-bottom: 11px; align-items: flex-start; }
+  .mat-row:last-child { margin-bottom: 0; }
+  .mat-key { font-size: 13px; color: #8a8a8a; width: 68px; flex-shrink: 0; padding-top: 1px; font-weight: 500; }
+  .mat-val { font-size: 14px; color: #333; line-height: 1.75; flex: 1; }
+  .mat-source { margin-top: 14px; padding-top: 12px; border-top: 1px solid #ece8e2; font-size: 12px; color: #999; }
+
+  /* ========== 底部页脚 ========== */
+  .page-footer { background: #1a1a2e; padding: 32px 48px; text-align: center; }
+  .page-footer .brand { font-size: 16px; font-weight: 700; color: rgba(255,255,255,0.8); margin-bottom: 6px; letter-spacing: 4px; }
+  .page-footer .sub { font-size: 11px; color: rgba(255,255,255,0.3); }
+</style>
+</head>
+<body>
+
+<!-- ===================== 封面 ===================== -->
+<div class="page no-break-after">
+  <div class="cover">
+    <div class="kicker">Daily Brief</div>
+    <h1>短视频素材精选</h1>
+    <div class="date">2026.04.23 · Thursday</div>
+    <div class="stats">
+      <div class="stat"><div class="num">3</div><div class="label">参考脚本</div></div>
+      <div class="stat"><div class="num">13</div><div class="label">重点素材</div></div>
+      <div class="stat"><div class="num">3</div><div class="label">今日热点</div></div>
+    </div>
+    <div class="topic-box">
+      <div class="label">Today's Focus</div>
+      <div class="text">日本7.7级地震冲击半导体链 · 创业板综指创历史新高 · 油价年内首降0.44元/升</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 参考脚本 ===================== -->
+<div class="page">
+  <div class="chapter">
+    <div class="ch-label">Reference Scripts</div>
+    <div class="ch-title">参考脚本</div>
+    <div class="ch-sub">视频号爆款结构 · 反转悬念文案 · 可直接二创</div>
+  </div>
+
+  <!-- 脚本1：日本地震 -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">01</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s1">科技产业</span>
+        <div class="sh-title">日本7.7级强震！全球芯片供应告急——国产替代的机会来了</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">极高热度</span>
+          <span class="meta-chip chip-type">产业解读</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">日本刚刚发生7.7级强震！全球芯片供应告急——你的手机、电脑，可能要涨价了！</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">4月20号下午，日本东北部海域发生7.7级浅源强震，震源深度只有10公里。日本气象厅连续两次上调震级——从7.4到7.5再到7.7，连专家都说这事儿不常见。更关键的是，震中附近的岩手、宫城、福岛，聚集了全球最密集的半导体材料和设备供应商。</div>
+      <div class="body-line">直接影响有多大？铠侠——全球第二大NAND闪存厂商，岩手工厂已停产；信越化学——全球光刻胶龙头，日本占了全球90%的份额；SUMCO——全球硅片大厂，也在受影响区域。日本东北，是全球半导体的"咽喉"。</div>
+      <div class="body-line">那对中国有什么影响？短期可能有供应紧张和涨价压力，但长期看——这是国产替代的重大机会！三个方向：国产NAND闪存（长江存储等）、国产光刻胶（彤程新材等）、国产硅片（沪硅产业等）。</div>
+      <div class="body-line">一句话总结：别人地震，咱们加速崛起。但投资需谨慎，半导体板块波动大，不构成投资建议。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">日本地震会不会让国产芯片加速崛起？评论区说说你的看法。觉得有用就转发给朋友，关注我，每天帮你看懂科技对钱包的影响。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"日本7.7级地震！芯片告急" + 地震波图标 + 芯片图标；配图：日本半导体企业分布图 + 国产替代三方向</div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+  <!-- 脚本2：创业板新高 -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">02</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s1">A股行情</span>
+        <div class="sh-title">创业板综指破2015年纪录！光模块1年飙涨10倍——算力牛市来了？</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">极高热度</span>
+          <span class="meta-chip chip-type">行情解读</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">1年涨10倍！A股一只股票从50块涨到了500多块——你没看错，这是真的！</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">4月22号，A股干了件大事：创业板综指突破2015年6月3日的历史高点，创下新纪录！更炸裂的是算力概念——光模块龙头新易盛，近一年涨了超过1033%，市值突破6000亿。长光华芯一天涨20%涨停，东山精密涨停创新高。</div>
+      <div class="body-line">为什么涨这么猛？三个原因：第一，全球AI算力军备竞赛——英伟达、谷歌、微软都在疯狂买光模块，中国厂商是核心供应商；第二，日本地震——7.7级强震让市场加速拥抱国产半导体替代；第三，资金面——沪深两市成交2.56万亿，放量1500多亿，资金跑步进场。</div>
+      <div class="body-line">但是！1年10倍是什么概念？历史上这种涨幅之后，回调都是迟早的事。2015年创业板创纪录之后，半年跌了50%！我不是说这次一定会重复，但你一定要有风险意识。</div>
+      <div class="body-line">三个提醒：不要追高、分散配置、设好止损。投资有风险，入市需谨慎，内容仅供参考，不构成投资建议。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你觉得算力概念还能涨多久？评论区说说。关注我，每天帮你看懂A股趋势。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"1年10倍！光模块疯了" + K线图图标 + 新易盛股价；配图：创业板综指突破2015高点对比图</div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+  <!-- 脚本3：油价下降 -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">03</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s2">民生消费</span>
+        <div class="sh-title">油价终于降了！92号降0.44元加满省22元——但别高兴太早</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">高热度</span>
+          <span class="meta-chip chip-type">民生解读</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">油价终于降了！92号汽油每升便宜0.44元，加满一箱省22块——但别高兴太早！</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">4月21号24点起，国内油价迎来2026年首次下调！汽油每吨降555元，92号汽油降0.44元/升，95号降0.46元/升。北京92号从8.9降到8.46元，上海从8.86降到8.42元。加满50升油箱比昨天省22块，网约车司机月省约200块。</div>
+      <div class="body-line">但是——就在油价下调的同一天，国际油价又飙了！布伦特原油盘中一度突破100美元/桶。美伊停火虽然延期了，但伊朗拒绝谈判，霍尔木兹海峡局势依然紧张。国际海事组织刚刚发声：袭船扣船不可接受，呼吁放人放船。目前还有2万名海员滞留在那片海域。</div>
+      <div class="body-line">也就是说——国际油价随时可能再涨，下一轮国内调价是5月8号，到时候是涨是跌还不好说。</div>
+      <div class="body-line">三个建议：现在加满油趁便宜！关注5月8号下一轮调价；网约车和物流从业者可以趁低价期多储备一些。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你加满油了吗？你觉得油价还会涨回9块吗？评论区说说。觉得有用就转发给车主朋友，关注我，每天一条实用财经知识。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"油价降了！每升省0.44元" + 加油站图标 + 下降箭头；配图：92/95汽油降价前后对比 + 布油破100美元警示</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 重点关注 ===================== -->
+<div class="page">
+  <div class="chapter">
+    <div class="ch-label">Key Highlights</div>
+    <div class="ch-title">重点关注</div>
+    <div class="ch-sub">13条素材线索 · 含2条脚本级内容 · 多角度切入</div>
+  </div>
+
+  <!-- 素材4：美伊停火延期 -->
+  <div class="mat-script-card ss2">
+    <div class="mat-head">
+      <div class="mat-head-row">
+        <div class="mat-title">美伊停火延期！特朗普宣布延长，但伊朗拒绝谈判，布油盘中破百</div>
+        <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+      </div>
+      <div class="mat-tag-row">
+        <span class="mat-tag" style="background:rgba(231,76,60,0.1);color:#c0392b;">国际局势</span>
+        <span class="mat-tag" style="background:#f5f4f0;color:#888;">高热度</span>
+      </div>
+    </div>
+    <div class="mat-body">
+      <div class="hook">
+        <div class="hook-label">前3秒钩子</div>
+        <div class="hook-text">美伊停火延期了！但伊朗拒绝谈判，油价盘中破100美元——接下来怎么走？</div>
+      </div>
+      <div class="body-lines">
+        <div class="body-line">4月21日，特朗普宣布延长停火期限，理由是应巴基斯坦请求，且伊朗政府内部"严重分裂"。但伊朗国家电视台宣称"伊朗已成为战场胜利者"，控制霍尔木兹海峡是伊朗的宝贵筹码。</div>
+        <div class="body-line">布伦特原油盘中一度突破100美元/桶，WTI收涨2.57%至89.67美元/桶。国际海事组织秘书长4月22日发表声明：袭船扣船不可接受，呼吁立即放人放船。近2万名海员仍滞留该地区。</div>
+      </div>
+      <div class="cover-tip">
+        <div class="cover-tip-label">封面建议</div>
+        <div class="cover-tip-text">大字"美伊停火延期！油价破百" + 霍尔木兹海峡地图 + 油价上涨箭头</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 素材5：库克卸任 -->
+  <div class="mat-script-card ss2">
+    <div class="mat-head">
+      <div class="mat-head-row">
+        <div class="mat-title">库克9月卸任苹果CEO！硬件主管特努斯接棒，苹果时代要翻篇了？</div>
+        <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+      </div>
+      <div class="mat-tag-row">
+        <span class="mat-tag" style="background:rgba(52,152,219,0.1);color:#2980b9;">科技巨头</span>
+        <span class="mat-tag" style="background:#f5f4f0;color:#888;">高热度</span>
+      </div>
+    </div>
+    <div class="mat-body">
+      <div class="hook">
+        <div class="hook-label">前3秒钩子</div>
+        <div class="hook-text">库克要走了！执掌苹果14年，市值从3500亿涨到4万亿——新CEO是谁？苹果会变好吗？</div>
+      </div>
+      <div class="body-lines">
+        <div class="body-line">4月20日苹果正式宣布：库克9月1日卸任CEO，转任执行董事长；硬件工程高级副总裁约翰·特努斯接任。库克执掌14年，市值从3500亿增至4万亿美元。特努斯50岁，主导了M系列芯片Mac、AirPods等核心产品线。</div>
+      </div>
+      <div class="cover-tip">
+        <div class="cover-tip-label">封面建议</div>
+        <div class="cover-tip-text">大字"库克卸任！苹果换帅" + 库克/特努斯对比图 + 苹果Logo</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ★★★ 必做素材 1-3 -->
+<div class="page">
+  <!-- 素材1 -->
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">日本7.7级强震！铠侠停产、半导体供应链告急——国产替代的机会来了？</div>
+      <div class="mat-stars"><span class="star-gold">★★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">4月20日日本本州东北部海域7.7级浅源强震，震源深度10-19公里。铠侠岩手NAND工厂停产，东京电子、信越化学、SUMCO等全球半导体材料与设备供应商均受影响</div></div>
+    <div class="mat-row"><div class="mat-key">⚡ 争议</div><div class="mat-val">属于"供应链局部休克"而非系统性冲击，但对NAND闪存、光刻胶、硅片等关键材料短期冲击明显。国产替代或迎来催化</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">震撼角度：全球芯片供应告急。分析角度：哪些芯片要涨、哪些不受影响。投资角度：国产半导体公司最受益</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">科技爱好者、投资者、半导体从业者</div></div>
+    <div class="mat-source">📊 来源：新华社（4月20日）；集微网（4月21日）；TrendForce（4月21日）</div>
+  </div>
+
+  <!-- 素材2 -->
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">A股创业板综指创历史新高！CPO光模块1年10倍，算力全线爆发</div>
+      <div class="mat-stars"><span class="star-gold">★★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">4月22日沪指涨0.52%重返4100点五连阳，创业板指涨1.73%站上3700点，创业板综指突破2015年6月3日高点创历史新高。算力全线爆发：新易盛近一年涨超1033%市值破6000亿</div></div>
+    <div class="mat-row"><div class="mat-key">⚡ 争议</div><div class="mat-val">1年10倍涨幅历史上罕见，2015年创业板创纪录后半年跌50%。是真机会还是泡沫？</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">震撼角度：光模块1年10倍。数据角度：创业板综指破2015纪录意味着什么。风险角度：追高还是观望</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">A股投资者、基金持有者、科技股关注者</div></div>
+    <div class="mat-source">📊 来源：21世纪经济报道（4月22日）；每日经济新闻（4月22日）</div>
+  </div>
+
+  <!-- 素材3 -->
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">油价年内首降落地！92号降0.44元/升加满省22元——但可能又要涨回来</div>
+      <div class="mat-stars"><span class="star-gold">★★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">4月21日24时起汽油降555元/吨、柴油降530元/吨。92号降0.44元/升（北京8.46元），95号降0.46元/升，0号柴油降0.45元/升。加满50升省22元</div></div>
+    <div class="mat-row"><div class="mat-key">⚡ 争议</div><div class="mat-val">但布伦特原油4月21日盘中破100美元/桶！美伊停火延期但伊朗拒绝谈判，下一轮5月8日调价可能涨回来</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">实用角度：现在加满最划算。算账角度：网约车月省200。趋势角度：油价刚降又要涨</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">车主、网约车司机、物流从业者</div></div>
+    <div class="mat-source">📊 来源：国家发改委（4月21日）；中国经济网（4月21日）</div>
+  </div>
+</div>
+
+<!-- ★★ 重点关注 4-10 -->
+<div class="page">
+  <!-- 素材6 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">人社部新规！超龄劳动者权益保障、退休缴费年限不够怎么办</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">4月15日人社部发布新规：禁止年龄歧视、超龄劳动者可享工伤保险；社保不够15年可延缴或一次性补缴；特殊工种男55/女45可提前退休</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">实用角度：到龄退休社保不够怎么办。保障角度：超龄劳动者的权益终于有人管了</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">70后80后、灵活就业者、超龄劳动者</div></div>
+    <div class="mat-source">📊 来源：人社部（4月15日）；21世纪经济报道（4月22日）</div>
+  </div>
+
+  <!-- 素材7 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">A股"脑机接口"虚实调查！概念泛化与炒作狂欢，监管已出手</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">"脑电图机"被包装成"脑机接口"，参股亏损初创公司就能让市值飙涨。2026年脑机接口首次写入政府工作报告，超百家机构扎堆调研5只概念股</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">警示角度：概念炒作虚实。产业角度：脑机接口距离商用还有多远</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">A股投资者、科技爱好者</div></div>
+    <div class="mat-source">📊 来源：和讯网（4月23日）；36氪（4月14日）</div>
+  </div>
+
+  <!-- 素材8 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">黄金白银暴跌！白银两日大跌近7%，避险退潮还是上车机会？</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">4月21-22日白银两日大跌近7%，伦敦银现最低76.6美元/盎司；国际金价4719.42美元/盎司震荡；国内基础金价1036元/克</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">避险退潮角度：美伊停火延期降低避险需求。上车机会角度：央行购金+地缘风险支撑仍在</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">黄金投资者、理财用户</div></div>
+    <div class="mat-source">📊 来源：新浪财经（4月22日）；36氪</div>
+  </div>
+
+  <!-- 素材9 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">灵活就业社保缴费标准出炉！月缴1260元起步，3亿人划不划算？</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">2026年灵活就业社保：养老基数下限4504元×20%=900元/月，医保下限4504元×8%=360元/月，合计最低1260元/月。取消户籍限制后3亿人可在工作地参保</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">算账角度：月缴1260元15年后能领多少？对比角度：灵活就业社保vs职工社保哪个划算</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">灵活就业者、外卖骑手、网约车司机</div></div>
+    <div class="mat-source">📊 来源：搜狐（4月）；腾讯新闻（4月21日）</div>
+  </div>
+
+  <!-- 素材10 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">养老金4月补发到账！基础养老金163元/月+补发1-3月差额60元</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">4月份城乡居民养老金账户收到两笔：当月163元基础养老金+1至3月补发差额60元。1.8亿人受益。职工养老金"22连涨"方案预计五六月份公布</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">查账角度：快查你的养老金到账了吗。对比角度：城乡养老金163元vs职工养老金差距</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">退休人员、中老年家庭</div></div>
+    <div class="mat-source">📊 来源：新浪财经（4月23日）；人社部</div>
+  </div>
+</div>
+
+<!-- ★ 补充视角 11-13 -->
+<div class="page">
+  <!-- 素材11 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">福布斯2026 AI 50榜单发布！OpenAI、Anthropic领衔，20家新上榜</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">福布斯第八届AI 50强榜单，OpenAI、Anthropic领衔。20家新上榜，两家累计融资2426亿美元约1.66万亿元</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">AI从业者、科技投资者</div></div>
+    <div class="mat-source">📊 来源：IT之家（4月21日）；福布斯</div>
+  </div>
+
+  <!-- 素材12 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">国际海事组织发声！袭船扣船不可接受，2万海员滞留霍尔木兹</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">4月22日国际海事组织秘书长多明格斯声明：袭船扣船不可接受，呼吁立即释放所有被扣船只及海员。近2万名海员滞留七周多，仍无明确返程时间</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">关注国际局势用户、外贸从业者</div></div>
+    <div class="mat-source">📊 来源：新华社伦敦（4月22日）；联合国新闻（4月23日）</div>
+  </div>
+
+  <!-- 素材13 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">商保个税优惠扩围！长期护理险、疾病保险纳入，4月起执行</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">4月起个税优惠商保产品范围扩大，新增长期护理险和疾病保险。每年2400元税前扣除额度不变</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">纳税人群、保险消费者</div></div>
+    <div class="mat-source">📊 来源：51社保网（4月10日）；国家医保局</div>
+  </div>
+</div>
+
+<!-- ===================== 底部 ===================== -->
+<div class="page no-break-after">
+  <div class="page-footer">
+    <div class="brand">素材日报</div>
+    <div class="sub">每日 12:00 自动生成 · 仅供内容参考</div>
+  </div>
+</div>
+
+</body>
+</html>
