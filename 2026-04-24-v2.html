@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>素材日报 2026-04-24</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #f0ede8; font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+
+  @page { size: A4 portrait; margin: 0; }
+  .page { width: 794px; margin: 0 auto; background: #fff; overflow: hidden; position: relative; break-after: page; break-before: page; }
+  .page.no-break-after { break-after: auto; }
+  .page.no-break-before { break-before: auto; }
+
+  .cover { background: linear-gradient(160deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%); padding: 60px 52px 56px; text-align: center; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: -60px; right: -60px; width: 260px; height: 260px; background: radial-gradient(circle, rgba(243,156,18,0.12) 0%, transparent 70%); border-radius: 50%; }
+  .cover::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(52,152,219,0.1) 0%, transparent 70%); border-radius: 50%; }
+  .cover .kicker { display: inline-block; font-size: 11px; letter-spacing: 6px; color: rgba(243,156,18,0.7); text-transform: uppercase; margin-bottom: 28px; }
+  .cover h1 { color: #fff; font-size: 34px; font-weight: 700; line-height: 1.3; margin-bottom: 20px; letter-spacing: -0.5px; position: relative; z-index: 1; }
+  .cover .date { color: rgba(255,255,255,0.4); font-size: 14px; margin-bottom: 36px; letter-spacing: 3px; }
+  .cover .stats { display: flex; justify-content: center; gap: 52px; padding: 28px 0; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 28px; }
+  .cover .stat { text-align: center; }
+  .cover .stat .num { color: #fff; font-size: 32px; font-weight: 700; }
+  .cover .stat .label { color: rgba(255,255,255,0.35); font-size: 12px; margin-top: 6px; letter-spacing: 1px; }
+  .cover .topic-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 18px 24px; text-align: left; position: relative; z-index: 1; }
+  .cover .topic-box .label { font-size: 11px; color: rgba(243,156,18,0.6); letter-spacing: 3px; margin-bottom: 10px; }
+  .cover .topic-box .text { color: rgba(255,255,255,0.88); font-size: 14px; line-height: 1.9; }
+
+  .chapter { padding: 44px 48px 28px; border-bottom: 1px solid #f0ebe4; }
+  .chapter .ch-label { font-size: 11px; letter-spacing: 4px; color: #c9a96e; text-transform: uppercase; margin-bottom: 10px; }
+  .chapter .ch-title { font-size: 24px; font-weight: 700; color: #1a1a2e; letter-spacing: -0.3px; }
+  .chapter .ch-sub { font-size: 13px; color: #999; margin-top: 6px; }
+
+  .script-card { padding: 28px 48px; border-bottom: 1px solid #f0ebe4; }
+  .script-card .sh { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
+  .script-card .rank { width: 44px; height: 44px; background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #c9a96e; font-size: 16px; font-weight: 700; flex-shrink: 0; }
+  .script-card .sh-body { flex: 1; }
+  .script-card .sh-tag { display: inline-block; font-size: 11px; padding: 3px 12px; border-radius: 7px; margin-bottom: 10px; font-weight: 600; }
+  .tag-s1 { background: rgba(231,76,60,0.1); color: #c0392b; }
+  .tag-s2 { background: rgba(230,126,34,0.1); color: #d35400; }
+  .tag-s3 { background: rgba(52,152,219,0.1); color: #2980b9; }
+  .script-card .sh-title { font-size: 17px; font-weight: 700; color: #1a1a2e; line-height: 1.5; }
+  .script-card .sh-meta { display: flex; gap: 10px; margin-top: 10px; }
+  .script-card .meta-chip { font-size: 11px; padding: 3px 10px; border-radius: 5px; }
+  .chip-hot { background: rgba(231,76,60,0.08); color: #c0392b; }
+  .chip-type { background: #f5f4f0; color: #888; }
+
+  .hook { background: linear-gradient(135deg, #fffbf0, #fff8e8); border: 1px solid rgba(243,156,18,0.15); border-left: 4px solid #f39c12; border-radius: 14px; padding: 16px 18px; margin-bottom: 18px; }
+  .hook-label { font-size: 11px; font-weight: 700; color: #c9a96e; letter-spacing: 2px; margin-bottom: 8px; }
+  .hook-text { font-size: 14.5px; color: #3d3d3d; line-height: 1.85; }
+
+  .body-lines { padding: 0 2px; }
+  .body-line { font-size: 14px; color: #555; line-height: 2; margin-bottom: 16px; padding-left: 20px; position: relative; }
+  .body-line:last-child { margin-bottom: 0; }
+  .body-line::before { content: ''; position: absolute; left: 0; top: 12px; width: 6px; height: 6px; background: #c9a96e; border-radius: 50%; }
+
+  .cta { background: #fffde7; border: 1px solid rgba(243,156,18,0.15); border-radius: 12px; padding: 14px 18px; margin-top: 16px; }
+  .cta-label { font-size: 11px; color: #c9a96e; letter-spacing: 2px; margin-bottom: 6px; }
+  .cta-text { font-size: 13.5px; color: #666; line-height: 1.7; }
+
+  .cover-tip { background: #f9f8f5; border-radius: 10px; padding: 12px 16px; margin-top: 12px; }
+  .cover-tip-label { font-size: 11px; color: #bbb; margin-bottom: 5px; }
+  .cover-tip-text { font-size: 13px; color: #888; line-height: 1.65; }
+
+  .mat-script-card { margin: 0 28px 18px; background: #faf9f7; border: 1px solid #f0ebe4; border-radius: 16px; overflow: hidden; position: relative; }
+  .mat-script-card::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; }
+  .mat-script-card.ss3::before { background: linear-gradient(180deg, #e74c3c, #c0392b); }
+  .mat-script-card.ss2::before { background: linear-gradient(180deg, #3498db, #2980b9); }
+  .mat-script-card.ss1::before { background: linear-gradient(180deg, #95a5a6, #7f8c8d); }
+  .mat-script-card .mat-head { padding: 18px 20px 14px; }
+  .mat-script-card .mat-head-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; }
+  .mat-script-card .mat-title { font-size: 15px; font-weight: 600; color: #1a1a2e; line-height: 1.5; flex: 1; }
+  .mat-script-card .mat-stars { font-size: 14px; flex-shrink: 0; padding-top: 2px; }
+  .star-gold { color: #f39c12; }
+  .star-gray { color: #ddd; }
+  .mat-script-card .mat-tag-row { display: flex; gap: 8px; margin-top: 10px; }
+  .mat-script-card .mat-tag { font-size: 11px; padding: 2px 10px; border-radius: 6px; font-weight: 600; }
+  .mat-script-card .mat-body { padding: 0 20px 18px; }
+
+  .mat-card { margin: 0 28px 18px; background: #faf9f7; border: 1px solid #f0ebe4; border-radius: 16px; padding: 18px 20px; position: relative; overflow: hidden; }
+  .mat-card::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; }
+  .mat-card.ss3::before { background: linear-gradient(180deg, #e74c3c, #c0392b); }
+  .mat-card.ss2::before { background: linear-gradient(180deg, #3498db, #2980b9); }
+  .mat-card.ss1::before { background: linear-gradient(180deg, #95a5a6, #7f8c8d); }
+  .mat-card .mat-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; gap: 14px; }
+  .mat-card .mat-title { font-size: 15px; font-weight: 600; color: #1a1a2e; line-height: 1.5; flex: 1; }
+  .mat-card .mat-stars { font-size: 14px; flex-shrink: 0; padding-top: 2px; }
+  .mat-row { display: flex; gap: 10px; margin-bottom: 11px; align-items: flex-start; }
+  .mat-row:last-child { margin-bottom: 0; }
+  .mat-key { font-size: 13px; color: #8a8a8a; width: 68px; flex-shrink: 0; padding-top: 1px; font-weight: 500; }
+  .mat-val { font-size: 14px; color: #333; line-height: 1.75; flex: 1; }
+  .mat-source { margin-top: 14px; padding-top: 12px; border-top: 1px solid #ece8e2; font-size: 12px; color: #999; }
+
+  .page-footer { background: #1a1a2e; padding: 32px 48px; text-align: center; }
+  .page-footer .brand { font-size: 16px; font-weight: 700; color: rgba(255,255,255,0.8); margin-bottom: 6px; letter-spacing: 4px; }
+  .page-footer .sub { font-size: 11px; color: rgba(255,255,255,0.3); }
+</style>
+</head>
+<body>
+
+<div class="page no-break-after">
+  <div class="cover">
+    <div class="kicker">Daily Brief</div>
+    <h1>短视频素材精选</h1>
+    <div class="date">2026.04.24 · Friday</div>
+    <div class="stats">
+      <div class="stat"><div class="num">3</div><div class="label">参考脚本</div></div>
+      <div class="stat"><div class="num">13</div><div class="label">重点素材</div></div>
+      <div class="stat"><div class="num">3</div><div class="label">今日热点</div></div>
+    </div>
+    <div class="topic-box">
+      <div class="label">Today's Focus</div>
+      <div class="text">住建部现房销售全面推行 · 中际旭创市值破万亿 · 国安部稀土副总泄密</div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+  <div class="chapter">
+    <div class="ch-label">Reference Scripts</div>
+    <div class="ch-title">参考脚本</div>
+    <div class="ch-sub">视频号爆款结构 · 反转悬念文案 · 可直接二创</div>
+  </div>
+
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">01</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s1">楼市政策</span>
+        <div class="sh-title">住建部重磅！现房销售4月全面推行——延续30年的期房预售模式终结</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">极高热度</span>
+          <span class="meta-chip chip-type">政策解读</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">住建部刚刚宣布：4月1日起，全国推行现房销售！买了期房的人彻底哭了——你还在买期房吗？</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">4月1号，住建部联合多部门发布重磅新政：全国范围内新出让住宅用地，全面推行"所见即所得"的现房销售模式。这意味着什么？延续近30年的期房预售制度，正式画上句号了！</div>
+      <div class="body-line">以前买房是什么流程？你交钱的时候房子还没盖好，可能要等两三年才能收房。这期间，万一开发商资金链断裂——房子烂尾了，你既要还贷款又住不进去。</div>
+      <div class="body-line">现在政策来了！从4月1号开始，新出让的土地，必须房子建好才能卖。三个重大变化：第一，烂尾楼问题将从根本上解决；第二，购房者更安全；第三，开发商门槛提高。</div>
+      <div class="body-line">但是要注意！政策有一个过渡期。现有的在建期房项目怎么处理？不同城市可能有不同的衔接方案。建议买房之前，详细了解当地的具体细则。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你买过期房吗？有没有遇到过烂尾的情况？评论区说说你的经历。觉得有用就转发给准备买房的朋友，关注我，每天帮你看懂政策对生活的影响。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"现房销售时代来了！" + 房子图标 + 住建部logo；配图：期房vs现房对比 + 30年预售制度终结</div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">02</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s1">A股财经</span>
+        <div class="sh-title">中际旭创市值突破万亿！A股年内第8只万亿股——同一天证监会立案调查4家公司</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">极高热度</span>
+          <span class="meta-chip chip-type">行情解读</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">A股又诞生一只万亿巨头！中际旭创市值突破万亿——但同一天，证监会立案调查了4家公司！</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">4月23号，中际旭创股价突破900块，总市值首次突破1万亿，成为A股年内第8只万亿股。它是国内光模块龙头，核心业务来自子公司苏州旭创。就是做那种用在数据中心、5G基站、AI服务器里的光通信模块。</div>
+      <div class="body-line">更疯狂的是：中际旭创近一年涨幅高达700%！1年前投100万，现在值800万。为什么涨这么猛？AI大爆发让全球数据中心需求暴增，国产替代也在加速。</div>
+      <div class="body-line">但是！就在同一天晚上，证监会宣布对4家公司立案调查——*ST数源连续4年亏损面临退市，傲农生物、欢瑞世纪、兰石重装涉及信息披露违规。万亿股票大涨的同时，垃圾股在被清退出场。</div>
+      <div class="body-line">A股的分化越来越明显：好公司越来越贵，差公司越来越没人要。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你觉得中际旭创还能涨吗？万亿市值是机会还是风险？评论区说说你的看法。觉得有用就转发给股友，关注我，每天帮你搞懂投资那些事儿。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"万亿巨头诞生！" + 股票K线图标 + 涨停板；配图：中际旭创近一年涨幅700% + 证监会立案4家公司</div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">03</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s2">国家安全</span>
+        <div class="sh-title">国安部重磅出手！稀土公司副总被抓，向境外提供7项机密级国家秘密</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">极高热度</span>
+          <span class="meta-chip chip-type">震撼解读</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">国家安全部刚刚出手！稀土公司副总被抓，向境外提供了7项机密级国家秘密——比电影还刺激！</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">4月23号，国家安全部官方微信公众号重磅披露：某稀土公司副总经理成某，为谋私利，向境外非法提供我国稀土收储7项机密级国家秘密。</div>
+      <div class="body-line">稀土是什么？芯片、手机、新能源汽车、军工——全都离不开稀土。这是国家的战略资源。成某为了钱，把国家战略机密卖给了境外情报机构。</div>
+      <div class="body-line">泄密的危害有多大？第一，经济层面——让对手知道我们的储备量和供应链布局；第二，安全层面——可能被做局损害中国利益；第三，战略层面——影响国家安全。</div>
+      <div class="body-line">国安部同时强调：近年来，境外间谍情报机关对我国产业链供应链的渗透日益严重，涉及半导体技术、数据资源等多个关键领域。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你觉得还有哪些领域可能被境外渗透？评论区说说你的看法。觉得有用就转发给朋友，关注我，每天帮你看懂国家安全那些事儿。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"国安部出手！" + 稀土图标 + 保密标识；配图：7项机密级国家秘密 + 稀土产业链</div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+  <div class="chapter">
+    <div class="ch-label">Key Highlights</div>
+    <div class="ch-title">重点关注</div>
+    <div class="ch-sub">13条素材线索 · 含完整脚本内容 · 多角度切入</div>
+  </div>
+
+  <div class="mat-script-card ss2">
+    <div class="mat-head">
+      <div class="mat-head-row">
+        <div class="mat-title">A股放量下跌沪指失守4100点！成交2.82万亿——牛市还在吗？</div>
+        <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+      </div>
+      <div class="mat-tag-row">
+        <span class="mat-tag" style="background:rgba(231,76,60,0.1);color:#c0392b;">A股行情</span>
+        <span class="mat-tag" style="background:#f5f4f0;color:#888;">高热度</span>
+      </div>
+    </div>
+    <div class="mat-body">
+      <div class="hook">
+        <div class="hook-label">前3秒钩子</div>
+        <div class="hook-text">A股放量下跌沪指失守4100点！成交2.82万亿——牛市还在吗？</div>
+      </div>
+      <div class="body-lines">
+        <div class="body-line">4月23日，A股呈现放量下跌态势：沪指收跌0.32%报4093.25点失守4100点，创业板指收跌0.87%。沪深京三市成交额放量至2.82万亿元。</div>
+        <div class="body-line">板块分化明显：回调板块包括有色及通信等科技板块；上涨板块包括石油、煤炭，白酒等。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mat-script-card ss2">
+    <div class="mat-head">
+      <div class="mat-head-row">
+        <div class="mat-title">公募基金一季度调仓曝光！大幅减持港股，狂买通信——基金经理在赌什么？</div>
+        <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+      </div>
+      <div class="mat-tag-row">
+        <span class="mat-tag" style="background:rgba(52,152,219,0.1);color:#2980b9;">基金动态</span>
+        <span class="mat-tag" style="background:#f5f4f0;color:#888;">中热度</span>
+      </div>
+    </div>
+    <div class="mat-body">
+      <div class="body-lines">
+        <div class="body-line">一季度公募基金操作曝光：主动权益基金大幅降低股票仓位避险，对港股配置比例降幅明显。行业层面：投资科技赛道是共识，A股通信板块获大幅超配，有色等周期品种遭减持。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">住建部重磅！现房销售4月全面推行，延续30年的期房预售模式终结</div>
+      <div class="mat-stars"><span class="star-gold">★★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">4月1日起，住建部联合多部门发布重磅新政正式落地：全国范围内新出让住宅用地，全面推行"所见即所得"的现房销售模式。延续近30年的期房预售制度正式画上句号</div></div>
+    <div class="mat-row"><div class="mat-key">⚡ 亮点</div><div class="mat-val">三大变化：第一，烂尾楼问题将从根本上解决；第二，购房者更安全；第三，开发商门槛提高</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">震撼型：30年预售时代终结。实用型：现房选购指南。对比型：期房vs现房</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">购房者、房地产从业者、房产投资者、政策关注者</div></div>
+    <div class="mat-source">📊 来源：住建部（4月1日）；央广网（4月8日）；搜狐焦点</div>
+  </div>
+
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">中际旭创市值突破万亿！A股年内第8只万亿股，光模块龙头1年涨7倍</div>
+      <div class="mat-stars"><span class="star-gold">★★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">4月23日，中际旭创股价突破900元/股，总市值首次突破1万亿，成为A股年内第8只万亿股。近一年涨幅高达700%</div></div>
+    <div class="mat-row"><div class="mat-key">⚡ 争议</div><div class="mat-val">同日证监会立案调查4家公司：*ST数源、傲农生物、欢瑞世纪、兰石重装</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">震撼型：万亿巨头诞生。风险型：涨7倍是机会还是泡沫？警示型：证监会立案4家</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">A股投资者、基金持有者、科技股关注者</div></div>
+    <div class="mat-source">📊 来源：新浪财经（4月24日）；芝麻AI速递；21世纪经济报道</div>
+  </div>
+
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">国安部重磅披露！稀土公司副总泄密7项机密级国家秘密</div>
+      <div class="mat-stars"><span class="star-gold">★★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">国家安全部4月23日披露：稀土公司副总经理成某为谋私利，向境外非法提供我国稀土收储7项机密级国家秘密</div></div>
+    <div class="mat-row"><div class="mat-key">⚡ 警示</div><div class="mat-val">国安部强调：境外间谍情报机关对我国产业链供应链的渗透日益严重，涉及半导体、数据资源等领域</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">震撼型：比电影还刺激。警示型：泄密面临什么？背景型：还有哪些领域被渗透？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">政策关注者、国家安全议题爱好者、财经深度用户</div></div>
+    <div class="mat-source">📊 来源：国家安全部官方（4月23日）；新浪财经（4月24日）</div>
+  </div>
+</div>
+
+<div class="page">
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">银行股H股涨势强劲！四大行H股创历史新高，估值修复进行时</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">近段时间，银行股H股涨势亮眼：中证香港银行投资指数年初至今涨幅超10%。4月21日四大行H股均创历史高价</div></div>
+    <div class="mat-source">📊 来源：芝麻AI速递（4月24日）；金融界</div>
+  </div>
+
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">人民币外汇期权地位加速跃升！有望超越日元成全球第二大货币对</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">伦敦清算所预测：美元兑离岸人民币货币对有望在2028年超越美元兑日元，成为全球外汇期权市场第二大交易货币对</div></div>
+    <div class="mat-source">📊 来源：芝麻AI速递（4月24日）；伦敦清算所</div>
+  </div>
+
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">美股软件股重挫！IBM财报不及预期，市场担忧AI冲击传统业务</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">4月23日晚间，美股三大指数集体走弱，软件股全线重挫。IBM财报：软件业务增速仅符合预期，咨询业务增长缓慢</div></div>
+    <div class="mat-source">📊 来源：芝麻AI速递（4月24日）；华尔街见闻</div>
+  </div>
+
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">稀土泄密案背后！国安部强调产业链供应链安全，渗透日益严重</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">国安部强调：近年来，境外间谍情报机关对我国产业链供应链的渗透日益严重，涉及半导体技术、数据资源等领域</div></div>
+    <div class="mat-source">📊 来源：国家安全部（4月23日）；36氪</div>
+  </div>
+
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">多家公司一季度业绩大增！双杰电气、冠豪高新等业绩爆发</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">4月23日晚间，多家上市公司公布一季度财报：双杰电气、冠豪高新、香农芯创等业绩大增</div></div>
+    <div class="mat-source">📊 来源：芝麻AI速递（4月24日）；新浪财经</div>
+  </div>
+</div>
+
+<div class="page">
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">多地楼市新政密集落地！珠海、济南、青岛优化限购限贷</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">近日，珠海、济南、青岛等多地接连发布房地产新政，涵盖优化限购限贷政策、推进"以旧换新"模式、调整公积金使用规则等</div></div>
+    <div class="mat-source">📊 来源：京报网（4月22日）；新华网</div>
+  </div>
+
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">斯坦福2026年AI指数报告发布！中国AI论文数量全球第一</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">4月13日，斯坦福大学发布第九版《AI Index Report 2026》。报告显示，中国在AI论文数量上已居全球第一</div></div>
+    <div class="mat-source">📊 来源：腾讯网（4月16日）；斯坦福HAI研究所</div>
+  </div>
+
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">GPT-6发布时间线曝光！AI大模型军备竞赛升级</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">AI大事件：GPT-6即将发布，Anthropic年收破300亿美元。4月份国产大模型集体爆发</div></div>
+    <div class="mat-source">📊 来源：人人都是产品经理（4月14日）；搜狐</div>
+  </div>
+</div>
+
+<div class="page no-break-after">
+  <div class="page-footer">
+    <div class="brand">素材日报</div>
+    <div class="sub">每日 12:00 自动生成 · 仅供内容参考</div>
+  </div>
+</div>
+
+</body>
+</html>
