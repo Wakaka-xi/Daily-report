@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>素材日报 2026-04-25</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #f0ede8; font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+
+  @page { size: A4 portrait; margin: 0; }
+  .page {
+    width: 794px;
+    margin: 0 auto;
+    background: #fff;
+    overflow: hidden;
+    position: relative;
+    break-after: page;
+    break-before: page;
+  }
+  .page.no-break-after { break-after: auto; }
+  .page.no-break-before { break-before: auto; }
+
+  /* ========== 封面 ========== */
+  .cover { background: linear-gradient(160deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%); padding: 60px 52px 56px; text-align: center; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: -60px; right: -60px; width: 260px; height: 260px; background: radial-gradient(circle, rgba(243,156,18,0.12) 0%, transparent 70%); border-radius: 50%; }
+  .cover::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(52,152,219,0.1) 0%, transparent 70%); border-radius: 50%; }
+  .cover .kicker { display: inline-block; font-size: 11px; letter-spacing: 6px; color: rgba(243,156,18,0.7); text-transform: uppercase; margin-bottom: 28px; }
+  .cover h1 { color: #fff; font-size: 34px; font-weight: 700; line-height: 1.3; margin-bottom: 20px; letter-spacing: -0.5px; position: relative; z-index: 1; }
+  .cover .date { color: rgba(255,255,255,0.4); font-size: 14px; margin-bottom: 36px; letter-spacing: 3px; }
+  .cover .stats { display: flex; justify-content: center; gap: 52px; padding: 28px 0; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 28px; }
+  .cover .stat { text-align: center; }
+  .cover .stat .num { color: #fff; font-size: 32px; font-weight: 700; }
+  .cover .stat .label { color: rgba(255,255,255,0.35); font-size: 12px; margin-top: 6px; letter-spacing: 1px; }
+  .cover .topic-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 18px 24px; text-align: left; position: relative; z-index: 1; }
+  .cover .topic-box .label { font-size: 11px; color: rgba(243,156,18,0.6); letter-spacing: 3px; margin-bottom: 10px; }
+  .cover .topic-box .text { color: rgba(255,255,255,0.88); font-size: 14px; line-height: 1.9; }
+
+  /* ========== 章节标题 ========== */
+  .chapter { padding: 44px 48px 28px; border-bottom: 1px solid #f0ebe4; }
+  .chapter .ch-label { font-size: 11px; letter-spacing: 4px; color: #c9a96e; text-transform: uppercase; margin-bottom: 10px; }
+  .chapter .ch-title { font-size: 24px; font-weight: 700; color: #1a1a2e; letter-spacing: -0.3px; }
+  .chapter .ch-sub { font-size: 13px; color: #999; margin-top: 6px; }
+
+  /* ========== 脚本卡片 ========== */
+  .script-card { padding: 28px 48px; border-bottom: 1px solid #f0ebe4; }
+  .script-card .sh { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
+  .script-card .rank { width: 44px; height: 44px; background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #c9a96e; font-size: 16px; font-weight: 700; flex-shrink: 0; }
+  .script-card .sh-body { flex: 1; }
+  .script-card .sh-tag { display: inline-block; font-size: 11px; padding: 3px 12px; border-radius: 7px; margin-bottom: 10px; font-weight: 600; }
+  .tag-s1 { background: rgba(231,76,60,0.1); color: #c0392b; }
+  .tag-s2 { background: rgba(230,126,34,0.1); color: #d35400; }
+  .tag-s3 { background: rgba(52,152,219,0.1); color: #2980b9; }
+  .script-card .sh-title { font-size: 17px; font-weight: 700; color: #1a1a2e; line-height: 1.5; }
+  .script-card .sh-meta { display: flex; gap: 10px; margin-top: 10px; }
+  .script-card .meta-chip { font-size: 11px; padding: 3px 10px; border-radius: 5px; }
+  .chip-hot { background: rgba(231,76,60,0.08); color: #c0392b; }
+  .chip-type { background: #f5f4f0; color: #888; }
+
+  /* 钩子 */
+  .hook { background: linear-gradient(135deg, #fffbf0, #fff8e8); border: 1px solid rgba(243,156,18,0.15); border-left: 4px solid #f39c12; border-radius: 14px; padding: 16px 18px; margin-bottom: 18px; }
+  .hook-label { font-size: 11px; font-weight: 700; color: #c9a96e; letter-spacing: 2px; margin-bottom: 8px; }
+  .hook-text { font-size: 14.5px; color: #3d3d3d; line-height: 1.85; }
+
+  /* 正文 */
+  .body-lines { padding: 0 2px; }
+  .body-line { font-size: 14px; color: #555; line-height: 2; margin-bottom: 16px; padding-left: 20px; position: relative; }
+  .body-line:last-child { margin-bottom: 0; }
+  .body-line::before { content: ''; position: absolute; left: 0; top: 12px; width: 6px; height: 6px; background: #c9a96e; border-radius: 50%; }
+
+  /* 时间轴 */
+  .time-block { background: #faf9f7; border-left: 3px solid #c9a96e; padding: 10px 14px; margin-bottom: 10px; border-radius: 0 8px 8px 0; }
+  .time-block .time { color: #c9a96e; font-weight: 700; font-size: 12px; margin-right: 8px; }
+  .time-block .content { color: #555; font-size: 14px; line-height: 1.7; display: inline; }
+
+  /* 互动引导 */
+  .cta { background: #fffde7; border: 1px solid rgba(243,156,18,0.15); border-radius: 12px; padding: 14px 18px; margin-top: 16px; }
+  .cta-label { font-size: 11px; color: #c9a96e; letter-spacing: 2px; margin-bottom: 6px; }
+  .cta-text { font-size: 13.5px; color: #666; line-height: 1.7; }
+
+  /* 封面建议 */
+  .cover-tip { background: #f9f8f5; border-radius: 10px; padding: 12px 16px; margin-top: 12px; }
+  .cover-tip-label { font-size: 11px; color: #bbb; margin-bottom: 5px; }
+  .cover-tip-text { font-size: 13px; color: #888; line-height: 1.65; }
+
+  /* ========== 素材卡片 ========== */
+  .mat-card { margin: 0 28px 18px; background: #faf9f7; border: 1px solid #f0ebe4; border-radius: 16px; padding: 18px 20px; position: relative; overflow: hidden; }
+  .mat-card::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; }
+  .mat-card.ss3::before { background: linear-gradient(180deg, #e74c3c, #c0392b); }
+  .mat-card.ss2::before { background: linear-gradient(180deg, #3498db, #2980b9); }
+  .mat-card.ss1::before { background: linear-gradient(180deg, #95a5a6, #7f8c8d); }
+  .mat-card .mat-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; gap: 14px; }
+  .mat-card .mat-title { font-size: 15px; font-weight: 600; color: #1a1a2e; line-height: 1.5; flex: 1; }
+  .mat-card .mat-stars { font-size: 14px; flex-shrink: 0; padding-top: 2px; }
+  .star-gold { color: #f39c12; }
+  .star-gray { color: #ddd; }
+  .mat-row { display: flex; gap: 10px; margin-bottom: 11px; align-items: flex-start; }
+  .mat-row:last-child { margin-bottom: 0; }
+  .mat-key { font-size: 13px; color: #8a8a8a; width: 68px; flex-shrink: 0; padding-top: 1px; font-weight: 500; }
+  .mat-val { font-size: 14px; color: #333; line-height: 1.75; flex: 1; }
+  .mat-source { margin-top: 14px; padding-top: 12px; border-top: 1px solid #ece8e2; font-size: 12px; color: #999; }
+
+  /* ========== 底部页脚 ========== */
+  .page-footer { background: #1a1a2e; padding: 32px 48px; text-align: center; }
+  .page-footer .brand { font-size: 16px; font-weight: 700; color: rgba(255,255,255,0.8); margin-bottom: 6px; letter-spacing: 4px; }
+  .page-footer .sub { font-size: 11px; color: rgba(255,255,255,0.3); }
+</style>
+</head>
+<body>
+
+<!-- ===================== 封面 ===================== -->
+<div class="page no-break-after">
+  <div class="cover">
+    <div class="kicker">Daily Brief</div>
+    <h1>短视频素材精选</h1>
+    <div class="date">2026.04.25 · Saturday</div>
+    <div class="stats">
+      <div class="stat"><div class="num">3</div><div class="label">参考脚本</div></div>
+      <div class="stat"><div class="num">13</div><div class="label">重点素材</div></div>
+      <div class="stat"><div class="num">3</div><div class="label">今日热点</div></div>
+    </div>
+    <div class="topic-box">
+      <div class="label">Today's Focus</div>
+      <div class="text">联讯仪器暴涨950%一签赚38.9万 · 英特尔AI翻身盘后涨近20% · 三大交易所改规则ST股涨跌幅变10%</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 参考脚本 ===================== -->
+<div class="page">
+  <div class="chapter">
+    <div class="ch-label">Reference Scripts</div>
+    <div class="ch-title">参考脚本</div>
+    <div class="ch-sub">视频号爆款结构 · 反转悬念文案 · 可直接二创</div>
+  </div>
+
+  <!-- 脚本1：联讯仪器 -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">01</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s1">打新暴击</span>
+        <div class="sh-title">中一签赚38.9万！联讯仪器上市首日暴涨950%</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">极高热度</span>
+          <span class="meta-chip chip-type">打新科普</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">中一签赚38.9万！有人昨天打新中了联讯仪器，今天一天就赚了快40万——你没看错，这是真的！</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">4月24号，光通信测试设备龙头联讯仪器正式登陆科创板。发行价81块88，开盘直接飙到736块——暴涨800%！盘中最高冲到859块88，涨幅高达950%！中了一签500股，花4万块到最高点卖掉净赚38万9！收盘卖也赚35万8。2026年截至目前A股最赚钱的新股。</div>
+      <div class="body-line">联讯仪器凭什么这么猛？三个原因：第一，踩准AI风口——光通信测试设备龙头，全球AI数据中心疯狂建设，光模块需求暴增，测试设备水涨船高。第二，业绩爆发——2024年营收7.89亿同比暴涨185%；2025年营收11.94亿；2026年一季度净利润预告最高1.25亿，同比增超5倍。第三，科创板新股首日不受涨跌幅限制，资金疯狂涌入。</div>
+      <div class="body-line">但是注意风险！新股上市首日暴涨不代表后面还能涨。联讯仪器2022年和2023年还是亏损的，只是2024年才扭亏为盈。历史上有多少新股首日翻倍，然后一路跌回原形？中一签赚38万是运气，追高被套是常态。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你打过新股吗？中过最大的肉签赚了多少？评论区说说。觉得有用就转发给股友。投资有风险，入市需谨慎，内容仅供参考。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">配图建议</div>
+      <div class="cover-tip-text">联讯仪器上市首日K线图（暴涨950%曲线） / 新股中签收益对比图 / 光通信测试设备示意图</div>
+    </div>
+  </div>
+
+  <!-- 脚本2：英特尔翻身 -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">02</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s2">科技反转</span>
+        <div class="sh-title">英特尔翻身了！Q1净利润暴增156%，靠AI打了一场漂亮的反击战</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">极高热度</span>
+          <span class="meta-chip chip-type">行业趋势</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">英特尔翻身了！连续6个季度被低估，昨天一份财报盘后暴涨近20%——AI到底改变了什么？</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">过去两年，英特尔可以说是"最惨芯片巨头"——市值被AMD超越，AI浪潮中被英伟达甩在身后，裁员、亏损、转型阵痛。但4月23号晚上，英特尔发布2026年一季度财报：营收136亿美元，同比增7%，连续第6个季度超预期；净利润同比暴增156%！盘后股价大涨近20%。</div>
+      <div class="body-line">靠什么翻身的？两个字：AI。很多人以为AI只需要英伟达的GPU，但事实不是这样。AI大模型从训练走向应用后，大量推理任务需要CPU来处理——AI智能体做数据交互、逻辑推理，CPU最擅长。英特尔数据中心与AI业务营收同比大增22%，CPU在AI基础设施中重新获得关键地位。CEO陈立武的战略转型初见成效。</div>
+      <div class="body-line">英特尔的反弹带动整个半导体板块：费城半导体指数高开，AMD也跟着大涨。同一天，中国的寒武纪宣布完成DeepSeek-V4全系列模型Day 0适配——发布当天就能在国产芯片上跑。全球芯片竞赛才刚刚开始。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你觉得英特尔能重回巅峰吗？评论区说说。关注我，每天帮你看懂科技对投资的影响。投资有风险，内容仅供参考。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">配图建议</div>
+      <div class="cover-tip-text">英特尔财报数据可视化 / 英特尔vs英伟达股价对比图 / 全球半导体指数走势</div>
+    </div>
+  </div>
+</div>
+
+<!-- 脚本3：交易规则 -->
+<div class="page">
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">03</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s3">政策解读</span>
+        <div class="sh-title">交易规则大变！主板ST股涨跌幅从5%变10%——炒垃圾股的人要慌了</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">高热度</span>
+          <span class="meta-chip chip-type">政策警示</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">7月6日起，你的股票交易规则要变了！主板ST股涨跌幅从5%变10%——炒垃圾股的人，要慌了！</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">4月24号，上交所、深交所、北交所同一天发布交易规则修订，5大变化7月6日正式实施：第一，主板ST、*ST股票涨跌幅限制从5%调整为10%，风险直接翻倍。第二，盘后固定价格交易扩展到全部A股和ETF。第三，基金收盘方式从连续竞价改为收盘集合竞价。第四，创业板引入做市商制度。第五，北交所设置风险警示股票单日买入上限。</div>
+      <div class="body-line">为什么要改？说白了就是"提高垃圾股的退市效率"。以前ST股每天只能跌5%，庄家可以利用这个规则反复炒作，散户追进去跌不深、割肉不甘心，最后被套牢。现在涨跌幅变成10%，ST股波动加大——好公司不受影响，但垃圾股可能加速出清。</div>
+      <div class="body-line">对你有什么影响？三个建议：第一，手里有ST股的，认真评估能不能恢复，7月6号之后风险更大。第二，打板族注意盘后交易新规则可能改变资金博弈方式。第三，基金投资者留意收盘方式变化可能影响ETF申赎价格。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你手里有ST股吗？你支持这个规则变化吗？评论区说说。投资有风险，入市需谨慎，内容仅供参考。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">配图建议</div>
+      <div class="cover-tip-text">ST股涨跌幅5%→10%对比图 / 三大交易所新规则要点汇总 / ST股数量变化趋势图</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 重点素材 ===================== -->
+<div class="page">
+  <div class="chapter">
+    <div class="ch-label">Key Materials</div>
+    <div class="ch-title">重点素材</div>
+    <div class="ch-sub">13条精选素材 · 覆盖财经/科技/民生/政策</div>
+  </div>
+
+  <!-- ⭐⭐⭐ 素材1 -->
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">联讯仪器上市首日暴涨950%！中一签赚38.9万</div>
+      <div class="mat-stars"><span class="star-gold">★★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">热度</div><div class="mat-val">极高 — 年内最大"肉签"，单签盈利刷新纪录</div></div>
+    <div class="mat-row"><div class="mat-key">核心</div><div class="mat-val">光通信测试设备龙头，科创板上市首日盘中最高涨幅950%，收盘单签浮盈35.86万。2026Q1净利润预告同比增超5倍。</div></div>
+    <div class="mat-row"><div class="mat-key">角度</div><div class="mat-val">A.震撼型：一签赚38.9万！年内最赚钱新股 B.科普型：联讯仪器凭什么涨950% C.风险型：首日暴涨后追高的人怎样了</div></div>
+    <div class="mat-row"><div class="mat-key">数据</div><div class="mat-val">发行价81.88元 / 盘中最高859.88元 / 涨幅950.17% / 单签最高盈利38.9万 / 2025年营收11.94亿</div></div>
+    <div class="mat-source">来源：新浪财经、凤凰网科技、腾讯新闻（4月24日）</div>
+  </div>
+
+  <!-- ⭐⭐⭐ 素材2 -->
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">英特尔Q1净利润暴增156%！靠AI翻身盘后涨近20%</div>
+      <div class="mat-stars"><span class="star-gold">★★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">热度</div><div class="mat-val">高 — 半导体巨头AI反击战，连续6季度超预期</div></div>
+    <div class="mat-row"><div class="mat-key">核心</div><div class="mat-val">Q1营收136亿美元同比增7%，净利润暴增156%，数据中心与AI业务营收大增22%，CPU在AI基础设施重获关键地位。</div></div>
+    <div class="mat-row"><div class="mat-key">角度</div><div class="mat-val">A.震撼型：英特尔翻身盘后涨20% B.分析型：连续6季度超预期凭什么赢 C.对比型：英特尔vs英伟达谁更值得看好</div></div>
+    <div class="mat-row"><div class="mat-key">数据</div><div class="mat-val">营收136亿美元 / 净利润增156% / AI业务营收增22% / 连续超预期第6季度 / 盘后涨近20%</div></div>
+    <div class="mat-source">来源：搜狐科技、新浪财经、腾讯新闻（4月24日）</div>
+  </div>
+
+  <!-- ⭐⭐⭐ 素材3 -->
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">三大交易所修订交易规则！主板ST股涨跌幅5%→10%</div>
+      <div class="mat-stars"><span class="star-gold">★★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">热度</div><div class="mat-val">高 — 影响所有股民，垃圾股加速出清信号</div></div>
+    <div class="mat-row"><div class="mat-key">核心</div><div class="mat-val">7月6日起：主板ST股涨跌幅从5%调为10%，盘后交易扩展至全部A股和ETF，创业板引入做市商，基金收盘改集合竞价。</div></div>
+    <div class="mat-row"><div class="mat-key">角度</div><div class="mat-val">A.警示型：ST股涨跌幅翻倍炒垃圾股要慌 B.政策型：5大变化影响所有股民 C.实操型：普通股民注意这3点</div></div>
+    <div class="mat-row"><div class="mat-key">数据</div><div class="mat-val">实施日期7月6日 / ST股涨跌幅5%→10% / 盘后交易扩展至全部A股 / 创业板引入做市商</div></div>
+    <div class="mat-source">来源：新浪财经、证券日报（4月24-25日）</div>
+  </div>
+
+  <!-- ⭐⭐ 素材4 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">A股沪指失守4100！锂矿爆发芯片拉升，超3300股下跌</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">热度</div><div class="mat-val">高 — 风格切换剧烈，锂矿芯片逆势大涨</div></div>
+    <div class="mat-row"><div class="mat-key">核心</div><div class="mat-val">沪指跌0.33%报4079.9点，创业板跌1.41%，成交2.66万亿缩量。锂矿概念爆发（碳酸锂60天涨17%），芯片午后拉升，化工活跃，商业航天走弱。</div></div>
+    <div class="mat-row"><div class="mat-key">数据</div><div class="mat-val">沪指4079.9点 / 创业板3667.79点 / 科创50+1.47% / 成交2.66万亿 / 超3300股下跌</div></div>
+    <div class="mat-source">来源：金融界（4月24日）</div>
+  </div>
+
+  <!-- ⭐⭐ 素材5 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">全球化肥供应告急！尿素价格暴涨超75%</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">热度</div><div class="mat-val">高 — 中东战火传导至粮食安全</div></div>
+    <div class="mat-row"><div class="mat-key">核心</div><div class="mat-val">霍尔木兹海峡过境量下降超95%，全球1/3海运化肥贸易受阻。尿素期货离岸价从不到500美元涨至850美元/吨，涨幅超75%。</div></div>
+    <div class="mat-row"><div class="mat-key">数据</div><div class="mat-val">尿素：500→850美元/吨（+75%） / 海运化肥受影响1/3 / 霍尔木兹过境量降95%</div></div>
+    <div class="mat-source">来源：央视财经、21世纪经济报道（4月22日）</div>
+  </div>
+
+  <!-- ⭐⭐ 素材6 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">寒武纪完成DeepSeek-V4全系列Day 0适配</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">热度</div><div class="mat-val">中 — 国产AI芯片重大突破</div></div>
+    <div class="mat-row"><div class="mat-key">核心</div><div class="mat-val">基于vLLM框架完成285B Flash版和1.6T Pro版Day 0适配，发布当日即能在国产芯片上运行，代码已开源至GitHub。</div></div>
+    <div class="mat-row"><div class="mat-key">数据</div><div class="mat-val">覆盖285B+1.6T两个版本 / Day 0即时适配 / 华虹半导体港股涨超17%</div></div>
+    <div class="mat-source">来源：IT之家、同花顺（4月24日）</div>
+  </div>
+
+  <!-- ⭐⭐ 素材7 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">一季度全国财政收入增幅创3年同期新高</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">热度</div><div class="mat-val">中 — 经济复苏信号强劲</div></div>
+    <div class="mat-row"><div class="mat-key">核心</div><div class="mat-val">新闻联播4月24日报道，一季度财政收入增幅创3年同期新高。此前数据：一季度GDP增长5%超预期，社融近15万亿。</div></div>
+    <div class="mat-row"><div class="mat-key">数据</div><div class="mat-val">财政收入增幅创3年新高 / GDP增5% / 社融近15万亿</div></div>
+    <div class="mat-source">来源：新闻联播（4月24日）</div>
+  </div>
+</div>
+
+<!-- ===================== 素材续 ===================== -->
+<div class="page">
+  <!-- ⭐⭐ 素材8 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">国际投行集体看多一线城市楼市！高盛预计年底触底</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">热度</div><div class="mat-val">中 — 外资看好中国楼市信号</div></div>
+    <div class="mat-row"><div class="mat-key">核心</div><div class="mat-val">高盛预计上海深圳年底或下半年触底，2025-2028年房价累计涨幅或达15%。摩根大通认为香港楼市复苏有外溢效应，瑞银认为政策松绑带来回升空间。</div></div>
+    <div class="mat-row"><div class="mat-key">数据</div><div class="mat-val">高盛：上海深圳年底触底 / 2025-2028累计涨幅或15%</div></div>
+    <div class="mat-source">来源：新浪财经（4月25日）</div>
+  </div>
+
+  <!-- ⭐⭐ 素材9 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">证监会处罚首例"闯关赴美上市"！中能粮科罚没520万</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">热度</div><div class="mat-val">中 — 境外上市必须备案的明确信号</div></div>
+    <div class="mat-row"><div class="mat-key">核心</div><div class="mat-val">黑龙江证监局对中能粮科及中介机构未备案擅自境外上市拟罚没520万元，为首例违规案件。同时大搜车控股获境外上市备案通知。</div></div>
+    <div class="mat-row"><div class="mat-key">数据</div><div class="mat-val">罚没520万元 / 首例违规境外上市处罚案</div></div>
+    <div class="mat-source">来源：芝麻AI速递（4月25日）</div>
+  </div>
+
+  <!-- ⭐⭐ 素材10 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">中央印发碳达峰碳中和考核办法！控制煤电发力清洁能源</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">热度</div><div class="mat-val">中 — 能源结构转型政策落地</div></div>
+    <div class="mat-row"><div class="mat-key">核心</div><div class="mat-val">中办国办印发考核办法，明确控制煤电，力争新增清洁能源电量覆盖新增用电量。A股电力板块活跃，华电能源封板。</div></div>
+    <div class="mat-row"><div class="mat-key">数据</div><div class="mat-val">控制煤电 / 新增清洁能源覆盖新增用电 / 利好光伏风电储能</div></div>
+    <div class="mat-source">来源：中办国办、金融界（4月24日）</div>
+  </div>
+
+  <!-- ⭐ 素材11 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">深交所发布创业板改革首批配套规则，引入做市商</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">核心</div><div class="mat-val">深交所发布首批4件配套规则，创业板引入做市商制度为最大亮点，提升市场流动性。</div></div>
+    <div class="mat-source">来源：深交所（4月24日）</div>
+  </div>
+
+  <!-- ⭐ 素材12 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">美伊谈判有新进展！国际油价直线跳水</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">核心</div><div class="mat-val">白宫延长航运豁免及美伊预计举行第二轮谈判，国际油价跳水，欧美股市拉升。摩根大通警告供给缺口被掩盖。</div></div>
+    <div class="mat-source">来源：新浪财经（4月25日）</div>
+  </div>
+
+  <!-- ⭐ 素材13 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">俄罗斯央行连续第八次降息至14.5%</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">核心</div><div class="mat-val">降息50基点至14.5%，自2025年6月以来第八次连续降息。国内需求与供给基本匹配，但外部环境仍存不确定性。</div></div>
+    <div class="mat-source">来源：芝麻AI速递（4月25日）</div>
+  </div>
+</div>
+
+<!-- ===================== 底部 ===================== -->
+<div class="page-footer">
+  <div class="brand">素材日报</div>
+  <div class="sub">2026.04.25 · 数据来源：新浪财经、金融界、IT之家、央视财经、新闻联播、证监会等</div>
+</div>
+
+</body>
+</html>
