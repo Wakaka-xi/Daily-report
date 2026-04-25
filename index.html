@@ -3,92 +3,87 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>素材日报 · 历史存档</title>
+<title>素材日报 - 每日精选</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #f0ede8; font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; color: #333; }
-  .container { max-width: 680px; margin: 0 auto; padding: 40px 24px; }
-  .header { text-align: center; margin-bottom: 36px; }
-  .header h1 { font-size: 28px; font-weight: 700; color: #1a1a2e; letter-spacing: -0.5px; }
-  .header .sub { font-size: 13px; color: #999; margin-top: 8px; letter-spacing: 2px; }
-  .date-group { margin-bottom: 28px; }
-  .date-label { font-size: 12px; color: #c9a96e; letter-spacing: 3px; font-weight: 700; margin-bottom: 10px; text-transform: uppercase; }
-  .card { background: #fff; border-radius: 14px; padding: 18px 22px; margin-bottom: 12px; border: 1px solid #f0ebe4; transition: box-shadow 0.2s; text-decoration: none; display: block; }
-  .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
-  .card .card-date { font-size: 11px; color: #c9a96e; letter-spacing: 1px; margin-bottom: 6px; }
-  .card .card-title { font-size: 16px; font-weight: 600; color: #1a1a2e; line-height: 1.5; }
-  .card .card-topics { font-size: 13px; color: #888; margin-top: 8px; line-height: 1.6; }
-  .footer { text-align: center; margin-top: 40px; padding: 20px 0; border-top: 1px solid #f0ebe4; }
-  .footer .brand { font-size: 14px; font-weight: 700; color: #1a1a2e; letter-spacing: 4px; }
-  .footer .sub { font-size: 11px; color: #bbb; margin-top: 6px; }
-  .tag { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 5px; margin-right: 4px; font-weight: 600; }
-  .tag-hot { background: rgba(231,76,60,0.1); color: #c0392b; }
-  .tag-new { background: rgba(46,204,113,0.1); color: #27ae60; }
+  body { background: #0f172a; font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; min-height: 100vh; }
+  .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+  .header { text-align: center; margin-bottom: 48px; }
+  .header h1 { color: #f8fafc; font-size: 32px; font-weight: 700; margin-bottom: 8px; letter-spacing: 2px; }
+  .header .subtitle { color: #94a3b8; font-size: 14px; letter-spacing: 1px; }
+  .header .divider { width: 60px; height: 3px; background: linear-gradient(90deg, #f59e0b, #ef4444); border-radius: 2px; margin: 20px auto 0; }
+  .card-list { display: flex; flex-direction: column; gap: 16px; }
+  .card { background: #1e293b; border: 1px solid #334155; border-radius: 16px; padding: 24px; text-decoration: none; display: block; transition: all 0.2s; }
+  .card:hover { background: #334155; border-color: #475569; transform: translateY(-2px); }
+  .card .date { color: #f59e0b; font-size: 13px; font-weight: 600; margin-bottom: 8px; letter-spacing: 1px; }
+  .card .title { color: #f8fafc; font-size: 18px; font-weight: 600; line-height: 1.5; margin-bottom: 10px; }
+  .card .topics { color: #94a3b8; font-size: 13px; line-height: 1.6; }
+  .card .topics span { display: inline-block; background: rgba(245,158,11,0.15); color: #fbbf24; padding: 2px 10px; border-radius: 6px; font-size: 11px; margin-right: 6px; margin-top: 6px; }
+  .card .badge { display: inline-block; background: linear-gradient(135deg, #ef4444, #dc2626); color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 6px; margin-left: 8px; vertical-align: middle; }
+  .footer { text-align: center; margin-top: 48px; padding: 24px; border-top: 1px solid #334155; }
+  .footer p { color: #64748b; font-size: 12px; }
 </style>
 </head>
 <body>
 <div class="container">
   <div class="header">
     <h1>📰 素材日报</h1>
-    <div class="sub">保险/财经短视频素材 · 每日更新</div>
+    <p class="subtitle">每日精选财经短视频素材 · 自动生成</p>
+    <div class="divider"></div>
   </div>
-
-  <div class="date-group">
-    <div class="date-label">本周</div>
+  <div class="card-list">
+    <a class="card" href="2026-04-26-v2.html">
+      <div class="date">2026.04.26 · 周日 🔥 NEW</div>
+      <div class="title">花呗白条要变了 · 英特尔暴涨23%创37年新高 · 央行缩量续作MLF</div>
+      <div class="topics">
+        <span>支付新规</span><span>CPU涨价</span><span>MLF缩量</span><span>英伟达5万亿</span><span>加密货币爆仓</span>
+      </div>
+    </a>
     <a class="card" href="2026-04-25-v2.html">
-      <div class="card-date">2026-04-25 周六 <span class="tag tag-new">NEW</span></div>
-      <div class="card-title">联讯仪器暴涨950%一签赚38.9万 / 英特尔AI翻身 / 三大交易所改规则</div>
-      <div class="card-topics">年内最大肉签38.9万 · 英特尔净利润暴增156% · ST股涨跌幅5%→10% · 锂矿爆发 · 化肥暴涨75%</div>
+      <div class="date">2026.04.25 · 周六</div>
+      <div class="title">联讯仪器暴涨950% · 英特尔AI翻身 · ST股涨跌幅变10%</div>
+      <div class="topics">
+        <span>打新</span><span>AI芯片</span><span>交易规则</span><span>化肥暴涨</span>
+      </div>
     </a>
     <a class="card" href="2026-04-24-v2.html">
-      <div class="card-date">2026-04-24 周五</div>
-      <div class="card-title">住建部现房销售全面推行 / 中际旭创市值破万亿 / 国安部稀土副总泄密</div>
-      <div class="card-topics">现房销售终结30年预售 · 中际旭创1年涨7倍 · 证监会立案4家公司 · 稀土泄密7项机密</div>
+      <div class="date">2026.04.24 · 周五</div>
+      <div class="title">现房销售全面推行 · 中际旭创破万亿 · 稀土副总泄密</div>
+      <div class="topics">
+        <span>楼市</span><span>光模块</span><span>国家安全</span><span>A股</span>
+      </div>
     </a>
     <a class="card" href="2026-04-23-v2.html">
-      <div class="card-date">2026-04-23 周四</div>
-      <div class="card-title">日本7.7级地震冲击半导体链 / 创业板综指创历史新高 / 油价年内首降</div>
-      <div class="card-topics">日本地震铠侠停产 · CPO光模块1年10倍 · 92号降0.44元加满省22元 · 美伊停火延期布油破百 · 库克卸任苹果CEO</div>
+      <div class="date">2026.04.23 · 周四</div>
+      <div class="title">日本7.7级地震 · 创业板创历史新高 · 油价年内首降</div>
+      <div class="topics">
+        <span>半导体</span><span>A股</span><span>油价</span><span>美伊</span>
+      </div>
     </a>
     <a class="card" href="2026-04-22-v2.html">
-      <div class="card-date">2026-04-22 周三</div>
-      <div class="card-title">国务院服务业100万亿目标 / 养老金涨至163元 / 华为高速L3路测</div>
-      <div class="card-topics">2030年服务业破100万亿 · 城乡居民基础养老金163元 · 华为L3自动驾驶7城路测 · A股逼近4100点</div>
+      <div class="date">2026.04.22 · 周三</div>
+      <div class="title">服务业100万亿目标 · 养老金涨至163元 · 华为L3路测</div>
+      <div class="topics">
+        <span>宏观</span><span>养老金</span><span>自动驾驶</span>
+      </div>
     </a>
     <a class="card" href="2026-04-21-v2.html">
-      <div class="card-date">2026-04-21 周二</div>
-      <div class="card-title">美伊谈判破裂 / 东方证券收购上海证券 / 长护险申请实操</div>
-      <div class="card-topics">伊朗拒绝谈判油价飙涨 · 券商并购进入深水区 · 社保第六险申请3步搞定</div>
+      <div class="date">2026.04.21 · 周二</div>
+      <div class="title">美伊谈判破裂 · 东方证券收购上海证券 · 长护险实操指南</div>
+      <div class="topics">
+        <span>油价</span><span>券商</span><span>社保</span>
+      </div>
     </a>
     <a class="card" href="2026-04-20-v2.html">
-      <div class="card-date">2026-04-20 周一</div>
-      <div class="card-title">机器人半马夺冠超人类纪录 / 创业板周涨6.65% / 社保第六险2028全覆盖</div>
-      <div class="card-topics">机器人50分26秒超越人类 · 纳指13连涨创34年纪录 · 长护险覆盖3亿人</div>
+      <div class="date">2026.04.20 · 周一</div>
+      <div class="title">机器人半马夺冠 · 创业板周涨6.65% · 社保第六险2028全覆盖</div>
+      <div class="topics">
+        <span>机器人</span><span>A股</span><span>长护险</span>
+      </div>
     </a>
   </div>
-
-  <div class="date-group">
-    <div class="date-label">上周</div>
-    <a class="card" href="2026-04-19-v2.html">
-      <div class="card-date">2026-04-19 周日</div>
-      <div class="card-title">A股"股王"易主 / 茅台上市24年首现双降 / DeepSeek融资百亿</div>
-      <div class="card-topics">源杰科技1445元超越茅台 · 茅台营收净利双降 · DeepSeek首轮融资估值百亿</div>
-    </a>
-    <a class="card" href="2026-04-18-v2.html">
-      <div class="card-date">2026-04-18 周六</div>
-      <div class="card-title">伊朗开放霍尔木兹海峡 / 幽灵外卖7家被罚35.97亿 / Meta裁员10%</div>
-      <div class="card-topics">美油暴跌近8% · 7家外卖平台被罚35.97亿 · Meta用AI算力换人</div>
-    </a>
-    <a class="card" href="2026-04-17-v2.html">
-      <div class="card-date">2026-04-17 周五</div>
-      <div class="card-title">一季度GDP增5% / 宁德时代市值反超工行 / 油价大幅下调</div>
-      <div class="card-topics">GDP超预期5% · 宁德时代跃居A股第二 · 4月21日油价下调约0.37元</div>
-    </a>
-  </div>
-
   <div class="footer">
-    <div class="brand">素材日报</div>
-    <div class="sub">每日 12:00 自动生成 · Powered by Xi's 2号位</div>
+    <p>每日 12:00 自动生成 · 仅供内容参考 · 数据来源公开信息</p>
   </div>
 </div>
 </body>
