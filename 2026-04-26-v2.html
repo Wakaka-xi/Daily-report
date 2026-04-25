@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>素材日报 2026-04-26</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #f0ede8; font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+
+  @page { size: A4 portrait; margin: 0; }
+  .page {
+    width: 794px;
+    margin: 0 auto;
+    background: #fff;
+    overflow: hidden;
+    position: relative;
+    break-after: page;
+    break-before: page;
+  }
+  .page.no-break-after { break-after: auto; }
+  .page.no-break-before { break-before: auto; }
+
+  /* ========== 封面 ========== */
+  .cover { background: linear-gradient(160deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%); padding: 60px 52px 56px; text-align: center; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: -60px; right: -60px; width: 260px; height: 260px; background: radial-gradient(circle, rgba(243,156,18,0.12) 0%, transparent 70%); border-radius: 50%; }
+  .cover::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(52,152,219,0.1) 0%, transparent 70%); border-radius: 50%; }
+  .cover .kicker { display: inline-block; font-size: 11px; letter-spacing: 6px; color: rgba(243,156,18,0.7); text-transform: uppercase; margin-bottom: 28px; }
+  .cover h1 { color: #fff; font-size: 34px; font-weight: 700; line-height: 1.3; margin-bottom: 20px; letter-spacing: -0.5px; position: relative; z-index: 1; }
+  .cover .date { color: rgba(255,255,255,0.4); font-size: 14px; margin-bottom: 36px; letter-spacing: 3px; }
+  .cover .stats { display: flex; justify-content: center; gap: 52px; padding: 28px 0; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 28px; }
+  .cover .stat { text-align: center; }
+  .cover .stat .num { color: #fff; font-size: 32px; font-weight: 700; }
+  .cover .stat .label { color: rgba(255,255,255,0.35); font-size: 12px; margin-top: 6px; letter-spacing: 1px; }
+  .cover .topic-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 18px 24px; text-align: left; position: relative; z-index: 1; }
+  .cover .topic-box .label { font-size: 11px; color: rgba(243,156,18,0.6); letter-spacing: 3px; margin-bottom: 10px; }
+  .cover .topic-box .text { color: rgba(255,255,255,0.88); font-size: 14px; line-height: 1.9; }
+
+  /* ========== 章节标题 ========== */
+  .chapter { padding: 44px 48px 28px; border-bottom: 1px solid #f0ebe4; }
+  .chapter .ch-label { font-size: 11px; letter-spacing: 4px; color: #c9a96e; text-transform: uppercase; margin-bottom: 10px; }
+  .chapter .ch-title { font-size: 24px; font-weight: 700; color: #1a1a2e; letter-spacing: -0.3px; }
+  .chapter .ch-sub { font-size: 13px; color: #999; margin-top: 6px; }
+
+  /* ========== 脚本卡片 ========== */
+  .script-card { padding: 28px 48px; border-bottom: 1px solid #f0ebe4; }
+  .script-card .sh { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
+  .script-card .rank { width: 44px; height: 44px; background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #c9a96e; font-size: 16px; font-weight: 700; flex-shrink: 0; }
+  .script-card .sh-body { flex: 1; }
+  .script-card .sh-tag { display: inline-block; font-size: 11px; padding: 3px 12px; border-radius: 7px; margin-bottom: 10px; font-weight: 600; }
+  .tag-s1 { background: rgba(231,76,60,0.1); color: #c0392b; }
+  .tag-s2 { background: rgba(230,126,34,0.1); color: #d35400; }
+  .tag-s3 { background: rgba(52,152,219,0.1); color: #2980b9; }
+  .script-card .sh-title { font-size: 17px; font-weight: 700; color: #1a1a2e; line-height: 1.5; }
+  .script-card .sh-meta { display: flex; gap: 10px; margin-top: 10px; }
+  .script-card .meta-chip { font-size: 11px; padding: 3px 10px; border-radius: 5px; }
+  .chip-hot { background: rgba(231,76,60,0.08); color: #c0392b; }
+  .chip-type { background: #f5f4f0; color: #888; }
+
+  /* 钩子 */
+  .hook { background: linear-gradient(135deg, #fffbf0, #fff8e8); border: 1px solid rgba(243,156,18,0.15); border-left: 4px solid #f39c12; border-radius: 14px; padding: 16px 18px; margin-bottom: 18px; }
+  .hook-label { font-size: 11px; font-weight: 700; color: #c9a96e; letter-spacing: 2px; margin-bottom: 8px; }
+  .hook-text { font-size: 14.5px; color: #3d3d3d; line-height: 1.85; }
+
+  /* 正文 */
+  .body-lines { padding: 0 2px; }
+  .body-line { font-size: 14px; color: #555; line-height: 2; margin-bottom: 16px; padding-left: 20px; position: relative; }
+  .body-line:last-child { margin-bottom: 0; }
+  .body-line::before { content: ''; position: absolute; left: 0; top: 12px; width: 6px; height: 6px; background: #c9a96e; border-radius: 50%; }
+
+  /* 时间轴 */
+  .time-block { background: #faf9f7; border-left: 3px solid #c9a96e; padding: 10px 14px; margin-bottom: 10px; border-radius: 0 8px 8px 0; }
+  .time-block .time { color: #c9a96e; font-weight: 700; font-size: 12px; margin-right: 8px; }
+  .time-block .content { color: #555; font-size: 14px; line-height: 1.7; display: inline; }
+
+  /* 互动引导 */
+  .cta { background: #fffde7; border: 1px solid rgba(243,156,18,0.15); border-radius: 12px; padding: 14px 18px; margin-top: 16px; }
+  .cta-label { font-size: 11px; color: #c9a96e; letter-spacing: 2px; margin-bottom: 6px; }
+  .cta-text { font-size: 13.5px; color: #666; line-height: 1.7; }
+
+  /* 封面建议 */
+  .cover-tip { background: #f9f8f5; border-radius: 10px; padding: 12px 16px; margin-top: 12px; }
+  .cover-tip-label { font-size: 11px; color: #bbb; margin-bottom: 5px; }
+  .cover-tip-text { font-size: 13px; color: #888; line-height: 1.65; }
+
+  /* ========== 素材卡片 ========== */
+  .mat-card { margin: 0 28px 18px; background: #faf9f7; border: 1px solid #f0ebe4; border-radius: 16px; padding: 18px 20px; position: relative; overflow: hidden; }
+  .mat-card::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; }
+  .mat-card.ss3::before { background: linear-gradient(180deg, #e74c3c, #c0392b); }
+  .mat-card.ss2::before { background: linear-gradient(180deg, #3498db, #2980b9); }
+  .mat-card.ss1::before { background: linear-gradient(180deg, #95a5a6, #7f8c8d); }
+  .mat-card .mat-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; gap: 14px; }
+  .mat-card .mat-title { font-size: 15px; font-weight: 600; color: #1a1a2e; line-height: 1.5; flex: 1; }
+  .mat-card .mat-stars { font-size: 14px; flex-shrink: 0; padding-top: 2px; }
+  .mat-row { display: flex; gap: 10px; margin-bottom: 11px; align-items: flex-start; }
+  .mat-row:last-child { margin-bottom: 0; }
+  .mat-key { font-size: 13px; color: #8a8a8a; width: 68px; flex-shrink: 0; padding-top: 1px; font-weight: 500; }
+  .mat-val { font-size: 14px; color: #333; line-height: 1.75; flex: 1; }
+  .mat-source { margin-top: 14px; padding-top: 12px; border-top: 1px solid #ece8e2; font-size: 12px; color: #999; }
+
+  /* ========== 底部页脚 ========== */
+  .page-footer { background: #1a1a2e; padding: 32px 48px; text-align: center; }
+  .page-footer .brand { font-size: 16px; font-weight: 700; color: rgba(255,255,255,0.8); margin-bottom: 6px; letter-spacing: 4px; }
+  .page-footer .sub { font-size: 11px; color: rgba(255,255,255,0.3); }
+</style>
+</head>
+<body>
+
+<!-- ===================== 封面 ===================== -->
+<div class="page no-break-after">
+  <div class="cover">
+    <div class="kicker">Daily Brief</div>
+    <h1>短视频素材精选</h1>
+    <div class="date">2026.04.26 · Sunday</div>
+    <div class="stats">
+      <div class="stat"><div class="num">3</div><div class="label">参考脚本</div></div>
+      <div class="stat"><div class="num">13</div><div class="label">重点素材</div></div>
+      <div class="stat"><div class="num">3</div><div class="label">今日热点</div></div>
+    </div>
+    <div class="topic-box">
+      <div class="label">Today's Focus</div>
+      <div class="text">花呗白条要变了 · 英特尔暴涨23%创37年新高 · 央行缩量续作MLF净回笼2000亿 · 英伟达市值重回5万亿</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 参考脚本 ===================== -->
+<div class="page">
+  <div class="chapter">
+    <div class="ch-label">Reference Scripts</div>
+    <div class="ch-title">参考脚本</div>
+    <div class="ch-sub">视频号爆款结构 · 反转悬念文案 · 可直接二创</div>
+  </div>
+
+  <!-- 脚本1：花呗白条 -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">01</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s1">政策民生</span>
+        <div class="sh-title">花呗白条要变了！八部门出手终结支付捆绑贷款——9月30日起执行</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">极高热度</span>
+          <span class="meta-chip chip-type">政策解读</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">花呗、白条要大变了！国家刚刚出手，八部门联合发文——支付工具不能再捆绑贷款了！你手机里常用的功能，可能9月30号之后就用不了了！</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">4月24号，八部门联合印发《金融产品网络营销管理办法》，2026年9月30号起正式施行。核心内容：非银行支付机构不得将贷款等金融产品列入支付工具选项。这意味着花呗、白条等"支付+信贷"模式将面临重大调整。</div>
+      <div class="body-line">三个层面的影响：第一，对消费者——付款时不再被贷款功能"诱导消费"，以前很多人花呗欠了几千块自己都不知道怎么花的。第二，对支付宝、京东——花呗、白条是核心收入来源，收入结构要大调整。第三，对短视频创作者——以后在直播间、视频里推荐金融产品，要持牌上岗了，没有金融牌照的别再碰理财、保险、基金话题。</div>
+      <div class="body-line">三个建议：第一，花呗有欠款——趁9月30号之前还清，政策变化可能影响还款方式和费率。第二，需要信用消费——转向银行正规信用卡或消费贷，利率更透明。第三，做财经内容的博主——赶紧自查，确保没有在推荐金融产品。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你觉得这个政策好不好？花呗你还在用吗？评论区说说你的看法。觉得有用就转发给朋友，关注我，每天帮你看懂政策变化对生活的影响。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"花呗白条要变了！"+支付宝/京东图标+红色禁止标识；配图：八部门文件封面+9月30日倒计时</div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+  <!-- 脚本2：英特尔暴涨 -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">02</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s1">科技财经</span>
+        <div class="sh-title">英特尔暴涨23%创37年新高！CPU涨价潮来了——你的电脑可能要变贵</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">极高热度</span>
+          <span class="meta-chip chip-type">行业趋势</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">英特尔一天暴涨23%！创了37年来最大涨幅——更关键的是，CPU要涨价了，你的电脑手机可能都要变贵！</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">4月24号美股，英特尔从66块飙到82块，涨幅23.6%，创1987年以来37年最大单日涨幅。原因：Q1财报远超预期——营收136亿美元，净利润暴增156%。更重要的是，英特尔向中国云服务商发出警告：未来两个季度CPU供应极度紧张！</div>
+      <div class="body-line">CPU涨价潮已经来了！从3月开始，消费电子和服务器CPU就在涨价，国际大厂酝酿三季度再涨一波。三个原因：AI大爆发让CPU重回AI基础设施C位、全球PC出货量回暖、英特尔产能本来就不够。</div>
+      <div class="body-line">对你的影响：想换电脑——如果可以等等双十一，刚需就现在买可能比年底便宜。做AI开发——服务器CPU要涨价，提前规划预算。费城半导体指数本月涨38.5%，短线波动大注意风险。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你觉得AI会让电脑越来越贵还是越来越便宜？评论区说说。投资有风险，内容仅供参考。觉得有用就转发给想换电脑的朋友，关注我，每天帮你看懂科技对钱包的影响。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"CPU要涨价了！"+英特尔Logo+23%涨幅数字；配图：CPU涨价时间线+半导体指数走势</div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+  <!-- 脚本3：央行缩量MLF -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">03</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s3">宏观政策</span>
+        <div class="sh-title">央行突然"收水"！13个月来首次缩量续作MLF——释放什么信号？</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">高热度</span>
+          <span class="meta-chip chip-type">政策解读</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">央行突然"收水"了！时隔13个月，第一次缩量续作MLF——净回笼2000亿！你的房贷和理财要受影响了！</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">4月24号，央行宣布4月27号开展4000亿MLF操作。但4月份有6000亿MLF到期——净回笼2000亿！过去13个月央行每月都是加量续作，这次反过来了。叠加买断式逆回购，4月份合计回笼中期流动性6000亿元，力度今年以来最大。</div>
+      <div class="body-line">为什么收紧？两个原因：第一，经济在好转——一季度GDP增长5%超预期，财政收入创3年新高，不需要再大水漫灌。第二，防止资金空转——之前市场钱太多，很多没流到实体经济。同一天国常会部署科技创新，证监会部署严打财务造假——一句话：政策重心从"放水刺激"转向"精准滴灌+强监管"。</div>
+      <div class="body-line">四个影响：房贷利率短期不会大幅下降、LPR可能保持稳定；银行理财收益率可能小幅上升但幅度有限；股市流动性边际收紧可能增加短期波动；存款利率降息节奏可能放缓。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你觉得接下来央行还会继续"收水"吗？评论区说说你的判断。觉得有用就转发，关注我，每天帮你看懂宏观政策对钱袋子的影响。以上内容仅供参考，不构成投资建议。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"央行收水！"+央行图标+2000亿回收数字；配图：MLF操作变化折线图+13个月首次缩量标注</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 重点关注 ===================== -->
+<div class="page">
+  <div class="chapter">
+    <div class="ch-label">Key Highlights</div>
+    <div class="ch-title">重点关注</div>
+    <div class="ch-sub">13条素材线索 · 多角度切入 · 直接可用</div>
+  </div>
+
+  <!-- 素材1 -->
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">八部门重拳整治花呗白条！支付不得捆绑贷款，9月30日起执行</div>
+      <div class="mat-stars"><span style="color:#f39c12;">★★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">八部门联合印发《金融产品网络营销管理办法》，非银行支付机构不得将贷款等金融产品列入支付工具选项。花呗、白条等"支付+信贷"模式面临重大调整。非金融机构从业人员不得通过直播、短视频营销金融产品</div></div>
+    <div class="mat-row"><div class="mat-key">⚡ 争议</div><div class="mat-val">支付宝、京东等平台收入结构面临深度调整；短视频财经博主需持牌经营</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">震撼角度：花呗白条要大变了！实用角度：9月30日后怎么管钱？创作者角度：财经博主赶紧自查</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">花呗/白条用户、短视频创作者、金融从业者</div></div>
+    <div class="mat-source">📊 来源：八部门联合文件（4月24日）；新浪财经</div>
+  </div>
+
+  <!-- 素材2 -->
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">英特尔暴涨23.6%创37年新高！CPU涨价潮来袭，电脑手机可能要变贵</div>
+      <div class="mat-stars"><span style="color:#f39c12;">★★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">英特尔收报82.54美元涨23.6%，创1987年以来最高单日涨幅。Q1营收136亿美元、净利润暴增156%。英特尔警告中国云服务商：未来两季度CPU供应极度紧张。3月起CPU已在涨价，大厂酝酿三季度再涨</div></div>
+    <div class="mat-row"><div class="mat-key">⚡ 争议</div><div class="mat-val">AI让CPU重回C位，GPU不再是唯一选择；AMD跟着涨12%，费城半导体指数本月涨38.5%</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">震撼角度：37年来最猛！科普角度：AI为什么需要CPU？消费角度：什么时候买电脑最划算？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">PC/手机用户、科技爱好者、美股投资者</div></div>
+    <div class="mat-source">📊 来源：新浪财经（4月25日）；IT之家</div>
+  </div>
+
+  <!-- 素材3 -->
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">央行时隔13个月缩量续作MLF！净回笼2000亿，政策信号转向</div>
+      <div class="mat-stars"><span style="color:#f39c12;">★★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">央行4月27日开展4000亿元MLF操作，当月6000亿到期，净回笼2000亿。叠加买断式逆回购，4月合计回笼中期流动性6000亿。这是连续13个月加量续作后首次缩量</div></div>
+    <div class="mat-row"><div class="mat-key">⚡ 争议</div><div class="mat-val">从"大水漫灌"转向"精准滴灌+强监管"，国常会同日部署科技创新，证监会严打财务造假</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">解读角度：释放什么信号？影响角度：房贷理财股市怎么办？组合角度：国常会+央行+证监会三连招</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">股民、基民、房奴、理财用户、宏观政策关注者</div></div>
+    <div class="mat-source">📊 来源：新华网（4月24日）；人民网；陆家嘴财经早餐</div>
+  </div>
+</div>
+
+<!-- ★★ 重点关注 4-6 -->
+<div class="page">
+  <!-- 素材4 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">英伟达市值重回5万亿美元！纳指标普齐创新高，科技股继续狂飙</div>
+      <div class="mat-stars"><span style="color:#f39c12;">★★</span><span style="color:#ddd;">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">英伟达收高4.32%创历史新高，成交442亿美元，市值重回5万亿。纳指涨1.63%、标普500涨0.8%再创新高。科技七巨头指数涨2%。下周科技巨头陆续公布财报</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">英伟达股价自10月以来首次收盘创纪录新高；费城半导体指数本月涨38.5%</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">趋势角度：AI牛市还没结束？数据角度：5万亿美元是什么概念？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">美股投资者、科技爱好者、基金持有者</div></div>
+    <div class="mat-source">📊 来源：新浪财经（4月25日）；财联社</div>
+  </div>
+
+  <!-- 素材5 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">伊朗拟全面管控霍尔木兹海峡！加密货币10万人爆仓，中东局势再升级</div>
+      <div class="mat-stars"><span style="color:#f39c12;">★★</span><span style="color:#ddd;">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">伊朗议员透露已形成霍尔木兹海峡综合管理方案：所有船舶需获伊朗许可，以色列船只绝对禁止通过。加密货币全线跳水，24小时超9.9万人爆仓1.92亿美元，狗狗币暴跌39%</div></div>
+    <div class="mat-row"><div class="mat-key">⚡ 争议</div><div class="mat-val">美伊和谈前景不明，特朗普特使将赴巴基斯坦，但伊朗外长明确不与美方会谈</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">地缘角度：霍尔木兹海峡全面管控意味着什么？风险角度：10万人爆仓的教训</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">加密货币投资者、宏观经济关注者</div></div>
+    <div class="mat-source">📊 来源：新浪财经（4月25日）；新华社</div>
+  </div>
+
+  <!-- 素材6 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">证监会严打财务造假！一周7家公司被立案，AI大模型参与监管</div>
+      <div class="mat-stars"><span style="color:#f39c12;">★★</span><span style="color:#ddd;">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">证监会部署专项行动严打财务造假，本周7家公司被立案（黑芝麻、神马股份等）。强化AI大模型在财务舞弊监管中的应用，鼓励中介机构"吹哨"。董秘新规落地：不得兼任经营层</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">中能粮科首例擅自境外上市被罚300万；A股"去伪存真"加速</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">警示角度：哪些股票千万别碰？政策角度：AI查造假来了！</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">A股投资者、上市公司关注者</div></div>
+    <div class="mat-source">📊 来源：证监会（4月24-25日）；新浪财经</div>
+  </div>
+
+  <!-- 素材7 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">首批商业不动产REITs获批！4只产品募资145亿，地产迎新活水</div>
+      <div class="mat-stars"><span style="color:#f39c12;">★★</span><span style="color:#ddd;">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">证监会批准首批4只商业不动产REITs注册：砂之船、唯品会、上海地产、首农食品，募资合计145.18亿元。中国REITs从基础设施扩展到商业不动产</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">投资角度：普通投资者能买吗？行业角度：地产融资新渠道</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">REITs投资者、地产从业者、理财用户</div></div>
+    <div class="mat-source">📊 来源：证监会（4月24日）</div>
+  </div>
+</div>
+
+<!-- ★★ 重点关注 8-10 + ★ 补充 11-13 -->
+<div class="page">
+  <!-- 素材8 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">华润微一季报炸裂！净利润暴增296%，半导体复苏信号明确</div>
+      <div class="mat-stars"><span style="color:#f39c12;">★★</span><span style="color:#ddd;">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">华润微一季报：营收28.57亿元（+21.34%），净利润3.3亿元（+296.56%）。叠加英特尔暴涨23%、英伟达重回5万亿、AMD涨12%，半导体复苏信号明确</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">业绩角度：半导体复苏还有哪些公司受益？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">半导体投资者、科技行业关注者</div></div>
+    <div class="mat-source">📊 来源：新浪财经（4月24日）</div>
+  </div>
+
+  <!-- 素材9 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">国常会部署科技创新！紧盯全球科技前沿，海洋经济双线发力</div>
+      <div class="mat-stars"><span style="color:#f39c12;">★★</span><span style="color:#ddd;">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">4月24日国常会研究科技创新，锚定2035年科技强国目标。同时部署海洋经济高质量发展，培育海洋生物医药、新材料等新兴产业</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">政策角度：哪些领域最受益？产业角度：海洋经济新赛道</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">科技投资者、政策关注者</div></div>
+    <div class="mat-source">📊 来源：央视新闻（4月24日）；新华社</div>
+  </div>
+
+  <!-- 素材10 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">东方甄选主播明明、天权离职！公开信痛批新管理层，去主播化加速</div>
+      <div class="mat-stars"><span style="color:#f39c12;">★★</span><span style="color:#ddd;">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">4月24日东方甄选宣布主播明明、天权即将离职。公开信称新管理层"不友好"、资源被削减，公司正推进去主播化战略，面临GMV减少挑战</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">商业角度：去主播化是福是祸？IP角度：主播个人IP vs 平台品牌</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">电商从业者、内容创作者、东方甄选用户</div></div>
+    <div class="mat-source">📊 来源：新浪财经（4月24-25日）</div>
+  </div>
+
+  <!-- 素材11 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">QFII开放国债期货交易！4月24日起仅限套期保值</div>
+      <div class="mat-stars"><span style="color:#f39c12;">★</span><span style="color:#ddd;">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">4月24日起合格境外投资者可参与国债期货交易，但仅限套期保值目的。中国金融市场对外开放进一步深化</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">债券投资者、外资机构关注者</div></div>
+    <div class="mat-source">📊 来源：证监会（4月24日）</div>
+  </div>
+
+  <!-- 素材12 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">阿塞拜疆抛售22吨黄金！央行购金潮可能阶段性降温</div>
+      <div class="mat-stars"><span style="color:#f39c12;">★</span><span style="color:#ddd;">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">阿塞拜疆国家石油基金一季度出售超22吨黄金，占比从38.2%降至35.6%。国内基础金价1036元/克</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">黄金投资者、大宗商品关注者</div></div>
+    <div class="mat-source">📊 来源：新浪财经（4月26日）</div>
+  </div>
+
+  <!-- 素材13 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">QFII开放+QDII限购！资金双向流动新格局正在形成</div>
+      <div class="mat-stars"><span style="color:#f39c12;">★</span><span style="color:#ddd;">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">一边QFII获准参与国债期货（引进来），一边银华、广发等多家公募对美股QDII实施限购（走出去受限）。资金双向流动新格局</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">QDII基金持有者、跨境投资者</div></div>
+    <div class="mat-source">📊 来源：新浪财经（4月24-25日）</div>
+  </div>
+</div>
+
+<!-- ===================== 底部 ===================== -->
+<div class="page no-break-after">
+  <div class="page-footer">
+    <div class="brand">素材日报</div>
+    <div class="sub">每日 12:00 自动生成 · 仅供内容参考</div>
+  </div>
+</div>
+
+</body>
+</html>
