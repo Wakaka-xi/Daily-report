@@ -3,87 +3,214 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>素材日报 - 每日精选</title>
+<title>保险/财经短视频素材日报</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #0f172a; font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; min-height: 100vh; }
-  .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
-  .header { text-align: center; margin-bottom: 48px; }
-  .header h1 { color: #f8fafc; font-size: 32px; font-weight: 700; margin-bottom: 8px; letter-spacing: 2px; }
-  .header .subtitle { color: #94a3b8; font-size: 14px; letter-spacing: 1px; }
-  .header .divider { width: 60px; height: 3px; background: linear-gradient(90deg, #f59e0b, #ef4444); border-radius: 2px; margin: 20px auto 0; }
+  body { 
+    background: linear-gradient(160deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    padding: 40px 20px;
+  }
+  .container { max-width: 800px; margin: 0 auto; }
+  .header { text-align: center; margin-bottom: 50px; }
+  .header h1 { 
+    color: #fff; 
+    font-size: 32px; 
+    font-weight: 700; 
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+  .header .subtitle { 
+    color: rgba(255,255,255,0.5); 
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+  .header .update { 
+    color: rgba(243,156,18,0.7); 
+    font-size: 12px;
+    margin-top: 16px;
+  }
   .card-list { display: flex; flex-direction: column; gap: 16px; }
-  .card { background: #1e293b; border: 1px solid #334155; border-radius: 16px; padding: 24px; text-decoration: none; display: block; transition: all 0.2s; }
-  .card:hover { background: #334155; border-color: #475569; transform: translateY(-2px); }
-  .card .date { color: #f59e0b; font-size: 13px; font-weight: 600; margin-bottom: 8px; letter-spacing: 1px; }
-  .card .title { color: #f8fafc; font-size: 18px; font-weight: 600; line-height: 1.5; margin-bottom: 10px; }
-  .card .topics { color: #94a3b8; font-size: 13px; line-height: 1.6; }
-  .card .topics span { display: inline-block; background: rgba(245,158,11,0.15); color: #fbbf24; padding: 2px 10px; border-radius: 6px; font-size: 11px; margin-right: 6px; margin-top: 6px; }
-  .card .badge { display: inline-block; background: linear-gradient(135deg, #ef4444, #dc2626); color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 6px; margin-left: 8px; vertical-align: middle; }
-  .footer { text-align: center; margin-top: 48px; padding: 24px; border-top: 1px solid #334155; }
-  .footer p { color: #64748b; font-size: 12px; }
+  .card { 
+    background: rgba(255,255,255,0.95);
+    border-radius: 16px;
+    padding: 24px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  }
+  .card-left { flex: 1; }
+  .card-date { 
+    font-size: 13px; 
+    color: #999; 
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  .card-title { 
+    font-size: 17px; 
+    color: #1a1a2e; 
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  .card-tags { display: flex; gap: 8px; margin-top: 10px; }
+  .tag { 
+    font-size: 11px; 
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-weight: 600;
+  }
+  .tag-hot { background: rgba(231,76,60,0.1); color: #c0392b; }
+  .tag-new { background: rgba(243,156,18,0.1); color: #d68910; }
+  .card-arrow { 
+    width: 40px; 
+    height: 40px; 
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c9a96e;
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-left: 20px;
+  }
+  .footer {
+    text-align: center;
+    margin-top: 50px;
+    color: rgba(255,255,255,0.3);
+    font-size: 12px;
+  }
+  .footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+  .footer a:hover { color: #fff; }
+  .week-nav {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+  }
+  .week-item {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.1);
+  }
+  .week-item.active {
+    background: rgba(243,156,18,0.8);
+    color: #fff;
+  }
 </style>
 </head>
 <body>
 <div class="container">
   <div class="header">
-    <h1>📰 素材日报</h1>
-    <p class="subtitle">每日精选财经短视频素材 · 自动生成</p>
-    <div class="divider"></div>
+    <h1>📺 保险/财经短视频素材日报</h1>
+    <div class="subtitle">每日 12:00 自动更新 · 可直接用于短视频创作</div>
+    <div class="update">最近更新：2026-04-27</div>
   </div>
+
+  <div class="week-nav">
+    <div class="week-item active">4月27日 周一</div>
+    <div class="week-item">4月26日 周日</div>
+    <div class="week-item">4月25日 周六</div>
+    <div class="week-item">4月24日 周五</div>
+    <div class="week-item">4月23日 周四</div>
+    <div class="week-item">4月22日 周三</div>
+    <div class="week-item">4月21日 周二</div>
+  </div>
+
   <div class="card-list">
-    <a class="card" href="2026-04-26-v2.html">
-      <div class="date">2026.04.26 · 周日 🔥 NEW</div>
-      <div class="title">花呗白条要变了 · 英特尔暴涨23%创37年新高 · 央行缩量续作MLF</div>
-      <div class="topics">
-        <span>支付新规</span><span>CPU涨价</span><span>MLF缩量</span><span>英伟达5万亿</span><span>加密货币爆仓</span>
+    <a href="2026-04-27-v2.html" class="card">
+      <div class="card-left">
+        <div class="card-date">2026年4月27日 · 周一</div>
+        <div class="card-title">摩尔线程扭亏 · Burry做空半导体 · 医疗保障法二审</div>
+        <div class="card-tags">
+          <span class="tag tag-new">今日更新</span>
+          <span class="tag tag-hot">3条必做</span>
+        </div>
       </div>
+      <div class="card-arrow">→</div>
     </a>
-    <a class="card" href="2026-04-25-v2.html">
-      <div class="date">2026.04.25 · 周六</div>
-      <div class="title">联讯仪器暴涨950% · 英特尔AI翻身 · ST股涨跌幅变10%</div>
-      <div class="topics">
-        <span>打新</span><span>AI芯片</span><span>交易规则</span><span>化肥暴涨</span>
+
+    <a href="2026-04-26-v2.html" class="card">
+      <div class="card-left">
+        <div class="card-date">2026年4月26日 · 周日</div>
+        <div class="card-title">八部门重拳整治花呗白条 · 英特尔暴涨23.6%创37年新高 · 央行缩量续作MLF净回笼2000亿</div>
+        <div class="card-tags">
+          <span class="tag tag-hot">3条必做</span>
+        </div>
       </div>
+      <div class="card-arrow">→</div>
     </a>
-    <a class="card" href="2026-04-24-v2.html">
-      <div class="date">2026.04.24 · 周五</div>
-      <div class="title">现房销售全面推行 · 中际旭创破万亿 · 稀土副总泄密</div>
-      <div class="topics">
-        <span>楼市</span><span>光模块</span><span>国家安全</span><span>A股</span>
+
+    <a href="2026-04-25-v2.html" class="card">
+      <div class="card-left">
+        <div class="card-date">2026年4月25日 · 周六</div>
+        <div class="card-title">联讯仪器上市暴涨950%一签赚38.9万 · 英特尔Q1净利润暴增156% · 三大交易所修订交易规则</div>
+        <div class="card-tags">
+          <span class="tag tag-hot">3条必做</span>
+        </div>
       </div>
+      <div class="card-arrow">→</div>
     </a>
-    <a class="card" href="2026-04-23-v2.html">
-      <div class="date">2026.04.23 · 周四</div>
-      <div class="title">日本7.7级地震 · 创业板创历史新高 · 油价年内首降</div>
-      <div class="topics">
-        <span>半导体</span><span>A股</span><span>油价</span><span>美伊</span>
+
+    <a href="2026-04-24-v2.html" class="card">
+      <div class="card-left">
+        <div class="card-date">2026年4月24日 · 周五</div>
+        <div class="card-title">住建部现房销售4月全面推行 · 中际旭创市值破万亿 · 国安部稀土副总泄密7项国家秘密</div>
+        <div class="card-tags">
+          <span class="tag tag-hot">3条必做</span>
+        </div>
       </div>
+      <div class="card-arrow">→</div>
     </a>
-    <a class="card" href="2026-04-22-v2.html">
-      <div class="date">2026.04.22 · 周三</div>
-      <div class="title">服务业100万亿目标 · 养老金涨至163元 · 华为L3路测</div>
-      <div class="topics">
-        <span>宏观</span><span>养老金</span><span>自动驾驶</span>
+
+    <a href="2026-04-23-v2.html" class="card">
+      <div class="card-left">
+        <div class="card-date">2026年4月23日 · 周四</div>
+        <div class="card-title">日本7.7级地震冲击半导体链 · A股创业板综指创历史新高 · 油价年内首降0.44元/升</div>
+        <div class="card-tags">
+          <span class="tag tag-hot">3条必做</span>
+        </div>
       </div>
+      <div class="card-arrow">→</div>
     </a>
-    <a class="card" href="2026-04-21-v2.html">
-      <div class="date">2026.04.21 · 周二</div>
-      <div class="title">美伊谈判破裂 · 东方证券收购上海证券 · 长护险实操指南</div>
-      <div class="topics">
-        <span>油价</span><span>券商</span><span>社保</span>
+
+    <a href="2026-04-22-v2.html" class="card">
+      <div class="card-left">
+        <div class="card-date">2026年4月22日 · 周三</div>
+        <div class="card-title">国务院服务业100万亿目标 · 养老金涨至163元/1.8亿人 · 华为高速L3自动驾驶7城路测</div>
+        <div class="card-tags">
+          <span class="tag tag-hot">3条必做</span>
+        </div>
       </div>
+      <div class="card-arrow">→</div>
     </a>
-    <a class="card" href="2026-04-20-v2.html">
-      <div class="date">2026.04.20 · 周一</div>
-      <div class="title">机器人半马夺冠 · 创业板周涨6.65% · 社保第六险2028全覆盖</div>
-      <div class="topics">
-        <span>机器人</span><span>A股</span><span>长护险</span>
+
+    <a href="2026-04-21-v2.html" class="card">
+      <div class="card-left">
+        <div class="card-date">2026年4月21日 · 周二</div>
+        <div class="card-title">美伊谈判破裂油价飙升 · 东方证券收购上海证券 · 长护险申请实操指南</div>
+        <div class="card-tags">
+          <span class="tag tag-hot">3条必做</span>
+        </div>
       </div>
+      <div class="card-arrow">→</div>
     </a>
   </div>
+
   <div class="footer">
-    <p>每日 12:00 自动生成 · 仅供内容参考 · 数据来源公开信息</p>
+    <p>GitHub Pages: <a href="https://Wakaka-xi.github.io/Daily-report/">https://Wakaka-xi.github.io/Daily-report/</a></p>
+    <p style="margin-top: 8px;">素材日报 · 仅供内容参考</p>
   </div>
 </div>
 </body>
