@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>素材日报 2026-04-30</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #f0ede8; font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+
+  /* ========== 分页基础 ========== */
+  @page { size: A4 portrait; margin: 0; }
+  .page {
+    width: 794px;
+    margin: 0 auto;
+    background: #fff;
+    overflow: hidden;
+    position: relative;
+    break-after: page;
+    break-before: page;
+  }
+  .page.no-break-after { break-after: auto; }
+  .page.no-break-before { break-before: auto; }
+
+  /* ========== 封面 ========== */
+  .cover { background: linear-gradient(160deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%); padding: 60px 52px 56px; text-align: center; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: -60px; right: -60px; width: 260px; height: 260px; background: radial-gradient(circle, rgba(243,156,18,0.12) 0%, transparent 70%); border-radius: 50%; }
+  .cover::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(52,152,219,0.1) 0%, transparent 70%); border-radius: 50%; }
+  .cover .kicker { display: inline-block; font-size: 11px; letter-spacing: 6px; color: rgba(243,156,18,0.7); text-transform: uppercase; margin-bottom: 28px; }
+  .cover h1 { color: #fff; font-size: 34px; font-weight: 700; line-height: 1.3; margin-bottom: 20px; letter-spacing: -0.5px; position: relative; z-index: 1; }
+  .cover .date { color: rgba(255,255,255,0.4); font-size: 14px; margin-bottom: 36px; letter-spacing: 3px; }
+  .cover .stats { display: flex; justify-content: center; gap: 52px; padding: 28px 0; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 28px; }
+  .cover .stat { text-align: center; }
+  .cover .stat .num { color: #fff; font-size: 32px; font-weight: 700; }
+  .cover .stat .label { color: rgba(255,255,255,0.35); font-size: 12px; margin-top: 6px; letter-spacing: 1px; }
+  .cover .topic-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 18px 24px; text-align: left; position: relative; z-index: 1; }
+  .cover .topic-box .label { font-size: 11px; color: rgba(243,156,18,0.6); letter-spacing: 3px; margin-bottom: 10px; }
+  .cover .topic-box .text { color: rgba(255,255,255,0.88); font-size: 14px; line-height: 1.9; }
+
+  /* ========== 章节标题 ========== */
+  .chapter { padding: 44px 48px 28px; border-bottom: 1px solid #f0ebe4; }
+  .chapter .ch-label { font-size: 11px; letter-spacing: 4px; color: #c9a96e; text-transform: uppercase; margin-bottom: 10px; }
+  .chapter .ch-title { font-size: 24px; font-weight: 700; color: #1a1a2e; letter-spacing: -0.3px; }
+  .chapter .ch-sub { font-size: 13px; color: #999; margin-top: 6px; }
+
+  /* ========== 脚本卡片 ========== */
+  .script-card { padding: 28px 48px; border-bottom: 1px solid #f0ebe4; }
+  .script-card .sh { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
+  .script-card .rank { width: 44px; height: 44px; background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #c9a96e; font-size: 16px; font-weight: 700; flex-shrink: 0; }
+  .script-card .sh-body { flex: 1; }
+  .script-card .sh-tag { display: inline-block; font-size: 11px; padding: 3px 12px; border-radius: 7px; margin-bottom: 10px; font-weight: 600; }
+  .tag-s1 { background: rgba(231,76,60,0.1); color: #c0392b; }
+  .tag-s2 { background: rgba(230,126,34,0.1); color: #d35400; }
+  .tag-s3 { background: rgba(52,152,219,0.1); color: #2980b9; }
+  .script-card .sh-title { font-size: 17px; font-weight: 700; color: #1a1a2e; line-height: 1.5; }
+  .script-card .sh-meta { display: flex; gap: 10px; margin-top: 10px; }
+  .script-card .meta-chip { font-size: 11px; padding: 3px 10px; border-radius: 5px; }
+  .chip-hot { background: rgba(231,76,60,0.08); color: #c0392b; }
+  .chip-type { background: #f5f4f0; color: #888; }
+
+  /* 钩子 */
+  .hook { background: linear-gradient(135deg, #fffbf0, #fff8e8); border: 1px solid rgba(243,156,18,0.15); border-left: 4px solid #f39c12; border-radius: 14px; padding: 16px 18px; margin-bottom: 18px; }
+  .hook-label { font-size: 11px; font-weight: 700; color: #c9a96e; letter-spacing: 2px; margin-bottom: 8px; }
+  .hook-text { font-size: 14.5px; color: #3d3d3d; line-height: 1.85; }
+
+  /* 正文 */
+  .body-lines { padding: 0 2px; }
+  .body-line { font-size: 14px; color: #555; line-height: 2; margin-bottom: 16px; padding-left: 20px; position: relative; }
+  .body-line:last-child { margin-bottom: 0; }
+  .body-line::before { content: ''; position: absolute; left: 0; top: 12px; width: 6px; height: 6px; background: #c9a96e; border-radius: 50%; }
+
+  /* 时间轴 */
+  .time-block { background: #faf9f7; border-left: 3px solid #c9a96e; padding: 10px 14px; margin-bottom: 10px; border-radius: 0 8px 8px 0; }
+  .time-block .time { color: #c9a96e; font-weight: 700; font-size: 12px; margin-right: 8px; }
+  .time-block .content { color: #555; font-size: 14px; line-height: 1.7; display: inline; }
+
+  /* 互动引导 */
+  .cta { background: #fffde7; border: 1px solid rgba(243,156,18,0.15); border-radius: 12px; padding: 14px 18px; margin-top: 16px; }
+  .cta-label { font-size: 11px; color: #c9a96e; letter-spacing: 2px; margin-bottom: 6px; }
+  .cta-text { font-size: 13.5px; color: #666; line-height: 1.7; }
+
+  /* 封面建议 */
+  .cover-tip { background: #f9f8f5; border-radius: 10px; padding: 12px 16px; margin-top: 12px; }
+  .cover-tip-label { font-size: 11px; color: #bbb; margin-bottom: 5px; }
+  .cover-tip-text { font-size: 13px; color: #888; line-height: 1.65; }
+
+  /* ========== 素材卡片（混合脚本内容版）========== */
+  .mat-script-card { margin: 0 28px 18px; background: #faf9f7; border: 1px solid #f0ebe4; border-radius: 16px; overflow: hidden; position: relative; }
+  .mat-script-card::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; }
+  .mat-script-card.ss3::before { background: linear-gradient(180deg, #e74c3c, #c0392b); }
+  .mat-script-card.ss2::before { background: linear-gradient(180deg, #3498db, #2980b9); }
+  .mat-script-card.ss1::before { background: linear-gradient(180deg, #95a5a6, #7f8c8d); }
+
+  .mat-script-card .mat-head { padding: 18px 20px 14px; }
+  .mat-script-card .mat-head-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; }
+  .mat-script-card .mat-title { font-size: 15px; font-weight: 600; color: #1a1a2e; line-height: 1.5; flex: 1; }
+  .mat-script-card .mat-stars { font-size: 14px; flex-shrink: 0; padding-top: 2px; }
+  .star-gold { color: #f39c12; }
+  .star-gray { color: #ddd; }
+  .mat-script-card .mat-tag-row { display: flex; gap: 8px; margin-top: 10px; }
+  .mat-script-card .mat-tag { font-size: 11px; padding: 2px 10px; border-radius: 6px; font-weight: 600; }
+
+  .mat-script-card .mat-body { padding: 0 20px 18px; }
+
+  /* 素材卡片（纯结构版）========== */
+  .mat-card { margin: 0 28px 18px; background: #faf9f7; border: 1px solid #f0ebe4; border-radius: 16px; padding: 18px 20px; position: relative; overflow: hidden; }
+  .mat-card::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; }
+  .mat-card.ss3::before { background: linear-gradient(180deg, #e74c3c, #c0392b); }
+  .mat-card.ss2::before { background: linear-gradient(180deg, #3498db, #2980b9); }
+  .mat-card.ss1::before { background: linear-gradient(180deg, #95a5a6, #7f8c8d); }
+  .mat-card .mat-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; gap: 14px; }
+  .mat-card .mat-title { font-size: 15px; font-weight: 600; color: #1a1a2e; line-height: 1.5; flex: 1; }
+  .mat-card .mat-stars { font-size: 14px; flex-shrink: 0; padding-top: 2px; }
+  .mat-row { display: flex; gap: 10px; margin-bottom: 11px; align-items: flex-start; }
+  .mat-row:last-child { margin-bottom: 0; }
+  .mat-key { font-size: 13px; color: #8a8a8a; width: 68px; flex-shrink: 0; padding-top: 1px; font-weight: 500; }
+  .mat-val { font-size: 14px; color: #333; line-height: 1.75; flex: 1; }
+  .mat-source { margin-top: 14px; padding-top: 12px; border-top: 1px solid #ece8e2; font-size: 12px; color: #999; }
+
+  /* ========== 底部页脚 ========== */
+  .page-footer { background: #1a1a2e; padding: 32px 48px; text-align: center; }
+  .page-footer .brand { font-size: 16px; font-weight: 700; color: rgba(255,255,255,0.8); margin-bottom: 6px; letter-spacing: 4px; }
+  .page-footer .sub { font-size: 11px; color: rgba(255,255,255,0.3); }
+</style>
+</head>
+<body>
+
+<!-- ===================== 封面 ===================== -->
+<div class="page no-break-after">
+  <div class="cover">
+    <div class="kicker">Daily Brief</div>
+    <h1>短视频素材精选</h1>
+    <div class="date">2026.04.30 · Thursday</div>
+    <div class="stats">
+      <div class="stat"><div class="num">3</div><div class="label">参考脚本</div></div>
+      <div class="stat"><div class="num">13</div><div class="label">重点素材</div></div>
+      <div class="stat"><div class="num">3</div><div class="label">今日热点</div></div>
+    </div>
+    <div class="topic-box">
+      <div class="label">Today's Focus</div>
+      <div class="text">A股分红2.4万亿 · 源杰科技12倍超越茅台 · 深圳楼市新政4月30日起执行</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 参考脚本 ===================== -->
+<div class="page">
+  <div class="chapter">
+    <div class="ch-label">Reference Scripts</div>
+    <div class="ch-title">参考脚本</div>
+    <div class="ch-sub">视频号爆款结构 · 反转悬念文案 · 可直接二创</div>
+  </div>
+
+  <!-- 脚本1：A股现金分红 -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">01</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s1">A股投资</span>
+        <div class="sh-title">A股一年分红2.4万亿！连续4年超40%——你的股票分到钱了吗？</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">极高热度</span>
+          <span class="meta-chip chip-type">数据解读</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">A股公司一年分红2.4万亿！连续4年超过40%——这意味着什么？你的持仓股分到钱了吗？</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">4月29号，Wind数据公布重磅数据：2025年度，A股公司现金分红近2.4万亿元！这是什么概念？相当于全国14亿人每人分了1700块钱。</div>
+      <div class="body-line">更关键的是：分红占归母净利润的比重达到44.21%，这是连续第4年超过40%。在5395家已披露年报的公司里，有3624家公布了现金分红方案，占比近70%。</div>
+      <div class="body-line">为什么A股越来越愿意分红了？三个原因：第一，监管引导——证监会这些年一直在推动提高分红比例。第二，市场成熟——高分红意味着现金流好、业绩稳定。第三，吸引长期资金——保险资金、养老金最喜欢高分红股票。</div>
+      <div class="body-line">高分红有什么好处？三个思路：看股息率——股价10元，每年分红0.5元，股息率就是5%，比银行存款香。高分红公司往往是优质公司。分红再投资——复利效应惊人。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你的持仓股分红了吗？分红了多少？评论区说说。觉得有用就转发给股友，关注我，每天帮你看懂A股投资那些事儿。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"A股分红2.4万亿！" + 股票K线图标 + 红包元素；配图：2.4万亿数字可视化 + 分红比例44.21%</div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+  <!-- 脚本2：源杰科技 -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">02</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s1">A股投资</span>
+        <div class="sh-title">一年涨12倍！源杰科技干翻茅台成A股新股王——凭什么？</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">极高热度</span>
+          <span class="meta-chip chip-type">震撼解读</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">一年涨12倍！一家中国公司干翻了茅台，成为A股新"股王"——凭什么？背后有一个隐忧你知道吗？</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">4月29号，源杰科技的股价再次超越贵州茅台，连续两天稳坐A股第一高价股宝座。一年前的今天，源杰科技的股价大概是100多块钱。现在超过1400块。一年涨了12倍。源杰科技是做什么的？光芯片。就是给AI数据中心、5G基站用的核心元器件。</div>
+      <div class="body-line">业绩也炸了：一季度营收3.55个亿，同比增长321%；净利润1.79个亿，同比增长1153%。注意！一个季度的净利润，已经接近去年全年了。为什么这么猛？因为AI大爆发，数据中心疯狂建设，光模块需求暴涨。</div>
+      <div class="body-line">但是！新股王也有隐忧：第一，周期之痛——光芯片行业有周期性，产品价格会波动。第二，竞争加剧——更多公司会进来抢市场。第三，估值压力——12倍涨幅之后，估值已经非常贵了。</div>
+      <div class="body-line">记住：涨得越快，风险也在积累。投资有风险，以上内容仅供参考。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你觉得源杰科技还能涨吗？评论区说说你的看法。觉得有用就转发给股友，关注我，每天帮你追踪A股大事件。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"12倍！超越茅台！" + 股价走势图 + 新股王图标；配图：源杰科技一年K线图 + 业绩增长数据</div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+  <!-- 脚本3：深圳楼市新政 -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">03</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s2">房产政策</span>
+        <div class="sh-title">深圳4月30日起限购松绑+公积金提额——楼市要回暖？</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">高热度</span>
+          <span class="meta-chip chip-type">政策解读</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">深圳放大招了！4月30日起，核心区限购松绑、公积金贷款额度提升——楼市要回暖？你能省多少钱？</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">4月28号，中央政治局会议刚刚说了："努力稳定房地产市场"。第二天，深圳就出手了。4月29号晚上，深圳住建局发文：从4月30号开始执行新政策。</div>
+      <div class="body-line">两大变化：第一，核心区限购松绑——持居住证的可以在核心区买房了，初婚初育的家庭可以多买一套。第二，公积金贷款提额——贷款额度上调，上浮规则优化。</div>
+      <div class="body-line">对你有什么影响？三种情况：刚需——公积金贷款额度提升，每月还贷压力降低，能省不少利息。改善型——多买一套的限制放宽了，换房更容易。想投资——核心区房子更稀缺了，但"房住不炒"是主基调。</div>
+      <div class="body-line">业内怎么看？专家说：新政能释放改善置换和刚需，推动市场平稳健康发展。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你是深圳购房者吗？新政对你有影响吗？评论区说说。觉得有用就转发给需要买房的朋友，关注我，每天帮你看懂政策对生活的影响。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"深圳放大招！" + 房产图标 + 公积金图标；配图：限购松绑前后对比 + 公积金贷款额度变化</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 重点关注 ===================== -->
+<div class="page">
+  <div class="chapter">
+    <div class="ch-label">Key Highlights</div>
+    <div class="ch-title">重点关注</div>
+    <div class="ch-sub">13条素材线索 · 含3条脚本级内容 · 多角度切入</div>
+  </div>
+
+  <!-- 素材4：美伊冲突60天 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">美伊冲突进入第60天！陷入"不战不谈"僵局，霍尔木兹海峡问题成焦点</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">截至4月29日，美伊冲突爆发已过60天。自4月8日临时停火协议达成以来，各方博弈从未停止。特朗普面临《战争权力法》规定的60天军事行动期限</div></div>
+    <div class="mat-row"><div class="mat-key">⚡ 争议</div><div class="mat-val">美伊仍就霍尔木兹海峡问题各执一词，谈判方案仍未敲定。伊朗提出"三阶段谈判方案"：彻底结束战争→霍尔木兹海峡管理→核问题讨论</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">局势分析角度：60天僵局背后的博弈。油价影响角度：对全球能源市场的冲击</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">原油投资者、宏观政策关注者、外交爱好者</div></div>
+    <div class="mat-source">📊 来源：新浪新闻（4月29日）；央视新闻（4月29日）</div>
+  </div>
+
+  <!-- 素材5：保险业一季度数据 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">保险业一季度保费2.31万亿同比增6.2%！人身险成主要驱动力</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">一季度保险业保费收入2.31万亿元，同比增6.2%；赔付支出0.89万亿元，同比增7.5%。人身险公司保费收入同比增7.3%，外资保险公司保费收入同比增12.5%</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">人身险成为主要驱动力，"存款搬家"效应持续，高息存款到期推动资金流向保险</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">数据角度：保险业一季度成绩单。行业分析角度：为什么人身险增速最快？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">保险从业者、理财用户、A股保险板块投资者</div></div>
+    <div class="mat-source">📊 来源：人民日报（4月30日）；金融时报（4月29日）</div>
+  </div>
+
+  <!-- 素材6：科技保险 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">保险业持续赋能科创！科技保险呈四大亮点</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">保险业一季度持续赋能科技创新，科技保险呈现四大亮点：覆盖面扩大、产品创新加速、保费规模增长、理赔效率提升</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">针对AI、半导体等新兴领域的专属保险产品涌现，险资权益配置向科技领域倾斜</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">行业观察角度：科技保险如何赋能科创企业？投资角度：险资加码科技板块</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">科技从业者、科创企业主、保险消费者</div></div>
+    <div class="mat-source">📊 来源：金融时报（4月29日）；新浪财经（4月29日）</div>
+  </div>
+</div>
+
+<!-- ★★★ 必做素材 1-3 -->
+<div class="page">
+  <!-- 素材1 -->
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">A股现金分红近2.4万亿！连续4年超40%，常态化高分红机制形成</div>
+      <div class="mat-stars"><span class="star-gold">★★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">2025年度，A股公司现金分红近2.4万亿元，分红占归母净利润比重达44.21%，连续第4年超40%。5395家公司中3624家公布现金分红方案</div></div>
+    <div class="mat-row"><div class="mat-key">⚡ 争议</div><div class="mat-val">高分红不等于高回报，需结合公司基本面判断。部分公司分红可能是为了护盘</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">震撼角度：2.4万亿分红意味着什么？实用角度：如何用分红选股？投资角度：高股息率公司名单</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">A股投资者、价值投资者、基金持有者</div></div>
+    <div class="mat-source">📊 来源：Wind数据（4月29日）；上证报</div>
+  </div>
+
+  <!-- 素材2 -->
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">源杰科技1年飙涨12倍超越茅台！A股"新股王"诞生</div>
+      <div class="mat-stars"><span class="star-gold">★★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">源杰科技4月29日再次超越贵州茅台，连续两天稳坐A股第一高价股。一年涨幅超12倍，一季度净利润1.79亿元同比增1153%</div></div>
+    <div class="mat-row"><div class="mat-key">⚡ 争议</div><div class="mat-val">面临周期之痛和竞争格局变化，12倍涨幅后估值承压</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">震撼角度：12倍涨幅如何实现？分析角度：光芯片赛道解读。警示角度：追高风险不容忽视</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">A股投资者、科技股关注者、光模块行业观察者</div></div>
+    <div class="mat-source">📊 来源：新浪财经（4月30日）；同花顺（4月29日）</div>
+  </div>
+
+  <!-- 素材3 -->
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">深圳楼市新政4月30日起执行！核心区限购松绑+公积金提额</div>
+      <div class="mat-stars"><span class="star-gold">★★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">4月28日政治局会议提出"努力稳定房地产市场"，4月29日深圳火速跟进。4月30日起：持居住证可在核心区购房、初婚初育家庭可增购住房、公积金贷款额度提升</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">响应稳定市场要求，释放改善置换和刚需，推动市场平稳健康发展</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">震撼角度：深圳为何此时出手？实用角度：能省多少利息？分析角度：其他城市会跟进吗？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">深圳购房者、房地产从业者、A股房地产板块投资者</div></div>
+    <div class="mat-source">📊 来源：深圳住建局（4月29日）；澎湃新闻（4月29日）</div>
+  </div>
+</div>
+
+<!-- ★★ 重点关注 7-10 -->
+<div class="page">
+  <!-- 素材7 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">深圳公积金提额！重点城市楼市"金三银四"成色足</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">深圳公积金贷款额度上调，上浮规则优化，更利好刚需和改善型需求。业内认为新政能释放改善置换和刚需</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">实用角度：公积金贷款能省多少利息？对比角度：各地楼市政策哪家强？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">深圳购房者、刚需和改善型购房者</div></div>
+    <div class="mat-source">📊 来源：每日经济新闻（4月29日）；澎湃新闻（4月29日）</div>
+  </div>
+
+  <!-- 素材8 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">A股两大板块涨停潮！创业板指涨超2%，电力设备全线爆发</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">4月29日A股市场整体上涨，创业板指涨超2%，全市场近100股涨停。电力设备、有色金属等板块全线爆发</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">市场分析角度：涨停潮背后的逻辑。板块角度：哪些板块最强势？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">A股投资者、板块轮动关注者</div></div>
+    <div class="mat-source">📊 来源：凤凰网财经（4月29日）；东方财富（4月29日）</div>
+  </div>
+
+  <!-- 素材9 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">机构预测A股"慢牛"！沪深300全年涨10%，沪指最高4500点</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">中国建投研究院预测2026年A股将延续"慢牛"格局，沪深300指数全年有望获得10%以上涨幅，上证指数最高或触及4500点</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">策略角度：如何把握慢牛行情？板块角度：哪些方向值得关注？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">A股投资者、基金持有者</div></div>
+    <div class="mat-source">📊 来源：经济观察报（4月27日）；新浪财经（4月27日）</div>
+  </div>
+
+  <!-- 素材10 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">源杰科技面临隐忧！周期之痛和竞争格局变化</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">源杰科技超越茅台成为新股王，但市场开始关注其面临的挑战：周期风险、竞争加剧、估值压力</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">风险警示角度：追高前必须知道的三个风险。投资策略角度：如何理性看待新股王？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">A股投资者、科技股关注者</div></div>
+    <div class="mat-source">📊 来源：新浪财经（4月30日）；证券时报（4月29日）</div>
+  </div>
+</div>
+
+<!-- ★ 补充视角 11-13 -->
+<div class="page">
+  <!-- 素材11 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">保险行业4大核心调整！2026年政策密集落地</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">2026年保险行业迎来密集政策落地：第四套生命表1月1日起落地、适当性管理办法2月生效、产品结构转型、保费可能调整</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">从业者角度：4大调整影响全解读。消费者角度：投保要注意什么？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">保险从业者、投保人</div></div>
+    <div class="mat-source">📊 来源：新浪财经（4月30日）</div>
+  </div>
+
+  <!-- 素材12 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">伊朗外长会晤普京！美伊对峙焦灼，谈判前景难料</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">4月27日伊朗外长阿拉格齐访问俄罗斯，与普京会晤讨论双边关系和中东局势。美伊谈判方案仍未敲定</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">外交角度：中东局势走向何方？市场角度：对油价和黄金的影响</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">原油投资者、黄金投资者、外交爱好者</div></div>
+    <div class="mat-source">📊 来源：新浪新闻（4月28日）；央视新闻（4月27日）</div>
+  </div>
+
+  <!-- 素材13 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">中电联预测2026年新能源装机超3亿千瓦！电力供需形势趋紧</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">中电联预测2026年新能源装机或超3亿千瓦，用电量稳步增长，电力供需形势分析出炉</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">行业角度：新能源赛道有哪些机会？投资角度：电力设备板块分析</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">新能源从业者、电力行业投资者</div></div>
+    <div class="mat-source">📊 来源：新浪财经（4月28日）；四大证券报（4月28日）</div>
+  </div>
+</div>
+
+<!-- ===================== 底部 ===================== -->
+<div class="page no-break-after">
+  <div class="page-footer">
+    <div class="brand">素材日报</div>
+    <div class="sub">每日 12:00 自动生成 · 仅供内容参考</div>
+  </div>
+</div>
+
+</body>
+</html>
