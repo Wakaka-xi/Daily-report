@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>素材日报 2026-05-02</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #f0ede8; font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+
+  /* ========== 分页基础 ========== */
+  @page { size: A4 portrait; margin: 0; }
+  .page {
+    width: 794px;
+    margin: 0 auto;
+    background: #fff;
+    overflow: hidden;
+    position: relative;
+    break-after: page;
+    break-before: page;
+  }
+  .page.no-break-after { break-after: auto; }
+  .page.no-break-before { break-before: auto; }
+
+  /* ========== 封面 ========== */
+  .cover { background: linear-gradient(160deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%); padding: 60px 52px 56px; text-align: center; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: -60px; right: -60px; width: 260px; height: 260px; background: radial-gradient(circle, rgba(243,156,18,0.12) 0%, transparent 70%); border-radius: 50%; }
+  .cover::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(52,152,219,0.1) 0%, transparent 70%); border-radius: 50%; }
+  .cover .kicker { display: inline-block; font-size: 11px; letter-spacing: 6px; color: rgba(243,156,18,0.7); text-transform: uppercase; margin-bottom: 28px; }
+  .cover h1 { color: #fff; font-size: 34px; font-weight: 700; line-height: 1.3; margin-bottom: 20px; letter-spacing: -0.5px; position: relative; z-index: 1; }
+  .cover .date { color: rgba(255,255,255,0.4); font-size: 14px; margin-bottom: 36px; letter-spacing: 3px; }
+  .cover .stats { display: flex; justify-content: center; gap: 52px; padding: 28px 0; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 28px; }
+  .cover .stat { text-align: center; }
+  .cover .stat .num { color: #fff; font-size: 32px; font-weight: 700; }
+  .cover .stat .label { color: rgba(255,255,255,0.35); font-size: 12px; margin-top: 6px; letter-spacing: 1px; }
+  .cover .topic-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 18px 24px; text-align: left; position: relative; z-index: 1; }
+  .cover .topic-box .label { font-size: 11px; color: rgba(243,156,18,0.6); letter-spacing: 3px; margin-bottom: 10px; }
+  .cover .topic-box .text { color: rgba(255,255,255,0.88); font-size: 14px; line-height: 1.9; }
+
+  /* ========== 章节标题 ========== */
+  .chapter { padding: 44px 48px 28px; border-bottom: 1px solid #f0ebe4; }
+  .chapter .ch-label { font-size: 11px; letter-spacing: 4px; color: #c9a96e; text-transform: uppercase; margin-bottom: 10px; }
+  .chapter .ch-title { font-size: 24px; font-weight: 700; color: #1a1a2e; letter-spacing: -0.3px; }
+  .chapter .ch-sub { font-size: 13px; color: #999; margin-top: 6px; }
+
+  /* ========== 脚本卡片 ========== */
+  .script-card { padding: 28px 48px; border-bottom: 1px solid #f0ebe4; }
+  .script-card .sh { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
+  .script-card .rank { width: 44px; height: 44px; background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #c9a96e; font-size: 16px; font-weight: 700; flex-shrink: 0; }
+  .script-card .sh-body { flex: 1; }
+  .script-card .sh-tag { display: inline-block; font-size: 11px; padding: 3px 12px; border-radius: 7px; margin-bottom: 10px; font-weight: 600; }
+  .tag-s1 { background: rgba(231,76,60,0.1); color: #c0392b; }
+  .tag-s2 { background: rgba(230,126,34,0.1); color: #d35400; }
+  .tag-s3 { background: rgba(52,152,219,0.1); color: #2980b9; }
+  .script-card .sh-title { font-size: 17px; font-weight: 700; color: #1a1a2e; line-height: 1.5; }
+  .script-card .sh-meta { display: flex; gap: 10px; margin-top: 10px; }
+  .script-card .meta-chip { font-size: 11px; padding: 3px 10px; border-radius: 5px; }
+  .chip-hot { background: rgba(231,76,60,0.08); color: #c0392b; }
+  .chip-type { background: #f5f4f0; color: #888; }
+
+  /* 钩子 */
+  .hook { background: linear-gradient(135deg, #fffbf0, #fff8e8); border: 1px solid rgba(243,156,18,0.15); border-left: 4px solid #f39c12; border-radius: 14px; padding: 16px 18px; margin-bottom: 18px; }
+  .hook-label { font-size: 11px; font-weight: 700; color: #c9a96e; letter-spacing: 2px; margin-bottom: 8px; }
+  .hook-text { font-size: 14.5px; color: #3d3d3d; line-height: 1.85; }
+
+  /* 正文 */
+  .body-lines { padding: 0 2px; }
+  .body-line { font-size: 14px; color: #555; line-height: 2; margin-bottom: 16px; padding-left: 20px; position: relative; }
+  .body-line:last-child { margin-bottom: 0; }
+  .body-line::before { content: ''; position: absolute; left: 0; top: 12px; width: 6px; height: 6px; background: #c9a96e; border-radius: 50%; }
+
+  /* 时间轴 */
+  .time-block { background: #faf9f7; border-left: 3px solid #c9a96e; padding: 10px 14px; margin-bottom: 10px; border-radius: 0 8px 8px 0; }
+  .time-block .time { color: #c9a96e; font-weight: 700; font-size: 12px; margin-right: 8px; }
+  .time-block .content { color: #555; font-size: 14px; line-height: 1.7; display: inline; }
+
+  /* 互动引导 */
+  .cta { background: #fffde7; border: 1px solid rgba(243,156,18,0.15); border-radius: 12px; padding: 14px 18px; margin-top: 16px; }
+  .cta-label { font-size: 11px; color: #c9a96e; letter-spacing: 2px; margin-bottom: 6px; }
+  .cta-text { font-size: 13.5px; color: #666; line-height: 1.7; }
+
+  /* 封面建议 */
+  .cover-tip { background: #f9f8f5; border-radius: 10px; padding: 12px 16px; margin-top: 12px; }
+  .cover-tip-label { font-size: 11px; color: #bbb; margin-bottom: 5px; }
+  .cover-tip-text { font-size: 13px; color: #888; line-height: 1.65; }
+
+  /* ========== 素材卡片（混合脚本内容版）========== */
+  .mat-script-card { margin: 0 28px 18px; background: #faf9f7; border: 1px solid #f0ebe4; border-radius: 16px; overflow: hidden; position: relative; }
+  .mat-script-card::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; }
+  .mat-script-card.ss3::before { background: linear-gradient(180deg, #e74c3c, #c0392b); }
+  .mat-script-card.ss2::before { background: linear-gradient(180deg, #3498db, #2980b9); }
+  .mat-script-card.ss1::before { background: linear-gradient(180deg, #95a5a6, #7f8c8d); }
+
+  .mat-script-card .mat-head { padding: 18px 20px 14px; }
+  .mat-script-card .mat-head-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; }
+  .mat-script-card .mat-title { font-size: 15px; font-weight: 600; color: #1a1a2e; line-height: 1.5; flex: 1; }
+  .mat-script-card .mat-stars { font-size: 14px; flex-shrink: 0; padding-top: 2px; }
+  .star-gold { color: #f39c12; }
+  .star-gray { color: #ddd; }
+  .mat-script-card .mat-tag-row { display: flex; gap: 8px; margin-top: 10px; }
+  .mat-script-card .mat-tag { font-size: 11px; padding: 2px 10px; border-radius: 6px; font-weight: 600; }
+
+  .mat-script-card .mat-body { padding: 0 20px 18px; }
+
+  /* 素材卡片（纯结构版）========== */
+  .mat-card { margin: 0 28px 18px; background: #faf9f7; border: 1px solid #f0ebe4; border-radius: 16px; padding: 18px 20px; position: relative; overflow: hidden; }
+  .mat-card::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; }
+  .mat-card.ss3::before { background: linear-gradient(180deg, #e74c3c, #c0392b); }
+  .mat-card.ss2::before { background: linear-gradient(180deg, #3498db, #2980b9); }
+  .mat-card.ss1::before { background: linear-gradient(180deg, #95a5a6, #7f8c8d); }
+  .mat-card .mat-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; gap: 14px; }
+  .mat-card .mat-title { font-size: 15px; font-weight: 600; color: #1a1a2e; line-height: 1.5; flex: 1; }
+  .mat-card .mat-stars { font-size: 14px; flex-shrink: 0; padding-top: 2px; }
+  .mat-row { display: flex; gap: 10px; margin-bottom: 11px; align-items: flex-start; }
+  .mat-row:last-child { margin-bottom: 0; }
+  .mat-key { font-size: 13px; color: #8a8a8a; width: 68px; flex-shrink: 0; padding-top: 1px; font-weight: 500; }
+  .mat-val { font-size: 14px; color: #333; line-height: 1.75; flex: 1; }
+  .mat-source { margin-top: 14px; padding-top: 12px; border-top: 1px solid #ece8e2; font-size: 12px; color: #999; }
+
+  /* ========== 底部页脚 ========== */
+  .page-footer { background: #1a1a2e; padding: 32px 48px; text-align: center; }
+  .page-footer .brand { font-size: 16px; font-weight: 700; color: rgba(255,255,255,0.8); margin-bottom: 6px; letter-spacing: 4px; }
+  .page-footer .sub { font-size: 11px; color: rgba(255,255,255,0.3); }
+</style>
+</head>
+<body>
+
+<!-- ===================== 封面 ===================== -->
+<div class="page no-break-after">
+  <div class="cover">
+    <div class="kicker">Daily Brief</div>
+    <h1>短视频素材精选</h1>
+    <div class="date">2026.05.02 · Saturday</div>
+    <div class="stats">
+      <div class="stat"><div class="num">3</div><div class="label">参考脚本</div></div>
+      <div class="stat"><div class="num">13</div><div class="label">重点素材</div></div>
+      <div class="stat"><div class="num">3</div><div class="label">今日热点</div></div>
+    </div>
+    <div class="topic-box">
+      <div class="label">Today's Focus</div>
+      <div class="text">中国对非洲零关税 / 特朗普宣布对伊行动结束 / 长三角铁路客流创历史新高</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 参考脚本 ===================== -->
+<div class="page">
+  <div class="chapter">
+    <div class="ch-label">Reference Scripts</div>
+    <div class="ch-title">参考脚本</div>
+    <div class="ch-sub">视频号爆款结构 · 反转悬念文案 · 可直接二创</div>
+  </div>
+
+  <!-- 脚本1：中国对非洲零关税 -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">01</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s1">外贸政策</span>
+        <div class="sh-title">全球首个！中国对非洲53国零关税5月1日启动——释放什么信号？</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">极高热度</span>
+          <span class="meta-chip chip-type">政策解读</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">全球首个！中国对非洲53个国家零关税，5月1日起正式实施——这意味着什么？你的生意、你的投资、你买的东西，全部要变了！今天这期视频，我帮你把零关税政策全部搞清楚。</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">4月28日，国务院关税税则委员会发布公告：从2026年5月1日到2028年4月30日，对同中国建交的20个不属于最不发达国家的非洲国家，以特惠税率形式实施零关税。加上2024年12月1日起已对33个非洲最不发达国家实施的零关税，中国现在是全球首个——注意，是全球首个——对所有非洲建交国实现零关税的主要经济体。</div>
+      <div class="body-line">覆盖多少个国家？53个非洲国家中，同中国建交的国家全部享受零关税。这是什么概念？非洲大陆总共54个国家，53个同中国建交，全部零关税！实施期限是3年（2026年5月1日到2028年4月30日）。</div>
+      <div class="body-line">零关税了，什么产品最受益？三类：第一，非洲农产品——咖啡、可可、坚果、水果，以后在中国超市买这些，价格会更便宜；第二，矿产品——锂矿、钴矿、铜矿，这些都是新能源产业链的关键原材料；第三，手工艺品、纺织品——非洲特色产品，零关税后竞争力大增。</div>
+      <div class="body-line">对A股有什么影响？三个方向：第一，外贸物流——中非贸易额2025年突破3000亿美元，零关税后还会涨，港口、物流公司受益；第二，新能源产业链——非洲的锂矿、钴矿零关税进来，降低了电池成本，利好新能源汽车、储能；第三，消费品——非洲特色产品进入中国，利好跨境电商、进口商。但注意：零关税也可能对国内同类产品带来竞争压力，投资要辩证看。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你觉得零关税对中国经济是利好还是挑战？评论区说说你的看法。关注我，每天帮你解读财经大事件背后的逻辑。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"零关税来了！" + 非洲地图 + 中国国旗；配图：中非贸易数据图 + 零关税覆盖53国示意图</div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+  <!-- 脚本2：特朗普称对伊敌对行动"结束" -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">02</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s1">国际时事</span>
+        <div class="sh-title">特朗普突然宣布！对伊朗敌对行动"结束"——中东局势大反转，油价要跌了？</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">极高热度</span>
+          <span class="meta-chip chip-type">市场分析</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">特朗普突然宣布：对伊朗敌对行动"结束"！中东局势大反转——油价要跌了？黄金要跌了？全球股市要涨了？今天这期视频，我帮你把这件事的前因后果全部搞清楚，这可是影响你钱包的大事！</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">5月2日凌晨，北京时间，白宫发布重磅声明：与伊朗的敌对行动已经"结束"。同一时间，特朗普本人也表示：对伊朗最新谈判方案"不满意"——但军事行动暂停了。这意味着什么？从3月份开始的美伊冲突，在5月1日这天，按下了暂停键。</div>
+      <div class="body-line">这次冲突，起因是什么？简单说：3月，美国指责伊朗支持恐怖组织，对伊朗发动军事打击。4月8日，临时停火协议达成，但局势一直紧张。4月30日，油价一度暴涨7%，冲破126美元——市场担心霍尔木兹海峡被封锁。结果5月1日，特朗普突然宣布"结束"。为什么？一个重要原因：美国在中东8个国家的16处军事设施受损，维修费用超100亿美元。美国也打不起了。</div>
+      <div class="body-line">中东局势降温，对市场有什么影响？四个方向：第一，油价——局势降温，油价可能从高位回落，4月30日涨7%，5月1日可能跌回去；第二，黄金——避险需求下降，黄金可能从4800美元/盎司的高位回调；第三，股市——全球风险偏好回升，美股创新高，A股外部风险降低；第四，A股板块——军工板块可能跌，航空、化工板块可能涨（油价下跌=成本下降）。</div>
+      <div class="body-line">但注意：中东局势仍存在不确定性，特朗普表态可能反复。投资有风险，别盲目追涨杀跌。记住：地缘政治是短期影响因素，长期还是要看基本面。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你觉得中东局势真的结束了吗？还是只是暂停？评论区聊聊。觉得有用就转发，关注我，每天帮你追踪全球财经大事件。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"特朗普宣布：结束！" + 特朗普照片 + 油价走势图；配图：中东局势时间线图 + 油价K线图</div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+  <!-- 脚本3：长三角铁路单日客流创历史新高 -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">03</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s2">消费数据</span>
+        <div class="sh-title">爆了！长三角铁路单日客流创历史新高——五一出行太疯狂，中国经济要反弹了？</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">高热度</span>
+          <span class="meta-chip chip-type">数据解读</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">爆了！长三角铁路单日客流创历史新高！五一出行太疯狂——中国经济要反弹了？今天这期视频，我帮你把五一出行数据全部扒出来，钱都花哪了？对投资有什么启示？看完你就懂了。</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">5月1日，长三角铁路单日旅客发送量创历史新高！虽然具体数字还没公布，但预计超350万人次——这是什么概念？相当于一个中等城市的所有人口，在同一天全部坐火车出行。全国铁路5月1日预计发送旅客超2000万人次。全社会跨区域人员流动，五一假期前2天预计突破6亿人次——这是历史同期的新高！</div>
+      <div class="body-line">出行这么猛，钱都花在哪了？四个方向：第一，旅游——国内景点全部爆满，黄山、张家界、九寨沟门票全部售罄；第二，酒店餐饮——五一期间，酒店价格平均上涨50%，但入住率仍超90%；第三，航空铁路——长三角铁路客流创新高，国内航线爆满，南航厦航刚订购了137架空客飞机；第四，文旅消费——文化和旅游部发了超2.84亿元的文旅消费券，举办了约1.37万场次文旅消费活动。</div>
+      <div class="body-line">对投资有什么启示？三个方向：第一，旅游板块——国内游火爆，景区、酒店、餐饮公司受益，但注意：股价可能已经提前反映了；第二，铁路运输——长三角铁路客流创新高，京沪高铁、广深铁路受益；第三，消费复苏——零售、餐饮、免税概念，五一数据超预期，可能带动板块上涨。但记住：投资有风险，出行数据对股价的刺激可能是短期的。</div>
+      <div class="body-line">总结一下：五一出行数据爆表，说明中国消费复苏信号来了。但复苏的持续性有待观察，投资要谨慎。记住：数据是滞后的，股价是前瞻的，别盲目追高。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你五一去哪玩了？花了多少钱？评论区聊聊你的消费体验。觉得有用就转发给朋友，关注我，每天帮你看懂数据背后的经济逻辑。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"创历史新高！" + 高铁图片 + 人流照片；配图：五一出行数据图 + 旅游收入预测图</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 重点关注 ===================== -->
+<div class="page">
+  <div class="chapter">
+    <div class="ch-label">Key Highlights</div>
+    <div class="ch-title">重点关注</div>
+    <div class="ch-sub">13条素材线索 · 含3条脚本级内容 · 多角度切入</div>
+  </div>
+
+  <!-- 素材4：特朗普对欧盟汽车加征25%关税 → 素材卡片格式（★★★） -->
+  <div class="mat-script-card ss3">
+    <div class="mat-head">
+      <div class="mat-head-row">
+        <div class="mat-title">特朗普又出手了！对欧盟汽车加征25%关税——欧美贸易战再起？</div>
+        <div class="mat-stars"><span class="star-gold">★★★</span></div>
+      </div>
+      <div class="mat-tag-row">
+        <span class="mat-tag" style="background:rgba(231,76,60,0.1);color:#c0392b;">国际贸易</span>
+        <span class="mat-tag" style="background:#f5f4f0;color:#888;">高热度</span>
+      </div>
+    </div>
+    <div class="mat-body">
+      <div class="hook">
+        <div class="hook-label">前3秒钩子</div>
+        <div class="hook-text">特朗普又出手了！对欧盟汽车加征25%关税——欧美贸易战再起？今天这期视频，我帮你把这件事的影响全部讲清楚，全球股市、A股、汽车板块，全部要动！</div>
+      </div>
+      <div class="body-lines">
+        <div class="body-line">5月2日，白宫宣布：下周对欧盟输美汽车和卡车加征25%关税。关税税率25%，实施对象欧盟输美汽车和卡车，实施时间预计5月5日-10日。</div>
+        <div class="body-line">背景是什么？美欧贸易关系长期紧张，欧盟对美国科技巨头征收数字税，引发美国不满。特朗普2.0时代，贸易保护主义重回舞台。市场影响：欧洲汽车股下跌（大众、宝马、奔驰股价承压），美国汽车股上涨（福特、通用受益），全球贸易局势再度紧张。</div>
+      </div>
+      <div class="cta">
+        <div class="cta-label">互动引导</div>
+        <div class="cta-text">你觉得欧美贸易战会打起来吗？评论区说说你的看法。</div>
+      </div>
+      <div class="cover-tip">
+        <div class="cover-tip-label">封面建议</div>
+        <div class="cover-tip-text">大字"25%关税！" + 欧盟国旗 + 汽车图片；配图：欧美贸易额数据图</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 素材5：美股三大指数涨跌不一 → 素材卡片格式（★★★） -->
+  <div class="mat-script-card ss3">
+    <div class="mat-head">
+      <div class="mat-head-row">
+        <div class="mat-title">美股又创新高！标普纳指连两日刷新纪录——内存股暴涨带飞科技板块</div>
+        <div class="mat-stars"><span class="star-gold">★★★</span></div>
+      </div>
+      <div class="mat-tag-row">
+        <span class="mat-tag" style="background:rgba(52,152,219,0.1);color:#2980b9;">美股动态</span>
+        <span class="mat-tag" style="background:#f5f4f0;color:#888;">高热度</span>
+      </div>
+    </div>
+    <div class="mat-body">
+      <div class="hook">
+        <div class="hook-label">前3秒钩子</div>
+        <div class="hook-text">美股又创新高了！标普纳指连两日刷新纪录——内存股暴涨带飞科技板块。今天这期视频，我帮你把美股暴涨的原因全部讲清楚，A股能不能跟着涨？</div>
+      </div>
+      <div class="body-lines">
+        <div class="body-line">5月1日美股收盘，三大指数涨跌不一，但标普500和纳指连续两日刷新历史新高。关键数据：标普500指数连续两日创历史新高，纳指连续两日创历史新高，道指小幅下跌0.4%。内存股三星、SK海力士美股ADR创纪录涨幅，英特尔市值首次突破5000亿美元。</div>
+        <div class="body-line">核心驱动：科技巨头财报超预期（微软、谷歌、亚马逊、Meta），AI算力需求持续爆发，内存芯片供不应求，美联储维持利率不变，市场解读为偏鸽派。</div>
+      </div>
+      <div class="cta">
+        <div class="cta-label">互动引导</div>
+        <div class="cta-text">你觉得A股能跟着美股涨吗？评论区说说你的看法。</div>
+      </div>
+      <div class="cover-tip">
+        <div class="cover-tip-label">封面建议</div>
+        <div class="cover-tip-text">大字"美股创新高！" + 纳斯达克图标 + K线图；配图：科技股涨幅榜</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ★★★ 必做素材 1-3 -->
+<div class="page">
+  <!-- 素材1 -->
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">中国对非洲建交国零关税5月1日起实施！覆盖53国，全球首个</div>
+      <div class="mat-stars"><span class="star-gold">★★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">2026年5月1日至2028年4月30日，中国对同中国建交的20个不属于最不发达国家的非洲国家实施零关税。加上2024年12月1日起已对33个非洲最不发达国家实施的零关税，中国成为全球首个对所有非洲建交国实现零关税的主要经济体。</div></div>
+    <div class="mat-row"><div class="mat-key">⚡ 争议</div><div class="mat-val">零关税对中国国内同类产品带来竞争压力，如何平衡进口与保护？</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">震撼角度：全球首个！中国对非洲53国零关税。投资角度：外贸物流、新能源产业链、消费品受益。实用角度：非洲什么产品要降价了？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">外贸从业者、投资者、政策关注者、消费者</div></div>
+    <div class="mat-source">📊 来源：央视新闻（4月28日）；新华社（4月28日）；国务院关税税则委员会公告</div>
+  </div>
+
+  <!-- 素材2 -->
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">特朗普称对伊敌对行动"结束"！中东局势突变，油价暴跌</div>
+      <div class="mat-stars"><span class="star-gold">★★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">5月2日凌晨，白宫发布声明：与伊朗的敌对行动已经"结束"。特朗普同时表示对伊朗最新谈判方案"不满意"，但军事行动暂停。美伊冲突从3月开始，4月8日达成临时停火，5月1日按下暂停键。</div></div>
+    <div class="mat-key">⚡ 争议</div><div class="mat-val">中东局势是否真的结束？还是只是暂停？特朗普表态可能反复，不确定性仍存。</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">震撼角度：特朗普突然宣布"结束"！市场角度：油价、黄金、股市怎么走？投资角度：A股军工跌、航空涨？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">投资者、宏观政策关注者、国际时事爱好者</div></div>
+    <div class="mat-source">📊 来源：东方财富网（5月2日07:00）；白宫公告（5月1日）；新华社（5月2日）</div>
+  </div>
+
+  <!-- 素材3 -->
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">长三角铁路单日客流创历史新高！五一假期出行数据爆表</div>
+      <div class="mat-stars"><span class="star-gold">★★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">5月1日，长三角铁路单日旅客发送量创历史新高，预计超350万人次。全国铁路5月1日预计发送旅客超2000万人次。全社会跨区域人员流动，五一假期前2天预计突破6亿人次，创历史同期新高。</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">五一出行数据爆表，说明中国消费复苏信号来了。文化和旅游部发了超2.84亿元文旅消费券，举办了约1.37万场次文旅消费活动。</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">数据角度：6亿人次出行，钱都花哪了？投资角度：旅游、铁路、消费板块受益？民生角度：五一消费体验调查报告。</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">投资者、旅游从业者、普通消费者</div></div>
+    <div class="mat-source">📊 来源：东方财富网（5月2日06:14）；中国铁路上海局（5月1日）；文化和旅游部</div>
+  </div>
+</div>
+
+<!-- ★★ 重点关注 4-7 -->
+<div class="page">
+  <!-- 素材4 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">特朗普对欧盟输美汽车加征25%关税！欧美贸易战再起</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">5月2日，白宫宣布：下周对欧盟输美汽车和卡车加征25%关税。欧盟对美国科技巨头征收数字税是重要背景，特朗普2.0时代贸易保护主义重回舞台。</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">欧洲汽车股下跌（大众、宝马、奔驰承压），美国汽车股上涨（福特、通用受益），全球贸易局势再度紧张。</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">市场角度：欧美股市怎么走？投资角度：A股汽车板块受影响吗？前瞻角度：全球贸易战2.0来了？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">投资者、外贸从业者、宏观政策关注者</div></div>
+    <div class="mat-source">📊 来源：东方财富网（5月2日07:00）；白宫公告（5月1日）</div>
+  </div>
+
+  <!-- 素材5 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">美股三大指数涨跌不一！内存股创纪录，标普纳指连两日刷新高</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">5月1日美股收盘，标普500和纳指连续两日刷新历史新高。英特尔市值首次突破5000亿美元，内存股三星、SK海力士美股ADR创纪录涨幅。</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">科技巨头财报超预期（微软、谷歌、亚马逊、Meta），AI算力需求持续爆发，内存芯片供不应求。</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">市场角度：美股创新高，A股能跟着涨？板块角度：内存芯片产业链A股有哪些？投资角度：美股科技股还能追吗？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">A股投资者、美股投资者、科技股关注者</div></div>
+    <div class="mat-source">📊 来源：东方财富网（5月2日06:23）；美股收盘数据（5月1日）</div>
+  </div>
+
+  <!-- 素材6 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">游戏驿站(GME)拟收购eBay！"散户惹宠股"又要疯？</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">游戏驿站(GameStop)宣布拟收购eBay，打造"千亿市值"电商平台。消息一出，GME盘后一度涨超8%，eBay盘后涨幅超13%。</div></div>
+    <div class="mat-row"><div class="mat-key">⚡ 争议</div><div class="mat-val">GME市值仅80亿美元，eBay市值约300亿美元，如何完成"蛇吞象"式收购？分析师质疑融资能力。</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">震撼角度：GME要收购eBay？散户狂欢！质疑角度：钱从哪来？投资角度：散户惹宠股还能跟吗？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">美股投资者、散户、财经自媒体</div></div>
+    <div class="mat-source">📊 来源：东方财富网（5月2日06:07）；游戏驿站公告（5月1日）</div>
+  </div>
+
+  <!-- 素材7 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">上海三大先导产业母基金一季度投决82亿元！集成电路、生物医药、AI</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">上海三大先导产业母基金（集成电路、生物医药、人工智能）一季度投决82亿元，新增出资43亿元。政府引导基金撬动社会资本，预计带动投资超300亿元。</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">上海加速打造先导产业高地，集成电路（芯片）是重中之重，国产替代加速。</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">投资角度：上海先导产业基金投了什么？A股角度：集成电路、生物医药、AI板块受益标的。政策角度：政府引导基金如何撬动社会资本？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">A股投资者、科技从业者、政策关注者</div></div>
+    <div class="mat-source">📊 来源：东方财富网（5月2日07:00）；上海国资委（5月1日）</div>
+  </div>
+</div>
+
+<!-- ★★ 重点关注 8-10 + ★ 补充视角 11-13 -->
+<div class="page">
+  <!-- 素材8 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">美联储6月维持利率不变概率92.8%！降息预期再推迟</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">芝商所FedWatch工具显示：美联储6月维持利率不变的概率高达92.8%。降息预期再次推迟，首次降息可能推迟到9月或12月。</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">4月30日美联储连续第三次按兵不动，内部分歧创1992年以来最高（8比4投票）。通胀数据虽有回落，但仍高于2%目标。</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">市场角度：降息预期推迟，美股、美债、黄金怎么走？A股角度：外资流入可能放缓？投资角度：现在买美债还是等降息？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">投资者、宏观政策关注者</div></div>
+    <div class="mat-source">📊 来源：东方财富网（5月2日06:20）；芝商所FedWatch工具（5月1日）</div>
+  </div>
+
+  <!-- 素材9 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">中国担任安理会5月轮值主席！将聚焦三项重点</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">中国担任联合国安理会5月轮值主席，将聚焦三项重点工作：中东和平进程（推动美伊对话）、非洲发展（推动零关税政策落地）、全球治理改革（推动多边主义）。</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">中国是安理会常任理事国中唯一的发展中国家，5月轮值主席国身份为中国发声提供重要平台。</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">外交角度：中国担任安理会轮值主席，全球治理中国方案来了？投资角度：中东局势缓和→油价下跌→航空、化工受益。宏观角度：人民币国际化加速？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">宏观政策关注者、投资者、外交爱好者</div></div>
+    <div class="mat-source">📊 来源：东方财富网（5月2日06:48）；中国常驻联合国代表团（5月1日）</div>
+  </div>
+
+  <!-- 素材10 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">美在中东8国16处军事设施受损！冲突代价曝光</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">美国国防部公布：在中东8个国家的16处军事设施在冲突中受损。维修费用预计超100亿美元。这可能是特朗普宣布"敌对行动结束"的重要原因——美国也打不起了。</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">分析角度：美国军事设施受损，特朗普为何突然宣布"结束"？成本角度：100亿美元维修费，美国承受得起吗？前瞻角度：中东局势接下来怎么走？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">国际时事爱好者、军事爱好者</div></div>
+    <div class="mat-source">📊 来源：东方财富网（5月2日06:30）；美国国防部（5月1日）</div>
+  </div>
+
+  <!-- 素材11 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">离岸人民币兑美元报6.8310！升值压力加大</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">5月1日纽约尾盘，离岸人民币兑美元报6.8310元，较周四纽约尾盘涨10点。人民币升值压力加大，对中国出口企业带来汇率压力。</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">美元指数走弱（美联储降息预期），中国经济基本面改善（A股4月暴涨），外资持续流入中国市场。</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">市场角度：人民币升值，A股外资流入还是流出？出口角度：人民币升值对中国出口影响有多大？投资角度：升值受益板块（航空、造纸）vs受损板块（出口）。</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">投资者、出口企业从业者、外汇关注者</div></div>
+    <div class="mat-source">📊 来源：东方财富网（5月2日06:47）；外汇交易中心（5月1日）</div>
+  </div>
+
+  <!-- 素材12 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">英国10年期国债收益率跌4.8个基点！全球债市震荡</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">5月1日，英国10年期国债收益率跌4.8个基点，报4.964%。美国10年期国债收益率涨0.22个基点。全球债市分化明显。</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">英国央行可能比美联储更早降息，英国经济数据疲软，市场对衰退担忧上升。国债收益率下跌=债券价格上涨=避险资金流入。</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">市场角度：全球债市震荡，避险情绪上升？投资角度：债市收益率下降→债券市场可能上涨？配置角度：如何配置全球债券资产？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">债券投资者、宏观政策关注者</div></div>
+    <div class="mat-source">📊 来源：东方财富网（5月2日06:59）；英国债务管理局（5月1日）</div>
+  </div>
+
+  <!-- 素材13 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">俄伊外长通话讨论中东局势！普京盯上了什么？</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">5月1日，俄罗斯外长拉夫罗夫与伊朗外长阿拉格齐通话，讨论中东局势。俄罗斯是伊朗的重要盟友，中东局势的变化直接影响俄罗斯的能源战略。</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">俄伊合作深化→石油供应可能增加→油价下跌。霍尔木兹海峡是全球石油运输的咽喉要道，俄伊立场影响全球能源格局。</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">地缘角度：俄伊外长通话，大国博弈升级？能源角度：俄伊合作对油价的影响？前瞻角度：中东局势接下来怎么走？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">国际时事爱好者、能源行业从业者、投资者</div></div>
+    <div class="mat-source">📊 来源：东方财富网（5月2日06:30）；俄罗斯外交部（5月1日）</div>
+  </div>
+</div>
+
+<!-- ===================== 底部 ===================== -->
+<div class="page no-break-after">
+  <div class="page-footer">
+    <div class="brand">素材日报</div>
+    <div class="sub">每日 07:00 自动生成 · 仅供内容参考</div>
+  </div>
+</div>
+
+</body>
+</html>
