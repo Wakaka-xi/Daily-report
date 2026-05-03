@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>素材日报 2026-05-03</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #f0ede8; font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+
+  /* ========== 分页基础 ========== */
+  @page { size: A4 portrait; margin: 0; }
+  .page {
+    width: 794px;
+    margin: 0 auto;
+    background: #fff;
+    overflow: hidden;
+    position: relative;
+    break-after: page;
+    break-before: page;
+  }
+  .page.no-break-after { break-after: auto; }
+  .page.no-break-before { break-before: auto; }
+
+  /* ========== 封面 ========== */
+  .cover { background: linear-gradient(160deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%); padding: 60px 52px 56px; text-align: center; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: -60px; right: -60px; width: 260px; height: 260px; background: radial-gradient(circle, rgba(243,156,18,0.12) 0%, transparent 70%); border-radius: 50%; }
+  .cover::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(52,152,219,0.1) 0%, transparent 70%); border-radius: 50%; }
+  .cover .kicker { display: inline-block; font-size: 11px; letter-spacing: 6px; color: rgba(243,156,18,0.7); text-transform: uppercase; margin-bottom: 28px; }
+  .cover h1 { color: #fff; font-size: 34px; font-weight: 700; line-height: 1.3; margin-bottom: 20px; letter-spacing: -0.5px; position: relative; z-index: 1; }
+  .cover .date { color: rgba(255,255,255,0.4); font-size: 14px; margin-bottom: 36px; letter-spacing: 3px; }
+  .cover .stats { display: flex; justify-content: center; gap: 52px; padding: 28px 0; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 28px; }
+  .cover .stat { text-align: center; }
+  .cover .stat .num { color: #fff; font-size: 32px; font-weight: 700; }
+  .cover .stat .label { color: rgba(255,255,255,0.35); font-size: 12px; margin-top: 6px; letter-spacing: 1px; }
+  .cover .topic-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 18px 24px; text-align: left; position: relative; z-index: 1; }
+  .cover .topic-box .label { font-size: 11px; color: rgba(243,156,18,0.6); letter-spacing: 3px; margin-bottom: 10px; }
+  .cover .topic-box .text { color: rgba(255,255,255,0.88); font-size: 14px; line-height: 1.9; }
+
+  /* ========== 章节标题 ========== */
+  .chapter { padding: 44px 48px 28px; border-bottom: 1px solid #f0ebe4; }
+  .chapter .ch-label { font-size: 11px; letter-spacing: 4px; color: #c9a96e; text-transform: uppercase; margin-bottom: 10px; }
+  .chapter .ch-title { font-size: 24px; font-weight: 700; color: #1a1a2e; letter-spacing: -0.3px; }
+  .chapter .ch-sub { font-size: 13px; color: #999; margin-top: 6px; }
+
+  /* ========== 脚本卡片 ========== */
+  .script-card { padding: 28px 48px; border-bottom: 1px solid #f0ebe4; }
+  .script-card .sh { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
+  .script-card .rank { width: 44px; height: 44px; background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #c9a96e; font-size: 16px; font-weight: 700; flex-shrink: 0; }
+  .script-card .sh-body { flex: 1; }
+  .script-card .sh-tag { display: inline-block; font-size: 11px; padding: 3px 12px; border-radius: 7px; margin-bottom: 10px; font-weight: 600; }
+  .tag-s1 { background: rgba(231,76,60,0.1); color: #c0392b; }
+  .tag-s2 { background: rgba(230,126,34,0.1); color: #d35400; }
+  .tag-s3 { background: rgba(52,152,219,0.1); color: #2980b9; }
+  .script-card .sh-title { font-size: 17px; font-weight: 700; color: #1a1a2e; line-height: 1.5; }
+  .script-card .sh-meta { display: flex; gap: 10px; margin-top: 10px; }
+  .script-card .meta-chip { font-size: 11px; padding: 3px 10px; border-radius: 5px; }
+  .chip-hot { background: rgba(231,76,60,0.08); color: #c0392b; }
+  .chip-type { background: #f5f4f0; color: #888; }
+
+  /* 钩子 */
+  .hook { background: linear-gradient(135deg, #fffbf0, #fff8e8); border: 1px solid rgba(243,156,18,0.15); border-left: 4px solid #f39c12; border-radius: 14px; padding: 16px 18px; margin-bottom: 18px; }
+  .hook-label { font-size: 11px; font-weight: 700; color: #c9a96e; letter-spacing: 2px; margin-bottom: 8px; }
+  .hook-text { font-size: 14.5px; color: #3d3d3d; line-height: 1.85; }
+
+  /* 正文 */
+  .body-lines { padding: 0 2px; }
+  .body-line { font-size: 14px; color: #555; line-height: 2; margin-bottom: 16px; padding-left: 20px; position: relative; }
+  .body-line:last-child { margin-bottom: 0; }
+  .body-line::before { content: ''; position: absolute; left: 0; top: 12px; width: 6px; height: 6px; background: #c9a96e; border-radius: 50%; }
+
+  /* 时间轴 */
+  .time-block { background: #faf9f7; border-left: 3px solid #c9a96e; padding: 10px 14px; margin-bottom: 10px; border-radius: 0 8px 8px 0; }
+  .time-block .time { color: #c9a96e; font-weight: 700; font-size: 12px; margin-right: 8px; }
+  .time-block .content { color: #555; font-size: 14px; line-height: 1.7; display: inline; }
+
+  /* 互动引导 */
+  .cta { background: #fffde7; border: 1px solid rgba(243,156,18,0.15); border-radius: 12px; padding: 14px 18px; margin-top: 16px; }
+  .cta-label { font-size: 11px; color: #c9a96e; letter-spacing: 2px; margin-bottom: 6px; }
+  .cta-text { font-size: 13.5px; color: #666; line-height: 1.7; }
+
+  /* 封面建议 */
+  .cover-tip { background: #f9f8f5; border-radius: 10px; padding: 12px 16px; margin-top: 12px; }
+  .cover-tip-label { font-size: 11px; color: #bbb; margin-bottom: 5px; }
+  .cover-tip-text { font-size: 13px; color: #888; line-height: 1.65; }
+
+  /* ========== 素材卡片（混合脚本内容版）========== */
+  .mat-script-card { margin: 0 28px 18px; background: #faf9f7; border: 1px solid #f0ebe4; border-radius: 16px; overflow: hidden; position: relative; }
+  .mat-script-card::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; }
+  .mat-script-card.ss3::before { background: linear-gradient(180deg, #e74c3c, #c0392b); }
+  .mat-script-card.ss2::before { background: linear-gradient(180deg, #3498db, #2980b9); }
+  .mat-script-card.ss1::before { background: linear-gradient(180deg, #95a5a6, #7f8c8d); }
+
+  .mat-script-card .mat-head { padding: 18px 20px 14px; }
+  .mat-script-card .mat-head-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; }
+  .mat-script-card .mat-title { font-size: 15px; font-weight: 600; color: #1a1a2e; line-height: 1.5; flex: 1; }
+  .mat-script-card .mat-stars { font-size: 14px; flex-shrink: 0; padding-top: 2px; }
+  .star-gold { color: #f39c12; }
+  .star-gray { color: #ddd; }
+  .mat-script-card .mat-tag-row { display: flex; gap: 8px; margin-top: 10px; }
+  .mat-script-card .mat-tag { font-size: 11px; padding: 2px 10px; border-radius: 6px; font-weight: 600; }
+
+  .mat-script-card .mat-body { padding: 0 20px 18px; }
+
+  /* 素材卡片（纯结构版）========== */
+  .mat-card { margin: 0 28px 18px; background: #faf9f7; border: 1px solid #f0ebe4; border-radius: 16px; padding: 18px 20px; position: relative; overflow: hidden; }
+  .mat-card::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; }
+  .mat-card.ss3::before { background: linear-gradient(180deg, #e74c3c, #c0392b); }
+  .mat-card.ss2::before { background: linear-gradient(180deg, #3498db, #2980b9); }
+  .mat-card.ss1::before { background: linear-gradient(180deg, #95a5a6, #7f8c8d); }
+  .mat-card .mat-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; gap: 14px; }
+  .mat-card .mat-title { font-size: 15px; font-weight: 600; color: #1a1a2e; line-height: 1.5; flex: 1; }
+  .mat-card .mat-stars { font-size: 14px; flex-shrink: 0; padding-top: 2px; }
+  .mat-row { display: flex; gap: 10px; margin-bottom: 11px; align-items: flex-start; }
+  .mat-row:last-child { margin-bottom: 0; }
+  .mat-key { font-size: 13px; color: #8a8a8a; width: 68px; flex-shrink: 0; padding-top: 1px; font-weight: 500; }
+  .mat-val { font-size: 14px; color: #333; line-height: 1.75; flex: 1; }
+  .mat-source { margin-top: 14px; padding-top: 12px; border-top: 1px solid #ece8e2; font-size: 12px; color: #999; }
+
+  /* ========== 底部页脚 ========== */
+  .page-footer { background: #1a1a2e; padding: 32px 48px; text-align: center; }
+  .page-footer .brand { font-size: 16px; font-weight: 700; color: rgba(255,255,255,0.8); margin-bottom: 6px; letter-spacing: 4px; }
+  .page-footer .sub { font-size: 11px; color: rgba(255,255,255,0.3); }
+</style>
+</head>
+<body>
+
+<!-- ===================== 封面 ===================== -->
+<div class="page no-break-after">
+  <div class="cover">
+    <div class="kicker">Daily Brief</div>
+    <h1>短视频素材精选</h1>
+    <div class="date">2026.05.03 · Sunday</div>
+    <div class="stats">
+      <div class="stat"><div class="num">3</div><div class="label">参考脚本</div></div>
+      <div class="stat"><div class="num">13</div><div class="label">重点素材</div></div>
+      <div class="stat"><div class="num">3</div><div class="label">今日热点</div></div>
+    </div>
+    <div class="topic-box">
+      <div class="label">Today's Focus</div>
+      <div class="text">纳指突破25000点 / 余额宝收益率跌破1% / 航空业净利润暴增453.9%</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 参考脚本 ===================== -->
+<div class="page">
+  <div class="chapter">
+    <div class="ch-label">Reference Scripts</div>
+    <div class="ch-title">参考脚本</div>
+    <div class="ch-sub">视频号爆款结构 · 反转悬念文案 · 可直接二创</div>
+  </div>
+
+  <!-- 脚本1：纳指突破25000点 -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">01</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s1">美股动态</span>
+        <div class="sh-title">历史性时刻！纳指突破25000点——苹果大涨3%，这波科技股行情还能追吗？</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">极高热度</span>
+          <span class="meta-chip chip-type">市场分析</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">历史性时刻！纳指突破25000点——苹果大涨3%，美股彻底疯了！但问题是：这波行情还能追吗？今天这期视频，我帮你把纳指暴涨的原因全部搞清楚，以及A股能不能跟着涨。</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">5月1号，美东时间，纳斯达克综合指数收于25114.44点——历史性地站上了25000点！涨了0.89%。这是什么概念？就在过去的20个交易日里，纳指涨了15%。4月份一个月，道指涨了7.14%，纳指涨了15.29%，标普500涨了10.42%——标普500创了2000年以来最大月度涨幅！</div>
+      <div class="body-line">谁在驱动这波行情？苹果。苹果公司发布财报，营收、利润双双增长，iPhone需求回暖，股价大涨超3%，直接带飞了整个科技板块。英特尔市值首次突破5000亿美元，股价涨超5%。三星、SK海力士这些内存芯片公司的ADR也创了纪录涨幅。为什么？因为AI大爆发，数据中心疯狂建设，内存芯片供不应求。</div>
+      <div class="body-line">A股能跟着涨吗？两个角度：第一，利好——全球风险偏好回升，外资可能加速流入A股；第二，警示——纳指估值已经很高了，巴菲特都说现在是"附带赌场的教堂"。美股涨得越猛，调整风险越大，A股外部风险也会加大。记住：A股有自己的逻辑，别盲目跟着美股追涨杀跌。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你觉得A股能跟着美股涨吗？评论区说说你的看法。觉得有用就转发给朋友，关注我，每天帮你看懂全球财经大事件。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"25000点！" + 纳斯达克图标 + 苹果logo；配图：纳指历史走势图 + 苹果股价K线</div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+  <!-- 脚本2：余额宝收益率跌破1% -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">02</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s1">理财观察</span>
+        <div class="sh-title">国民理财神器"失效"了！余额宝收益率跌破1%——7.9亿人的钱，还能放哪？</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">极高热度</span>
+          <span class="meta-chip chip-type">实用指南</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">7.9亿人注意了！你的钱在余额宝里，每天只能赚2毛7——国民理财神器，彻底失效了！今天这期视频，我帮你搞清楚：钱还能放哪？</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">5月2号，天弘余额宝的7日年化收益率，报了0.999%——跌破1%了！什么概念？1万块钱放余额宝里，一年只有不到100块钱的收益。每天呢？大约2毛7分钱。余额宝2013年上线的时候，收益率是多少？大约6%。1万块钱放一年，能赚600块。现在呢？不到100块。缩水了超过80%。</div>
+      <div class="body-line">为什么余额宝收益率越来越低？三个原因：第一，无风险利率在下行——银行间市场利率越来越低，余额宝主要投的就是这些；第二，央行在放水——钱越来越多，借钱越来越便宜，收益率自然就下来了；第三，低利率环境成常态——业内预计，货币基金低收益率将成为常态，别指望回到从前了。</div>
+      <div class="body-line">收益率越来越低，钱还能放哪？三个方向：第一，日常消费用的钱——继续放余额宝，支付方便，刚需不变；第二，3到6个月不用的钱——考虑短债基金或者同业存单基金，收益比余额宝高一点点，风险差不多；第三，6个月以上不用的钱——适当配置一些混合基金或者股票基金，追求更高收益。但记住：余额宝作为支付工具是不可替代的，不要因为收益低就全部取出来！</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你的钱放余额宝吗？收益率跌破1%对你影响大吗？评论区聊聊。觉得有用就转发给朋友，关注我，每天帮你管好钱袋子。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"收益率跌破1%！" + 余额宝logo + 7.9亿用户图标；配图：余额宝收益率历史走势图</div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+  <!-- 脚本3：航空业净利润暴增453.9% -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">03</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s2">A股数据</span>
+        <div class="sh-title">太炸了！A股一季报出炉，航空业净利润暴增453.9%——哪些行业赚翻了？</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">高热度</span>
+          <span class="meta-chip chip-type">数据解读</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">太炸了！A股一季报出炉，航空业净利润暴增453.9%——这是真的吗？我的股票赚了多少？今天这期视频，我帮你把一季报的全部干货扒出来。</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">4月30号，A股一季报法定披露期正式结束。整体来看：A股公司营收、净利润实现同步增长，超4000家公司实现盈利。最大的惊喜是：航空业净利润暴增453.9%！一季度，全国出行需求爆发式增长。机票卖疯了，酒店住满了，高铁票抢光了。同时，油价下跌——航空公司的成本大幅降低。两头受益，利润能不暴增吗？</div>
+      <div class="body-line">但是！一季报也告诉我们一个事实：行业分化非常严重。航空暴增453.9%是真的，但不是所有行业都这么猛。石油石化、基础化工、TMT、有色金属各有各的增长。芯片公司也亮眼：寒武纪营收利润大增，沐曦大幅减亏——AI赛道依旧是主线。所以，一季报整体向好，但选对赛道很重要。</div>
+      <div class="body-line">对一季报，我们应该怎么看？三个思路：第一，看整体——超4000家公司盈利，说明基本面不差，A股有支撑；第二，看分化——不是所有行业都值得买，要找景气度向上的赛道；第三，看估值——业绩好≠股价涨，估值太贵的话，业绩再好也可能是陷阱。记住：投资有风险，不要因为一个季报就冲动买入。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你持仓的股票一季报怎么样？评论区说说。觉得有用就转发给股友，关注我，每天帮你解读A股投资那些事儿。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"暴增453.9%！" + 航空公司logo + 航班照片；配图：航空股涨幅榜 + A股一季报亮点图</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 重点关注 ===================== -->
+<div class="page">
+  <div class="chapter">
+    <div class="ch-label">Key Highlights</div>
+    <div class="ch-title">重点关注</div>
+    <div class="ch-sub">13条素材线索 · 含3条脚本级内容 · 多角度切入</div>
+  </div>
+
+  <!-- 素材4：伯克希尔股东大会 → 素材卡片格式（★★★） -->
+  <div class="mat-script-card ss3">
+    <div class="mat-head">
+      <div class="mat-head-row">
+        <div class="mat-title">投资界春晚来了！伯克希尔股东大会——巴菲特60年首次退居幕后，新王阿贝尔登场</div>
+        <div class="mat-stars"><span class="star-gold">★★★</span></div>
+      </div>
+      <div class="mat-tag-row">
+        <span class="mat-tag" style="background:rgba(231,76,60,0.1);color:#c0392b;">投资大师</span>
+        <span class="mat-tag" style="background:#f5f4f0;color:#888;">极高热度</span>
+      </div>
+    </div>
+    <div class="mat-body">
+      <div class="hook">
+        <div class="hook-label">前3秒钩子</div>
+        <div class="hook-text">投资界春晚来了！巴菲特60年来第一次退居幕后——95岁的股神，在交接棒的股东大会上，说了什么？这3970亿美元现金储备，背后意味着什么？</div>
+      </div>
+      <div class="body-lines">
+        <div class="body-line">5月2日，伯克希尔·哈撒韦股东大会在美国奥马哈举行。这是巴菲特自2025年底卸任CEO后，新任CEO阿贝尔首次独立主持的盛会。主题：The Legacy Continues（传承延续）。一季度净利润同比增长近120%，现金储备3973.8亿美元创历史新高。</div>
+        <div class="body-line">巴菲特说了什么？他评价阿贝尔是"100%成功"的决定。但同时，他形容当前市场为"附带赌场的教堂"——暗示估值偏高，好机会难找。3970亿美元现金=巴菲特在等大机会。</div>
+      </div>
+      <div class="cta">
+        <div class="cta-label">互动引导</div>
+        <div class="cta-text">你觉得阿贝尔能延续巴菲特的传奇吗？评论区聊聊。</div>
+      </div>
+      <div class="cover-tip">
+        <div class="cover-tip-label">封面建议</div>
+        <div class="cover-tip-text">大字"后巴菲特时代！" + 伯克希尔logo + 巴菲特照片；配图：3970亿现金储备可视化</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 素材5：商务部阻断禁令 → 素材卡片格式（★★★） -->
+  <div class="mat-script-card ss3">
+    <div class="mat-head">
+      <div class="mat-head-row">
+        <div class="mat-title">中国出手了！商务部发禁令阻断美国"长臂管辖"——这是什么意思？</div>
+        <div class="mat-stars"><span class="star-gold">★★★</span></div>
+      </div>
+      <div class="mat-tag-row">
+        <span class="mat-tag" style="background:rgba(52,152,219,0.1);color:#2980b9;">国际贸易</span>
+        <span class="mat-tag" style="background:#f5f4f0;color:#888;">高热度</span>
+      </div>
+    </div>
+    <div class="mat-body">
+      <div class="hook">
+        <div class="hook-label">前3秒钩子</div>
+        <div class="hook-text">中国出手反击了！商务部发禁令：不得执行美国对中国5家炼化企业的制裁——这是中国涉外法治武器首次实战落地，意味着什么？</div>
+      </div>
+      <div class="body-lines">
+        <div class="body-line">5月2日，商务部依据《阻断外国法律与措施不当域外适用办法》，首次正式发布禁令。涉及5家中国炼化企业：恒力石化、山东寿光鲁清石化、山东金诚石化、河北鑫海化工、山东胜星化工——全部被美国列入SDN清单并实施制裁，理由是"参与伊朗石油交易"。商务部明确：不得承认、不得执行、不得遵守、不得配合。</div>
+        <div class="body-line">重大意义：中国涉外法治武器首次实战落地，精准回击美式"长臂管辖"。中国明确表态：在华经营的中企，不受美国单边制裁约束。这开了一个先例，以后类似情况都有法可依。</div>
+      </div>
+      <div class="cta">
+        <div class="cta-label">互动引导</div>
+        <div class="cta-text">你怎么看中国商务部这次出手？评论区说说。</div>
+      </div>
+      <div class="cover-tip">
+        <div class="cover-tip-label">封面建议</div>
+        <div class="cover-tip-text">大字"商务部出手！" + 中国国旗 + 美国制裁图标；配图：5家炼化企业名单 + 《阻断办法》示意图</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ★★★ 必做素材 1-3 -->
+<div class="page">
+  <!-- 素材1 -->
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">纳指首次收于25000点之上！苹果领涨科技股，5月开门红</div>
+      <div class="mat-stars"><span class="star-gold">★★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">5月1日，纳指收于25114.44点，首次站上25000点，涨0.89%，连续创历史新高。标普500收涨0.29%至7230.12点，维持7200上方。苹果大涨超3%引领科技股，但能源股拖累道指收跌0.31%。</div></div>
+    <div class="mat-row"><div class="mat-key">⚡ 数据</div><div class="mat-val">纳指：25114.44点（+0.89%）；标普500：7230.12点（+0.29%）；苹果：涨超3%；英特尔：市值破5000亿美元。4月纳指涨15.29%，标普500创2000年以来最大月度涨幅。</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">震撼角度：历史性时刻！纳指突破25000点。投资角度：A股能跟着涨吗？板块角度：内存芯片产业链A股有哪些？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">A股投资者、美股投资者、科技股关注者</div></div>
+    <div class="mat-source">📊 来源：东方财富网（5月2日）；新浪财经（5月2日）；华尔街见闻（5月2日）</div>
+  </div>
+
+  <!-- 素材2 -->
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">余额宝收益率跌破1%！每万元每日收益仅2毛多，7.9亿用户受影响</div>
+      <div class="mat-stars"><span class="star-gold">★★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">5月2日，天弘余额宝7日年化收益率报0.999%，跌破1%关口。每万元每日收益约0.27元（约2毛7分钱）。全市场351只货币基金中，已有107只收益率低于1%。</div></div>
+    <div class="mat-row"><div class="mat-key">⚡ 数据</div><div class="mat-val">余额宝收益率：0.999%；用户规模：7.9亿户；管理规模：超7900亿元；每万元每日收益：约0.27元。余额宝2013年上线时收益率约6%，1万放一年能赚600块，现在只有不到100块。</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">震撼角度：国民理财神器"失效"。实用角度：钱还能放哪？分析角度：央行在下一盘什么大棋？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">普通投资者、理财用户、货币基金持有者</div></div>
+    <div class="mat-source">📊 来源：天弘基金（5月2日）；中证报（5月3日）；红星资本局（5月3日）</div>
+  </div>
+
+  <!-- 素材3 -->
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">A股一季报收官！航空业净利润暴增453.9%，行业景气度分化</div>
+      <div class="mat-stars"><span class="star-gold">★★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">4月30日，A股一季报披露收官。整体营收、净利润同步增长，超4000家公司盈利。航空业净利润暴增453.9%，成功扭亏为盈。芯片龙头寒武纪营收利润大增，沐曦大幅减亏。</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">出行需求爆发+油价下跌，航空两头受益。AI赛道持续火热，寒武纪、沐曦业绩亮眼。上证指数重返4100点，4000点以上已运行7个月。</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">震撼角度：航空净利润暴增453.9%。分析角度：A股基本面到底怎么样？投资角度：一季报透露了哪些机会？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">A股投资者、基金持有者、行业分析师</div></div>
+    <div class="mat-source">📊 来源：央视财经（4月30日）；东方财富网（5月3日）；经济观察报（5月1日）</div>
+  </div>
+</div>
+
+<!-- ★★ 重点关注 4-7 -->
+<div class="page">
+  <!-- 素材4 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">伯克希尔股东大会！巴菲特60年首次退居幕后，3970亿美元现金储备创纪录</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">5月2日，伯克希尔股东大会。95岁巴菲特首次退居幕后，新任CEO阿贝尔首次独立主持。主题"The Legacy Continues"。一季度净利润同比增近120%，现金储备3973.8亿美元创历史新高。</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">巴菲特评价阿贝尔是"100%成功"的决定。但形容当前市场为"附带赌场的教堂"——暗示估值偏高。阿贝尔对AI态度保守但看好数据中心。</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">震撼角度：投资界春晚！后巴菲特时代开启。投资角度：3970亿美元现金意味着什么？人物角度：阿贝尔是谁？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">价值投资者、巴菲特粉丝、财经自媒体</div></div>
+    <div class="mat-source">📊 来源：东方财富网（5月3日）；21世纪经济报道（5月2日）；雪球（5月3日）</div>
+  </div>
+
+  <!-- 素材5 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">商务部发布阻断禁令！不得执行美对5家石化企业的"长臂管辖"</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">5月2日，商务部依据《阻断外国法律与措施不当域外适用办法》，首次正式发布禁令，阻断美国对中国5家炼化企业的制裁。涉及恒力石化、山东寿光鲁清石化、山东金诚石化、河北鑫海化工、山东胜星化工。</div></div>
+    <div class="mat-row"><div class="mat-key">⚡ 意义</div><div class="mat-val">中国涉外法治武器首次实战落地，精准回击美式"长臂管辖"。明确：在中国经营的中企，不受美国单边制裁约束。</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">震撼角度：中国出手反击！分析角度：5家炼化企业被制裁背后是什么博弈？实用角度：对中国炼化企业有什么影响？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">国际贸易从业者、宏观政策关注者、财经自媒体</div></div>
+    <div class="mat-source">📊 来源：商务部官网（5月2日）；财新网（5月3日）；商务部新闻发言人答记者问</div>
+  </div>
+
+  <!-- 素材6 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">QFII一季度新进683只股票！外资持续加码A股，重点布局银行+电子</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">QFII一季度在A股新进683只股票，增持472只，减持336只。前50大持股市值占QFII总持股市值的57.25%。外资积极挖掘细分领域"隐形冠军"及中小市值公司。</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">QFII重点布局：银行（估值低、股息率高）、电子（半导体、消费电子受益AI和国产替代）。前十大流通股股东中有≥6家QFII的股票有13只。</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">市场角度：外资为什么持续加码A股？投资角度：QFII持仓透露了哪些投资机会？选股角度：外资最爱的"压舱石"是什么？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">A股投资者、基金持有者、价值投资者</div></div>
+    <div class="mat-source">📊 来源：东方财富网（5月3日）；中国结算数据；上市公司一季报</div>
+  </div>
+
+  <!-- 素材7 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">A股悄然收复4100点！从2600到4100，大盘反弹近60%</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">五一假期前，上证指数重返4100点重要关口。自2025年10月以来，大盘已在4000点之上运行了7个月。从2024年一季度的2600点到4100点，涨幅约60%。</div></div>
+    <div class="mat-row"><div class="mat-key">💡 解读</div><div class="mat-val">"大国复利"在发挥作用。政策推动：国家队持续护盘，险资大规模入市。基本面改善：一季报整体向好。资金流入：外资持续加码A股。预期改善：社会预期转暖。</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">震撼角度：A股悄然收复4100点！分析角度：为什么"易涨难跌"？投资角度：4100点的A股，还能买吗？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">A股投资者、基金持有者、财经自媒体</div></div>
+    <div class="mat-source">📊 来源：新浪财经（5月3日）；东方财富网（5月3日）；经济观察报（5月1日）</div>
+  </div>
+</div>
+
+<!-- ★★ 重点关注 8-10 + ★ 补充视角 11-13 -->
+<div class="page">
+  <!-- 素材8 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">美欧贸易摩擦升温！特朗普威胁对欧盟汽车加征25%关税，下周生效</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">特朗普宣布：下周对欧盟输美汽车和卡车加征25%关税。欧盟回应：评估应对措施，"保留所有选项"。背景：欧盟对美国科技巨头征收数字税引发不满。</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">欧洲汽车股下跌（大众、宝马、奔驰承压），美国汽车股上涨（福特、通用受益），全球贸易局势再度紧张。</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">市场角度：欧美股市怎么走？投资角度：A股汽车板块受影响吗？前瞻角度：全球贸易战2.0来了？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">投资者、外贸从业者、宏观政策关注者</div></div>
+    <div class="mat-source">📊 来源：白宫公告（5月1日）；东方财富网（5月2日）；欧盟委员会声明</div>
+  </div>
+
+  <!-- 素材9 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">五一假期消费观察！3.44亿人出行，人均餐饮消费却降了12%</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">5月1日，全社会跨区域人员流动量3.44亿人次，创历史新高。但商务部数据显示：餐饮人均消费同比下降12%。演唱会等文化消费却大幅提升45%。</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">消费结构变了：省钱旅游成趋势，文化娱乐消费爆发。从"集中消费爆点"演变为"延展消费季"，消费升级与降级并存。</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">震撼角度：3.44亿人出行但餐饮消费降了！分析角度：消费结构巨变说明了什么？投资角度：消费股还值得买吗？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">消费者、投资者、财经自媒体</div></div>
+    <div class="mat-source">📊 来源：商务部数据（5月1日）；央视新闻（5月2日）；文化和旅游部</div>
+  </div>
+
+  <!-- 素材10 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">芯片龙头一季报亮眼！寒武纪营收利润大增，沐曦大幅减亏</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">A股一季报收官，芯片龙头业绩亮眼。寒武纪（688256）营收、净利润同比大幅增长，知名牛散章建平退出前十大流通股东，张炜、张威新进。沐曦股份（688802）营收增长，大幅减亏。</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">AI大模型快速迭代，数据中心建设加速，算力需求爆发。国产替代加速，寒武纪、沐曦等国内AI芯片公司受益。</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">行业角度：AI芯片春天来了？投资角度：国产AI芯片产业链A股有哪些？选股角度：如何布局AI赛道？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">科技股投资者、AI行业从业者、财经自媒体</div></div>
+    <div class="mat-source">📊 来源：东方财富网（5月3日）；上市公司公告；经济观察报</div>
+  </div>
+
+  <!-- 素材11 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">巴菲特"附带赌场的教堂"言论引爆市场！95岁股神如何评价当前环境？</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">95岁巴菲特在股东大会上形容当前市场为"附带赌场的教堂"，意指市场本身是好的（教堂），但投机氛围太浓（赌场）。他不愿轻易出手，因为当前市场估值偏高，好机会难找。</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">人物角度：股神在警示什么？投资角度：3970亿现金意味着什么？前瞻角度：下一个大机会在哪里？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">价值投资者、财经自媒体、普通投资者</div></div>
+    <div class="mat-source">📊 来源：21世纪经济报道（5月2日）；伯克希尔股东大会实录</div>
+  </div>
+
+  <!-- 素材12 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">A股ROE透视！连续5年增长的公司仅15家，优质标的稀缺</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">A股2025年年报ROE研究发现：3319家样本公司中，ROE超40%的仅8家；ROE≥15%的公司数量自2021年以来呈下降趋势；但有15家赛道公司在2021-2025年连续5年ROE逐年递增。</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">实用角度：如何找到真正的优质公司？分析角度：ROE透视A股——谁是真龙头？选股角度：高ROE≠好公司，如何识别"伪装者"？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">价值投资者、财务分析爱好者</div></div>
+    <div class="mat-source">📊 来源：东方财富网（5月3日）；Wind数据；研究机构报告</div>
+  </div>
+
+  <!-- 素材13 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">伊朗公布14点提议！美伊谈判最新进展——和平曙光还是另有隐情？</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">伊朗媒体披露伊方最新谈判方案：14点提议，聚焦终止战争。核心议题：第一，彻底结束战争获得不再重启的保证；第二，霍尔木兹海峡管理方案；第三，核问题讨论（第三阶段）。</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">地缘角度：伊朗14点提议意味着什么？能源角度：油价怎么走？前瞻角度：中东局势接下来怎么发展？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">国际时事爱好者、能源行业从业者、投资者</div></div>
+    <div class="mat-source">📊 来源：伊朗媒体（5月2日）；东方财富网（5月3日）；新华社</div>
+  </div>
+</div>
+
+<!-- ===================== 底部 ===================== -->
+<div class="page no-break-after">
+  <div class="page-footer">
+    <div class="brand">素材日报</div>
+    <div class="sub">每日 07:00 自动生成 · 仅供内容参考</div>
+  </div>
+</div>
+
+</body>
+</html>
