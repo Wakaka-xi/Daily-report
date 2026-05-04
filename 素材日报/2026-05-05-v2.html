@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>素材日报 2026-05-05</title>
+<style>
+  * { margin:0; padding:0; box-sizing: border-box; }
+  body { background: #f0ede8; font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+
+  /* ========== 分页基础 ========== */
+  @page { size: A4 portrait; margin:0; }
+  .page {
+    width: 794px;
+    margin:0 auto;
+    background: #fff;
+    overflow: hidden;
+    position: relative;
+    break-after: page;
+    break-before: page;
+  }
+  .page.no-break-after { break-after: auto; }
+  .page.no-break-before { break-before: auto; }
+
+  /* ========== 封面 ========== */
+  .cover { background: linear-gradient(160deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%); padding: 60px 52px 56px; text-align: center; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: -60px; right: -60px; width: 260px; height: 260px; background: radial-gradient(circle, rgba(243,156,18,0.12) 0%, transparent 70%); border-radius: 50%; }
+  .cover::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(52,152,219,0.1) 0%, transparent 70%); border-radius: 50%; }
+  .cover .kicker { display: inline-block; font-size: 11px; letter-spacing: 6px; color: rgba(243,156,18,0.7); text-transform: uppercase; margin-bottom: 28px; }
+  .cover h1 { color: #fff; font-size: 34px; font-weight: 700; line-height: 1.3; margin-bottom: 20px; letter-spacing: -0.5px; position: relative; z-index: 1; }
+  .cover .date { color: rgba(255,255,255,0.4); font-size: 14px; margin-bottom: 36px; letter-spacing: 3px; }
+  .cover .stats { display: flex; justify-content: center; gap: 52px; padding: 28px 0; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 28px; }
+  .cover .stat { text-align: center; }
+  .cover .stat .num { color: #fff; font-size: 32px; font-weight: 700; }
+  .cover .stat .label { color: rgba(255,255,255,0.35); font-size: 12px; margin-top: 6px; letter-spacing: 1px; }
+  .cover .topic-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 18px 24px; text-align: left; position: relative; z-index: 1; }
+  .cover .topic-box .label { font-size: 11px; color: rgba(243,156,18,0.6); letter-spacing: 3px; margin-bottom: 10px; }
+  .cover .topic-box .text { color: rgba(255,255,255,0.88); font-size: 14px; line-height: 1.9; }
+
+  /* ========== 章节标题 ========== */
+  .chapter { padding: 44px 48px 28px; border-bottom: 1px solid #f0ebe4; }
+  .chapter .ch-label { font-size: 11px; letter-spacing: 4px; color: #c9a96e; text-transform: uppercase; margin-bottom: 10px; }
+  .chapter .ch-title { font-size: 24px; font-weight: 700; color: #1a1a2e; letter-spacing: -0.3px; }
+  .chapter .ch-sub { font-size: 13px; color: #999; margin-top: 6px; }
+
+  /* ========== 脚本卡片 ========== */
+  .script-card { padding: 28px 48px; border-bottom: 1px solid #f0ebe4; }
+  .script-card .sh { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
+  .script-card .rank { width: 44px; height: 44px; background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #c9a96e; font-size: 16px; font-weight: 700; flex-shrink: 0; }
+  .script-card .sh-body { flex: 1; }
+  .script-card .sh-tag { display: inline-block; font-size: 11px; padding: 3px 12px; border-radius: 7px; margin-bottom: 10px; font-weight: 600; }
+  .tag-s1 { background: rgba(231,76,60,0.1); color: #c0392b; }
+  .tag-s2 { background: rgba(230,126,34,0.1); color: #d35400; }
+  .tag-s3 { background: rgba(52,152,219,0.1); color: #2980b9; }
+  .script-card .sh-title { font-size: 17px; font-weight: 700; color: #1a1a2e; line-height: 1.5; }
+  .script-card .sh-meta { display: flex; gap: 10px; margin-top: 10px; }
+  .script-card .meta-chip { font-size: 11px; padding: 3px 10px; border-radius: 5px; }
+  .chip-hot { background: rgba(231,76,60,0.08); color: #c0392b; }
+  .chip-type { background: #f5f4f0; color: #888; }
+
+  /* 钩子 */
+  .hook { background: linear-gradient(135deg, #fffbf0, #fff8e8); border: 1px solid rgba(243,156,18,0.15); border-left: 4px solid #f39c12; border-radius: 14px; padding: 16px 18px; margin-bottom: 18px; }
+  .hook-label { font-size: 11px; font-weight: 700; color: #c9a96e; letter-spacing: 2px; margin-bottom: 8px; }
+  .hook-text { font-size: 14.5px; color: #3d3d3d; line-height: 1.85; }
+
+  /* 正文 */
+  .body-lines { padding: 0 2px; }
+  .body-line { font-size: 14px; color: #555; line-height: 2; margin-bottom: 16px; padding-left: 20px; position: relative; }
+  .body-line:last-child { margin-bottom: 0; }
+  .body-line::before { content: ''; position: absolute; left: 0; top: 12px; width: 6px; height: 6px; background: #c9a96e; border-radius: 50%; }
+
+  /* 时间轴 */
+  .time-block { background: #faf9f7; border-left: 3px solid #c9a96e; padding: 10px 14px; margin-bottom: 10px; border-radius: 0 8px 8px 0; }
+  .time-block .time { color: #c9a96e; font-weight: 700; font-size: 12px; margin-right: 8px; }
+  .time-block .content { color: #555; font-size: 14px; line-height: 1.7; display: inline; }
+
+  /* 互动引导 */
+  .cta { background: #fffde7; border: 1px solid rgba(243,156,18,0.15); border-radius: 12px; padding: 14px 18px; margin-top: 16px; }
+  .cta-label { font-size: 11px; color: #c9a96e; letter-spacing: 2px; margin-bottom: 6px; }
+  .cta-text { font-size: 13.5px; color: #666; line-height: 1.7; }
+
+  /* 封面建议 */
+  .cover-tip { background: #f9f8f5; border-radius: 10px; padding: 12px 16px; margin-top: 12px; }
+  .cover-tip-label { font-size: 11px; color: #bbb; margin-bottom: 5px; }
+  .cover-tip-text { font-size: 13px; color: #888; line-height: 1.65; }
+
+  /* ========== 素材卡片（混合脚本内容版）========== */
+  .mat-script-card { margin: 0 28px 18px; background: #faf9f7; border: 1px solid #f0ebe4; border-radius: 16px; overflow: hidden; position: relative; }
+  .mat-script-card::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; }
+  .mat-script-card.ss3::before { background: linear-gradient(180deg, #e74c3c, #c0392b); }
+  .mat-script-card.ss2::before { background: linear-gradient(180deg, #3498db, #2980b9); }
+  .mat-script-card.ss1::before { background: linear-gradient(180deg, #95a5a6, #7f8c8d); }
+
+  .mat-script-card .mat-head { padding: 18px 20px 14px; }
+  .mat-script-card .mat-head-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; }
+  .mat-script-card .mat-title { font-size: 15px; font-weight: 600; color: #1a1a2e; line-height: 1.5; flex: 1; }
+  .mat-script-card .mat-stars { font-size: 14px; flex-shrink: 0; padding-top: 2px; }
+  .star-gold { color: #f39c12; }
+  .star-gray { color: #ddd; }
+  .mat-script-card .mat-tag-row { display: flex; gap: 8px; margin-top: 10px; }
+  .mat-script-card .mat-tag { font-size: 11px; padding: 2px 10px; border-radius: 6px; font-weight: 600; }
+
+  .mat-script-card .mat-body { padding: 0 20px 18px; }
+
+  /* 素材卡片（纯结构版）========== */
+  .mat-card { margin: 0 28px 18px; background: #faf9f7; border: 1px solid #f0ebe4; border-radius: 16px; padding: 18px 20px; position: relative; overflow: hidden; }
+  .mat-card::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; }
+  .mat-card.ss3::before { background: linear-gradient(180deg, #e74c3c, #c0392b); }
+  .mat-card.ss2::before { background: linear-gradient(180deg, #3498db, #2980b9); }
+  .mat-card.ss1::before { background: linear-gradient(180deg, #95a5a6, #7f8c8d); }
+  .mat-card .mat-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; gap: 14px; }
+  .mat-card .mat-title { font-size: 15px; font-weight: 600; color: #1a1a2e; line-height: 1.5; flex: 1; }
+  .mat-card .mat-stars { font-size: 14px; flex-shrink: 0; padding-top: 2px; }
+  .mat-row { display: flex; gap: 10px; margin-bottom: 11px; align-items: flex-start; }
+  .mat-row:last-child { margin-bottom: 0; }
+  .mat-key { font-size: 13px; color: #8a8a8a; width: 68px; flex-shrink: 0; padding-top: 1px; font-weight: 500; }
+  .mat-val { font-size: 14px; color: #333; line-height: 1.75; flex: 1; }
+  .mat-source { margin-top: 14px; padding-top: 12px; border-top: 1px solid #ece8e2; font-size: 12px; color: #999; }
+
+  /* ========== 底部页脚 ========== */
+  .page-footer { background: #1a1a2e; padding: 32px 48px; text-align: center; }
+  .page-footer .brand { font-size: 16px; font-weight: 700; color: rgba(255,255,255,0.8); margin-bottom: 6px; letter-spacing: 4px; }
+  .page-footer .sub { font-size: 11px; color: rgba(255,255,255,0.3); }
+</style>
+</head>
+<body>
+
+<!-- ===================== 封面 ===================== -->
+<div class="page no-break-after">
+  <div class="cover">
+    <div class="kicker">Daily Brief</div>
+    <h1>短视频素材精选</h1>
+    <div class="date">2026.05.05 · Tuesday</div>
+    <div class="stats">
+      <div class="stat"><div class="num">3</div><div class="label">参考脚本</div></div>
+      <div class="stat"><div class="num">13</div><div class="label">重点素材</div></div>
+      <div class="stat"><div class="num">3</div><div class="label">今日热点</div></div>
+    </div>
+    <div class="topic-box">
+      <div class="label">Today's Focus</div>
+      <div class="text">霍尔木兹海峡危机升级 · 五大险企一季报出炉 · A股节后开盘首日 · 美股收跌550点</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 参考脚本 ===================== -->
+<div class="page">
+  <div class="chapter">
+    <div class="ch-label">Reference Scripts</div>
+    <div class="ch-title">参考脚本</div>
+    <div class="ch-sub">视频号爆款结构 · 反转悬念文案 · 可直接二创</div>
+  </div>
+
+  <!-- 脚本1：霍尔木兹海峡危机 -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">01</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s1">地缘政治</span>
+        <div class="sh-title">伊朗向美舰射导弹！霍尔木兹海峡危机升级——油价要冲150美元？</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">极高热度</span>
+          <span class="meta-chip chip-type">地缘解读</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">伊朗向美军舰射导弹！霍尔木兹海峡危机升级——油价要冲150美元？A股怎么走？今天这期视频，我把5月4-5日的最新局势全部梳理清楚，中东大战一触即发！</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">5月4-5日，霍尔木兹海峡局势急剧升级！伊朗军方宣布向试图进入海峡的美国军舰发射巡航导弹，并击中目标；阿联酋称遭到伊朗导弹袭击，一处石油港口受损；特朗普威胁：若伊朗敢袭击美国船只，将"从地球上被抹去"。</div>
+      <div class="body-line">霍尔木兹海峡有多重要？全球约30%的原油海运通过这里，每天约2100万桶原油经过。一旦封锁，全球能源价格将剧烈震荡，油价可能突破150美元/桶。这对全球经济将是灾难性的打击。</div>
+      <div class="body-line">对A股有什么影响？第一，航空股——利空！油价上涨=成本增加，中国国航、南方航空、东方航空承压。第二，化工股——利好！油价上涨推动化工品涨价，万华化学、恒力石化受益。第三，油气股——利好！中石油、中石化、中海油受益于油价上涨。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你觉得油价会突破150美元吗？A股明天怎么走？评论区聊聊你的看法。觉得有用就转发，关注我，每天帮你追踪全球财经大事件。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"油价要冲150美元！" + 导弹图标 + 霍尔木兹海峡地图；配图：全球原油运输路线图 + 受影响板块清单</div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+  <!-- 脚本2：五大险企一季报 -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">02</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s2">金融保险</span>
+        <div class="sh-title">五大险企一季报炸锅！净利润合计降16.98%——但有两家逆势增长</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">高热度</span>
+          <span class="meta-chip chip-type">财报解读</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">五大险企一季报炸锅了！净利润合计降16.98%——但有两家逆势增长，它们做对了什么？今天这期视频，我把五大险企的财报全部扒了一遍，发现一个矛盾现象！</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">2026年一季度，A股五大上市险企（中国人寿、中国平安、中国人保、中国太保、新华保险）合计实现归母净利润698.83亿元，同比下降16.98%。具体来看：中国人寿195.05亿（下滑）、中国平安250.22亿（下滑）、中国人保88.14亿（下滑）——但！中国太保100.41亿（同比+4.3%）、新华保险65.01亿（同比+10.5%）逆势增长！</div>
+      <div class="body-line">这里有一个矛盾现象：净利润降了16.98%，但保险股没崩，为什么？答案藏在"负债端"和"资产端"的分化里：负债端——保险业务本身表现亮眼！五家公司新业务价值均实现同比正增长，太保寿险增速137.6%，人保寿险增速176.5%——说明保险卖得很好！资产端——投资业务承压。一季度A股剧烈波动，保险公司投资收益率下滑，直接拖累净利润。</div>
+      <div class="body-line">这对保险股投资有什么启示？三个信号：第一，负债端强劲、资产端承压，属于"短期利润降、长期逻辑不变"。第二，中国太保、新华保险实现正增长，显示龙头险企的抗风险能力。第三，券商看好利率企稳回升背景下，优质保险个股的估值修复机会。但记住：投资有风险，保险股估值修复需要时间，不要盲目追高。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你持有保险股吗？一季报出来后，你打算继续持有还是卖出？评论区聊聊。觉得有用就转发给股友，关注我，每天帮你解读A股财经那些事儿。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"险企净利润降17%！" + K线图图标 + 五大险企Logo；配图：五大险企净利润对比柱状图 + 新业务价值增速</div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+  <!-- 脚本3：A股节后开盘首日 -->
+  <div class="script-card">
+    <div class="sh">
+      <div class="rank">03</div>
+      <div class="sh-body">
+        <span class="sh-tag tag-s3">A股复盘</span>
+        <div class="sh-title">A股节后开盘首日！5月5日走势复盘——科技股能否延续暴涨？</div>
+        <div class="sh-meta">
+          <span class="meta-chip chip-hot">高热度</span>
+          <span class="meta-chip chip-type">盘面分析</span>
+        </div>
+      </div>
+    </div>
+    <div class="hook">
+      <div class="hook-label">前3秒钩子</div>
+      <div class="hook-text">A股节后开盘首日！5月5日走势复盘——科技股能否延续暴涨？今天这期视频，我帮你把今天的盘面全部复盘，明天怎么操作，提前看懂！</div>
+    </div>
+    <div class="body-lines">
+      <div class="body-line">5月5日，A股在五一假期后首个交易日开盘。假期期间，亚太股市普涨：港股恒生指数涨2%、科技指数涨3%+，韩国KOSPI涨超4%，台股MSCI指数涨4.69%。但今晚美股收跌，道指跌逾550点——中东局势升温，为A股节后走势增添变数。</div>
+      <div class="body-line">今天A股的走势是……（此处根据实际收盘数据填写）。机构主流观点：第一，科技成长主线：AI算力、半导体、通信设备继续看好。第二，消费修复：五一消费数据超预期，零售、旅游、航空有望受益。第三，涨价题材：有色金属、化工、农业等受全球供应链影响可能涨价的板块。</div>
+      <div class="body-line">5月5日操作，三个建议：第一，不要盲目追高。节前A股已经涨了不少，短期回调风险不能不防。第二，关注今晚美股的走势。若美股继续下跌，明天A股可能低开。第三，持仓结构优化。科技成长+消费修复，这两个方向可能是5月的主线。但记住：投资有风险，入市需谨慎，不要盲目操作。</div>
+    </div>
+    <div class="cta">
+      <div class="cta-label">互动引导</div>
+      <div class="cta-text">你今天A股账户涨了还是跌了？评论区晒晒你的持仓。觉得有用就转发给股友，关注我，每天帮你解读A股那些事儿。</div>
+    </div>
+    <div class="cover-tip">
+      <div class="cover-tip-label">封面建议</div>
+      <div class="cover-tip-text">大字"A股节后开盘！" + 上证指数K线图 + 科技股图标；配图：今日A股涨跌家数对比 + 板块涨幅榜</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 重点关注 ===================== -->
+<div class="page">
+  <div class="chapter">
+    <div class="ch-label">Key Highlights</div>
+    <div class="ch-title">重点关注</div>
+    <div class="ch-sub">13条素材线索 · 含3条脚本级内容 · 多角度切入</div>
+  </div>
+
+  <!-- 素材4：美股收跌 → 素材卡片格式（★★★） -->
+  <div class="mat-script-card ss3">
+    <div class="mat-head">
+      <div class="mat-head-row">
+        <div class="mat-title">美股5月5日收跌！道指跌逾550点，中东局势升温施压股指</div>
+        <div class="mat-stars"><span class="star-gold">★★★</span></div>
+      </div>
+      <div class="mat-tag-row">
+        <span class="mat-tag" style="background:rgba(231,76,60,0.1);color:#c0392b;">美股</span>
+        <span class="mat-tag" style="background:#f5f4f0;color:#888;">极高热度</span>
+      </div>
+    </div>
+    <div class="mat-body">
+      <div class="hook">
+        <div class="hook-label">前3秒钩子</div>
+        <div class="hook-text">美股又跌了！道指跌逾550点——中东局势升温，A股明天怎么走？今天这期视频，我帮你把美股收跌的原因和影响全部搞清楚！</div>
+      </div>
+      <div class="body-lines">
+        <div class="body-line">北京时间5月5日凌晨，美股收跌，道指跌逾550点。中东地缘政治紧张局势再度升温，油价持续攀升，打压市场风险偏好。投资者等待本周晚些时候发布的4月非农就业报告。中概股分化：小马智行涨5.16%，华住酒店集团跌5.87%。</div>
+        <div class="body-line">对A股的影响：负面——美股大跌可能拖累A股节后情绪；正面——A股有自身逻辑，假期港股大涨提供支撑；关键——看5月6日A股能否走出独立行情。建议关注今晚美股后续走势。</div>
+      </div>
+      <div class="cta">
+        <div class="cta-label">互动引导</div>
+        <div class="cta-text">你觉得A股明天能走出独立行情吗？评论区说说你的看法！</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 素材5：葛卫东持仓 → 素材卡片格式（★★★） -->
+  <div class="mat-script-card ss3">
+    <div class="mat-head">
+      <div class="mat-head-row">
+        <div class="mat-title">葛卫东家族持仓曝光！加仓科技减持消费，持仓超221亿</div>
+        <div class="mat-stars"><span class="star-gold">★★★</span></div>
+      </div>
+      <div class="mat-tag-row">
+        <span class="mat-tag" style="background:rgba(52,152,219,0.1);color:#2980b9;">私募大佬</span>
+        <span class="mat-tag" style="background:#f5f4f0;color:#888;">高热度</span>
+      </div>
+    </div>
+    <div class="mat-body">
+      <div class="hook">
+        <div class="hook-label">前3秒钩子</div>
+        <div class="hook-text">私募大佬葛卫东持仓曝光！加仓科技减持消费——221亿资金在买什么？今天这期视频，我把葛卫东家族的一季报持仓全部扒出来了！</div>
+      </div>
+      <div class="body-lines">
+        <div class="body-line">根据2026年一季报，葛卫东及其关联人合计持仓市值超221亿元。一季度，葛卫东家族加仓科技（沐曦股份、兆易创新）和高端制造（麦格米特、江淮汽车），大幅减持消费板块。这说明什么？私募大佬在一季度加仓科技、减持消费，说明其对科技成长主线信心较强。</div>
+        <div class="body-line">投资启示：沐曦股份是AI芯片公司，兆易创新是存储芯片龙头——都是AI算力产业链核心标的。普通投资者可参考，但需注意：私募持仓有滞后性，且投资周期较长，不宜盲目跟风。</div>
+      </div>
+      <div class="cta">
+        <div class="cta-label">互动引导</div>
+        <div class="cta-text">你跟着私募大佬买过股票吗？评论区分享你的经验！</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ★★★ 必做素材 1-3 -->
+<div class="page">
+  <!-- 素材1 -->
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">霍尔木兹海峡危机升级！伊朗向美舰射导弹，油价暴涨</div>
+      <div class="mat-stars"><span class="star-gold">★★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">5月4-5日，伊朗军方宣布向试图进入霍尔木兹海峡的美国军舰发射巡航导弹并击中目标；阿联酋称遭伊朗导弹袭击，一处石油港口受损；特朗普威胁"从地球上被抹去"。国际油价应声暴涨，美股道指跌逾550点</div></div>
+    <div class="mat-row"><div class="mat-key">⚡ 争议</div><div class="mat-val">霍尔木兹海峡若被封锁，全球30%原油运输中断，油价可能突破150美元/桶，全球通胀将剧烈上升</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">震撼角度：油价要冲150美元！分析角度：对A股的三大影响（航空利空、化工利好、油气利好）。历史角度：历次中东危机对全球股市的影响</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">投资者、国际时事关注者、能源行业从业者、财经自媒体</div></div>
+    <div class="mat-source">📊 来源：新华社（5月4日）；中新网（5月4日）；新浪财经（5月5日）</div>
+  </div>
+
+  <!-- 素材2 -->
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">五大险企一季报出炉！净利润合计降16.98%，险资怎么了？</div>
+      <div class="mat-stars"><span class="star-gold">★★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">2026年一季度，A股五大上市险企合计实现归母净利润698.83亿元，同比下降16.98%。中国人寿195.05亿、中国平安250.22亿、中国人保88.14亿均同比下滑；但中国太保100.41亿（+4.3%）、新华保险65.01亿（+10.5%）逆势增长</div></div>
+    <div class="mat-row"><div class="mat-key">⚡ 争议</div><div class="mat-val">净利润降了16.98%，但保险股没崩——负债端强劲（新业务价值暴涨）vs资产端承压（A股波动拖累），分化格局折射出什么？</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">数据角度：五大险企成绩单全对比。矛盾角度：利润降但新业务价值暴涨70%，为什么？投资角度：保险股还能持有吗？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">保险从业者、保险股投资者、理财用户、财经自媒体</div></div>
+    <div class="mat-source">📊 来源：新浪财经（4月30日）；每经网（5月1日）；腾讯新闻（5月1日）</div>
+  </div>
+
+  <!-- 素材3 -->
+  <div class="mat-card ss3">
+    <div class="mat-header">
+      <div class="mat-title">A股节后开盘首日！5月5日走势复盘——科技股能否延续暴涨？</div>
+      <div class="mat-stars"><span class="star-gold">★★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">5月5日，A股在五一假期后首个交易日开盘。假期期间亚太股市普涨（港股恒生指数涨2%、科技指数涨3%+），但5月5日美股收跌（道指跌550点+），为A股增添变数。今日走势需结合实际收盘数据填写</div></div>
+    <div class="mat-row"><div class="mat-key">⚡ 争议</div><div class="mat-val">节后A股能否延续节前暴涨行情？外部风险（美股大跌、中东局势）vs内部支撑（消费数据、一季报向好）</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">实战角度：今天A股涨了还是跌了？明天怎么操作？板块角度：科技成长+消费修复双主线。风险角度：美股大跌对A股的传导效应</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">A股投资者、基金经理、财经自媒体</div></div>
+    <div class="mat-source">📊 来源：东方财富网（5月5日）；新浪财经（5月5日）；中国经济网（5月5日）</div>
+  </div>
+</div>
+
+<!-- ★★ 重点关注 4-6 -->
+<div class="page">
+  <!-- 素材6 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">社保基金一季度持仓曝光！比亚迪、万华化学被长期持有</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">截至2026年一季度末，社保基金出现在702只个股的前十大流通股东名单中，合计持股123.7亿股，持股市值2534.58亿元。比亚迪、万华化学为社保基金持仓市值最高的两只股票</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">社保基金是典型的"长钱"，投资周期长，偏好经营稳健、分红率高、估值合理的龙头公司。比亚迪（新能源车龙头）、万华化学（化工龙头）被重仓</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">投资角度：社保基金持仓=长期价值投资参考？对比角度：社保基金vs葛卫东，谁的策略更靠谱？实用角度：如何查询社保基金持仓？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">A股投资者、长期价值投资者</div></div>
+    <div class="mat-source">📊 来源：新浪财经（5月5日）；上市公司一季报</div>
+  </div>
+
+  <!-- 素材7 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">五一消费数据最终出炉！15.2亿人次，钱都花哪了？</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">2026年五一假期（5月1日-5月5日），全社会跨区域人员流动量预计达15.2亿人次，日均3.04亿人次。各地文旅活动密集登场，消费市场热度显著攀升。文旅消费券超2.84亿元，文旅消费活动约1.37万场次</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">消费结构变化：旅游爆发但人均消费可能下降（"省钱旅游"趋势）；文化消费（演唱会、音乐节）同比大幅提升；体验式消费崛起</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">数据角度：15.2亿人次的钱都花哪了？投资角度：旅游板块（黄山旅游、宋城演艺）能否持续受益？对比角度：2026 vs 2025五一消费数据</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">投资者、消费行业从业者、普通消费者</div></div>
+    <div class="mat-source">📊 来源：文化和旅游部（5月5日）；商务部（5月5日）；央视新闻（5月5日）</div>
+  </div>
+
+  <!-- 素材8 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">油价暴涨！霍尔木兹海峡危机推动布伦特原油飙升</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">5月4-5日，受霍尔木兹海峡局势急剧升级影响，国际油价大幅上涨。伊朗向美国军舰发射巡航导弹，阿联酋石油港口遭袭。布伦特原油期货价格大幅上涨，纽约轻质原油期货价格同步上涨</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">霍尔木兹海峡每天约2100万桶原油经过（占全球30%）。一旦封锁，全球能源价格将剧烈震荡。航空股承压，化工股、油气股受益</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">影响角度：油价暴涨对A股的三大板块影响（航空利空、化工利好、油气利好）。历史角度：历次油价暴涨对全球通胀的影响。预测角度：油价会突破150美元吗？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">投资者、能源行业从业者、财经自媒体</div></div>
+    <div class="mat-source">📊 来源：新浪财经（5月5日）；新华社（5月4日）</div>
+  </div>
+</div>
+
+<!-- ★★ 重点关注 9-10 + ★ 补充视角 11-13 -->
+<div class="page">
+  <!-- 素材9 -->
+  <div class="mat-card ss2">
+    <div class="mat-header">
+      <div class="mat-title">巴菲特股东大会后续！拒绝盲目跟风AI，现金储备创纪录</div>
+      <div class="mat-stars"><span class="star-gold">★★</span><span class="star-gray">★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">5月2日，伯克希尔·哈撒韦年度股东大会举行。巴菲特正式退居幕后，新任CEO格雷格·阿贝尔主持。巴菲特表示：拒绝盲目跟风AI，现金储备创纪录达3970亿美元，在等待好的投资机会</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">巴菲特的3970亿美元现金=当前美股估值偏高，好机会难找。拒绝盲目跟风AI=警示投资者不要被AI概念炒作迷惑。价值投资需要耐心等待</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">投资角度：巴菲特拒绝跟风AI，散户应该跟吗？数据角度：3970亿美元现金在等什么机会？警示角度："赌场教堂"言论背后的深意</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">投资者、巴菲特粉丝、价值投资爱好者</div></div>
+    <div class="mat-source">📊 来源：新浪财经（5月5日）；伯克希尔股东大会实录（5月2日）</div>
+  </div>
+
+  <!-- 素材10 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">养老金2026年调整！1955年以前出生的人涨得更多</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">2026年养老金"22连涨"已基本确定，但涨幅可能继续走低。"提低控高"规则落地：养老金低的涨幅高，养老金高的涨幅低。1955年以前出生的人（70岁以上）额外享受高龄补贴</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">每月领2800元养老金的老张，2026年调整后每月能多拿146.5元（实际涨幅5.23%）；每月领8500元的老李，每月只能多拿180.5元（涨幅约2.12%）——"提低控高"效果显现</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">实用角度：2026年养老金怎么算？你能涨多少？对比角度：2026 vs 2025养老金涨幅。规划角度：养老金22连涨，但涨幅持续走低说明什么？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">退休人员、70后80后、临近退休人员</div></div>
+    <div class="mat-source">📊 来源：腾讯新闻（5月4日）；人社部（预计5月发布）</div>
+  </div>
+
+  <!-- 素材11 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">特朗普访华前瞻！时隔9年首次访问，中美关系进入新阶段</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">特朗普将于2026年访华（原定4月，可能推迟至5月或6月）。这是时隔9年的首次访华。访问预计将涉及贸易协议、科技竞争、能源安全等核心议题。对A股可能有重大影响</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">外交角度：这次谈什么？对A股有什么影响？历史角度：2017年特朗普访华后发生了什么？预测角度：中美贸易协议能否达成？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">宏观政策关注者、A股投资者、外交爱好者</div></div>
+    <div class="mat-source">📊 来源：复旦大学中美研究中心；财联社；新华社</div>
+  </div>
+
+  <!-- 素材12 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">彩电企业业绩分化！TCL、海信利润改善——中国彩电走向高端化</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">2025年，中国彩电市场零售量创10年新低，全球市场需求低迷。国内黑电龙头上市公司业绩分化：TCL电子、海信视像通过高端化和全球化布局改善利润；创维集团、四川长虹拓展新能源等多元赛道；康佳集团陷入经营困境</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">海外市场成为主要增长引擎，高端化（大屏、高分辨率、AI功能）成为行业趋势。TCL电子、海信视像受益，康佳集团陷入困境</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">投资角度：TCL、海信业绩改善，A股能否受益？行业角度：中国彩电如何走向高端化？对比角度：TCL vs 海信 vs 创维，谁更有前途？</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">投资者、家电行业从业者、科技爱好者</div></div>
+    <div class="mat-source">📊 来源：新浪财经（5月4日）；2025年全年数据</div>
+  </div>
+
+  <!-- 素材13 -->
+  <div class="mat-card ss1">
+    <div class="mat-header">
+      <div class="mat-title">中国机器人在美"出差"！买票坐飞机，电池超标致航班延误</div>
+      <div class="mat-stars"><span class="star-gold">★</span><span class="star-gray">★★</span></div>
+    </div>
+    <div class="mat-row"><div class="mat-key">📌 核心</div><div class="mat-val">一名中国机器人在美国"出差"，自己买票坐飞机，坐在靠窗位。但因电池超标，导致航班延误。机器人在现场表演，逗乐了同机乘客。展现中国机器人技术的民用化进展</div></div>
+    <div class="mat-row"><div class="mat-key">💡 亮点</div><div class="mat-val">轻松话题，适合作为"补充视角"调节气氛。同时引发思考：机器人+航空安全，电池标准是否需要更新？</div></div>
+    <div class="mat-row"><div class="mat-key">🎯 角度</div><div class="mat-val">轻松角度：机器人买票坐飞机，电池超标致航班延误。科技角度：中国机器人技术民用化进展。安全角度：机器人电池标准亟待完善</div></div>
+    <div class="mat-row"><div class="mat-key">👥 受众</div><div class="mat-val">科技爱好者、普通网友</div></div>
+    <div class="mat-source">📊 来源：新浪财经（5月4日）</div>
+  </div>
+</div>
+
+<!-- ===================== 底部 ===================== -->
+<div class="page no-break-after">
+  <div class="page-footer">
+    <div class="brand">素材日报</div>
+    <div class="sub">每日 07:00 自动生成 · 仅供内容参考</div>
+  </div>
+</div>
+
+</body>
+</html>
